@@ -117,12 +117,11 @@
   </div>
 <script>
   // Today's lesson is injected here by the automation each morning.
-  // The image is rendered at full width with height:auto so the ENTIRE
-  // picture is always visible — never cropped, never in a fixed banner.
+  // Image renders at full width, natural height — never cropped.
   const LESSON = {
     date: "2026-08-28",
     title: "The Battle Is the Lord's",
-    image: "https://upload.wikimedia.org/wikipedia/commons/c/c5/Battle_of_David_and_Goliath_by_Daniele_da_Volterra_in_Louvre.jpg",
+    image: "https://upload.wikimedia.org/wikipedia/commons/e/ec/David_and_Goliath_by_Daniele_da_Volterra_%28Louvre_INV_566%29_03.jpg",
     imageAlt: "David and Goliath by Daniele da Volterra — full painting, Louvre",
     source: "1 Samuel 17:45-47",
     quote: "Thou comest to me with a sword, and with a spear, and with a shield: but I come to thee in the name of the LORD of hosts… for the battle is the LORD's.",
@@ -132,7 +131,7 @@
 
   document.getElementById('date').textContent = LESSON.date;
   document.getElementById('title').textContent = LESSON.title;
-  document.getElementById('art').innerHTML = '<img src="' + LESSON.image + '" alt="' + LESSON.imageAlt + '" loading="eager">';
+  document.getElementById('art').innerHTML = '<img src="' + LESSON.image + '" alt="' + LESSON.imageAlt + '" loading="eager" decoding="async" onerror="this.onerror=null;this.src=\'https://upload.wikimedia.org/wikipedia/commons/a/a1/David_et_Goliath_-_Daniele_da_Volterra_-_Mus%C3%A9e_du_Louvre_Peintures_INV_566_-_recto.jpg\';">';
   document.getElementById('source').textContent = LESSON.source;
   document.getElementById('quote').textContent = LESSON.quote;
   document.getElementById('lesson').textContent = LESSON.lesson;
