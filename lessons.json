@@ -1,6 +1,17 @@
 {
   "lessons": [
     {
+      "date": "2026-08-29",
+      "title": "The Obstacle Becomes the Way",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/0/0b/Pietro_da_Cortona_-_Battle_of_Alexander_versus_Darius_-_Google_Art_Project.jpg",
+      "imageAlt": "Battle of Alexander versus Darius — full landscape painting, Capitoline Museums",
+      "fallback": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Pietro_da_Cortona_-_Battle_of_Alexander_versus_Darius_-_Google_Art_Project.jpg/1280px-Pietro_da_Cortona_-_Battle_of_Alexander_versus_Darius_-_Google_Art_Project.jpg",
+      "source": "Marcus Aurelius, Meditations 5.20 (Hays translation)",
+      "quote": "The impediment to action advances action. What stands in the way becomes the way.",
+      "lesson": "Trials do not merely test the warrior—they forge him. The obstacle is never pure interruption; it is raw material. Marcus, writing from the frontier while commanding legions, understood that adaptation converts resistance into propulsion. Strategy over raw strength: the mind that refuses to treat the block as final turns it into the next step of the path.",
+      "today": "When the first friction appears—delay, resistance, unexpected demand—pause once. Ask only: how does this advance the mission? Then move."
+    },
+    {
       "date": "2026-08-28",
       "title": "The Battle Is the Lord's",
       "image": "https://upload.wikimedia.org/wikipedia/commons/c/c5/Battle_of_David_and_Goliath_by_Daniele_da_Volterra_in_Louvre.jpg",
