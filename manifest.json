@@ -1,14 +1,14 @@
 {
   "name": "Daily Warrior's Lesson",
   "short_name": "Warrior's Lesson",
-  "description": "One verifiable lesson each morning — Stoics, Robert Greene, Homer, Scripture, the greats. Full image, always visible.",
+  "description": "One verifiable lesson each morning — Stoics, Robert Greene, Homer, Scripture, the greats. Full image, always visible. The Forge personalizes your path.",
   "id": "./",
   "start_url": "./",
   "scope": "./",
   "display": "standalone",
   "orientation": "any",
-  "background_color": "#0a0a0a",
-  "theme_color": "#0a0a0a",
+  "background_color": "#0B0D10",
+  "theme_color": "#0B0D10",
   "icons": [
     {
       "src": "icon.svg",

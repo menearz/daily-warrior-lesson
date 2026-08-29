@@ -1,4 +1,4 @@
-const CACHE = "warrior-lesson-v6";
+const CACHE = "warrior-lesson-v7";
 
 self.addEventListener("install", (e) => {
   self.skipWaiting();

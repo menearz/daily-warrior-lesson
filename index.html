@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="theme-color" content="#0a0a0a">
+<meta name="theme-color" content="#0B0D10">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Warrior's Lesson">
@@ -12,7 +12,7 @@
 <link rel="apple-touch-icon" href="icon.png">
 <title>Daily Warrior's Lesson</title>
 <style>
-  :root { --bg:#0a0a0a; --ink:#e8e4dc; --muted:#8a8478; --accent:#c9a227; --line:#2a2a2a; }
+  :root { --bg:#0B0D10; --surface:#1B2028; --ink:#E7E9EC; --muted:#9AA3AD; --accent:#FF6A1A; --line:#2a313c; }
   * { box-sizing:border-box; margin:0; padding:0; }
   html, body { height:100%; }
   body {
@@ -25,14 +25,16 @@
   .brand { font-size:12px; letter-spacing:0.28em; text-transform:uppercase; color:var(--accent); margin-bottom:6px; }
   .date { font-size:13px; color:var(--muted); margin-bottom:18px; }
   h1 { font-size:26px; font-weight:700; line-height:1.2; margin-bottom:18px; }
-  .art-frame { width:100%; margin:0 0 22px; border-radius:10px; overflow:hidden; background:#111; }
+  .art-frame { width:100%; margin:0 0 22px; border-radius:6px; overflow:hidden; background:#111; }
   .art-frame img { width:100%; height:auto; display:block; }
   .label { font-size:11px; letter-spacing:0.2em; text-transform:uppercase; color:var(--muted); margin:22px 0 6px; }
   .quote { font-size:18px; font-style:italic; color:var(--ink); border-left:3px solid var(--accent); padding:4px 0 4px 16px; margin-bottom:18px; }
   .body { font-size:16px; color:#d4cfc4; }
-  .today { margin-top:22px; padding:16px; border:1px solid var(--line); border-radius:10px; background:#121212; }
+  .today { margin-top:22px; padding:16px; border:1px solid var(--line); border-radius:6px; background:var(--surface); }
   .today b { color:var(--accent); }
-  .archive { display:inline-block; margin-top:24px; color:var(--accent); text-decoration:none; font-size:14px; letter-spacing:0.08em; text-transform:uppercase; }
+  .aimed { font-size:12px; color:var(--accent); letter-spacing:0.1em; text-transform:uppercase; margin-bottom:14px; }
+  .nav-row { display:flex; gap:18px; flex-wrap:wrap; margin-top:24px; }
+  .archive { color:var(--accent); text-decoration:none; font-size:14px; letter-spacing:0.08em; text-transform:uppercase; }
   .archive:hover { text-decoration:underline; }
   .footer { margin-top:28px; font-size:13px; color:var(--muted); text-align:center; }
 </style>
@@ -42,6 +44,7 @@
     <div class="brand">Daily Warrior's Lesson</div>
     <div class="date" id="date">Loading…</div>
     <h1 id="title">—</h1>
+    <div class="aimed hidden" id="aimed"></div>
     <div class="art-frame" id="art"></div>
     <div class="label">Source</div>
     <div class="body" id="source">—</div>
@@ -50,7 +53,10 @@
     <div class="label">Lesson</div>
     <div class="body" id="lesson">—</div>
     <div class="today" id="today"></div>
-    <a class="archive" href="./archive.html">View previous lessons →</a>
+    <div class="nav-row">
+      <a class="archive" href="./forge.html">The Forge — personalize your path →</a>
+      <a class="archive" href="./archive.html">Archive →</a>
+    </div>
     <div class="footer">When the game is over, the king and the pawn go back into the same box.</div>
   </div>
 <script>
@@ -63,10 +69,12 @@
     source: "Marcus Aurelius, Meditations 5.20 (Hays translation)",
     quote: "The impediment to action advances action. What stands in the way becomes the way.",
     lesson: "Trials do not merely test the warrior—they forge him. The obstacle is never pure interruption; it is raw material. Marcus, writing from the frontier while commanding legions, understood that adaptation converts resistance into propulsion. Strategy over raw strength: the mind that refuses to treat the block as final turns it into the next step of the path.",
-    today: "When the first friction appears—delay, resistance, unexpected demand—pause once. Ask only: how does this advance the mission? Then move."
+    today: "When the first friction appears—delay, resistance, unexpected demand—pause once. Ask only: how does this advance the mission? Then move.",
+    lanes: ["thinker","warrior"]
   };
+  const LANE_LABEL = {warrior:'Warrior',thinker:'Thinker',builder:'Builder',power:'Power',faith:'Faith',odyssey:'Odyssey'};
 
-  function render(LESSON) {
+  function render(LESSON, aimed) {
     document.getElementById('date').textContent = LESSON.date;
     document.getElementById('title').textContent = LESSON.title;
     document.getElementById('art').innerHTML =
@@ -75,27 +83,38 @@
     document.getElementById('quote').textContent = LESSON.quote;
     document.getElementById('lesson').textContent = LESSON.lesson;
     document.getElementById('today').innerHTML = '<b>Today:</b> ' + LESSON.today;
+    if (aimed) {
+      const el = document.getElementById('aimed');
+      el.textContent = 'Aimed at ' + aimed + ' — your Forged path';
+      el.classList.remove('hidden');
+    }
   }
 
   const params = new URLSearchParams(window.location.search);
-  const requestedDate = params.get('date');
+  let forged = null;
+  try { forged = JSON.parse(localStorage.getItem('forged_path')); } catch(e){}
 
   fetch('lessons.json?v=' + Date.now())
     .then(function (r) { return r.json(); })
     .then(function (data) {
       const lessons = data.lessons || [];
       let lesson = DEFAULT_LESSON;
-      if (requestedDate) {
-        const found = lessons.find(function (l) { return l.date === requestedDate; });
+      if (params.get('date')) {
+        const found = lessons.find(function (l) { return l.date === params.get('date'); });
         if (found) lesson = found;
       } else if (lessons.length) {
         lesson = lessons.slice().sort(function (a, b) { return (b.date || '').localeCompare(a.date || ''); })[0];
       }
-      render(lesson);
+      let aimed = null;
+      if (forged && forged.primary) {
+        aimed = LANE_LABEL[forged.primary] + (forged.secondary ? ' / ' + LANE_LABEL[forged.secondary] : '');
+        // simple personalization: prefer a lesson tagged with the primary lane when present
+        const tagged = lessons.find(function(l){ return l.lanes && l.lanes.indexOf(forged.primary) !== -1; });
+        if (tagged && !params.get('date')) lesson = tagged;
+      }
+      render(lesson, aimed);
     })
-    .catch(function () {
-      render(DEFAULT_LESSON);
-    });
+    .catch(function () { render(DEFAULT_LESSON, forged && forged.primary ? LANE_LABEL[forged.primary] : null); });
 
   if ('serviceWorker' in navigator) {
     navigator.serviceWorker.getRegistrations().then(function (regs) {
@@ -105,7 +124,7 @@
         return Promise.all(keys.map(function (k) { return caches.delete(k); }));
       });
     }).then(function () {
-      return navigator.serviceWorker.register('sw.js?v=5');
+      return navigator.serviceWorker.register('sw.js?v=7');
     }).catch(function () {});
   }
 </script>
