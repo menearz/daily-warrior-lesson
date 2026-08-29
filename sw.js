@@ -1,34 +1,45 @@
-const CACHE = 'warrior-lesson-v5';
+const CACHE = "warrior-lesson-v6";
 
-self.addEventListener('install', (e) => {
+self.addEventListener("install", (e) => {
   self.skipWaiting();
 });
 
-self.addEventListener('activate', (e) => {
+self.addEventListener("activate", (e) => {
   e.waitUntil(
-    caches.keys().then((keys) => Promise.all(keys.map((k) => caches.delete(k)))).then(() => self.clients.claim())
+    caches.keys().then((keys) =>
+      Promise.all(keys.filter((k) => k !== CACHE).map((k) => caches.delete(k)))
+    ).then(() => self.clients.claim())
   );
 });
 
-self.addEventListener('fetch', (e) => {
+self.addEventListener("fetch", (e) => {
   const req = e.request;
+  if (req.method !== "GET") return;
   const dest = req.destination;
-  // Always get a fresh copy of the page so today's image is not a stale 404.
-  if (req.mode === 'navigate' || dest === 'document' || dest === '') {
+  if (req.mode === "navigate" || dest === "document") {
     e.respondWith(
-      fetch(req).then((resp) => {
-        const copy = resp.clone();
-        caches.open(CACHE).then((c) => c.put(req, copy));
-        return resp;
-      }).catch(() => caches.match(req))
+      fetch(req)
+        .then((resp) => {
+          const copy = resp.clone();
+          caches.open(CACHE).then((c) => c.put(req, copy));
+          return resp;
+        })
+        .catch(() => caches.match(req))
     );
     return;
   }
   e.respondWith(
-    caches.match(req).then((r) => r || fetch(req).then((resp) => {
-      const copy = resp.clone();
-      caches.open(CACHE).then((c) => c.put(req, copy));
-      return resp;
-    }).catch(() => r))
+    caches.match(req).then((hit) => {
+      const net = fetch(req)
+        .then((resp) => {
+          if (resp && resp.status === 200) {
+            const copy = resp.clone();
+            caches.open(CACHE).then((c) => c.put(req, copy));
+          }
+          return resp;
+        })
+        .catch(() => hit);
+      return hit || net;
+    })
   );
 });
