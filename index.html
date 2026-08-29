@@ -32,6 +32,8 @@
   .body { font-size:16px; color:#d4cfc4; }
   .today { margin-top:22px; padding:16px; border:1px solid var(--line); border-radius:10px; background:#121212; }
   .today b { color:var(--accent); }
+  .archive { display:inline-block; margin-top:24px; color:var(--accent); text-decoration:none; font-size:14px; letter-spacing:0.08em; text-transform:uppercase; }
+  .archive:hover { text-decoration:underline; }
   .footer { margin-top:28px; font-size:13px; color:var(--muted); text-align:center; }
 </style>
 </head>
@@ -48,10 +50,11 @@
     <div class="label">Lesson</div>
     <div class="body" id="lesson">—</div>
     <div class="today" id="today"></div>
+    <a class="archive" href="./archive.html">View previous lessons →</a>
     <div class="footer">When the game is over, the king and the pawn go back into the same box.</div>
   </div>
 <script>
-  const LESSON = {
+  const DEFAULT_LESSON = {
     date: "2026-08-28",
     title: "The Battle Is the Lord's",
     image: "https://upload.wikimedia.org/wikipedia/commons/c/c5/Battle_of_David_and_Goliath_by_Daniele_da_Volterra_in_Louvre.jpg",
@@ -63,14 +66,36 @@
     today: "Name your Goliath. Don't match it with borrowed armor. Stand in what God has already proven in you."
   };
 
-  document.getElementById('date').textContent = LESSON.date;
-  document.getElementById('title').textContent = LESSON.title;
-  document.getElementById('art').innerHTML =
-    '<img src="' + LESSON.image + '" alt="' + LESSON.imageAlt + '" referrerpolicy="no-referrer" decoding="async" style="width:100%;height:auto;display:block" onerror="this.onerror=null;this.src=\'' + LESSON.fallback + '\';">';
-  document.getElementById('source').textContent = LESSON.source;
-  document.getElementById('quote').textContent = LESSON.quote;
-  document.getElementById('lesson').textContent = LESSON.lesson;
-  document.getElementById('today').innerHTML = '<b>Today:</b> ' + LESSON.today;
+  function render(LESSON) {
+    document.getElementById('date').textContent = LESSON.date;
+    document.getElementById('title').textContent = LESSON.title;
+    document.getElementById('art').innerHTML =
+      '<img src="' + LESSON.image + '" alt="' + LESSON.imageAlt + '" referrerpolicy="no-referrer" decoding="async" style="width:100%;height:auto;display:block" onerror="this.onerror=null;this.src=\'' + LESSON.fallback + '\';">';
+    document.getElementById('source').textContent = LESSON.source;
+    document.getElementById('quote').textContent = LESSON.quote;
+    document.getElementById('lesson').textContent = LESSON.lesson;
+    document.getElementById('today').innerHTML = '<b>Today:</b> ' + LESSON.today;
+  }
+
+  const params = new URLSearchParams(window.location.search);
+  const requestedDate = params.get('date');
+
+  fetch('lessons.json?v=' + Date.now())
+    .then(function (r) { return r.json(); })
+    .then(function (data) {
+      const lessons = data.lessons || [];
+      let lesson = DEFAULT_LESSON;
+      if (requestedDate) {
+        const found = lessons.find(function (l) { return l.date === requestedDate; });
+        if (found) lesson = found;
+      } else if (lessons.length) {
+        lesson = lessons.slice().sort(function (a, b) { return (b.date || '').localeCompare(a.date || ''); })[0];
+      }
+      render(lesson);
+    })
+    .catch(function () {
+      render(DEFAULT_LESSON);
+    });
 
   if ('serviceWorker' in navigator) {
     navigator.serviceWorker.getRegistrations().then(function (regs) {
@@ -80,7 +105,7 @@
         return Promise.all(keys.map(function (k) { return caches.delete(k); }));
       });
     }).then(function () {
-      return navigator.serviceWorker.register('sw.js?v=4');
+      return navigator.serviceWorker.register('sw.js?v=5');
     }).catch(function () {});
   }
 </script>
