@@ -1,21 +1,33 @@
-const CACHE = 'warrior-lesson-v1';
-const ASSETS = ['./', './index.html', './manifest.json', './icon.png'];
+const CACHE = 'warrior-lesson-v3';
 
 self.addEventListener('install', (e) => {
-  e.waitUntil(caches.open(CACHE).then((c) => c.addAll(ASSETS)).then(() => self.skipWaiting()));
+  self.skipWaiting();
 });
 
 self.addEventListener('activate', (e) => {
   e.waitUntil(
-    caches.keys().then((keys) => Promise.all(keys.filter((k) => k !== CACHE).map((k) => caches.delete(k)))).then(() => self.clients.claim())
+    caches.keys().then((keys) => Promise.all(keys.map((k) => caches.delete(k)))).then(() => self.clients.claim())
   );
 });
 
 self.addEventListener('fetch', (e) => {
+  const req = e.request;
+  const dest = req.destination;
+  // Always get a fresh copy of the page so today's image is not a stale 404.
+  if (req.mode === 'navigate' || dest === 'document' || dest === '') {
+    e.respondWith(
+      fetch(req).then((resp) => {
+        const copy = resp.clone();
+        caches.open(CACHE).then((c) => c.put(req, copy));
+        return resp;
+      }).catch(() => caches.match(req))
+    );
+    return;
+  }
   e.respondWith(
-    caches.match(e.request).then((r) => r || fetch(e.request).then((resp) => {
+    caches.match(req).then((r) => r || fetch(req).then((resp) => {
       const copy = resp.clone();
-      caches.open(CACHE).then((c) => c.put(e.request, copy));
+      caches.open(CACHE).then((c) => c.put(req, copy));
       return resp;
     }).catch(() => r))
   );
