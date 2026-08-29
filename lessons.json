@@ -1,0 +1,15 @@
+{
+  "lessons": [
+    {
+      "date": "2026-08-28",
+      "title": "The Battle Is the Lord's",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/c/c5/Battle_of_David_and_Goliath_by_Daniele_da_Volterra_in_Louvre.jpg",
+      "imageAlt": "David and Goliath by Daniele da Volterra — full painting, Louvre",
+      "fallback": "https://upload.wikimedia.org/wikipedia/commons/0/09/Plate_with_the_Battle_of_David_and_Goliath_MET_DT118.jpg",
+      "source": "1 Samuel 17:45-47",
+      "quote": "Thou comest to me with a sword, and with a spear, and with a shield: but I come to thee in the name of the LORD of hosts… for the battle is the LORD's.",
+      "lesson": "Goliath was a giant in armor and reputation. David was a shepherd with a sling. The army saw size and trembled. David saw defiance against the living God and remembered the lion and the bear. Faith doesn't deny the giant — it refuses to let the giant set the terms.",
+      "today": "Name your Goliath. Don't match it with borrowed armor. Stand in what God has already proven in you."
+    }
+  ]
+}
