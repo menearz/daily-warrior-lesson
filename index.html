@@ -33,6 +33,7 @@
   .today { margin-top:22px; padding:16px; border:1px solid var(--line); border-radius:6px; background:var(--surface); }
   .today b { color:var(--accent); }
   .aimed { font-size:12px; color:var(--accent); letter-spacing:0.1em; text-transform:uppercase; margin-bottom:14px; }
+  .hidden { display:none; }
   .nav-row { display:flex; gap:18px; flex-wrap:wrap; margin-top:24px; }
   .archive { color:var(--accent); text-decoration:none; font-size:14px; letter-spacing:0.08em; text-transform:uppercase; }
   .archive:hover { text-decoration:underline; }
@@ -74,43 +75,63 @@
   };
   const LANE_LABEL = {warrior:'Warrior',thinker:'Thinker',builder:'Builder',power:'Power',faith:'Faith',odyssey:'Odyssey'};
 
+  function hashStamp(stamp) {
+    var n = 0;
+    for (var i = 0; i < stamp.length; i++) n = (n * 31 + stamp.charCodeAt(i)) >>> 0;
+    return n;
+  }
+
+  function pickPersonalized(lessons, forged, stamp) {
+    if (!forged || !forged.primary) return null;
+    var primary = lessons.filter(function(l){ return l.lanes && l.lanes.indexOf(forged.primary) !== -1; });
+    var secondary = lessons.filter(function(l){ return l.lanes && forged.secondary && l.lanes.indexOf(forged.secondary) !== -1; });
+    var pool = (hashStamp(stamp) % 10 < 7 ? primary : secondary);
+    if (!pool.length) pool = primary.length ? primary : secondary;
+    if (!pool.length) return null;
+    return pool[hashStamp(stamp + (forged.primary || '')) % pool.length];
+  }
+
   function render(LESSON, aimed) {
     document.getElementById('date').textContent = LESSON.date;
     document.getElementById('title').textContent = LESSON.title;
-    document.getElementById('art').innerHTML =
-      '<img src="' + LESSON.image + '" alt="' + LESSON.imageAlt + '" referrerpolicy="no-referrer" decoding="async" style="width:100%;height:auto;display:block" onerror="this.onerror=null;this.src=\'' + LESSON.fallback + '\';">';
+    if (LESSON.image) {
+      document.getElementById('art').innerHTML =
+        '<img src="' + LESSON.image + '" alt="' + (LESSON.imageAlt || '') + '" referrerpolicy="no-referrer" decoding="async" style="width:100%;height:auto;display:block" onerror="this.onerror=null;this.src=\'' + (LESSON.fallback || '') + '\';">';
+    } else {
+      document.getElementById('art').innerHTML = '';
+    }
     document.getElementById('source').textContent = LESSON.source;
     document.getElementById('quote').textContent = LESSON.quote;
     document.getElementById('lesson').textContent = LESSON.lesson;
     document.getElementById('today').innerHTML = '<b>Today:</b> ' + LESSON.today;
+    var el = document.getElementById('aimed');
     if (aimed) {
-      const el = document.getElementById('aimed');
       el.textContent = 'Aimed at ' + aimed + ' — your Forged path';
       el.classList.remove('hidden');
+    } else {
+      el.classList.add('hidden');
     }
   }
 
   const params = new URLSearchParams(window.location.search);
-  let forged = null;
+  var forged = null;
   try { forged = JSON.parse(localStorage.getItem('forged_path')); } catch(e){}
 
   fetch('lessons.json?v=' + Date.now())
     .then(function (r) { return r.json(); })
     .then(function (data) {
       const lessons = data.lessons || [];
-      let lesson = DEFAULT_LESSON;
+      var lesson = DEFAULT_LESSON;
+      var aimed = null;
       if (params.get('date')) {
-        const found = lessons.find(function (l) { return l.date === params.get('date'); });
+        var found = lessons.find(function (l) { return l.date === params.get('date'); });
         if (found) lesson = found;
+      } else if (forged && forged.primary) {
+        aimed = LANE_LABEL[forged.primary] + (forged.secondary ? ' / ' + LANE_LABEL[forged.secondary] : '');
+        var picked = pickPersonalized(lessons, forged, new Date().toISOString().slice(0,10));
+        lesson = picked || lessons[0] || DEFAULT_LESSON;
       } else if (lessons.length) {
         lesson = lessons.slice().sort(function (a, b) { return (b.date || '').localeCompare(a.date || ''); })[0];
-      }
-      let aimed = null;
-      if (forged && forged.primary) {
-        aimed = LANE_LABEL[forged.primary] + (forged.secondary ? ' / ' + LANE_LABEL[forged.secondary] : '');
-        // simple personalization: prefer a lesson tagged with the primary lane when present
-        const tagged = lessons.find(function(l){ return l.lanes && l.lanes.indexOf(forged.primary) !== -1; });
-        if (tagged && !params.get('date')) lesson = tagged;
       }
       render(lesson, aimed);
     })
@@ -124,7 +145,7 @@
         return Promise.all(keys.map(function (k) { return caches.delete(k); }));
       });
     }).then(function () {
-      return navigator.serviceWorker.register('sw.js?v=7');
+      return navigator.serviceWorker.register('sw.js?v=8');
     }).catch(function () {});
   }
 </script>

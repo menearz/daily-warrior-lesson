@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="theme-color" content="#0a0a0a">
+<meta name="theme-color" content="#0B0D10">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Warrior's Lesson">
@@ -12,7 +12,7 @@
 <link rel="apple-touch-icon" href="icon.png">
 <title>Previous Lessons — Daily Warrior's Lesson</title>
 <style>
-  :root { --bg:#0a0a0a; --ink:#e8e4dc; --muted:#8a8478; --accent:#c9a227; --line:#2a2a2a; }
+  :root { --bg:#0B0D10; --surface:#1B2028; --ink:#E7E9EC; --muted:#9AA3AD; --accent:#FF6A1A; --line:#2a313c; }
   * { box-sizing:border-box; margin:0; padding:0; }
   body {
     background:var(--bg); color:var(--ink);
@@ -22,13 +22,14 @@
   }
   .wrap { max-width:720px; margin:0 auto; padding:24px 20px 64px; }
   .brand { font-size:12px; letter-spacing:0.28em; text-transform:uppercase; color:var(--accent); margin-bottom:6px; }
-  .back { display:inline-block; margin:0 0 18px; color:var(--muted); text-decoration:none; font-size:14px; }
+  .nav-row { display:flex; gap:16px; flex-wrap:wrap; margin:0 0 18px; }
+  .back { color:var(--muted); text-decoration:none; font-size:14px; }
   .back:hover { color:var(--accent); }
   h1 { font-size:24px; font-weight:700; margin-bottom:18px; }
   .list { display:flex; flex-direction:column; gap:12px; }
   a.item {
     display:block; text-decoration:none; color:var(--ink);
-    border:1px solid var(--line); border-radius:12px; overflow:hidden; background:#121212;
+    border:1px solid var(--line); border-radius:6px; overflow:hidden; background:var(--surface);
   }
   a.item:hover { border-color:var(--accent); }
   .thumb { width:100%; aspect-ratio:16/9; object-fit:cover; display:block; background:#111; }
@@ -43,7 +44,10 @@
 <body>
   <div class="wrap">
     <div class="brand">Daily Warrior's Lesson</div>
-    <a class="back" href="./" aria-label="Back to today's lesson">← Today's lesson</a>
+    <div class="nav-row">
+      <a class="back" href="./" aria-label="Back to today's lesson">← Today's lesson</a>
+      <a class="back" href="./forge.html">The Forge →</a>
+    </div>
     <h1>Previous Lessons</h1>
     <div class="list" id="list"><div class="empty">Loading…</div></div>
     <div class="footer">When the game is over, the king and the pawn go back into the same box.</div>
@@ -64,7 +68,7 @@
         var img = l.image || l.fallback || '';
         var alt = l.imageAlt || l.title || 'Lesson image';
         return '<a class="item" href="./index.html?date=' + encodeURIComponent(l.date) + '">' +
-          '<img class="thumb" src="' + img + '" alt="' + alt + '" referrerpolicy="no-referrer" decoding="async" onerror="this.style.display=\'none\'">' +
+          (img ? '<img class="thumb" src="' + img + '" alt="' + alt + '" referrerpolicy="no-referrer" decoding="async" onerror="this.style.display=\'none\'">' : '') +
           '<div class="meta">' +
           '<div class="d">' + (l.date || '') + '</div>' +
           '<div class="t">' + (l.title || 'Untitled lesson') + '</div>' +
