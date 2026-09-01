@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">Daily Warrior\'s Lesson</string>
+    <string name="title_activity_main">Daily Warrior\'s Lesson</string>
+    <string name="package_name">com.menearz.dailywarrior</string>
+    <string name="custom_url_scheme">com.menearz.dailywarrior</string>
+</resources>

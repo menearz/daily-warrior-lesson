@@ -1,0 +1,12 @@
+{
+  "appId": "com.menearz.dailywarrior",
+  "appName": "Daily Warrior's Lesson",
+  "webDir": "www",
+  "android": {
+    "allowMixedContent": false
+  },
+  "ios": {
+    "contentInset": "automatic",
+    "scheme": "Daily Warrior Lesson"
+  }
+}

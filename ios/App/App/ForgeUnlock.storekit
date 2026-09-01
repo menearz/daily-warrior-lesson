@@ -1,0 +1,35 @@
+{
+  "identifier" : "DWLForgeUnlockStoreKit",
+  "nonRenewingSubscriptions" : [
+
+  ],
+  "products" : [
+    {
+      "displayPrice" : "12.00",
+      "familyShareable" : false,
+      "internalID" : "A7C3E19B2F4D6801",
+      "localizations" : [
+        {
+          "description" : "Apply your Forged path and aim the daily lesson 70 / 30.",
+          "displayName" : "Forge Unlock",
+          "locale" : "en_US"
+        }
+      ],
+      "productID" : "forge_unlock",
+      "referenceName" : "Forge Unlock",
+      "type" : "NonConsumable"
+    }
+  ],
+  "settings" : {
+    "_failTransactionsEnabled" : false,
+    "_storefront" : "USA",
+    "_storefrontLocale" : "en_US"
+  },
+  "subscriptionGroups" : [
+
+  ],
+  "version" : {
+    "major" : 3,
+    "minor" : 0
+  }
+}

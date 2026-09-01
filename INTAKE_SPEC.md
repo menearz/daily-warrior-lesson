@@ -134,7 +134,11 @@ Each answer maps to one or more **source lanes**:
 
 **Output:** top two lanes become the user's primary and secondary. Daily lessons draw 70% from primary, 30% from secondary, rotating so no source repeats within five days.
 
-**Storage (v1):** `localStorage.forged_path` on the phone. No accounts. No Stripe. Completing The Forge is the soft gate that aims the feed and opens the full archive.
+**Storage (v1):** `localStorage.forged_path` on the phone. No accounts. Completing The Forge still scores locally.
+
+**Paid gate (store apps):** Applying the aimed feed is the one-time IAP `forge_unlock` (suggested $12 USD) through Play Billing / StoreKit. Web / GitHub Pages can keep the free daily lesson and a Forge preview. Do not use Stripe inside the iOS app for this digital unlock.
+
+**Crisis:** If answers indicate real self-harm risk, the app surfaces 988 / findahelpline.com — not a quote.
 
 ---
 

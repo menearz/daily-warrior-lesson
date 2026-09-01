@@ -71,6 +71,9 @@
   .crisis a { color:var(--accent); }
   .hidden { display:none; }
   .footer { margin-top:32px; font-size:13px; color:var(--muted); text-align:center; }
+  .paywall-box { background:var(--surface); border:1px solid var(--line); border-radius:8px; padding:20px; margin-bottom:16px; }
+  .paywall-box .price { font-size:22px; font-weight:700; color:var(--accent); margin:8px 0 12px; }
+  .err { color:#f0b4b4; font-size:14px; margin:8px 0 12px; }
 </style>
 </head>
 <body>
@@ -82,7 +85,7 @@
     <div id="intro">
       <h1>Forge your path.</h1>
       <p class="sub">Twelve questions. No right answers — only honest ones. Your replies aim the daily lessons at who you actually want to become, not who you say you are.</p>
-      <p class="sub">This is the paid tier. In this preview it runs free so you can test it. Accounts and billing come later.</p>
+      <p class="sub">This is the paid tier in the iOS and Android apps — a one-time in-app purchase (<code>forge_unlock</code>). On the web this preview still runs so you can test the twelve questions. The free daily lesson never requires a purchase.</p>
       <button class="btn btn-primary" onclick="start()">Begin</button>
     </div>
 
@@ -107,12 +110,31 @@
         <h2>What this changes</h2>
         <p style="font-size:15px;color:#d4cfc4">Your daily feed now draws seventy percent from your primary lane and thirty percent from your secondary. Same sources — Stoics, Greene, Scripture, the greats — aimed at your wounds and your fuel instead of served at random.</p>
       </div>
-      <button class="btn btn-primary" onclick="applyPath()">Apply to my daily lesson</button>
+      <button class="btn btn-primary" id="applyBtn" onclick="applyPath()">Apply to my daily lesson</button>
       <a class="btn btn-ghost" href="./index.html" style="text-align:center;text-decoration:none;display:block;margin-top:12px">Back to today's lesson</a>
-      <div class="footer">When the game is over, the king and the pawn go back into the same box.</div>
+      <div class="footer">When the game is over, the king and the pawn go back into the same box.<br>Built and maintained with AI assistance.</div>
+    </div>
+
+    <div id="paywall" class="hidden">
+      <h1>Unlock The Forge</h1>
+      <p class="sub">One-time in-app purchase. The free daily lesson stays free. Apple and Google set the live price — this screen does not invent a listing.</p>
+      <div class="paywall-box">
+        <h2 id="iapTitle" style="font-size:16px;margin-bottom:4px">Forge Unlock</h2>
+        <div class="price" id="iapPrice">Loading the store price…</div>
+        <p class="hint">Product ID <code>forge_unlock</code>. Suggested list price $12 USD once you create the product in Play Console and App Store Connect.</p>
+        <div id="iapError" class="err hidden"></div>
+        <div class="nav">
+          <button class="btn btn-primary" id="buyBtn" type="button">Unlock</button>
+        </div>
+        <div class="nav">
+          <button class="btn btn-ghost" id="restoreBtn" type="button">Restore purchase</button>
+          <button class="btn btn-ghost" id="paywallBack" type="button">Not now</button>
+        </div>
+      </div>
     </div>
   </div>
 
+<script src="forge-unlock.js"></script>
 <script>
 const QUESTIONS = [
   { type:'multi', key:'admire', max:3,
@@ -283,7 +305,26 @@ function finish(){
   if(crisisCheck()){ const c=document.getElementById('crisisBox'); c.classList.remove('hidden'); c.innerHTML='<b style="color:#B22222">If you are in crisis, this is not the tool for it.</b><br><br>Call or text <b>988</b> (US) right now, or go to findahelpline.com for local support. A licensed professional, not a quote, is what you need here.'; }
   try { localStorage.setItem('forged_path', JSON.stringify({primary,secondary,lanes,at:Date.now(),answers})); } catch(e){}
 }
-function applyPath(){ window.location.href='./index.html?forged=1'; }
+var paywallUi = typeof ForgeUnlock !== 'undefined' ? ForgeUnlock.bindPaywall() : null;
+
+async function applyPath(){
+  if (!window.ForgeUnlock) {
+    window.location.href = './index.html?forged=1';
+    return;
+  }
+  var gate = await ForgeUnlock.ensureApplyAllowed();
+  if (gate.allowed) {
+    window.location.href = './index.html?forged=1';
+    return;
+  }
+  document.getElementById('result').classList.add('hidden');
+  if (paywallUi) {
+    paywallUi.show({
+      onUnlocked: function () { window.location.href = './index.html?forged=1'; },
+      onDismiss: function () { document.getElementById('result').classList.remove('hidden'); }
+    });
+  }
+}
 </script>
 </body>
 </html>
