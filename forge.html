@@ -9,7 +9,7 @@
 <meta name="apple-mobile-web-app-title" content="The Forge">
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
 <link rel="manifest" href="manifest.json">
-<link rel="apple-touch-icon" href="icon.png">
+<link rel="apple-touch-icon" href="icon.svg">
 <title>The Forge — Daily Warrior's Lesson</title>
 <style>
   :root {
@@ -34,7 +34,7 @@
   .choices { display:flex; flex-direction:column; gap:10px; }
   .choice {
     display:flex; align-items:center; gap:12px; padding:14px 16px;
-    background:var(--surface); border:1px solid var(--line); border-radius:6px;
+    background:var(--surface); border:1px solid var(--line);
     cursor:pointer; font-size:15px; transition:border-color .15s, background .15s;
   }
   .choice:hover { border-color:#3a4250; }
@@ -43,31 +43,52 @@
   .choice .meta { font-size:12px; color:var(--muted); }
   textarea {
     width:100%; min-height:110px; padding:14px; background:var(--surface);
-    border:1px solid var(--line); border-radius:6px; color:var(--ink);
+    border:1px solid var(--line); color:var(--ink);
     font-family:inherit; font-size:15px; resize:vertical;
   }
   textarea:focus { outline:none; border-color:var(--accent); }
-  .rank { display:flex; flex-direction:column; gap:8px; }
-  .rank-item {
-    display:flex; align-items:center; gap:12px; padding:12px 14px;
-    background:var(--surface); border:1px solid var(--line); border-radius:6px;
-    font-size:15px;
+  .rank-wrap { display:flex; flex-direction:column; gap:18px; }
+  .rank-label {
+    font-size:11px; letter-spacing:0.18em; text-transform:uppercase;
+    color:var(--muted); margin-bottom:8px;
   }
-  .rank-item .num { color:var(--accent); font-weight:700; width:22px; }
-  .rank-item select { margin-left:auto; background:#0B0D10; color:var(--ink); border:1px solid var(--line); border-radius:4px; padding:6px 8px; }
+  .rank-count { color:var(--accent); letter-spacing:0.08em; }
+  .slots { display:flex; flex-direction:column; gap:8px; }
+  .slot {
+    display:flex; align-items:center; gap:10px; min-height:52px;
+    padding:8px 8px 8px 14px; background:var(--surface); border:1px solid var(--line);
+  }
+  .slot.empty { border-style:dashed; color:var(--muted); }
+  .slot.filled { border-color:#3a4250; }
+  .slot .num { color:var(--accent); font-weight:700; width:18px; flex:0 0 auto; }
+  .slot .name { flex:1; font-size:15px; }
+  .slot .ghost { font-size:13px; color:var(--muted); }
+  .slot-btns { display:flex; gap:4px; flex:0 0 auto; }
+  .slot-btns button {
+    width:36px; height:36px; background:#0B0D10; color:var(--ink);
+    border:1px solid var(--line); cursor:pointer; font-size:14px; line-height:1;
+  }
+  .slot-btns button:disabled { opacity:.28; cursor:not-allowed; }
+  .slot-btns button:not(:disabled):hover { border-color:var(--accent); color:var(--accent); }
+  .pool { display:flex; flex-wrap:wrap; gap:8px; }
+  .chip {
+    padding:10px 12px; background:var(--surface); border:1px solid var(--line);
+    color:var(--ink); font-size:14px; cursor:pointer;
+  }
+  .chip:hover { border-color:var(--accent); }
   .nav { display:flex; gap:12px; margin-top:28px; }
   .btn {
     flex:1; padding:15px; font-size:15px; font-weight:600; letter-spacing:0.04em;
-    border-radius:6px; cursor:pointer; border:none; transition:opacity .15s;
+    cursor:pointer; border:none; transition:opacity .15s;
   }
   .btn:disabled { opacity:.4; cursor:not-allowed; }
   .btn-primary { background:var(--accent); color:#0B0D10; }
   .btn-ghost { background:transparent; color:var(--muted); border:1px solid var(--line); }
-  .result-card { background:var(--surface); border:1px solid var(--line); border-radius:8px; padding:20px; margin-bottom:16px; }
+  .result-card { background:var(--surface); border:1px solid var(--line); padding:20px; margin-bottom:16px; }
   .result-card h2 { font-size:13px; letter-spacing:0.2em; text-transform:uppercase; color:var(--accent); margin-bottom:8px; }
-  .lane-bar { height:8px; background:#0B0D10; border-radius:4px; margin-top:8px; overflow:hidden; }
+  .lane-bar { height:8px; background:#0B0D10; margin-top:8px; overflow:hidden; }
   .lane-fill { height:100%; background:var(--accent); }
-  .crisis { background:#1a0d0d; border:1px solid var(--blood); border-radius:8px; padding:18px; margin-bottom:16px; }
+  .crisis { background:#1a0d0d; border:1px solid var(--blood); padding:18px; margin-bottom:16px; }
   .crisis a { color:var(--accent); }
   .hidden { display:none; }
   .footer { margin-top:32px; font-size:13px; color:var(--muted); text-align:center; }
@@ -78,7 +99,6 @@
     <div class="brand">The Forge</div>
     <div class="step-count" id="stepCount">Question 1 of 12</div>
 
-    <!-- INTRO -->
     <div id="intro">
       <h1>Forge your path.</h1>
       <p class="sub">Twelve questions. No right answers — only honest ones. Your replies aim the daily lessons at who you actually want to become, not who you say you are.</p>
@@ -86,7 +106,6 @@
       <button class="btn btn-primary" onclick="start()">Begin</button>
     </div>
 
-    <!-- QUESTIONS -->
     <div id="quiz" class="hidden">
       <div class="q" id="qText"></div>
       <div class="hint" id="qHint"></div>
@@ -97,7 +116,6 @@
       </div>
     </div>
 
-    <!-- RESULT -->
     <div id="result" class="hidden">
       <div id="crisisBox" class="hidden"></div>
       <h1>Your path is forged.</h1>
@@ -151,7 +169,7 @@ const QUESTIONS = [
       {v:'mastery', l:'Mastering a craft'}, {v:'tested', l:'Being tested'}
     ]},
   { type:'multi', key:'hate', max:3,
-    q:'What can\'t you stand in other men?',
+    q:"What can't you stand in other men?",
     hint:'People hate in others what they fear in themselves.',
     choices:[
       {v:'cowardice', l:'Cowardice'}, {v:'dishonesty', l:'Dishonesty'}, {v:'laziness', l:'Laziness'},
@@ -168,9 +186,9 @@ const QUESTIONS = [
     q:'What does a good man owe the world?',
     hint:'One or two sentences. Replaces politics — same signal, no fight.',
     placeholder:'A good man owes...' },
-  { type:'rank', key:'values',
-    q:'Rank these values. Top five matter most.',
-    hint:'The single best predictor of which lessons will actually land.',
+  { type:'rank', key:'values', take:5,
+    q:'Choose your top five values. First is the one that rules.',
+    hint:'Fifteen values. Place five. Tap a value to set it. Tap a placed value to send it back. Use the arrows to change order.',
     items:['Courage','Loyalty','Mastery','Freedom','Integrity','Strength','Wisdom','Service','Honor','Discipline','Faith','Family','Legacy','Justice','Patience'] },
   { type:'text', key:'miracle',
     q:'The miracle question.',
@@ -203,6 +221,14 @@ let idx = 0;
 let answers = {};
 
 function start(){ document.getElementById('intro').classList.add('hidden'); document.getElementById('quiz').classList.remove('hidden'); render(); }
+function uniqueList(arr){
+  var seen = {};
+  var out = [];
+  (arr || []).forEach(function(v){
+    if (v && !seen[v]) { seen[v] = true; out.push(v); }
+  });
+  return out;
+}
 function render(){
   const Q = QUESTIONS[idx];
   document.getElementById('stepCount').textContent = 'Question ' + (idx+1) + ' of ' + QUESTIONS.length;
@@ -231,24 +257,94 @@ function render(){
     ta.oninput = function(){ answers[Q.key] = ta.value; validate(); };
     body.appendChild(ta);
   } else if (Q.type === 'rank') {
-    const items = Q.items.slice();
-    const ranked = prev && prev.length ? prev : items;
-    const wrap = document.createElement('div'); wrap.className='rank';
-    ranked.forEach((it,i) => {
-      const row = document.createElement('div'); row.className='rank-item';
-      row.innerHTML = '<span class="num">'+(i+1)+'</span><span>'+it+'</span><select onchange="reorder(this,'+i+')">'+items.map(x=>'<option '+(x===it?'selected':'')+'>'+x+'</option>').join('')+'</select>';
-      wrap.appendChild(row);
-    });
-    body.appendChild(wrap);
-    answers[Q.key] = ranked;
+    renderRank(body, Q);
   }
   document.getElementById('backBtn').disabled = idx===0;
   validate();
 }
+function renderRank(body, Q){
+  var take = Q.take || 5;
+  var picked = uniqueList(answers[Q.key]).filter(function(v){ return Q.items.indexOf(v) !== -1; }).slice(0, take);
+  answers[Q.key] = picked;
+  var pool = Q.items.filter(function(v){ return picked.indexOf(v) === -1; });
+
+  var wrap = document.createElement('div'); wrap.className = 'rank-wrap';
+
+  var top = document.createElement('div');
+  top.innerHTML = '<div class="rank-label">Your order <span class="rank-count">' + picked.length + ' of ' + take + '</span></div>';
+  var slots = document.createElement('div'); slots.className = 'slots';
+  for (var i = 0; i < take; i++) {
+    var val = picked[i];
+    var slot = document.createElement('div');
+    slot.className = 'slot ' + (val ? 'filled' : 'empty');
+    var controls = val
+      ? '<div class="slot-btns">' +
+          '<button type="button" aria-label="Move up" onclick="moveRank(' + i + ',-1)"' + (i===0?' disabled':'') + '>▲</button>' +
+          '<button type="button" aria-label="Move down" onclick="moveRank(' + i + ',1)"' + (i===picked.length-1?' disabled':'') + '>▼</button>' +
+          '<button type="button" aria-label="Remove" onclick="dropRank(' + i + ')">×</button>' +
+        '</div>'
+      : '';
+    slot.innerHTML =
+      '<span class="num">' + (i+1) + '</span>' +
+      (val ? '<span class="name">' + val + '</span>' : '<span class="ghost">Tap a value below</span>') +
+      controls;
+    slots.appendChild(slot);
+  }
+  top.appendChild(slots);
+  wrap.appendChild(top);
+
+  var bottom = document.createElement('div');
+  bottom.innerHTML = '<div class="rank-label">The rest — ' + pool.length + ' left</div>';
+  var poolEl = document.createElement('div'); poolEl.className = 'pool';
+  pool.forEach(function(v){
+    var chip = document.createElement('button');
+    chip.type = 'button';
+    chip.className = 'chip';
+    chip.textContent = v;
+    chip.disabled = picked.length >= take;
+    chip.onclick = function(){ addRank(v); };
+    poolEl.appendChild(chip);
+  });
+  bottom.appendChild(poolEl);
+  wrap.appendChild(bottom);
+  body.appendChild(wrap);
+}
+function addRank(val){
+  var Q = QUESTIONS[idx];
+  var take = Q.take || 5;
+  var arr = uniqueList(answers[Q.key]);
+  if (arr.length >= take) return;
+  if (arr.indexOf(val) !== -1) return;
+  arr.push(val);
+  answers[Q.key] = arr;
+  render();
+}
+function dropRank(i){
+  var Q = QUESTIONS[idx];
+  var arr = uniqueList(answers[Q.key]);
+  arr.splice(i, 1);
+  answers[Q.key] = arr;
+  render();
+}
+function moveRank(i, dir){
+  var Q = QUESTIONS[idx];
+  var arr = uniqueList(answers[Q.key]);
+  var j = i + dir;
+  if (j < 0 || j >= arr.length) return;
+  var tmp = arr[i]; arr[i] = arr[j]; arr[j] = tmp;
+  answers[Q.key] = arr;
+  render();
+}
 function toggleMulti(el){ const Q=QUESTIONS[idx]; let arr=answers[Q.key]||[]; if(el.checked){ if(arr.length<Q.max) arr.push(el.value); else { el.checked=false; return; } } else { arr=arr.filter(v=>v!==el.value); } answers[Q.key]=arr; el.parentElement.classList.toggle('selected', el.checked); validate(); }
 function setSingle(el){ answers[QUESTIONS[idx].key]=el.value; document.querySelectorAll('.choice').forEach(c=>c.classList.remove('selected')); el.parentElement.classList.add('selected'); validate(); }
-function reorder(sel,i){ const Q=QUESTIONS[idx]; const arr=answers[Q.key]||Q.items.slice(); const val=sel.value; arr.splice(i,1); arr.splice(i,0,val); answers[Q.key]=arr; render(); }
-function validate(){ const Q=QUESTIONS[idx]; let ok=false; const a=answers[Q.key]; if(Q.type==='multi') ok=a&&a.length>0; else if(Q.type==='single') ok=!!a; else if(Q.type==='text') ok=a&&a.trim().length>2; else if(Q.type==='rank') ok=true; document.getElementById('nextBtn').disabled=!ok; }
+function validate(){
+  const Q=QUESTIONS[idx]; let ok=false; const a=answers[Q.key];
+  if(Q.type==='multi') ok=a&&a.length>0;
+  else if(Q.type==='single') ok=!!a;
+  else if(Q.type==='text') ok=a&&a.trim().length>2;
+  else if(Q.type==='rank') ok=a&&uniqueList(a).length===(Q.take||5);
+  document.getElementById('nextBtn').disabled=!ok;
+}
 function next(){ if(idx<QUESTIONS.length-1){ idx++; render(); } else { finish(); } }
 function back(){ if(idx>0){ idx--; render(); } }
 
@@ -262,7 +358,7 @@ function score(){
   (answers.alive||[]).forEach(v=>{ if(['building','mastery'].includes(v))add('builder',2); if(['protecting','winning','tested'].includes(v))add('warrior',2); if(v==='serving')add('faith',2); if(v==='creating')add('odyssey',2); });
   (answers.hate||[]).forEach(v=>{ if(['cowardice','weakkind'].includes(v))add('warrior',2); if(['dishonesty','betrayal'].includes(v))add('thinker',2); if(['laziness','entitlement'].includes(v))add('power',2); });
   if(answers.season==='mentor')add('thinker',2); if(answers.season==='untested')add('warrior',2); if(answers.season==='fallen'||answers.season==='restart')add('odyssey',2);
-  const top5=(answers.values||[]).slice(0,5);
+  const top5=uniqueList(answers.values).slice(0,5);
   top5.forEach(v=>{ const lv=v.toLowerCase(); if(['courage','strength','honor'].includes(lv))add('warrior',1); if(['wisdom','integrity','patience','justice'].includes(lv))add('thinker',1); if(['mastery','discipline'].includes(lv))add('builder',1); if(['freedom','legacy'].includes(lv))add('power',1); if(['faith','service','family'].includes(lv))add('faith',1); if(['loyalty'].includes(lv))add('odyssey',1); });
   Object.keys(LANE_KEYWORDS).forEach(lane=>{ let hits=0; LANE_KEYWORDS[lane].forEach(k=>{ if(textBlob.includes(k))hits++; }); add(lane,hits); });
   return lanes;
