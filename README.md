@@ -92,7 +92,7 @@ npm run android:bundle
 # android/app/build/outputs/bundle/release/app-release.aab
 ```
 
-If `keystore.properties` is missing, `bundleRelease` still runs and Gradle uses the **debug** signing config so the build path is testable. **Do not upload a debug-signed AAB to Play.** Play App Signing wants Zachary's upload key.
+If `keystore.properties` is missing, `bundleRelease` still runs and writes an **unsigned** AAB so the Gradle path is testable on Linux. **Do not upload that AAB to Play.** Play App Signing wants Zachary's upload key. After `create-upload-keystore.sh`, the same command signs the bundle with that key.
 
 After first upload, add the upload-key SHA-256 to `.well-known/assetlinks.json` (it is empty on purpose until a real cert exists).
 

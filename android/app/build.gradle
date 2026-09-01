@@ -39,8 +39,8 @@ android {
             if (keystorePropertiesFile.exists()) {
                 signingConfig signingConfigs.release
             }
-            // Without keystore.properties, AGP signs the AAB with the debug key so
-            // `bundleRelease` can be verified on Linux. Do not upload that AAB to Play.
+            // Without keystore.properties, bundleRelease writes an unsigned AAB so
+            // the Gradle path can be verified on Linux. Do not upload that AAB to Play.
         }
     }
 }
