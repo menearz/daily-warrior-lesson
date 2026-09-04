@@ -52,31 +52,45 @@
     <div class="list" id="list"><div class="empty">Loading…</div></div>
     <div class="footer">When the game is over, the king and the pawn go back into the same box.</div>
   </div>
+<script src="lesson.js"></script>
 <script>
-  fetch('lessons.json?v=' + Date.now())
-    .then(function (r) { return r.json(); })
+  function renderArchive(data) {
+    var list = document.getElementById('list');
+    var lessons = ((data && data.lessons) || []).slice().sort(function (a, b) {
+      return (b.date || '').localeCompare(a.date || '');
+    });
+    if (!lessons.length) {
+      list.innerHTML = '<div class="empty">No previous lessons yet.</div>';
+      return;
+    }
+    list.innerHTML = lessons.map(function (l) {
+      var img = l.image || l.fallback || '';
+      var alt = l.imageAlt || l.title || 'Lesson image';
+      return '<a class="item" href="./index.html?date=' + encodeURIComponent(l.date) + '">' +
+        (img ? '<img class="thumb" src="' + img + '" alt="' + alt + '" referrerpolicy="no-referrer" decoding="async" onerror="this.style.display=\'none\'">' : '') +
+        '<div class="meta">' +
+        '<div class="d">' + (l.date || '') + '</div>' +
+        '<div class="t">' + (l.title || 'Untitled lesson') + '</div>' +
+        '<div class="s">' + (l.source || '') + '</div>' +
+        '</div></a>';
+    }).join('');
+  }
+
+  fetch('lessons.json')
+    .then(function (r) {
+      if (!r.ok) throw new Error('lessons fetch failed');
+      return r.json();
+    })
     .then(function (data) {
-      var list = document.getElementById('list');
-      var lessons = (data.lessons || []).slice().sort(function (a, b) {
-        return (b.date || '').localeCompare(a.date || '');
-      });
-      if (!lessons.length) {
-        list.innerHTML = '<div class="empty">No previous lessons yet.</div>';
-        return;
-      }
-      list.innerHTML = lessons.map(function (l) {
-        var img = l.image || l.fallback || '';
-        var alt = l.imageAlt || l.title || 'Lesson image';
-        return '<a class="item" href="./index.html?date=' + encodeURIComponent(l.date) + '">' +
-          (img ? '<img class="thumb" src="' + img + '" alt="' + alt + '" referrerpolicy="no-referrer" decoding="async" onerror="this.style.display=\'none\'">' : '') +
-          '<div class="meta">' +
-          '<div class="d">' + (l.date || '') + '</div>' +
-          '<div class="t">' + (l.title || 'Untitled lesson') + '</div>' +
-          '<div class="s">' + (l.source || '') + '</div>' +
-          '</div></a>';
-      }).join('');
+      try { WarriorLesson.persistLastLessons(window.localStorage, data); } catch (e) {}
+      renderArchive(data);
     })
     .catch(function () {
+      var cached = WarriorLesson.readLastLessons(window.localStorage);
+      if (cached) {
+        renderArchive(cached);
+        return;
+      }
       document.getElementById('list').innerHTML = '<div class="empty">Could not load the archive.</div>';
     });
 </script>
