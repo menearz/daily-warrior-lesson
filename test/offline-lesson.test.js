@@ -97,3 +97,23 @@ test('DEFAULT_LESSON content is unchanged Endure fallback', () => {
   assert.equal(WarriorLesson.DEFAULT_LESSON.title, 'Endure, O Heart');
   assert.match(WarriorLesson.DEFAULT_LESSON.source, /Odyssey/);
 });
+
+test('live catalog latest lesson is Obstacle; offline keeps it instead of Endure', async () => {
+  const liveCatalog = require('../lessons.json');
+  const storage = memoryStorage();
+  const online = await WarriorLesson.resolveLesson({
+    fetchJson: async () => liveCatalog,
+    storage,
+    opts: {},
+  });
+  assert.equal(online.lesson.title, 'The Obstacle Becomes the Way');
+  assert.equal(online.lesson.date, '2026-08-29');
+  const offline = await WarriorLesson.resolveLesson({
+    fetchJson: async () => { throw new Error('offline'); },
+    storage,
+    opts: {},
+  });
+  assert.equal(offline.source, 'last-rendered');
+  assert.equal(offline.lesson.title, 'The Obstacle Becomes the Way');
+  assert.notEqual(offline.lesson.title, WarriorLesson.DEFAULT_LESSON.title);
+});
