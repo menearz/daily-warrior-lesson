@@ -134,7 +134,9 @@ Each answer maps to one or more **source lanes**:
 
 **Output:** top two lanes become the user's primary and secondary. Daily lessons draw 70% from primary, 30% from secondary, rotating so no source repeats within five days.
 
-**Storage (v1):** `localStorage.forged_path` on the phone. No accounts. No Stripe. Completing The Forge is the soft gate that aims the feed and opens the full archive.
+**Storage (v1):** `localStorage.forged_path` on the phone holds the scored path. The twelve questions stay free. Applying the 70 / 30 feed is the paid step: a Stripe Payment Link returns to this static site with `?forge_paid=` plus a success token, stored as `localStorage.forge_paid`. No accounts. No Stripe.js backend. See README for the placeholder URL and token.
+
+**Archive:** stays free. Crisis copy still points to 988 / findahelpline.com.
 
 ---
 

@@ -1,6 +1,42 @@
 {
   "lessons": [
     {
+      "date": "2026-09-01",
+      "title": "Difficulties Show the Man",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/c/c0/Rome_Capitoline_Marcus_Aurelius_statue_original.jpg",
+      "imageAlt": "Original equestrian statue of Marcus Aurelius in the Capitoline Museums, Rome — full landscape view",
+      "fallback": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c0/Rome_Capitoline_Marcus_Aurelius_statue_original.jpg/1280px-Rome_Capitoline_Marcus_Aurelius_statue_original.jpg",
+      "source": "Epictetus, Discourses (Arrian)",
+      "quote": "It is difficulties that show what men are.",
+      "lesson": "Trials forge the warrior, Chief. Epictetus knew this from the inside—born a slave, he measured men by how they met pressure, not by how they spoke in ease. Soft conditions conceal character; hardship reveals it. Strategy over raw strength begins when you stop treating difficulty as interruption and start treating it as the diagnostic. Armor and appearance are not the thing. The judgment under fire is.",
+      "today": "Name one difficulty you have been circling. Step into it before noon and observe what it shows about your current resolve.",
+      "lanes": ["thinker", "warrior"]
+    },
+    {
+      "date": "2026-08-31",
+      "title": "The Obstacle Becomes the Way",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/0/0b/Pietro_da_Cortona_-_Battle_of_Alexander_versus_Darius_-_Google_Art_Project.jpg",
+      "imageAlt": "Battle of Alexander versus Darius — full landscape painting by Pietro da Cortona",
+      "fallback": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Pietro_da_Cortona_-_Battle_of_Alexander_versus_Darius_-_Google_Art_Project.jpg/1280px-Pietro_da_Cortona_-_Battle_of_Alexander_versus_Darius_-_Google_Art_Project.jpg",
+      "source": "Marcus Aurelius, Meditations 5.20 (Gregory Hays translation)",
+      "quote": "The impediment to action advances action. What stands in the way becomes the way.",
+      "lesson": "Trials forge the warrior, Chief. Marcus wrote under the weight of empire, plague, and endless frontier pressure. He refused to treat the obstacle as interruption. The mind converts what blocks into the very path forward. Strategy over raw strength begins when you stop cursing the rock and start using it as footing. Armor and appearance are not the thing—your judgment of the impediment is.",
+      "today": "Name one concrete impediment facing you before noon. Convert it: how does this advance the action you actually need?",
+      "lanes": ["thinker", "warrior"]
+    },
+    {
+      "date": "2026-08-30",
+      "title": "What Is in Your Power",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/0/0b/Pietro_da_Cortona_-_Battle_of_Alexander_versus_Darius_-_Google_Art_Project.jpg",
+      "imageAlt": "Battle of Alexander versus Darius — full landscape painting, Capitoline Museums",
+      "fallback": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Pietro_da_Cortona_-_Battle_of_Alexander_versus_Darius_-_Google_Art_Project.jpg/1280px-Pietro_da_Cortona_-_Battle_of_Alexander_versus_Darius_-_Google_Art_Project.jpg",
+      "source": "Epictetus, Enchiridion 1 (Elizabeth Carter translation)",
+      "quote": "Of things some are in our power, and others are not. In our power are opinion, pursuit, desire, aversion, and, in a word, whatever are our own actions. Not in our power are body, property, reputation, command, and, in a word, whatever are not our own actions.",
+      "lesson": "Armor and appearance are not the thing, Chief. The body, the reputation, the external storm—these belong to the field, not to you. Epictetus, once a slave, drew the line that frees the warrior: claim only what is truly yours. Trials forge the man who refuses to waste power on what he cannot command. Strategy over raw strength begins here.",
+      "today": "When the next external pressure arrives, name it: \"Not in my power.\" Then act only on the judgment and the next deliberate step.",
+      "lanes": ["thinker", "warrior"]
+    },
+    {
       "date": "2026-08-29",
       "title": "The Obstacle Becomes the Way",
       "image": "https://upload.wikimedia.org/wikipedia/commons/0/0b/Pietro_da_Cortona_-_Battle_of_Alexander_versus_Darius_-_Google_Art_Project.jpg",
@@ -9,7 +45,8 @@
       "source": "Marcus Aurelius, Meditations 5.20 (Hays translation)",
       "quote": "The impediment to action advances action. What stands in the way becomes the way.",
       "lesson": "Trials do not merely test the warrior—they forge him. The obstacle is never pure interruption; it is raw material. Marcus, writing from the frontier while commanding legions, understood that adaptation converts resistance into propulsion. Strategy over raw strength: the mind that refuses to treat the block as final turns it into the next step of the path.",
-      "today": "When the first friction appears—delay, resistance, unexpected demand—pause once. Ask only: how does this advance the mission? Then move."
+      "today": "When the first friction appears—delay, resistance, unexpected demand—pause once. Ask only: how does this advance the mission? Then move.",
+      "lanes": ["thinker", "warrior"]
     },
     {
       "date": "2026-08-28",
@@ -20,7 +57,140 @@
       "source": "1 Samuel 17:45-47",
       "quote": "Thou comest to me with a sword, and with a spear, and with a shield: but I come to thee in the name of the LORD of hosts… for the battle is the LORD's.",
       "lesson": "Goliath was a giant in armor and reputation. David was a shepherd with a sling. The army saw size and trembled. David saw defiance against the living God and remembered the lion and the bear. Faith doesn't deny the giant — it refuses to let the giant set the terms.",
-      "today": "Name your Goliath. Don't match it with borrowed armor. Stand in what God has already proven in you."
+      "today": "Name your Goliath. Don't match it with borrowed armor. Stand in what God has already proven in you.",
+      "lanes": ["faith", "warrior"]
+    },
+    {
+      "date": "2026-08-27",
+      "title": "Stand Where You Are Posted",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/c/cb/Jacques-Louis_David_004_Thermopylae.jpg",
+      "imageAlt": "Leonidas at Thermopylae by Jacques-Louis David — full painting, Louvre",
+      "fallback": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/Jacques-Louis_David_004_Thermopylae.jpg/1280px-Jacques-Louis_David_004_Thermopylae.jpg",
+      "source": "Herodotus, Histories 7.228 (Leonidas at Thermopylae)",
+      "quote": "Go tell the Spartans, stranger passing by, that here obedient to their laws we lie.",
+      "lesson": "Three hundred did not win the war. They held a gate long enough for Greece to become a people that could. Leonidas chose the ground, accepted the cost, and refused a retreat that would have saved the body and spent the standard. Armor and appearance are not the thing. The post you were given is.",
+      "today": "Name the post you have been sliding off — a duty, a promise, a hard conversation. Stand there today. Do not enlarge the war. Hold the gate you were actually assigned.",
+      "lanes": ["warrior", "faith"]
+    },
+    {
+      "date": "2026-08-26",
+      "title": "The Trying of Your Faith",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/c/c5/Battle_of_David_and_Goliath_by_Daniele_da_Volterra_in_Louvre.jpg",
+      "imageAlt": "David and Goliath by Daniele da Volterra — full painting, Louvre",
+      "fallback": "https://upload.wikimedia.org/wikipedia/commons/0/09/Plate_with_the_Battle_of_David_and_Goliath_MET_DT118.jpg",
+      "source": "James 1:2-4",
+      "quote": "My brethren, count it all joy when ye fall into divers temptations; knowing this, that the trying of your faith worketh patience. But let patience have her perfect work, that ye may be perfect and entire, wanting nothing.",
+      "lesson": "James does not ask you to enjoy the trial. He asks you to count it — to treat the pressure as the tool that finishes you. Faith that is never tried stays a speech. Patience is not waiting around. It is remaining under the weight until the work is done. Strategy over raw strength: do not flee the forge because the metal is hot.",
+      "today": "Name the trial you have been calling an interruption. Stay under it one full day without bargaining for an earlier exit. Watch what patience actually costs.",
+      "lanes": ["faith", "thinker"]
+    },
+    {
+      "date": "2026-08-25",
+      "title": "Few Experience What You Are",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/5/50/Jacques-Louis_David_-_The_Emperor_Napoleon_in_His_Study_at_the_Tuileries_-_Google_Art_Project.jpg",
+      "imageAlt": "The Emperor Napoleon in His Study at the Tuileries by Jacques-Louis David — full painting",
+      "fallback": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/Jacques-Louis_David_-_The_Emperor_Napoleon_in_His_Study_at_the_Tuileries_-_Google_Art_Project.jpg/1280px-Jacques-Louis_David_-_The_Emperor_Napoleon_in_His_Study_at_the_Tuileries_-_Google_Art_Project.jpg",
+      "source": "Niccolò Machiavelli, The Prince, ch. 18",
+      "quote": "Everyone sees what you appear to be, few experience what you really are.",
+      "lesson": "Reputation is a tool. Character is the hand that holds it. Machiavelli wrote for men who confuse the mask with the face and then wonder why the room runs them. Power is not the speech you give. It is the pattern people can predict when you are not in the room. Greene later named the same law in colder language: win through what you do, not through what you argue.",
+      "today": "Do not explain yourself once today. Finish the thing that would make the explanation unnecessary.",
+      "lanes": ["power", "builder"]
+    },
+    {
+      "date": "2026-08-24",
+      "title": "Ten Thousand Ways",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/b/b7/Joseph_Wright_of_Derby_%281734-1797%29_-_An_Iron_Forge_-_T06670_-_Tate.jpg",
+      "imageAlt": "An Iron Forge by Joseph Wright of Derby — full painting, Tate",
+      "fallback": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/Joseph_Wright_of_Derby_%281734-1797%29_-_An_Iron_Forge_-_T06670_-_Tate.jpg/1280px-Joseph_Wright_of_Derby_%281734-1797%29_-_An_Iron_Forge_-_T06670_-_Tate.jpg",
+      "source": "Thomas Edison, interview tradition (quoted in Harper's Monthly, 1932 reporting)",
+      "quote": "I have not failed. I've just found 10,000 ways that won't work.",
+      "lesson": "The workshop is not a shrine to inspiration. It is a ledger of discarded paths. Edison treated each dead end as paid tuition, not as a verdict on the man. Mastery is a pile of honest attempts stacked high enough that the next strike finally lands. Armor and appearance are not the thing. The next experiment is.",
+      "today": "Pick one skill you quit after the second failure. Run one more attempt before night. Write down what did not work so the attempt is not wasted.",
+      "lanes": ["builder", "thinker"]
+    },
+    {
+      "date": "2026-08-23",
+      "title": "The Long Way Home",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/0/07/Joseph_Mallord_William_Turner_064.jpg",
+      "imageAlt": "Ulysses Deriding Polyphemus by J. M. W. Turner — full painting",
+      "fallback": "https://upload.wikimedia.org/wikipedia/commons/3/31/Joseph_Mallord_William_Turner_-_Ulysses_Deriding_Polyphemus_-_WGA23185.jpg",
+      "source": "Homer, Odyssey 1.1–5 (Butler translation, adapted)",
+      "quote": "Tell me, O Muse, of that man of many ways, who wandered far after he sacked the sacred citadel of Troy.",
+      "lesson": "Odysseus won the war and still had ten years of water, hunger, and delay before he saw his own door. The journey is not a failure of the victory. It is the second war — the one that tests whether you can return as a man, not only as a survivor. Endure the long road without inventing a shorter one that costs you the house.",
+      "today": "Name the home you are actually trying to reach — a person, a craft, a standard. Take the next honest mile. Do not trade it for a shortcut that would leave you a stranger when you arrive.",
+      "lanes": ["odyssey", "warrior"]
+    },
+    {
+      "date": "2026-08-22",
+      "title": "Examine the Life You Are Living",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/8/8c/David_-_The_Death_of_Socrates.jpg",
+      "imageAlt": "The Death of Socrates by Jacques-Louis David — full painting",
+      "fallback": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/David_-_The_Death_of_Socrates.jpg/1280px-David_-_The_Death_of_Socrates.jpg",
+      "source": "Plato, Apology 38a (Socrates)",
+      "quote": "The unexamined life is not worth living.",
+      "lesson": "Socrates could have flattered the jury and walked out. He chose the cup instead of a life he would have to lie about. Examination is not mood. It is a daily audit of what you claim versus what you practice. Thinkers do not win by collecting sayings. They win by catching the lie they tell themselves before it hardens into character.",
+      "today": "Write three sentences: what you said you would do this week, what you actually did, and the one correction you will make before sunset.",
+      "lanes": ["thinker", "faith"]
+    },
+    {
+      "date": "2026-08-21",
+      "title": "Times That Try Men's Souls",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/9/95/Washington_Crossing_the_Delaware_by_Emanuel_Leutze%2C_MMA-NYC%2C_1851.jpg",
+      "imageAlt": "Washington Crossing the Delaware by Emanuel Leutze — full painting, Metropolitan Museum of Art",
+      "fallback": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Washington_Crossing_the_Delaware_by_Emanuel_Leutze%2C_MMA-NYC%2C_1851.jpg/1280px-Washington_Crossing_the_Delaware_by_Emanuel_Leutze%2C_MMA-NYC%2C_1851.jpg",
+      "source": "Thomas Paine, The American Crisis, No. 1 (December 1776)",
+      "quote": "These are the times that try men's souls. The summer soldier and the sunshine patriot will, in this crisis, shrink from the service of their country.",
+      "lesson": "Washington crossed ice in the dark because waiting for better weather was the same as surrender. Paine wrote for men who were already tired. The point is not the painting. The point is the crossing you keep postponing until the river looks kinder. Strategy over raw strength: move while the night still covers the first step.",
+      "today": "Choose one crossing you have delayed for better conditions. Begin it before the day is half gone. Sunshine was never the requirement.",
+      "lanes": ["warrior", "odyssey"]
+    },
+    {
+      "date": "2026-08-20",
+      "title": "Iron Sharpens Iron",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/c/c5/Battle_of_David_and_Goliath_by_Daniele_da_Volterra_in_Louvre.jpg",
+      "imageAlt": "David and Goliath by Daniele da Volterra — full painting, Louvre",
+      "fallback": "https://upload.wikimedia.org/wikipedia/commons/0/09/Plate_with_the_Battle_of_David_and_Goliath_MET_DT118.jpg",
+      "source": "Proverbs 27:17",
+      "quote": "Iron sharpeneth iron; so a man sharpeneth the countenance of his friend.",
+      "lesson": "A blade left alone rusts. So does a man. Proverbs does not praise the lone wolf. It names the friction of another serious man as the edge. Brotherhood is not comfort. It is the strike that keeps you from going dull in private. Faith here is practical: pick men who will not flatter the rust.",
+      "today": "Call or sit with one man who will tell you the truth. Ask him where you are getting dull. Do not defend the first answer.",
+      "lanes": ["faith", "builder"]
+    },
+    {
+      "date": "2026-08-19",
+      "title": "Always Say Less",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/5/50/Jacques-Louis_David_-_The_Emperor_Napoleon_in_His_Study_at_the_Tuileries_-_Google_Art_Project.jpg",
+      "imageAlt": "The Emperor Napoleon in His Study at the Tuileries by Jacques-Louis David — full painting",
+      "fallback": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/Jacques-Louis_David_-_The_Emperor_Napoleon_in_His_Study_at_the_Tuileries_-_Google_Art_Project.jpg/1280px-Jacques-Louis_David_-_The_Emperor_Napoleon_in_His_Study_at_the_Tuileries_-_Google_Art_Project.jpg",
+      "source": "Baltasar Gracián, The Art of Worldly Wisdom (1647), maxim 98",
+      "quote": "Keep the extent of your abilities unknown. He who does too much is always in danger of doing too little in what matters.",
+      "lesson": "Talk spends power. Silence stores it. Gracián wrote for courts where the man who announced his full strength invited the room to cut him down to size. Greene later restated the same law: say less than necessary. The aimed lesson is not mystery for its own sake. It is refusing to leak the plan before the work can carry it.",
+      "today": "In one conversation that matters, cut your words in half. Leave with the action assigned, not the speech delivered.",
+      "lanes": ["power", "thinker"]
+    },
+    {
+      "date": "2026-08-18",
+      "title": "The Work Sharpens the Man",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/b/b7/Joseph_Wright_of_Derby_%281734-1797%29_-_An_Iron_Forge_-_T06670_-_Tate.jpg",
+      "imageAlt": "An Iron Forge by Joseph Wright of Derby — full painting, Tate",
+      "fallback": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/Joseph_Wright_of_Derby_%281734-1797%29_-_An_Iron_Forge_-_T06670_-_Tate.jpg/1280px-Joseph_Wright_of_Derby_%281734-1797%29_-_An_Iron_Forge_-_T06670_-_Tate.jpg",
+      "source": "Aristotle, Nicomachean Ethics II.1",
+      "quote": "We become just by doing just acts, temperate by doing temperate acts, brave by doing brave acts.",
+      "lesson": "You do not think your way into a craft. You hammer your way there. Aristotle put the whole builder's lane in one line: the deed comes first, the identity follows. Greene's Mastery is the same forge in modern clothes — long apprenticeship, ugly hours, no shortcut that skips the hand. Inspiration is a spark. The anvil is the point.",
+      "today": "Give ninety minutes to the skill you keep calling yourself. No audience. No announcement. Only the next honest repetition.",
+      "lanes": ["builder", "thinker"]
+    },
+    {
+      "date": "2026-08-17",
+      "title": "Endure, My Heart",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/0/07/Joseph_Mallord_William_Turner_064.jpg",
+      "imageAlt": "Ulysses Deriding Polyphemus by J. M. W. Turner — full painting",
+      "fallback": "https://upload.wikimedia.org/wikipedia/commons/3/31/Joseph_Mallord_William_Turner_-_Ulysses_Deriding_Polyphemus_-_WGA23185.jpg",
+      "source": "Homer, Odyssey 20.18 (Butler translation)",
+      "quote": "Endure, my heart; far worse than this you have endured.",
+      "lesson": "Odysseus speaks to his own chest in the dark, not to a crowd. That is the odyssey move: you command the heart the way a captain commands a ship in weather. The trial in front of you is rarely the worst you have already survived. Remembering that is not nostalgia. It is fuel. Keep going until the house is yours again.",
+      "today": "When the first wave of quit arrives, say the line out loud. Then take the next necessary action you already know how to do.",
+      "lanes": ["odyssey", "warrior"]
     }
   ]
 }

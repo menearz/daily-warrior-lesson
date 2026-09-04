@@ -90,6 +90,9 @@
   .lane-fill { height:100%; background:var(--accent); }
   .crisis { background:#1a0d0d; border:1px solid var(--blood); padding:18px; margin-bottom:16px; }
   .crisis a { color:var(--accent); }
+  .paywall { background:var(--surface); border:1px solid var(--accent); border-radius:8px; padding:20px; margin:16px 0; }
+  .paywall p { font-size:15px; color:#d4cfc4; margin-bottom:12px; }
+  .pay-note { font-size:13px; color:var(--muted); margin-top:12px; }
   .hidden { display:none; }
   .footer { margin-top:32px; font-size:13px; color:var(--muted); text-align:center; }
 </style>
@@ -102,7 +105,7 @@
     <div id="intro">
       <h1>Forge your path.</h1>
       <p class="sub">Twelve questions. No right answers — only honest ones. Your replies aim the daily lessons at who you actually want to become, not who you say you are.</p>
-      <p class="sub">This is the paid tier. In this preview it runs free so you can test it. Accounts and billing come later.</p>
+      <p class="sub">The questions are free. Applying the aimed 70 / 30 feed is the paid step: <b style="color:var(--ink)">$12 USD, one time</b>, through Stripe. This site is built and maintained with AI assistance.</p>
       <button class="btn btn-primary" onclick="start()">Begin</button>
     </div>
 
@@ -117,20 +120,29 @@
     </div>
 
     <div id="result" class="hidden">
-      <div id="crisisBox" class="hidden"></div>
+      <div id="crisisBox" class="crisis hidden"></div>
       <h1>Your path is forged.</h1>
       <p class="sub">Two lanes lead. The rest follow.</p>
       <div id="laneResults"></div>
       <div class="result-card">
         <h2>What this changes</h2>
-        <p style="font-size:15px;color:#d4cfc4">Your daily feed now draws seventy percent from your primary lane and thirty percent from your secondary. Same sources — Stoics, Greene, Scripture, the greats — aimed at your wounds and your fuel instead of served at random.</p>
+        <p style="font-size:15px;color:#d4cfc4">Once applied, your daily feed draws seventy percent from your primary lane and thirty percent from your secondary. Same sources — Stoics, Greene, Scripture, the greats — aimed at your wounds and your fuel instead of served at random.</p>
       </div>
-      <button class="btn btn-primary" onclick="applyPath()">Apply to my daily lesson</button>
+      <button class="btn btn-primary" id="applyBtn" onclick="applyPath()">Apply to my daily lesson</button>
+      <div id="paywall" class="paywall hidden">
+        <h2 style="font-size:13px;letter-spacing:0.2em;text-transform:uppercase;color:var(--accent);margin-bottom:8px">Paid step</h2>
+        <p>The twelve questions stay free. Applying this path to the daily lesson is <b style="color:var(--ink)">$12 USD, one time</b>.</p>
+        <p>Stripe takes the card. This site never sees the number. After you pay, Stripe returns you here and the aimed lesson opens.</p>
+        <button class="btn btn-primary" id="payBtn" onclick="goPay()">Continue to Stripe — $12</button>
+        <p class="pay-note" id="paySetup"></p>
+      </div>
       <a class="btn btn-ghost" href="./index.html" style="text-align:center;text-decoration:none;display:block;margin-top:12px">Back to today's lesson</a>
-      <div class="footer">When the game is over, the king and the pawn go back into the same box.</div>
+      <div class="footer">When the game is over, the king and the pawn go back into the same box.<br>Built and maintained with AI assistance.</div>
     </div>
   </div>
 
+<script src="forge-config.js"></script>
+<script src="forge-pay.js"></script>
 <script>
 const QUESTIONS = [
   { type:'multi', key:'admire', max:3,
@@ -376,10 +388,52 @@ function finish(){
   const maxVal=ranked[0][1]||1;
   const box=document.getElementById('laneResults'); box.innerHTML='';
   ranked.slice(0,3).forEach(([lane,val])=>{ const pct=Math.round(val/maxVal*100); const card=document.createElement('div'); card.className='result-card'; card.innerHTML='<h2>'+lane+'</h2><div style="font-size:14px;color:#9AA3AD">Score '+val+'</div><div class="lane-bar"><div class="lane-fill" style="width:'+pct+'%"></div></div>'; box.appendChild(card); });
-  if(crisisCheck()){ const c=document.getElementById('crisisBox'); c.classList.remove('hidden'); c.innerHTML='<b style="color:#B22222">If you are in crisis, this is not the tool for it.</b><br><br>Call or text <b>988</b> (US) right now, or go to findahelpline.com for local support. A licensed professional, not a quote, is what you need here.'; }
+  if(crisisCheck()){ const c=document.getElementById('crisisBox'); c.classList.remove('hidden'); c.className='crisis'; c.innerHTML='<b style="color:#B22222">If you are in crisis, this is not the tool for it.</b><br><br>Call or text <a href="tel:988"><b>988</b></a> (US) right now, or go to <a href="https://findahelpline.com" rel="noopener">findahelpline.com</a> for local support. A licensed professional, not a quote, is what you need here.'; }
   try { localStorage.setItem('forged_path', JSON.stringify({primary,secondary,lanes,at:Date.now(),answers})); } catch(e){}
+  refreshApply();
 }
-function applyPath(){ window.location.href='./index.html?forged=1'; }
+function refreshApply(){
+  var paid = window.ForgePay && ForgePay.isPaid();
+  var applyBtn = document.getElementById('applyBtn');
+  var paywall = document.getElementById('paywall');
+  if (paid) {
+    applyBtn.classList.remove('hidden');
+    applyBtn.textContent = 'Apply to my daily lesson';
+    paywall.classList.add('hidden');
+  }
+}
+function applyPath(){
+  if (window.ForgePay && ForgePay.isPaid()) {
+    window.location.href = './index.html?forged=1';
+    return;
+  }
+  document.getElementById('applyBtn').classList.add('hidden');
+  document.getElementById('paywall').classList.remove('hidden');
+  var setup = document.getElementById('paySetup');
+  if (window.ForgePay && ForgePay.isConfigured()) {
+    setup.textContent = '';
+  } else {
+    var token = (window.FORGE_CONFIG && FORGE_CONFIG.successToken) || 'REPLACE_WITH_SUCCESS_TOKEN';
+    setup.innerHTML = 'Checkout is not live yet. Paste a Stripe Payment Link into <code>forge-config.js</code>. To test the return path now, open <code>forge.html?forge_paid=' + token + '</code>.';
+  }
+}
+function goPay(){
+  if (window.ForgePay && ForgePay.checkout()) return;
+  applyPath();
+}
+
+(function bootForge(){
+  var justPaid = window.ForgePay && ForgePay.captureReturn();
+  var hasPath = false;
+  try { hasPath = !!(JSON.parse(localStorage.getItem('forged_path') || 'null') || {}).primary; } catch(e){}
+  if (justPaid && hasPath && window.ForgePay && ForgePay.isPaid()) {
+    window.location.replace('./index.html?forged=1');
+    return;
+  }
+  if (justPaid && window.ForgePay && ForgePay.isPaid() && !hasPath) {
+    document.getElementById('intro').querySelector('.sub').insertAdjacentHTML('afterend', '<p class="sub">Payment landed. Take The Forge so the aimed feed has a path to apply.</p>');
+  }
+})();
 </script>
 </body>
 </html>
