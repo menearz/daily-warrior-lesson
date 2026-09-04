@@ -58,8 +58,9 @@
       <a class="archive" href="./forge.html">The Forge — personalize your path →</a>
       <a class="archive" href="./archive.html">Archive →</a>
     </div>
-    <div class="footer">When the game is over, the king and the pawn go back into the same box.</div>
+    <div class="footer">When the game is over, the king and the pawn go back into the same box.<br>Built and maintained with AI assistance. <a class="archive" href="./privacy.html">Privacy</a></div>
   </div>
+<script src="forge-unlock.js"></script>
 <script>
   const DEFAULT_LESSON = {
     date: "2026-09-04",
@@ -116,6 +117,9 @@
   const params = new URLSearchParams(window.location.search);
   var forged = null;
   try { forged = JSON.parse(localStorage.getItem('forged_path')); } catch(e){}
+  if (forged && window.ForgeUnlock && !ForgeUnlock.shouldAimFeedLive()) {
+    forged = null;
+  }
 
   fetch('lessons.json?v=' + Date.now())
     .then(function (r) { return r.json(); })
@@ -137,7 +141,8 @@
     })
     .catch(function () { render(DEFAULT_LESSON, forged && forged.primary ? LANE_LABEL[forged.primary] : null); });
 
-  if ('serviceWorker' in navigator) {
+  var nativeApp = window.Capacitor && Capacitor.isNativePlatform && Capacitor.isNativePlatform();
+  if (!nativeApp && 'serviceWorker' in navigator) {
     navigator.serviceWorker.getRegistrations().then(function (regs) {
       return Promise.all(regs.map(function (r) { return r.unregister(); }));
     }).then(function () {
@@ -145,7 +150,7 @@
         return Promise.all(keys.map(function (k) { return caches.delete(k); }));
       });
     }).then(function () {
-      return navigator.serviceWorker.register('sw.js?v=8');
+      return navigator.serviceWorker.register('sw.js?v=9');
     }).catch(function () {});
   }
 </script>
