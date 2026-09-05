@@ -1,6 +1,30 @@
 {
   "lessons": [
     {
+      "date": "2026-09-05",
+      "title": "Difficulties Show What Men Are",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/Manuel_Dom%C3%ADnguez_S%C3%A1nchez_-_El_suicidio_de_S%C3%A9neca.jpg/1280px-Manuel_Dom%C3%ADnguez_S%C3%A1nchez_-_El_suicidio_de_S%C3%A9neca.jpg",
+      "imageAlt": "Manuel Domínguez Sánchez — The Death of Seneca (1871), full landscape painting, Museo del Prado",
+      "fallback": "https://upload.wikimedia.org/wikipedia/commons/d/d5/Manuel_Dom%C3%ADnguez_S%C3%A1nchez_-_El_suicidio_de_S%C3%A9neca.jpg",
+      "source": "Epictetus, Discourses 1.24 (George Long translation)",
+      "quote": "It is difficulties that show what men are. For the future, in case of any difficulty, remember that God, like a gymnastic trainer, has pitted you against a rough antagonist.",
+      "lesson": "Trials do not merely test the warrior—they reveal him. Epictetus, once a slave under a brutal master, treated every hardship as the trainer’s match: not punishment, but the only route to real strength. The rough antagonist is the forge. Strategy over raw force means meeting the difficulty as the sparring partner that builds the capacity you will need next. Armor and appearance are not the thing; the character that holds under pressure is.",
+      "today": "The next friction is your rough antagonist. Meet it as the trainer intended—then move.",
+      "lanes": ["thinker","warrior"]
+    },
+    {
+      "date": "2026-09-04",
+      "title": "Endure, O Heart",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/39/Arnold_B%C3%B6cklin_-_Odysseus_und_Polyphemus_%281896%29.jpg/1280px-Arnold_B%C3%B6cklin_-_Odysseus_und_Polyphemus_%281896%29.jpg",
+      "imageAlt": "Arnold Böcklin — Odysseus and Polyphemus (1896), full landscape painting",
+      "fallback": "https://upload.wikimedia.org/wikipedia/commons/3/39/Arnold_B%C3%B6cklin_-_Odysseus_und_Polyphemus_%281896%29.jpg",
+      "source": "Homer, The Odyssey, Book 20",
+      "quote": "Endure, o heart. At other times, you have endured worse; on that day when the Cyclops ate my strong companions: and yet you did hold out so that your ingenuity could bring you out of the cave, where you had believed that you would die.",
+      "lesson": "Odysseus does not trust the armor of appearance or raw force. When his heart snarls for immediate blood, he strikes his own breast and recalls the cave. Trials forge the warrior. The same cunning that outlasted the Cyclops is what waits for the suitors. Strategy over strength; endurance under pressure is the real weapon.",
+      "today": "When the next trial presses, remind the heart what it has already survived. Then move with the ingenuity that got you this far.",
+      "lanes": ["warrior","odyssey"]
+    },
+    {
       "date": "2026-08-29",
       "title": "The Obstacle Becomes the Way",
       "image": "https://upload.wikimedia.org/wikipedia/commons/0/0b/Pietro_da_Cortona_-_Battle_of_Alexander_versus_Darius_-_Google_Art_Project.jpg",
