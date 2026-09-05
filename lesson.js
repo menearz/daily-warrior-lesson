@@ -12,9 +12,9 @@
   var DEFAULT_LESSON = {
     date: "2026-09-08",
     title: "The Obstacle Becomes the Way",
-    image: "https://images.metmuseum.org/CRDImages/rl/original/DT3306.jpg",
+    image: "./images/2026-09-08.jpg",
     imageAlt: "Hubert Robert — Equestrian Statue of Marcus Aurelius (1757), full landscape drawing, Metropolitan Museum of Art",
-    fallback: "https://images.metmuseum.org/CRDImages/rl/original/DT3306.jpg",
+    fallback: "./images/2026-09-08.jpg",
     source: "Marcus Aurelius, Meditations 5.20",
     quote: "The impediment to action advances action. What stands in the way becomes the way.",
     lesson: "Trials forge the warrior. The thing that blocks your path is not an interruption — it is the raw material of the next move. Adapt. Convert the obstacle into advantage. Strategy over raw strength: the mind turns hindrance into the road itself.",
