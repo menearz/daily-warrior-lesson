@@ -12,9 +12,9 @@
   var DEFAULT_LESSON = {
     date: "2026-09-04",
     title: "Endure, O Heart",
-    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/39/Arnold_B%C3%B6cklin_-_Odysseus_und_Polyphemus_%281896%29.jpg/1280px-Arnold_B%C3%B6cklin_-_Odysseus_und_Polyphemus_%281896%29.jpg",
+    image: "./images/default-endure.jpg",
     imageAlt: "Arnold Böcklin — Odysseus and Polyphemus (1896), full landscape painting",
-    fallback: "https://upload.wikimedia.org/wikipedia/commons/3/39/Arnold_B%C3%B6cklin_-_Odysseus_und_Polyphemus_%281896%29.jpg",
+    fallback: "./images/default-endure.jpg",
     source: "Homer, The Odyssey, Book 20",
     quote: "Endure, o heart. At other times, you have endured worse; on that day when the Cyclops ate my strong companions: and yet you did hold out so that your ingenuity could bring you out of the cave, where you had believed that you would die.",
     lesson: "Odysseus does not trust the armor of appearance or raw force. When his heart snarls for immediate blood, he strikes his own breast and recalls the cave. Trials forge the warrior. The same cunning that outlasted the Cyclops is what waits for the suitors. Strategy over strength; endurance under pressure is the real weapon.",

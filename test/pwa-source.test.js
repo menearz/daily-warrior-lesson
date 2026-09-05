@@ -41,5 +41,20 @@ test('service worker precaches lessons.json', () => {
   const sw = fs.readFileSync(path.join(root, 'sw.js'), 'utf8');
   assert.match(sw, /lessons\.json/);
   assert.match(sw, /addAll\s*\(/);
-  assert.match(sw, /warrior-lesson-v(?!8\b)\d+/);
+  assert.match(sw, /warrior-lesson-v(?![89]\b)\d+/);
+});
+
+test('index.html apple-touch-icon points at icon-192.png', () => {
+  const html = fs.readFileSync(path.join(root, 'index.html'), 'utf8');
+  assert.match(html, /rel=["']apple-touch-icon["'][^>]*href=["']icon-192\.png["']/);
+  assert.doesNotMatch(html, /rel=["']apple-touch-icon["'][^>]*href=["']icon\.png["']/);
+});
+
+test('archive.html and forge.html apple-touch-icon use icon-192.png not icon.png', () => {
+  const archive = fs.readFileSync(path.join(root, 'archive.html'), 'utf8');
+  const forge = fs.readFileSync(path.join(root, 'forge.html'), 'utf8');
+  assert.match(archive, /rel=["']apple-touch-icon["'][^>]*href=["']icon-192\.png["']/);
+  assert.match(forge, /rel=["']apple-touch-icon["'][^>]*href=["']icon-192\.png["']/);
+  assert.doesNotMatch(archive, /href=["']icon\.png["']/);
+  assert.doesNotMatch(forge, /href=["']icon\.png["']/);
 });

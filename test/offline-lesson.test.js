@@ -96,6 +96,9 @@ test('DEFAULT_LESSON content is unchanged Endure fallback', () => {
   assert.equal(WarriorLesson.DEFAULT_LESSON.date, '2026-09-04');
   assert.equal(WarriorLesson.DEFAULT_LESSON.title, 'Endure, O Heart');
   assert.match(WarriorLesson.DEFAULT_LESSON.source, /Odyssey/);
+  assert.equal(WarriorLesson.DEFAULT_LESSON.image, './images/default-endure.jpg');
+  assert.equal(WarriorLesson.DEFAULT_LESSON.fallback, './images/default-endure.jpg');
+  assert.match(WarriorLesson.DEFAULT_LESSON.imageAlt, /Odysseus/);
 });
 
 test('live catalog latest lesson is Obstacle; offline keeps it instead of Endure', async () => {

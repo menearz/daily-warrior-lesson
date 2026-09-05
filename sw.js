@@ -1,4 +1,4 @@
-const CACHE = "warrior-lesson-v9";
+const CACHE = "warrior-lesson-v10";
 const PRECACHE = [
   "./",
   "./index.html",
@@ -8,12 +8,26 @@ const PRECACHE = [
   "./forge.html",
   "./privacy.html",
   "./manifest.json",
+  "./sw.js",
   "./icon.svg",
-  "./icon.png"
+  "./icon-192.png",
+  "./icon-512.png",
+  "./images/2026-08-29.jpg",
+  "./images/2026-08-28.jpg",
+  "./images/default-endure.jpg"
 ];
 
 function isLessonsRequest(url) {
   return url.pathname.endsWith("/lessons.json") || url.pathname.endsWith("lessons.json");
+}
+
+function isImageRequest(url) {
+  return url.pathname.includes("/images/");
+}
+
+function isHtmlRequest(req, url) {
+  const dest = req.destination;
+  return req.mode === "navigate" || dest === "document" || /\.html$/i.test(url.pathname);
 }
 
 self.addEventListener("install", (e) => {
@@ -35,10 +49,9 @@ self.addEventListener("activate", (e) => {
 self.addEventListener("fetch", (e) => {
   const req = e.request;
   if (req.method !== "GET") return;
-  const dest = req.destination;
   const url = new URL(req.url);
 
-  if (req.mode === "navigate" || dest === "document") {
+  if (isHtmlRequest(req, url)) {
     e.respondWith(
       fetch(req)
         .then((resp) => {
@@ -68,6 +81,22 @@ self.addEventListener("fetch", (e) => {
         .catch(() =>
           caches.match(req).then((hit) => hit || caches.match("./lessons.json"))
         )
+    );
+    return;
+  }
+
+  if (isImageRequest(url)) {
+    e.respondWith(
+      caches.match(req).then((hit) => {
+        if (hit) return hit;
+        return fetch(req).then((resp) => {
+          if (resp && resp.status === 200) {
+            const copy = resp.clone();
+            caches.open(CACHE).then((c) => c.put(req, copy));
+          }
+          return resp;
+        });
+      })
     );
     return;
   }
