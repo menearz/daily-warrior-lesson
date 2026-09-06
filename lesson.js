@@ -10,15 +10,15 @@
   var LAST_RENDERED_KEY = 'last_rendered_lesson';
 
   var DEFAULT_LESSON = {
-    date: "2026-09-05",
-    title: "Difficulties Show What Men Are",
-    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/Manuel_Dom%C3%ADnguez_S%C3%A1nchez_-_El_suicidio_de_S%C3%A9neca.jpg/1280px-Manuel_Dom%C3%ADnguez_S%C3%A1nchez_-_El_suicidio_de_S%C3%A9neca.jpg",
-    imageAlt: "Manuel Domínguez Sánchez — The Death of Seneca (1871), full landscape painting, Museo del Prado",
-    fallback: "https://upload.wikimedia.org/wikipedia/commons/d/d5/Manuel_Dom%C3%ADnguez_S%C3%A1nchez_-_El_suicidio_de_S%C3%A9neca.jpg",
-    source: "Epictetus, Discourses 1.24 (George Long translation)",
-    quote: "It is difficulties that show what men are. For the future, in case of any difficulty, remember that God, like a gymnastic trainer, has pitted you against a rough antagonist.",
-    lesson: "Trials do not merely test the warrior—they reveal him. Epictetus, once a slave under a brutal master, treated every hardship as the trainer’s match: not punishment, but the only route to real strength. The rough antagonist is the forge. Strategy over raw force means meeting the difficulty as the sparring partner that builds the capacity you will need next. Armor and appearance are not the thing; the character that holds under pressure is.",
-    today: "The next friction is your rough antagonist. Meet it as the trainer intended—then move.",
+    date: "2026-09-06",
+    title: "Appearance Is Not the Thing",
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/David_-_The_Death_of_Socrates.jpg/1280px-David_-_The_Death_of_Socrates.jpg",
+    imageAlt: "Jacques-Louis David — The Death of Socrates (1787), full landscape painting, Metropolitan Museum of Art",
+    fallback: "https://upload.wikimedia.org/wikipedia/commons/8/8c/David_-_The_Death_of_Socrates.jpg",
+    source: "Epictetus, Discourses 3.24.50",
+    quote: "Don't you know that a good and excellent person does nothing for the sake of appearances, but only for the sake of having acted right?",
+    lesson: "Armor and appearance are not the thing. The warrior who postures for the gallery has already surrendered the real contest. Epictetus, in the Socratic line, insists the good man acts solely because the action is right—not for applause, reputation, or the look of courage. Trials forge that quiet integrity. Strategy over raw strength begins with the decision no one else can see.",
+    today: "Do one necessary thing today that earns no notice. Let the character hold.",
     lanes: ["thinker","warrior"]
   };
 
