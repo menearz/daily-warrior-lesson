@@ -10,15 +10,15 @@
   var LAST_RENDERED_KEY = 'last_rendered_lesson';
 
   var DEFAULT_LESSON = {
-    date: "2026-09-06",
-    title: "Appearance Is Not the Thing",
-    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/David_-_The_Death_of_Socrates.jpg/1280px-David_-_The_Death_of_Socrates.jpg",
-    imageAlt: "Jacques-Louis David — The Death of Socrates (1787), full landscape painting, Metropolitan Museum of Art",
-    fallback: "https://upload.wikimedia.org/wikipedia/commons/8/8c/David_-_The_Death_of_Socrates.jpg",
-    source: "Epictetus, Discourses 3.24.50",
-    quote: "Don't you know that a good and excellent person does nothing for the sake of appearances, but only for the sake of having acted right?",
-    lesson: "Armor and appearance are not the thing. The warrior who postures for the gallery has already surrendered the real contest. Epictetus, in the Socratic line, insists the good man acts solely because the action is right—not for applause, reputation, or the look of courage. Trials forge that quiet integrity. Strategy over raw strength begins with the decision no one else can see.",
-    today: "Do one necessary thing today that earns no notice. Let the character hold.",
+    date: "2026-09-07",
+    title: "Without an Opponent",
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/Manuel_Dom%C3%ADnguez_S%C3%A1nchez_-_El_suicidio_de_S%C3%A9neca.jpg/1280px-Manuel_Dom%C3%ADnguez_S%C3%A1nchez_-_El_suicidio_de_S%C3%A9neca.jpg",
+    imageAlt: "Manuel Domínguez Sánchez — The Suicide of Seneca (1871), full landscape painting, Museo del Prado",
+    fallback: "https://upload.wikimedia.org/wikipedia/commons/d/d5/Manuel_Dom%C3%ADnguez_S%C3%A1nchez_-_El_suicidio_de_S%C3%A9neca.jpg",
+    source: "Seneca, On Providence 4.3",
+    quote: "I judge you unfortunate because you have never been unfortunate. You have passed through life without an opponent; no one can ever know what you are capable of, not even you.",
+    lesson: "Trials forge the warrior. Seneca treated adversity as the only reliable proof of capacity. Without the rough antagonist, strength stays theoretical—untested, unknown even to its owner. Strategy over raw force begins with meeting the pressure that reveals the edge. Armor and appearance are not the thing; the character that holds under fire is.",
+    today: "When friction appears today, do not dodge it. Meet it as the opponent that will show you what you are.",
     lanes: ["thinker","warrior"]
   };
 
