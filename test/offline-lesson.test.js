@@ -34,7 +34,7 @@ test('pickDailyLesson uses latest catalog date, not DEFAULT_LESSON', () => {
   const picked = WarriorLesson.pickDailyLesson(catalog.lessons, {});
   assert.equal(picked.lesson.title, 'The Obstacle Becomes the Way');
   assert.equal(picked.lesson.date, '2026-08-29');
-  assert.notEqual(picked.lesson.title, WarriorLesson.DEFAULT_LESSON.title);
+  assert.notEqual(picked.lesson.date, WarriorLesson.DEFAULT_LESSON.date);
 });
 
 test('pickDailyLesson uses DEFAULT_LESSON only when catalog is empty', () => {
@@ -76,7 +76,7 @@ test('resolveLesson serves last rendered lesson when fetch fails', async () => {
   assert.equal(offline.source, 'last-rendered');
   assert.equal(offline.lesson.title, 'The Obstacle Becomes the Way');
   assert.equal(offline.lesson.date, '2026-08-29');
-  assert.notEqual(offline.lesson.title, WarriorLesson.DEFAULT_LESSON.title);
+  assert.notEqual(offline.lesson.date, WarriorLesson.DEFAULT_LESSON.date);
 });
 
 test('resolveLesson uses DEFAULT_LESSON only on first-visit empty cache', async () => {
@@ -92,13 +92,17 @@ test('resolveLesson uses DEFAULT_LESSON only on first-visit empty cache', async 
   assert.equal(result.lesson.title, WarriorLesson.DEFAULT_LESSON.title);
 });
 
-test('DEFAULT_LESSON content is unchanged Endure fallback', () => {
-  assert.equal(WarriorLesson.DEFAULT_LESSON.date, '2026-09-04');
-  assert.equal(WarriorLesson.DEFAULT_LESSON.title, 'Endure, O Heart');
-  assert.match(WarriorLesson.DEFAULT_LESSON.source, /Odyssey/);
+test('DEFAULT_LESSON is 2026-09-08 Obstacle with same-origin images', () => {
+  assert.equal(WarriorLesson.DEFAULT_LESSON.date, '2026-09-08');
+  assert.equal(WarriorLesson.DEFAULT_LESSON.title, 'The Obstacle Becomes the Way');
+  assert.match(WarriorLesson.DEFAULT_LESSON.source, /Marcus Aurelius/);
+  assert.equal(WarriorLesson.DEFAULT_LESSON.image, './images/2026-09-08.jpg');
+  assert.equal(WarriorLesson.DEFAULT_LESSON.fallback, './images/2026-09-08.jpg');
+  assert.match(WarriorLesson.DEFAULT_LESSON.imageAlt, /Hubert Robert/);
+  assert.deepEqual(WarriorLesson.DEFAULT_LESSON.lanes, ['thinker', 'warrior']);
 });
 
-test('live catalog latest lesson is Obstacle; offline keeps it instead of Endure', async () => {
+test('live catalog latest lesson is Obstacle; offline keeps last-rendered', async () => {
   const liveCatalog = require('../lessons.json');
   const storage = memoryStorage();
   const online = await WarriorLesson.resolveLesson({
@@ -107,7 +111,8 @@ test('live catalog latest lesson is Obstacle; offline keeps it instead of Endure
     opts: {},
   });
   assert.equal(online.lesson.title, 'The Obstacle Becomes the Way');
-  assert.equal(online.lesson.date, '2026-08-29');
+  assert.equal(online.lesson.date, '2026-09-08');
+  assert.equal(online.lesson.image, './images/2026-09-08.jpg');
   const offline = await WarriorLesson.resolveLesson({
     fetchJson: async () => { throw new Error('offline'); },
     storage,
@@ -115,5 +120,6 @@ test('live catalog latest lesson is Obstacle; offline keeps it instead of Endure
   });
   assert.equal(offline.source, 'last-rendered');
   assert.equal(offline.lesson.title, 'The Obstacle Becomes the Way');
-  assert.notEqual(offline.lesson.title, WarriorLesson.DEFAULT_LESSON.title);
+  assert.equal(offline.lesson.date, '2026-09-08');
+  assert.equal(offline.lesson.image, './images/2026-09-08.jpg');
 });
