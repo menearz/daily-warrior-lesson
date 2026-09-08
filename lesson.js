@@ -10,15 +10,15 @@
   var LAST_RENDERED_KEY = 'last_rendered_lesson';
 
   var DEFAULT_LESSON = {
-    date: "2026-09-07",
-    title: "Without an Opponent",
-    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/Manuel_Dom%C3%ADnguez_S%C3%A1nchez_-_El_suicidio_de_S%C3%A9neca.jpg/1280px-Manuel_Dom%C3%ADnguez_S%C3%A1nchez_-_El_suicidio_de_S%C3%A9neca.jpg",
-    imageAlt: "Manuel Domínguez Sánchez — The Suicide of Seneca (1871), full landscape painting, Museo del Prado",
-    fallback: "https://upload.wikimedia.org/wikipedia/commons/d/d5/Manuel_Dom%C3%ADnguez_S%C3%A1nchez_-_El_suicidio_de_S%C3%A9neca.jpg",
-    source: "Seneca, On Providence 4.3",
-    quote: "I judge you unfortunate because you have never been unfortunate. You have passed through life without an opponent; no one can ever know what you are capable of, not even you.",
-    lesson: "Trials forge the warrior. Seneca treated adversity as the only reliable proof of capacity. Without the rough antagonist, strength stays theoretical—untested, unknown even to its owner. Strategy over raw force begins with meeting the pressure that reveals the edge. Armor and appearance are not the thing; the character that holds under fire is.",
-    today: "When friction appears today, do not dodge it. Meet it as the opponent that will show you what you are.",
+    date: "2026-09-08",
+    title: "The Obstacle Becomes the Way",
+    image: "https://images.metmuseum.org/CRDImages/rl/original/DT3306.jpg",
+    imageAlt: "Hubert Robert — Equestrian Statue of Marcus Aurelius (1757), full landscape drawing, Metropolitan Museum of Art",
+    fallback: "https://images.metmuseum.org/CRDImages/rl/original/DT3306.jpg",
+    source: "Marcus Aurelius, Meditations 5.20",
+    quote: "The impediment to action advances action. What stands in the way becomes the way.",
+    lesson: "Trials forge the warrior. The thing that blocks your path is not an interruption — it is the raw material of the next move. Adapt. Convert the obstacle into advantage. Strategy over raw strength: the mind turns hindrance into the road itself.",
+    today: "Name one obstacle in front of you this morning. Stop cursing it. Convert it into the next concrete action before midday.",
     lanes: ["thinker","warrior"]
   };
 
