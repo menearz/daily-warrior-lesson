@@ -1,7 +1,19 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr" data-i18n-title="appName">
 <head>
 <meta charset="UTF-8">
+<script>
+(function () {
+  try {
+    var l = localStorage.getItem('dw-lang');
+    if (l === 'en' || l === 'es') {
+      document.documentElement.setAttribute('data-lang-ready', l);
+      document.documentElement.setAttribute('lang', l);
+      document.documentElement.setAttribute('dir', 'ltr');
+    }
+  } catch (e) {}
+})();
+</script>
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#0B0D10">
 <meta name="apple-mobile-web-app-capable" content="yes">
@@ -22,11 +34,13 @@
     padding:env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
   }
   .wrap { max-width:720px; margin:0 auto; padding:24px 20px 64px; }
+  html:not([data-lang-ready]) .wrap { visibility:hidden; }
   .brand { font-size:12px; letter-spacing:0.28em; text-transform:uppercase; color:var(--accent); margin-bottom:6px; }
   .date { font-size:13px; color:var(--muted); margin-bottom:18px; }
   h1 { font-size:26px; font-weight:700; line-height:1.2; margin-bottom:18px; }
   .art-frame { width:100%; margin:0 0 22px; border-radius:6px; overflow:hidden; background:#111; }
   .art-frame img { width:100%; height:auto; display:block; }
+  .art-fallback { padding:28px 16px; text-align:center; color:var(--muted); font-size:14px; }
   .label { font-size:11px; letter-spacing:0.2em; text-transform:uppercase; color:var(--muted); margin:22px 0 6px; }
   .quote { font-size:18px; font-style:italic; color:var(--ink); border-left:3px solid var(--accent); padding:4px 0 4px 16px; margin-bottom:18px; }
   .body { font-size:16px; color:#d4cfc4; }
@@ -38,51 +52,132 @@
   .archive { color:var(--accent); text-decoration:none; font-size:14px; letter-spacing:0.08em; text-transform:uppercase; }
   .archive:hover { text-decoration:underline; }
   .footer { margin-top:28px; font-size:13px; color:var(--muted); text-align:center; }
+  .lang-picker {
+    position:fixed; inset:0; z-index:80; background:#0B0D10;
+    display:flex; align-items:center; justify-content:center;
+    padding:max(16px, env(safe-area-inset-top)) max(16px, env(safe-area-inset-right)) max(16px, env(safe-area-inset-bottom)) max(16px, env(safe-area-inset-left));
+    overflow:auto;
+  }
+  html[data-lang-ready] .lang-picker { display:none; }
+  .lang-card {
+    width:min(420px, 100%); max-height:100%; overflow:auto;
+    background:var(--surface); border:1px solid var(--line); border-radius:8px; padding:28px 22px;
+  }
+  .lang-card-title { font-size:18px; font-weight:700; text-align:center; margin-bottom:20px; }
+  .lang-card-actions { display:flex; flex-wrap:wrap; gap:10px; }
+  .lang-card-actions button {
+    flex:1 1 140px; min-height:48px; padding:14px 16px; font-size:16px; font-weight:600;
+    background:var(--accent); color:#0B0D10; border:none; cursor:pointer;
+  }
+  .lang-settings {
+    margin-top:28px; padding-top:18px; border-top:1px solid var(--line);
+    display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap;
+  }
+  .lang-settings-label { font-size:12px; letter-spacing:0.16em; text-transform:uppercase; color:var(--muted); }
+  .lang-chips { display:flex; gap:8px; }
+  .lang-chip {
+    min-height:36px; padding:8px 12px; background:transparent; color:var(--ink);
+    border:1px solid var(--line); cursor:pointer; font-size:13px;
+  }
+  .lang-chip.active { border-color:var(--accent); color:var(--accent); }
 </style>
 </head>
 <body>
-  <div class="wrap">
-    <div class="brand">Daily Warrior's Lesson</div>
+  <div id="lang-picker" class="lang-picker" role="dialog" aria-modal="true" aria-labelledby="lang-picker-title">
+    <div class="lang-card">
+      <div class="lang-card-title" id="lang-picker-title">Language · Idioma</div>
+      <div class="lang-card-actions">
+        <button type="button" data-lang="en">English</button>
+        <button type="button" data-lang="es">Español</button>
+      </div>
+    </div>
+  </div>
+  <div class="wrap" id="briefing">
+    <div class="brand" data-i18n="appName">Daily Warrior's Lesson</div>
     <div class="date" id="date">Loading…</div>
     <h1 id="title">—</h1>
     <div class="aimed hidden" id="aimed"></div>
     <div class="art-frame" id="art"></div>
-    <div class="label">Source</div>
+    <div class="label" data-i18n="sourceLabel">Source</div>
     <div class="body" id="source">—</div>
-    <div class="label">Quote</div>
+    <div class="label" data-i18n="quoteLabel">Quote</div>
     <div class="quote" id="quote">—</div>
-    <div class="label">Lesson</div>
+    <div class="label" data-i18n="lessonLabel">Lesson</div>
     <div class="body" id="lesson">—</div>
     <div class="today" id="today"></div>
     <div class="nav-row">
-      <a class="archive" href="./forge.html">The Forge — personalize your path →</a>
-      <a class="archive" href="./archive.html">Archive →</a>
+      <a class="archive" href="./forge.html" data-i18n="forgeNav">The Forge — personalize your path →</a>
+      <a class="archive" href="./archive.html" data-i18n="archiveNav">Archive →</a>
+    </div>
+    <div class="lang-settings" id="lang-settings">
+      <span class="lang-settings-label" data-i18n="language">Language</span>
+      <div class="lang-chips">
+        <button type="button" class="lang-chip" data-set-lang="en" aria-pressed="false">English</button>
+        <button type="button" class="lang-chip" data-set-lang="es" aria-pressed="false">Español</button>
+      </div>
     </div>
     <div class="footer">When the game is over, the king and the pawn go back into the same box.</div>
   </div>
 <script src="lesson.js"></script>
 <script>
+  var currentLang = WarriorLesson.readLang(window.localStorage);
+  var lastResult = null;
+
   function render(LESSON, aimed) {
+    var lang = currentLang || 'en';
     document.getElementById('date').textContent = LESSON.date;
     document.getElementById('title').textContent = LESSON.title;
+    var art = document.getElementById('art');
+    art.innerHTML = '';
     if (LESSON.image) {
-      document.getElementById('art').innerHTML =
-        '<img src="' + LESSON.image + '" alt="' + (LESSON.imageAlt || '') + '" referrerpolicy="no-referrer" decoding="async" style="width:100%;height:auto;display:block" onerror="this.onerror=null;this.src=\'' + (LESSON.fallback || '') + '\';">';
-    } else {
-      document.getElementById('art').innerHTML = '';
+      var img = document.createElement('img');
+      img.src = LESSON.image;
+      img.alt = LESSON.imageAlt || '';
+      img.setAttribute('referrerpolicy', 'no-referrer');
+      img.decoding = 'async';
+      img.style.width = '100%';
+      img.style.height = 'auto';
+      img.style.display = 'block';
+      var usedFallback = false;
+      img.onerror = function () {
+        if (!usedFallback && LESSON.fallback && LESSON.fallback !== LESSON.image) {
+          usedFallback = true;
+          img.src = LESSON.fallback;
+          return;
+        }
+        img.remove();
+        var line = document.createElement('div');
+        line.className = 'art-fallback';
+        line.textContent = WarriorLesson.t(lang, 'imageUnavailable');
+        art.appendChild(line);
+      };
+      art.appendChild(img);
     }
     document.getElementById('source').textContent = LESSON.source;
     document.getElementById('quote').textContent = LESSON.quote;
     document.getElementById('lesson').textContent = LESSON.lesson;
-    document.getElementById('today').innerHTML = '<b>Today:</b> ' + LESSON.today;
+    var todayEl = document.getElementById('today');
+    todayEl.textContent = '';
+    var b = document.createElement('b');
+    b.textContent = WarriorLesson.t(lang, 'todayLabel');
+    todayEl.appendChild(b);
+    todayEl.appendChild(document.createTextNode(' ' + (LESSON.today || '')));
     var el = document.getElementById('aimed');
     if (aimed) {
-      el.textContent = 'Aimed at ' + aimed + ' — your Forged path';
+      el.textContent = WarriorLesson.formatAimed(lang, aimed);
       el.classList.remove('hidden');
     } else {
       el.classList.add('hidden');
     }
   }
+
+  function paint(lang) {
+    currentLang = lang;
+    WarriorLesson.applyChrome(document, lang);
+    if (lastResult) render(lastResult.lesson, lastResult.aimed);
+  }
+
+  WarriorLesson.startLang(document, window.localStorage, paint);
 
   const params = new URLSearchParams(window.location.search);
   var forged = null;
@@ -102,7 +197,8 @@
       stamp: new Date().toISOString().slice(0, 10)
     }
   }).then(function (result) {
-    render(result.lesson, result.aimed);
+    lastResult = result;
+    if (currentLang) render(result.lesson, result.aimed);
   });
 
   if ('serviceWorker' in navigator) {
