@@ -71,14 +71,14 @@
 
   var DEFAULT_LESSON = {
     date: "2026-09-09",
-    title: "Do Nothing of No Use",
-    image: "./images/2026-09-09.jpg",
-    imageAlt: "Utagawa Kuniyoshi — Miyamoto Musashi Attacking the Giant Whale (ca. 1847–50), full landscape woodblock triptych",
+    title: "Hard School of Danger and War",
+    image: "https://upload.wikimedia.org/wikipedia/commons/8/8f/Battle_of_Issus.jpg",
+    imageAlt: "Alexander Mosaic (Battle of Issus), House of the Faun, Pompeii — full landscape Roman mosaic, Museo Archeologico Nazionale di Napoli",
     fallback: "./images/2026-09-09.jpg",
-    source: "Miyamoto Musashi, The Book of Five Rings, Ground Book (Victor Harris translation)",
-    quote: "Do nothing which is of no use.",
-    lesson: "Musashi closed the Ground Book with nine principles for the man who would learn strategy. The last is the most severe: cut what does not serve. Armor and appearance are not the thing. Flourish, posture, the motion that only looks like work—these open the guard. Strategy over raw strength begins with that refusal. Trials forge the economy of a swordsman who keeps only what can cut.",
-    today: "Before midday, drop one action, habit, or argument that does not serve the work. Do not replace it.",
+    source: "Arrian, Anabasis of Alexander 2.7 (Alexander’s speech before the Battle of Issus)",
+    quote: "We of Macedon for generations past have been trained in the hard school of danger and war. Above all, we are free men, and they are slaves.",
+    lesson: "Trials forge the warrior. Soft living produces soft men. Alexander reminded his Macedonians that their edge was not superior armor or numbers, but the long apprenticeship of hardship that made fearlessness habitual. Strategy over raw strength begins with the training that turns pressure into fuel. The soft enemy waits to be broken by men who have already been forged.",
+    today: "Choose one discomfort you have been avoiding. Meet it before the day ends. Do not negotiate.",
     lanes: ["warrior","thinker"]
   };
 
@@ -225,7 +225,7 @@
           : t(lang, titleKey) + ' — ' + t(lang, 'appName');
       }
     }
-    var apple = doc.querySelector ? doc.querySelector('meta[name="apple-mobile-web-app-title"]') : null;
+    var apple = doc.querySelector ? doc.querySelector('meta[name=\"apple-mobile-web-app-title\"]') : null;
     if (apple) apple.setAttribute('content', t(lang, 'appNameShort'));
     syncLangChips(doc, lang);
     return lang;
