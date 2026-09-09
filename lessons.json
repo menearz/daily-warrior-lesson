@@ -1,6 +1,18 @@
 {
   "lessons": [
     {
+      "date": "2026-09-09",
+      "title": "Do Nothing of No Use",
+      "image": "./images/2026-09-09.jpg",
+      "imageAlt": "Utagawa Kuniyoshi — Miyamoto Musashi Attacking the Giant Whale (ca. 1847–50), full landscape woodblock triptych",
+      "fallback": "./images/2026-09-09.jpg",
+      "source": "Miyamoto Musashi, The Book of Five Rings, Ground Book (Victor Harris translation)",
+      "quote": "Do nothing which is of no use.",
+      "lesson": "Musashi closed the Ground Book with nine principles for the man who would learn strategy. The last is the most severe: cut what does not serve. Armor and appearance are not the thing. Flourish, posture, the motion that only looks like work—these open the guard. Strategy over raw strength begins with that refusal. Trials forge the economy of a swordsman who keeps only what can cut.",
+      "today": "Before midday, drop one action, habit, or argument that does not serve the work. Do not replace it.",
+      "lanes": ["warrior","thinker"]
+    },
+    {
       "date": "2026-09-08",
       "title": "The Obstacle Becomes the Way",
       "image": "./images/2026-09-08.jpg",
@@ -59,6 +71,42 @@
       "lesson": "Odysseus does not trust the armor of appearance or raw force. When his heart snarls for immediate blood, he strikes his own breast and recalls the cave. Trials forge the warrior. The same cunning that outlasted the Cyclops is what waits for the suitors. Strategy over strength; endurance under pressure is the real weapon.",
       "today": "When the next trial presses, remind the heart what it has already survived. Then move with the ingenuity that got you this far.",
       "lanes": ["warrior","odyssey"]
+    },
+    {
+      "date": "2026-09-03",
+      "title": "Know the Enemy and Yourself",
+      "image": "./images/2026-09-03.jpg",
+      "imageAlt": "Qiu Ying — Red Cliff (Ming dynasty), full landscape handscroll, Liaoning Provincial Museum",
+      "fallback": "./images/2026-09-03.jpg",
+      "source": "Sun Tzu, The Art of War, III.18 (Lionel Giles translation)",
+      "quote": "If you know the enemy and know yourself, you need not fear the result of a hundred battles.",
+      "lesson": "Giles's Sun Tzu does not promise the contest to the loud or the armored. He promises it to the man who has measured both sides. Strategy over raw strength: the fight is decided in knowledge before it is decided in force. Trials forge that honesty—about the opponent's real strength, and about your own. Armor and appearance are not the thing. The warrior who will not study himself is already half-beaten.",
+      "today": "Write two short lists before you act: what is true of the obstacle, and what is true of you. Move only after both are on the page.",
+      "lanes": ["warrior","thinker"]
+    },
+    {
+      "date": "2026-09-02",
+      "title": "See Distant Things as Close",
+      "image": "./images/2026-09-02.jpg",
+      "imageAlt": "Hiroshige after Katsukawa Shuntei — The Battle of Kawanakajima (1845), full landscape woodblock",
+      "fallback": "./images/2026-09-02.jpg",
+      "source": "Miyamoto Musashi, The Book of Five Rings, Water Book (Victor Harris translation)",
+      "quote": "In strategy it is important to see distant things as if they were close and to take a distanced view of close things.",
+      "lesson": "In the Water Book Musashi trains the gaze: perception strong, sight weak. Stare only at the blade in your face and you miss the campaign; live only in tomorrow and you never cut today. Strategy over raw force is this double vision—hold the far objective as if it were already in reach, and refuse to let the nearest friction swallow the field. Armor and appearance are not the thing. Trials forge a gaze that does not blink with every feint.",
+      "today": "Name the far thing you are actually after. Then take one close action as if that distant thing were already at hand.",
+      "lanes": ["warrior","thinker"]
+    },
+    {
+      "date": "2026-09-01",
+      "title": "Without Fighting",
+      "image": "./images/2026-09-01.jpg",
+      "imageAlt": "Anonymous Ming painter — cavalry with guandao, detail of Departure Herald / Return Clearing (出警入蹕圖), full landscape painting, National Palace Museum",
+      "fallback": "./images/2026-09-01.jpg",
+      "source": "Sun Tzu, The Art of War, III.2 (Lionel Giles translation)",
+      "quote": "Hence to fight and conquer in all your battles is not supreme excellence; supreme excellence consists in breaking the enemy's resistance without fighting.",
+      "lesson": "Sun Tzu ranks the clash itself below the arrangement that makes the clash unnecessary. Strategy over raw strength: baulk the plan, break the will, take the city without the siege. Armor and appearance are not the thing. Trials forge the patience to refuse a fight you have not already won in position and in mind.",
+      "today": "Do not rush the next contest. Spend the morning arranging one condition that makes force less necessary—then move.",
+      "lanes": ["warrior","thinker"]
     },
     {
       "date": "2026-08-29",
