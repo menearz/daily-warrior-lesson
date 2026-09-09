@@ -70,16 +70,16 @@
   };
 
   var DEFAULT_LESSON = {
-    date: "2026-09-08",
-    title: "The Obstacle Becomes the Way",
-    image: "./images/2026-09-08.jpg",
-    imageAlt: "Hubert Robert — Equestrian Statue of Marcus Aurelius (1757), full landscape drawing, Metropolitan Museum of Art",
-    fallback: "./images/2026-09-08.jpg",
-    source: "Marcus Aurelius, Meditations 5.20",
-    quote: "The impediment to action advances action. What stands in the way becomes the way.",
-    lesson: "Trials forge the warrior. The thing that blocks your path is not an interruption — it is the raw material of the next move. Adapt. Convert the obstacle into advantage. Strategy over raw strength: the mind turns hindrance into the road itself.",
-    today: "Name one obstacle in front of you this morning. Stop cursing it. Convert it into the next concrete action before midday.",
-    lanes: ["thinker","warrior"]
+    date: "2026-09-09",
+    title: "Do Nothing of No Use",
+    image: "./images/2026-09-09.jpg",
+    imageAlt: "Utagawa Kuniyoshi — Miyamoto Musashi Attacking the Giant Whale (ca. 1847–50), full landscape woodblock triptych",
+    fallback: "./images/2026-09-09.jpg",
+    source: "Miyamoto Musashi, The Book of Five Rings, Ground Book (Victor Harris translation)",
+    quote: "Do nothing which is of no use.",
+    lesson: "Musashi closed the Ground Book with nine principles for the man who would learn strategy. The last is the most severe: cut what does not serve. Armor and appearance are not the thing. Flourish, posture, the motion that only looks like work—these open the guard. Strategy over raw strength begins with that refusal. Trials forge the economy of a swordsman who keeps only what can cut.",
+    today: "Before midday, drop one action, habit, or argument that does not serve the work. Do not replace it.",
+    lanes: ["warrior","thinker"]
   };
 
   var LANE_LABEL = {warrior:'Warrior',thinker:'Thinker',builder:'Builder',power:'Power',faith:'Faith',odyssey:'Odyssey'};
