@@ -1,4 +1,4 @@
-const CACHE = "warrior-lesson-v14";
+const CACHE = "warrior-lesson-v15";
 const PRECACHE = [
   "./",
   "./index.html",
@@ -12,6 +12,7 @@ const PRECACHE = [
   "./icon.svg",
   "./icon-192.png",
   "./icon-512.png",
+  "./favicon.ico",
   "./images/2026-09-09.jpg",
   "./images/2026-09-08.jpg",
   "./images/2026-09-07.jpg",
