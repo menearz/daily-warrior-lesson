@@ -8,6 +8,66 @@
 })(typeof self !== 'undefined' ? self : this, function () {
   var LAST_LESSONS_KEY = 'last_lessons_payload';
   var LAST_RENDERED_KEY = 'last_rendered_lesson';
+  var LANG_KEY = 'dw-lang';
+
+  var STRINGS = {
+    en: {
+      appName: "Daily Warrior's Lesson",
+      appNameShort: "Warrior's Lesson",
+      language: 'Language',
+      pickerTitle: 'Language · Idioma',
+      english: 'English',
+      espanol: 'Español',
+      archive: 'Archive',
+      archiveNav: 'Archive →',
+      forge: 'The Forge',
+      forgeBrand: 'The Forge',
+      forgeNav: 'The Forge — personalize your path →',
+      forgeShortNav: 'The Forge →',
+      todayLesson: "Today's lesson",
+      backToToday: "← Today's lesson",
+      previousLessons: 'Previous Lessons',
+      loading: 'Loading…',
+      emptyArchive: 'No previous lessons yet.',
+      archiveError: 'Could not load the archive.',
+      retry: 'Retry',
+      imageUnavailable: 'Image unavailable offline',
+      sourceLabel: 'Source',
+      quoteLabel: 'Quote',
+      lessonLabel: 'Lesson',
+      todayLabel: 'Today:',
+      aimedAt: 'Aimed at {name} — your Forged path',
+      untitled: 'Untitled lesson'
+    },
+    es: {
+      appName: 'Lección del Guerrero Diario',
+      appNameShort: 'Lección del Guerrero',
+      language: 'Idioma',
+      pickerTitle: 'Language · Idioma',
+      english: 'English',
+      espanol: 'Español',
+      archive: 'Archivo',
+      archiveNav: 'Archivo →',
+      forge: 'La Forja',
+      forgeBrand: 'La Forja',
+      forgeNav: 'La Forja — personaliza tu camino →',
+      forgeShortNav: 'La Forja →',
+      todayLesson: 'Lección de hoy',
+      backToToday: '← Lección de hoy',
+      previousLessons: 'Lecciones anteriores',
+      loading: 'Cargando…',
+      emptyArchive: 'Aún no hay lecciones anteriores.',
+      archiveError: 'No se pudo cargar el archivo.',
+      retry: 'Reintentar',
+      imageUnavailable: 'Imagen no disponible sin conexión',
+      sourceLabel: 'Fuente',
+      quoteLabel: 'Cita',
+      lessonLabel: 'Lección',
+      todayLabel: 'Hoy:',
+      aimedAt: 'Dirigido a {name} — tu camino forjado',
+      untitled: 'Lección sin título'
+    }
+  };
 
   var DEFAULT_LESSON = {
     date: "2026-09-08",
@@ -93,6 +153,126 @@
     return null;
   }
 
+  function normalizeLang(value) {
+    return value === 'en' || value === 'es' ? value : null;
+  }
+
+  function readLang(storage) {
+    if (!storage) return null;
+    try {
+      return normalizeLang(storage.getItem(LANG_KEY));
+    } catch (e) {}
+    return null;
+  }
+
+  function writeLang(storage, lang) {
+    var normalized = normalizeLang(lang);
+    if (!normalized) return null;
+    if (storage) {
+      try { storage.setItem(LANG_KEY, normalized); } catch (e) {}
+    }
+    return normalized;
+  }
+
+  function t(lang, key, vars) {
+    var pack = lang === 'es' ? STRINGS.es : STRINGS.en;
+    var value = pack && pack[key];
+    if (value == null || value === '') {
+      value = STRINGS.en[key];
+    }
+    if (value == null) return '';
+    if (vars) {
+      value = String(value).replace(/\{(\w+)\}/g, function (_, name) {
+        return vars[name] == null ? '' : String(vars[name]);
+      });
+    }
+    return value;
+  }
+
+  function formatAimed(lang, aimed) {
+    if (!aimed) return '';
+    return t(lang, 'aimedAt', { name: aimed });
+  }
+
+  function syncLangChips(doc, lang) {
+    if (!doc || !doc.querySelectorAll) return;
+    var chips = doc.querySelectorAll('[data-set-lang]');
+    for (var i = 0; i < chips.length; i++) {
+      var on = chips[i].getAttribute('data-set-lang') === lang;
+      if (chips[i].classList) chips[i].classList.toggle('active', on);
+      chips[i].setAttribute('aria-pressed', on ? 'true' : 'false');
+    }
+  }
+
+  function applyChrome(doc, lang) {
+    if (!doc) return 'en';
+    lang = normalizeLang(lang) || 'en';
+    var root = doc.documentElement;
+    if (root && root.setAttribute) {
+      root.setAttribute('lang', lang);
+      root.setAttribute('dir', 'ltr');
+      root.setAttribute('data-lang-ready', lang);
+    }
+    var nodes = doc.querySelectorAll ? doc.querySelectorAll('[data-i18n]') : [];
+    for (var i = 0; i < nodes.length; i++) {
+      nodes[i].textContent = t(lang, nodes[i].getAttribute('data-i18n'));
+    }
+    if (root && root.getAttribute && doc.title !== undefined) {
+      var titleKey = root.getAttribute('data-i18n-title');
+      if (titleKey) {
+        doc.title = titleKey === 'appName'
+          ? t(lang, 'appName')
+          : t(lang, titleKey) + ' — ' + t(lang, 'appName');
+      }
+    }
+    var apple = doc.querySelector ? doc.querySelector('meta[name="apple-mobile-web-app-title"]') : null;
+    if (apple) apple.setAttribute('content', t(lang, 'appNameShort'));
+    syncLangChips(doc, lang);
+    return lang;
+  }
+
+  function bindLangPicker(doc, storage, onPick) {
+    if (!doc || !doc.getElementById) return;
+    var picker = doc.getElementById('lang-picker');
+    if (!picker || picker.getAttribute('data-bound') === '1') return;
+    picker.setAttribute('data-bound', '1');
+    picker.addEventListener('click', function (e) {
+      var btn = e.target && e.target.closest ? e.target.closest('[data-lang]') : null;
+      if (!btn) return;
+      var lang = writeLang(storage, btn.getAttribute('data-lang'));
+      if (!lang) return;
+      applyChrome(doc, lang);
+      if (onPick) onPick(lang);
+    });
+  }
+
+  function bindLangSettings(doc, storage, onChange) {
+    if (!doc || (doc.documentElement && doc.documentElement.getAttribute('data-lang-settings-bound') === '1')) return;
+    if (doc.documentElement && doc.documentElement.setAttribute) {
+      doc.documentElement.setAttribute('data-lang-settings-bound', '1');
+    }
+    doc.addEventListener('click', function (e) {
+      var btn = e.target && e.target.closest ? e.target.closest('[data-set-lang]') : null;
+      if (!btn) return;
+      var lang = writeLang(storage, btn.getAttribute('data-set-lang'));
+      if (!lang) return;
+      applyChrome(doc, lang);
+      if (onChange) onChange(lang);
+    });
+  }
+
+  function startLang(doc, storage, onReady) {
+    if (doc) bindLangSettings(doc, storage, onReady);
+    var lang = readLang(storage);
+    if (lang) {
+      if (doc) applyChrome(doc, lang);
+      if (onReady) onReady(lang);
+      return lang;
+    }
+    if (doc) bindLangPicker(doc, storage, onReady);
+    return null;
+  }
+
   function resolveLesson(deps) {
     deps = deps || {};
     var storage = deps.storage;
@@ -124,6 +304,8 @@
     LANE_LABEL: LANE_LABEL,
     LAST_LESSONS_KEY: LAST_LESSONS_KEY,
     LAST_RENDERED_KEY: LAST_RENDERED_KEY,
+    LANG_KEY: LANG_KEY,
+    STRINGS: STRINGS,
     hashStamp: hashStamp,
     pickPersonalized: pickPersonalized,
     pickDailyLesson: pickDailyLesson,
@@ -131,6 +313,13 @@
     readLastLessons: readLastLessons,
     persistLastRendered: persistLastRendered,
     readLastRendered: readLastRendered,
-    resolveLesson: resolveLesson
+    resolveLesson: resolveLesson,
+    normalizeLang: normalizeLang,
+    readLang: readLang,
+    writeLang: writeLang,
+    t: t,
+    formatAimed: formatAimed,
+    applyChrome: applyChrome,
+    startLang: startLang
   };
 });

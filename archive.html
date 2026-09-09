@@ -1,7 +1,19 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr" data-i18n-title="previousLessons">
 <head>
 <meta charset="UTF-8">
+<script>
+(function () {
+  try {
+    var l = localStorage.getItem('dw-lang');
+    if (l === 'en' || l === 'es') {
+      document.documentElement.setAttribute('data-lang-ready', l);
+      document.documentElement.setAttribute('lang', l);
+      document.documentElement.setAttribute('dir', 'ltr');
+    }
+  } catch (e) {}
+})();
+</script>
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#0B0D10">
 <meta name="apple-mobile-web-app-capable" content="yes">
@@ -21,6 +33,7 @@
     padding:env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
   }
   .wrap { max-width:720px; margin:0 auto; padding:24px 20px 64px; }
+  html:not([data-lang-ready]) .wrap { visibility:hidden; }
   .brand { font-size:12px; letter-spacing:0.28em; text-transform:uppercase; color:var(--accent); margin-bottom:6px; }
   .nav-row { display:flex; gap:16px; flex-wrap:wrap; margin:0 0 18px; }
   .back { color:var(--muted); text-decoration:none; font-size:14px; }
@@ -38,61 +51,133 @@
   .t { font-size:18px; font-weight:700; margin-bottom:6px; }
   .s { font-size:14px; color:#d4cfc4; }
   .empty { color:var(--muted); font-size:15px; }
+  .art-fallback { padding:28px 16px; text-align:center; color:var(--muted); font-size:14px; background:#111; }
+  .retry {
+    margin-top:12px; padding:10px 16px; background:transparent; color:var(--accent);
+    border:1px solid var(--line); cursor:pointer; font-size:14px;
+  }
   .footer { margin-top:28px; font-size:13px; color:var(--muted); text-align:center; }
+  .lang-picker {
+    position:fixed; inset:0; z-index:80; background:#0B0D10;
+    display:flex; align-items:center; justify-content:center;
+    padding:max(16px, env(safe-area-inset-top)) max(16px, env(safe-area-inset-right)) max(16px, env(safe-area-inset-bottom)) max(16px, env(safe-area-inset-left));
+    overflow:auto;
+  }
+  html[data-lang-ready] .lang-picker { display:none; }
+  .lang-card {
+    width:min(420px, 100%); max-height:100%; overflow:auto;
+    background:var(--surface); border:1px solid var(--line); border-radius:8px; padding:28px 22px;
+  }
+  .lang-card-title { font-size:18px; font-weight:700; text-align:center; margin-bottom:20px; }
+  .lang-card-actions { display:flex; flex-wrap:wrap; gap:10px; }
+  .lang-card-actions button {
+    flex:1 1 140px; min-height:48px; padding:14px 16px; font-size:16px; font-weight:600;
+    background:var(--accent); color:#0B0D10; border:none; cursor:pointer;
+  }
 </style>
 </head>
 <body>
-  <div class="wrap">
-    <div class="brand">Daily Warrior's Lesson</div>
-    <div class="nav-row">
-      <a class="back" href="./" aria-label="Back to today's lesson">← Today's lesson</a>
-      <a class="back" href="./forge.html">The Forge →</a>
+  <div id="lang-picker" class="lang-picker" role="dialog" aria-modal="true" aria-labelledby="lang-picker-title">
+    <div class="lang-card">
+      <div class="lang-card-title" id="lang-picker-title">Language · Idioma</div>
+      <div class="lang-card-actions">
+        <button type="button" data-lang="en">English</button>
+        <button type="button" data-lang="es">Español</button>
+      </div>
     </div>
-    <h1>Previous Lessons</h1>
+  </div>
+  <div class="wrap">
+    <div class="brand" data-i18n="appName">Daily Warrior's Lesson</div>
+    <div class="nav-row">
+      <a class="back" href="./" data-i18n="backToToday">← Today's lesson</a>
+      <a class="back" href="./forge.html" data-i18n="forgeShortNav">The Forge →</a>
+    </div>
+    <h1 data-i18n="previousLessons">Previous Lessons</h1>
     <div class="list" id="list"><div class="empty">Loading…</div></div>
     <div class="footer">When the game is over, the king and the pawn go back into the same box.</div>
   </div>
 <script src="lesson.js"></script>
 <script>
+  var currentLang = WarriorLesson.readLang(window.localStorage);
+  var lastData = null;
+  var lastError = false;
+
+  function escapeAttr(value) {
+    return String(value || '').replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;');
+  }
+
   function renderArchive(data) {
+    var lang = currentLang || 'en';
     var list = document.getElementById('list');
     var lessons = ((data && data.lessons) || []).slice().sort(function (a, b) {
       return (b.date || '').localeCompare(a.date || '');
     });
     if (!lessons.length) {
-      list.innerHTML = '<div class="empty">No previous lessons yet.</div>';
+      list.innerHTML = '<div class="empty">' + WarriorLesson.t(lang, 'emptyArchive') + '</div>';
       return;
     }
+    var unavailable = WarriorLesson.t(lang, 'imageUnavailable');
     list.innerHTML = lessons.map(function (l) {
       var img = l.image || l.fallback || '';
-      var alt = l.imageAlt || l.title || 'Lesson image';
+      var alt = l.imageAlt || l.title || WarriorLesson.t(lang, 'untitled');
       return '<a class="item" href="./index.html?date=' + encodeURIComponent(l.date) + '">' +
-        (img ? '<img class="thumb" src="' + img + '" alt="' + alt + '" referrerpolicy="no-referrer" decoding="async" onerror="this.style.display=\'none\'">' : '') +
+        (img
+          ? '<img class="thumb" src="' + img + '" alt="' + escapeAttr(alt) + '" referrerpolicy="no-referrer" decoding="async" onerror="this.style.display=\'none\';if(this.nextElementSibling)this.nextElementSibling.style.display=\'block\'">' +
+            '<div class="art-fallback" style="display:none">' + unavailable + '</div>'
+          : '') +
         '<div class="meta">' +
         '<div class="d">' + (l.date || '') + '</div>' +
-        '<div class="t">' + (l.title || 'Untitled lesson') + '</div>' +
+        '<div class="t">' + (l.title || WarriorLesson.t(lang, 'untitled')) + '</div>' +
         '<div class="s">' + (l.source || '') + '</div>' +
         '</div></a>';
     }).join('');
   }
 
-  fetch('lessons.json')
-    .then(function (r) {
-      if (!r.ok) throw new Error('lessons fetch failed');
-      return r.json();
-    })
-    .then(function (data) {
-      try { WarriorLesson.persistLastLessons(window.localStorage, data); } catch (e) {}
-      renderArchive(data);
-    })
-    .catch(function () {
-      var cached = WarriorLesson.readLastLessons(window.localStorage);
-      if (cached) {
-        renderArchive(cached);
-        return;
-      }
-      document.getElementById('list').innerHTML = '<div class="empty">Could not load the archive.</div>';
-    });
+  function showArchiveError() {
+    var lang = currentLang || 'en';
+    var list = document.getElementById('list');
+    list.innerHTML = '<div class="empty">' + WarriorLesson.t(lang, 'archiveError') + '</div>' +
+      '<button type="button" class="retry" id="retry-archive">' + WarriorLesson.t(lang, 'retry') + '</button>';
+    document.getElementById('retry-archive').onclick = loadArchive;
+  }
+
+  function paint(lang) {
+    currentLang = lang;
+    WarriorLesson.applyChrome(document, lang);
+    if (lastError) showArchiveError();
+    else if (lastData) renderArchive(lastData);
+    else document.getElementById('list').innerHTML = '<div class="empty">' + WarriorLesson.t(lang, 'loading') + '</div>';
+  }
+
+  function loadArchive() {
+    lastError = false;
+    fetch('lessons.json')
+      .then(function (r) {
+        if (!r.ok) throw new Error('lessons fetch failed');
+        return r.json();
+      })
+      .then(function (data) {
+        try { WarriorLesson.persistLastLessons(window.localStorage, data); } catch (e) {}
+        lastData = data;
+        lastError = false;
+        if (currentLang) renderArchive(data);
+      })
+      .catch(function () {
+        var cached = WarriorLesson.readLastLessons(window.localStorage);
+        if (cached) {
+          lastData = cached;
+          lastError = false;
+          if (currentLang) renderArchive(cached);
+          return;
+        }
+        lastData = null;
+        lastError = true;
+        if (currentLang) showArchiveError();
+      });
+  }
+
+  WarriorLesson.startLang(document, window.localStorage, paint);
+  loadArchive();
 </script>
 </body>
 </html>

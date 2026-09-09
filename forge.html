@@ -1,7 +1,19 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr" data-i18n-title="forge">
 <head>
 <meta charset="UTF-8">
+<script>
+(function () {
+  try {
+    var l = localStorage.getItem('dw-lang');
+    if (l === 'en' || l === 'es') {
+      document.documentElement.setAttribute('data-lang-ready', l);
+      document.documentElement.setAttribute('lang', l);
+      document.documentElement.setAttribute('dir', 'ltr');
+    }
+  } catch (e) {}
+})();
+</script>
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#0B0D10">
 <meta name="apple-mobile-web-app-capable" content="yes">
@@ -92,11 +104,49 @@
   .crisis a { color:var(--accent); }
   .hidden { display:none; }
   .footer { margin-top:32px; font-size:13px; color:var(--muted); text-align:center; }
+  html:not([data-lang-ready]) .wrap { visibility:hidden; }
+  .lang-picker {
+    position:fixed; inset:0; z-index:80; background:#0B0D10;
+    display:flex; align-items:center; justify-content:center;
+    padding:max(16px, env(safe-area-inset-top)) max(16px, env(safe-area-inset-right)) max(16px, env(safe-area-inset-bottom)) max(16px, env(safe-area-inset-left));
+    overflow:auto;
+  }
+  html[data-lang-ready] .lang-picker { display:none; }
+  .lang-card {
+    width:min(420px, 100%); max-height:100%; overflow:auto;
+    background:var(--surface); border:1px solid var(--line); border-radius:8px; padding:28px 22px;
+  }
+  .lang-card-title { font-size:18px; font-weight:700; text-align:center; margin-bottom:20px; }
+  .lang-card-actions { display:flex; flex-wrap:wrap; gap:10px; }
+  .lang-card-actions button {
+    flex:1 1 140px; min-height:48px; padding:14px 16px; font-size:16px; font-weight:600;
+    background:var(--accent); color:#0B0D10; border:none; cursor:pointer;
+  }
+  .lang-settings {
+    margin-top:28px; padding-top:18px; border-top:1px solid var(--line);
+    display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap;
+  }
+  .lang-settings-label { font-size:12px; letter-spacing:0.16em; text-transform:uppercase; color:var(--muted); }
+  .lang-chips { display:flex; gap:8px; }
+  .lang-chip {
+    min-height:36px; padding:8px 12px; background:transparent; color:var(--ink);
+    border:1px solid var(--line); cursor:pointer; font-size:13px;
+  }
+  .lang-chip.active { border-color:var(--accent); color:var(--accent); }
 </style>
 </head>
 <body>
+  <div id="lang-picker" class="lang-picker" role="dialog" aria-modal="true" aria-labelledby="lang-picker-title">
+    <div class="lang-card">
+      <div class="lang-card-title" id="lang-picker-title">Language · Idioma</div>
+      <div class="lang-card-actions">
+        <button type="button" data-lang="en">English</button>
+        <button type="button" data-lang="es">Español</button>
+      </div>
+    </div>
+  </div>
   <div class="wrap">
-    <div class="brand">The Forge</div>
+    <div class="brand" data-i18n="forgeBrand">The Forge</div>
     <div class="step-count" id="stepCount">Question 1 of 12</div>
 
     <div id="intro">
@@ -126,11 +176,19 @@
         <p style="font-size:15px;color:#d4cfc4">Your daily feed now draws seventy percent from your primary lane and thirty percent from your secondary. Same sources — Stoics, Greene, Scripture, the greats — aimed at your wounds and your fuel instead of served at random.</p>
       </div>
       <button class="btn btn-primary" onclick="applyPath()">Apply to my daily lesson</button>
-      <a class="btn btn-ghost" href="./index.html" style="text-align:center;text-decoration:none;display:block;margin-top:12px">Back to today's lesson</a>
+      <a class="btn btn-ghost" href="./index.html" style="text-align:center;text-decoration:none;display:block;margin-top:12px" data-i18n="backToToday">← Today's lesson</a>
       <div class="footer">When the game is over, the king and the pawn go back into the same box.</div>
+    </div>
+    <div class="lang-settings" id="lang-settings">
+      <span class="lang-settings-label" data-i18n="language">Language</span>
+      <div class="lang-chips">
+        <button type="button" class="lang-chip" data-set-lang="en" aria-pressed="false">English</button>
+        <button type="button" class="lang-chip" data-set-lang="es" aria-pressed="false">Español</button>
+      </div>
     </div>
   </div>
 
+<script src="lesson.js"></script>
 <script>
 const QUESTIONS = [
   { type:'multi', key:'admire', max:3,
@@ -380,6 +438,10 @@ function finish(){
   try { localStorage.setItem('forged_path', JSON.stringify({primary,secondary,lanes,at:Date.now(),answers})); } catch(e){}
 }
 function applyPath(){ window.location.href='./index.html?forged=1'; }
+
+WarriorLesson.startLang(document, window.localStorage, function (lang) {
+  WarriorLesson.applyChrome(document, lang);
+});
 </script>
 </body>
 </html>
