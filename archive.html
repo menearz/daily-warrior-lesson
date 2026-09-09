@@ -179,6 +179,10 @@
 
   WarriorLesson.startLang(document, window.localStorage, paint);
   loadArchive();
+
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('./sw.js').catch(function () {});
+  }
 </script>
 </body>
 </html>

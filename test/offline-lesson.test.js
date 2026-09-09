@@ -126,11 +126,12 @@ test('live catalog latest lesson is Musashi; offline keeps last-rendered', async
 
 test('catalog adds Musashi and Sun Tzu with required fields and cited translations', () => {
   const liveCatalog = require('../lessons.json');
-  const required = ['date', 'title', 'image', 'imageAlt', 'fallback', 'source', 'quote', 'lesson', 'today'];
+  const required = ['date', 'title', 'image', 'imageAlt', 'fallback', 'source', 'quote', 'lesson', 'today', 'lanes'];
   for (const lesson of liveCatalog.lessons) {
     for (const key of required) {
       assert.ok(lesson[key], `${lesson.date || lesson.title} missing ${key}`);
     }
+    assert.ok(Array.isArray(lesson.lanes) && lesson.lanes.length > 0, `${lesson.date} missing lanes`);
   }
   const musashi = liveCatalog.lessons.filter((l) => /Musashi/i.test(l.source));
   const suntzu = liveCatalog.lessons.filter((l) => /Sun Tzu/i.test(l.source));
