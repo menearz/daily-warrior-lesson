@@ -37,6 +37,13 @@ test('index.html registers the service worker without wiping storage first', () 
   assert.match(html, /serviceWorker\.register\s*\(\s*['"]\.\/sw\.js['"]\s*\)/);
 });
 
+test('archive.html registers the service worker for offline catalog images', () => {
+  const html = fs.readFileSync(path.join(root, 'archive.html'), 'utf8');
+  assert.match(html, /serviceWorker\.register\s*\(\s*['"]\.\/sw\.js['"]\s*\)/);
+  assert.doesNotMatch(html, /getRegistrations\s*\(/);
+  assert.doesNotMatch(html, /\.unregister\s*\(/);
+});
+
 test('service worker precaches lessons.json', () => {
   const sw = fs.readFileSync(path.join(root, 'sw.js'), 'utf8');
   assert.match(sw, /lessons\.json/);

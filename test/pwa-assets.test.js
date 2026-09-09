@@ -85,6 +85,7 @@ test('service worker CACHE is past v9 and PRECACHE includes shell, icons, and im
     './icon-192.png',
     './icon-512.png',
     './icon.svg',
+    './favicon.ico',
     './lessons.json',
     './images/2026-09-09.jpg',
     './images/2026-09-08.jpg',
@@ -140,4 +141,16 @@ test('service worker keeps PR #3 lessons.json network-first dual cache', () => {
   assert.match(sw, /c\.put\s*\(\s*req\s*,\s*copy\s*\)/);
   assert.match(sw, /c\.put\s*\(\s*new Request\s*\(\s*["']\.\/lessons\.json["']\s*\)\s*,\s*stable\s*\)/);
   assert.match(sw, /caches\.match\s*\(\s*["']\.\/lessons\.json["']\s*\)/);
+});
+
+test('favicon.ico exists at site root', () => {
+  const buf = fs.readFileSync(path.join(root, 'favicon.ico'));
+  assert.ok(buf.length > 16, 'favicon.ico is not empty');
+});
+
+test('index/archive/forge link favicon.ico', () => {
+  for (const name of ['index.html', 'archive.html', 'forge.html']) {
+    const html = read(name);
+    assert.match(html, /rel=["']icon["'][^>]*href=["']\.\/favicon\.ico["']/);
+  }
 });

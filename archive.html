@@ -21,6 +21,7 @@
 <meta name="apple-mobile-web-app-title" content="Warrior's Lesson">
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
 <link rel="manifest" href="manifest.json">
+<link rel="icon" href="./favicon.ico" sizes="any">
 <link rel="apple-touch-icon" href="icon-192.png">
 <title>Previous Lessons — Daily Warrior's Lesson</title>
 <style>
@@ -178,6 +179,10 @@
 
   WarriorLesson.startLang(document, window.localStorage, paint);
   loadArchive();
+
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('./sw.js').catch(function () {});
+  }
 </script>
 </body>
 </html>
