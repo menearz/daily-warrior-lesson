@@ -2,14 +2,14 @@
   "lessons": [
     {
       "date": "2026-09-09",
-      "title": "Do Nothing of No Use",
-      "image": "./images/2026-09-09.jpg",
-      "imageAlt": "Utagawa Kuniyoshi — Miyamoto Musashi Attacking the Giant Whale (ca. 1847–50), full landscape woodblock triptych",
+      "title": "Hard School of Danger and War",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/8/8f/Battle_of_Issus.jpg",
+      "imageAlt": "Alexander Mosaic (Battle of Issus), House of the Faun, Pompeii — full landscape Roman mosaic, Museo Archeologico Nazionale di Napoli",
       "fallback": "./images/2026-09-09.jpg",
-      "source": "Miyamoto Musashi, The Book of Five Rings, Ground Book (Victor Harris translation)",
-      "quote": "Do nothing which is of no use.",
-      "lesson": "Musashi closed the Ground Book with nine principles for the man who would learn strategy. The last is the most severe: cut what does not serve. Armor and appearance are not the thing. Flourish, posture, the motion that only looks like work—these open the guard. Strategy over raw strength begins with that refusal. Trials forge the economy of a swordsman who keeps only what can cut.",
-      "today": "Before midday, drop one action, habit, or argument that does not serve the work. Do not replace it.",
+      "source": "Arrian, Anabasis of Alexander 2.7 (Alexander’s speech before the Battle of Issus)",
+      "quote": "We of Macedon for generations past have been trained in the hard school of danger and war. Above all, we are free men, and they are slaves.",
+      "lesson": "Trials forge the warrior. Soft living produces soft men. Alexander reminded his Macedonians that their edge was not superior armor or numbers, but the long apprenticeship of hardship that made fearlessness habitual. Strategy over raw strength begins with the training that turns pressure into fuel. The soft enemy waits to be broken by men who have already been forged.",
+      "today": "Choose one discomfort you have been avoiding. Meet it before the day ends. Do not negotiate.",
       "lanes": ["warrior","thinker"]
     },
     {
@@ -74,39 +74,39 @@
     },
     {
       "date": "2026-09-03",
-      "title": "Know the Enemy and Yourself",
+      "title": "Testing Produces Steadfastness",
       "image": "./images/2026-09-03.jpg",
       "imageAlt": "Qiu Ying — Red Cliff (Ming dynasty), full landscape handscroll, Liaoning Provincial Museum",
       "fallback": "./images/2026-09-03.jpg",
-      "source": "Sun Tzu, The Art of War, III.18 (Lionel Giles translation)",
-      "quote": "If you know the enemy and know yourself, you need not fear the result of a hundred battles.",
-      "lesson": "Giles's Sun Tzu does not promise the contest to the loud or the armored. He promises it to the man who has measured both sides. Strategy over raw strength: the fight is decided in knowledge before it is decided in force. Trials forge that honesty—about the opponent's real strength, and about your own. Armor and appearance are not the thing. The warrior who will not study himself is already half-beaten.",
-      "today": "Write two short lists before you act: what is true of the obstacle, and what is true of you. Move only after both are on the page.",
-      "lanes": ["warrior","thinker"]
+      "source": "James 1:2-4",
+      "quote": "Count it all joy, my brothers, when you meet trials of various kinds, for you know that the testing of your faith produces steadfastness. And let steadfastness have its full effect, that you may be perfect and complete, lacking in nothing.",
+      "lesson": "Trials forge the warrior. James does not treat hardship as interruption or accident. Testing produces the steadfastness that finishes the work. Strategy over raw strength: the mind that receives the trial as training converts pressure into completion. Faith under pressure is the point.",
+      "today": "When the next trial arrives, refuse the reflex to resent it. Let steadfastness begin its work.",
+      "lanes": ["faith","warrior"]
     },
     {
       "date": "2026-09-02",
-      "title": "See Distant Things as Close",
+      "title": "Fire Tests the Gold",
       "image": "./images/2026-09-02.jpg",
       "imageAlt": "Hiroshige after Katsukawa Shuntei — The Battle of Kawanakajima (1845), full landscape woodblock",
       "fallback": "./images/2026-09-02.jpg",
-      "source": "Miyamoto Musashi, The Book of Five Rings, Water Book (Victor Harris translation)",
-      "quote": "In strategy it is important to see distant things as if they were close and to take a distanced view of close things.",
-      "lesson": "In the Water Book Musashi trains the gaze: perception strong, sight weak. Stare only at the blade in your face and you miss the campaign; live only in tomorrow and you never cut today. Strategy over raw force is this double vision—hold the far objective as if it were already in reach, and refuse to let the nearest friction swallow the field. Armor and appearance are not the thing. Trials forge a gaze that does not blink with every feint.",
-      "today": "Name the far thing you are actually after. Then take one close action as if that distant thing were already at hand.",
-      "lanes": ["warrior","thinker"]
+      "source": "Seneca, On Providence 5.9",
+      "quote": "Fire is the test of gold; adversity, of strong men.",
+      "lesson": "Seneca, no stranger to Nero’s court and the knife at the throat, treated adversity as the only reliable assay. Soft conditions conceal the alloy. Trials forge the warrior by revealing what will hold and what will melt. Armor and appearance are not the thing; the character that survives the fire is.",
+      "today": "The next pressure is the fire. Do not flinch from it. Let it show what is gold.",
+      "lanes": ["thinker","warrior"]
     },
     {
       "date": "2026-09-01",
-      "title": "Without Fighting",
+      "title": "Difficulties Show the Man",
       "image": "./images/2026-09-01.jpg",
       "imageAlt": "Anonymous Ming painter — cavalry with guandao, detail of Departure Herald / Return Clearing (出警入蹕圖), full landscape painting, National Palace Museum",
       "fallback": "./images/2026-09-01.jpg",
-      "source": "Sun Tzu, The Art of War, III.2 (Lionel Giles translation)",
-      "quote": "Hence to fight and conquer in all your battles is not supreme excellence; supreme excellence consists in breaking the enemy's resistance without fighting.",
-      "lesson": "Sun Tzu ranks the clash itself below the arrangement that makes the clash unnecessary. Strategy over raw strength: baulk the plan, break the will, take the city without the siege. Armor and appearance are not the thing. Trials forge the patience to refuse a fight you have not already won in position and in mind.",
-      "today": "Do not rush the next contest. Spend the morning arranging one condition that makes force less necessary—then move.",
-      "lanes": ["warrior","thinker"]
+      "source": "Epictetus, Discourses 1.24",
+      "quote": "It is difficulties that show what men are.",
+      "lesson": "Trials forge the warrior. Epictetus treated every difficulty as the gymnastic trainer’s match. Without the rough antagonist, capacity stays theoretical. Strategy over raw strength begins with meeting the pressure that reveals the edge.",
+      "today": "Meet the next difficulty as the trainer intended. Then move.",
+      "lanes": ["thinker","warrior"]
     },
     {
       "date": "2026-08-29",
