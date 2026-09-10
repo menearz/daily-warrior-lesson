@@ -1,6 +1,18 @@
 {
   "lessons": [
     {
+      "date": "2026-09-10",
+      "title": "Those Who Have Learned How to Die",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/5/50/Luca_giordano%2C_morte_di_seneca%2C_1684-85_ca..JPG",
+      "imageAlt": "Luca Giordano — The Death of Seneca (c. 1684–85), full landscape painting, Louvre Museum",
+      "fallback": "./images/2026-09-10.jpg",
+      "source": "Seneca, Moral Letters to Lucilius 26",
+      "quote": "Those who have learned how to die have unlearned how to be slaves.",
+      "lesson": "Fearlessness is not swagger. It is the quiet rehearsal that removes the only chain that binds a free man—the love of life as something that can be taken. Trials forge the warrior by teaching that the external can touch the body and the reputation, but never the citadel. Strategy over raw strength begins with the knowledge that the box waits for both king and pawn. Armor and appearance are not the thing.",
+      "today": "Rehearse one small ending today. Release one attachment that has been owning your attention. Then return to the work.",
+      "lanes": ["thinker","warrior"]
+    },
+    {
       "date": "2026-09-09",
       "title": "Hard School of Danger and War",
       "image": "https://upload.wikimedia.org/wikipedia/commons/8/8f/Battle_of_Issus.jpg",

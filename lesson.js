@@ -70,16 +70,16 @@
   };
 
   var DEFAULT_LESSON = {
-    date: "2026-09-09",
-    title: "Hard School of Danger and War",
-    image: "https://upload.wikimedia.org/wikipedia/commons/8/8f/Battle_of_Issus.jpg",
-    imageAlt: "Alexander Mosaic (Battle of Issus), House of the Faun, Pompeii — full landscape Roman mosaic, Museo Archeologico Nazionale di Napoli",
-    fallback: "./images/2026-09-09.jpg",
-    source: "Arrian, Anabasis of Alexander 2.7 (Alexander’s speech before the Battle of Issus)",
-    quote: "We of Macedon for generations past have been trained in the hard school of danger and war. Above all, we are free men, and they are slaves.",
-    lesson: "Trials forge the warrior. Soft living produces soft men. Alexander reminded his Macedonians that their edge was not superior armor or numbers, but the long apprenticeship of hardship that made fearlessness habitual. Strategy over raw strength begins with the training that turns pressure into fuel. The soft enemy waits to be broken by men who have already been forged.",
-    today: "Choose one discomfort you have been avoiding. Meet it before the day ends. Do not negotiate.",
-    lanes: ["warrior","thinker"]
+    date: "2026-09-10",
+    title: "Those Who Have Learned How to Die",
+    image: "https://upload.wikimedia.org/wikipedia/commons/5/50/Luca_giordano%2C_morte_di_seneca%2C_1684-85_ca..JPG",
+    imageAlt: "Luca Giordano — The Death of Seneca (c. 1684–85), full landscape painting, Louvre Museum",
+    fallback: "./images/2026-09-10.jpg",
+    source: "Seneca, Moral Letters to Lucilius 26",
+    quote: "Those who have learned how to die have unlearned how to be slaves.",
+    lesson: "Fearlessness is not swagger. It is the quiet rehearsal that removes the only chain that binds a free man—the love of life as something that can be taken. Trials forge the warrior by teaching that the external can touch the body and the reputation, but never the citadel. Strategy over raw strength begins with the knowledge that the box waits for both king and pawn. Armor and appearance are not the thing.",
+    today: "Rehearse one small ending today. Release one attachment that has been owning your attention. Then return to the work.",
+    lanes: ["thinker","warrior"]
   };
 
   var LANE_LABEL = {warrior:'Warrior',thinker:'Thinker',builder:'Builder',power:'Power',faith:'Faith',odyssey:'Odyssey'};
