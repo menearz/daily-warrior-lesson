@@ -33,7 +33,7 @@
     {
       "date": "2026-09-09",
       "title": "Hard School of Danger and War",
-      "image": "https://upload.wikimedia.org/wikipedia/commons/8/8f/Battle_of_Issus.jpg",
+      "image": "./images/2026-09-09.jpg",
       "imageAlt": "Alexander Mosaic (Battle of Issus), House of the Faun, Pompeii — full landscape Roman mosaic, Museo Archeologico Nazionale di Napoli",
       "fallback": "./images/2026-09-09.jpg",
       "source": "Arrian, Anabasis of Alexander 2.7 (Alexander’s speech before the Battle of Issus)",
