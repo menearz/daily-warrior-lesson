@@ -1,6 +1,21 @@
 {
   "lessons": [
     {
+      "date": "2026-09-11",
+      "title": "Nobody by Fraud and Not by Force",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/f/fe/Polyphemus_Eleusis_2630.jpg",
+      "imageAlt": "Proto-Attic Eleusis amphora (~660 BC) — Odysseus and companions blinding Polyphemus (detail), Archaeological Museum of Eleusis",
+      "fallback": "./images/2026-09-11.jpg",
+      "source": "Homer, Odyssey Book IX (Samuel Butler translation)",
+      "quote": "Noman is killing me by fraud; no man is killing me by force.",
+      "lesson": "The giant had the door and the strength. Odysseus had a name he could spend. He did not meet force with force; he made himself nobody, did the work in the dark, and walked out under the flock. Craft is not cowardice. It is refusing to fight on the enemy’s terms when those terms get you eaten.",
+      "today": "Before you push a hard door today, ask whether a quieter path exists—then take that path until you are clear.",
+      "lanes": [
+        "odyssey",
+        "warrior"
+      ]
+    },
+    {
       "date": "2026-09-10",
       "title": "Those Who Have Learned How to Die",
       "image": "https://upload.wikimedia.org/wikipedia/commons/5/50/Luca_giordano%2C_morte_di_seneca%2C_1684-85_ca..JPG",
@@ -10,7 +25,10 @@
       "quote": "Those who have learned how to die have unlearned how to be slaves.",
       "lesson": "Fearlessness is not swagger. It is the quiet rehearsal that removes the only chain that binds a free man—the love of life as something that can be taken. Trials forge the warrior by teaching that the external can touch the body and the reputation, but never the citadel. Strategy over raw strength begins with the knowledge that the box waits for both king and pawn. Armor and appearance are not the thing.",
       "today": "Rehearse one small ending today. Release one attachment that has been owning your attention. Then return to the work.",
-      "lanes": ["thinker","warrior"]
+      "lanes": [
+        "thinker",
+        "warrior"
+      ]
     },
     {
       "date": "2026-09-09",
@@ -22,7 +40,10 @@
       "quote": "We of Macedon for generations past have been trained in the hard school of danger and war. Above all, we are free men, and they are slaves.",
       "lesson": "Trials forge the warrior. Soft living produces soft men. Alexander reminded his Macedonians that their edge was not superior armor or numbers, but the long apprenticeship of hardship that made fearlessness habitual. Strategy over raw strength begins with the training that turns pressure into fuel. The soft enemy waits to be broken by men who have already been forged.",
       "today": "Choose one discomfort you have been avoiding. Meet it before the day ends. Do not negotiate.",
-      "lanes": ["warrior","thinker"]
+      "lanes": [
+        "warrior",
+        "thinker"
+      ]
     },
     {
       "date": "2026-09-08",
@@ -34,7 +55,10 @@
       "quote": "The impediment to action advances action. What stands in the way becomes the way.",
       "lesson": "Trials forge the warrior. The thing that blocks your path is not an interruption — it is the raw material of the next move. Adapt. Convert the obstacle into advantage. Strategy over raw strength: the mind turns hindrance into the road itself.",
       "today": "Name one obstacle in front of you this morning. Stop cursing it. Convert it into the next concrete action before midday.",
-      "lanes": ["thinker","warrior"]
+      "lanes": [
+        "thinker",
+        "warrior"
+      ]
     },
     {
       "date": "2026-09-07",
@@ -46,7 +70,10 @@
       "quote": "I judge you unfortunate because you have never been unfortunate. You have passed through life without an opponent; no one can ever know what you are capable of, not even you.",
       "lesson": "Trials forge the warrior. Seneca treated adversity as the only reliable proof of capacity. Without the rough antagonist, strength stays theoretical—untested, unknown even to its owner. Strategy over raw force begins with meeting the pressure that reveals the edge. Armor and appearance are not the thing; the character that holds under fire is.",
       "today": "When friction appears today, do not dodge it. Meet it as the opponent that will show you what you are.",
-      "lanes": ["thinker","warrior"]
+      "lanes": [
+        "thinker",
+        "warrior"
+      ]
     },
     {
       "date": "2026-09-06",
@@ -58,7 +85,10 @@
       "quote": "Don't you know that a good and excellent person does nothing for the sake of appearances, but only for the sake of having acted right?",
       "lesson": "Armor and appearance are not the thing. The warrior who postures for the gallery has already surrendered the real contest. Epictetus, in the Socratic line, insists the good man acts solely because the action is right—not for applause, reputation, or the look of courage. Trials forge that quiet integrity. Strategy over raw strength begins with the decision no one else can see.",
       "today": "Do one necessary thing today that earns no notice. Let the character hold.",
-      "lanes": ["thinker","warrior"]
+      "lanes": [
+        "thinker",
+        "warrior"
+      ]
     },
     {
       "date": "2026-09-05",
@@ -70,7 +100,10 @@
       "quote": "It is difficulties that show what men are. For the future, in case of any difficulty, remember that God, like a gymnastic trainer, has pitted you against a rough antagonist.",
       "lesson": "Trials do not merely test the warrior—they reveal him. Epictetus, once a slave under a brutal master, treated every hardship as the trainer’s match: not punishment, but the only route to real strength. The rough antagonist is the forge. Strategy over raw force means meeting the difficulty as the sparring partner that builds the capacity you will need next. Armor and appearance are not the thing; the character that holds under pressure is.",
       "today": "The next friction is your rough antagonist. Meet it as the trainer intended—then move.",
-      "lanes": ["thinker","warrior"]
+      "lanes": [
+        "thinker",
+        "warrior"
+      ]
     },
     {
       "date": "2026-09-04",
@@ -82,7 +115,10 @@
       "quote": "Endure, o heart. At other times, you have endured worse; on that day when the Cyclops ate my strong companions: and yet you did hold out so that your ingenuity could bring you out of the cave, where you had believed that you would die.",
       "lesson": "Odysseus does not trust the armor of appearance or raw force. When his heart snarls for immediate blood, he strikes his own breast and recalls the cave. Trials forge the warrior. The same cunning that outlasted the Cyclops is what waits for the suitors. Strategy over strength; endurance under pressure is the real weapon.",
       "today": "When the next trial presses, remind the heart what it has already survived. Then move with the ingenuity that got you this far.",
-      "lanes": ["warrior","odyssey"]
+      "lanes": [
+        "warrior",
+        "odyssey"
+      ]
     },
     {
       "date": "2026-09-03",
@@ -94,7 +130,10 @@
       "quote": "Count it all joy, my brothers, when you meet trials of various kinds, for you know that the testing of your faith produces steadfastness. And let steadfastness have its full effect, that you may be perfect and complete, lacking in nothing.",
       "lesson": "Trials forge the warrior. James does not treat hardship as interruption or accident. Testing produces the steadfastness that finishes the work. Strategy over raw strength: the mind that receives the trial as training converts pressure into completion. Faith under pressure is the point.",
       "today": "When the next trial arrives, refuse the reflex to resent it. Let steadfastness begin its work.",
-      "lanes": ["faith","warrior"]
+      "lanes": [
+        "faith",
+        "warrior"
+      ]
     },
     {
       "date": "2026-09-02",
@@ -106,7 +145,10 @@
       "quote": "Fire is the test of gold; adversity, of strong men.",
       "lesson": "Seneca, no stranger to Nero’s court and the knife at the throat, treated adversity as the only reliable assay. Soft conditions conceal the alloy. Trials forge the warrior by revealing what will hold and what will melt. Armor and appearance are not the thing; the character that survives the fire is.",
       "today": "The next pressure is the fire. Do not flinch from it. Let it show what is gold.",
-      "lanes": ["thinker","warrior"]
+      "lanes": [
+        "thinker",
+        "warrior"
+      ]
     },
     {
       "date": "2026-09-01",
@@ -118,7 +160,10 @@
       "quote": "It is difficulties that show what men are.",
       "lesson": "Trials forge the warrior. Epictetus treated every difficulty as the gymnastic trainer’s match. Without the rough antagonist, capacity stays theoretical. Strategy over raw strength begins with meeting the pressure that reveals the edge.",
       "today": "Meet the next difficulty as the trainer intended. Then move.",
-      "lanes": ["thinker","warrior"]
+      "lanes": [
+        "thinker",
+        "warrior"
+      ]
     },
     {
       "date": "2026-08-29",
@@ -130,7 +175,10 @@
       "quote": "The impediment to action advances action. What stands in the way becomes the way.",
       "lesson": "Trials do not merely test the warrior—they forge him. The obstacle is never pure interruption; it is raw material. Marcus, writing from the frontier while commanding legions, understood that adaptation converts resistance into propulsion. Strategy over raw strength: the mind that refuses to treat the block as final turns it into the next step of the path.",
       "today": "When the first friction appears—delay, resistance, unexpected demand—pause once. Ask only: how does this advance the mission? Then move.",
-      "lanes": ["thinker","warrior"]
+      "lanes": [
+        "thinker",
+        "warrior"
+      ]
     },
     {
       "date": "2026-08-28",
@@ -142,7 +190,10 @@
       "quote": "Thou comest to me with a sword, and with a spear, and with a shield: but I come to thee in the name of the LORD of hosts… for the battle is the LORD's.",
       "lesson": "Goliath was a giant in armor and reputation. David was a shepherd with a sling. The army saw size and trembled. David saw defiance against the living God and remembered the lion and the bear. Faith doesn't deny the giant — it refuses to let the giant set the terms.",
       "today": "Name your Goliath. Don't match it with borrowed armor. Stand in what God has already proven in you.",
-      "lanes": ["faith","warrior"]
+      "lanes": [
+        "faith",
+        "warrior"
+      ]
     }
   ]
 }

@@ -70,16 +70,16 @@
   };
 
   var DEFAULT_LESSON = {
-    date: "2026-09-10",
-    title: "Those Who Have Learned How to Die",
-    image: "https://upload.wikimedia.org/wikipedia/commons/5/50/Luca_giordano%2C_morte_di_seneca%2C_1684-85_ca..JPG",
-    imageAlt: "Luca Giordano — The Death of Seneca (c. 1684–85), full landscape painting, Louvre Museum",
-    fallback: "./images/2026-09-10.jpg",
-    source: "Seneca, Moral Letters to Lucilius 26",
-    quote: "Those who have learned how to die have unlearned how to be slaves.",
-    lesson: "Fearlessness is not swagger. It is the quiet rehearsal that removes the only chain that binds a free man—the love of life as something that can be taken. Trials forge the warrior by teaching that the external can touch the body and the reputation, but never the citadel. Strategy over raw strength begins with the knowledge that the box waits for both king and pawn. Armor and appearance are not the thing.",
-    today: "Rehearse one small ending today. Release one attachment that has been owning your attention. Then return to the work.",
-    lanes: ["thinker","warrior"]
+    date: "2026-09-11",
+    title: "Nobody by Fraud and Not by Force",
+    image: "https://upload.wikimedia.org/wikipedia/commons/f/fe/Polyphemus_Eleusis_2630.jpg",
+    imageAlt: "Proto-Attic Eleusis amphora (~660 BC) — Odysseus and companions blinding Polyphemus (detail), Archaeological Museum of Eleusis",
+    fallback: "./images/2026-09-11.jpg",
+    source: "Homer, Odyssey Book IX (Samuel Butler translation)",
+    quote: "Noman is killing me by fraud; no man is killing me by force.",
+    lesson: "The giant had the door and the strength. Odysseus had a name he could spend. He did not meet force with force; he made himself nobody, did the work in the dark, and walked out under the flock. Craft is not cowardice. It is refusing to fight on the enemy’s terms when those terms get you eaten.",
+    today: "Before you push a hard door today, ask whether a quieter path exists—then take that path until you are clear.",
+    lanes: ["odyssey","warrior"]
   };
 
   var LANE_LABEL = {warrior:'Warrior',thinker:'Thinker',builder:'Builder',power:'Power',faith:'Faith',odyssey:'Odyssey'};
