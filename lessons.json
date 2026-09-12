@@ -1,6 +1,21 @@
 {
   "lessons": [
     {
+      "date": "2026-09-12",
+      "title": "Discipline Is the Soul of an Army",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/2/2b/Washington-at-ValleyForge.jpg",
+      "imageAlt": "Edward P. Moran / Percy Moran — Washington at Valley Forge, full landscape print, Library of Congress",
+      "fallback": "./images/2026-09-04.jpg",
+      "source": "George Washington, Instructions to the Captains of the Virginia Regiments, 29 July 1759",
+      "quote": "Discipline is the soul of an army. It makes small numbers formidable, procures success to the weak, and esteem to all.",
+      "lesson": "Washington did not wait for numbers or pretty uniforms. He forged a line that could hold by making discipline the weapon. Trials at Valley Forge did not invent that principle; they proved it. Armor and appearance are not the thing. Brotherhood without order is a crowd. Strategy over raw strength begins with the daily habits that make a small force dangerous.",
+      "today": "Pick one standard you have been letting slip. Enforce it before noon. No audience required.",
+      "lanes": [
+        "warrior",
+        "thinker"
+      ]
+    },
+    {
       "date": "2026-09-11",
       "title": "Nobody by Fraud and Not by Force",
       "image": "https://upload.wikimedia.org/wikipedia/commons/f/fe/Polyphemus_Eleusis_2630.jpg",
@@ -154,7 +169,7 @@
       "date": "2026-09-01",
       "title": "Difficulties Show the Man",
       "image": "./images/2026-09-01.jpg",
-      "imageAlt": "Anonymous Ming painter — cavalry with guandao, detail of Departure Herald / Return Clearing (出警入蹕圖), full landscape painting, National Palace Museum",
+      "imageAlt": "Anonymous Ming painter — cavalry with guandao, detail of Departure Herald / Return Clearing (出警入軯圖), full landscape painting, National Palace Museum",
       "fallback": "./images/2026-09-01.jpg",
       "source": "Epictetus, Discourses 1.24",
       "quote": "It is difficulties that show what men are.",
