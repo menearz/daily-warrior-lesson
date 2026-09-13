@@ -1,6 +1,21 @@
 {
   "lessons": [
     {
+      "date": "2026-09-13",
+      "title": "Iron Sharpens Iron",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/2/2b/Washington-at-ValleyForge.jpg",
+      "imageAlt": "Edward P. Moran / Percy Moran — Washington at Valley Forge, full landscape print, Library of Congress",
+      "fallback": "./images/2026-09-04.jpg",
+      "source": "Proverbs 27:17 (King James Version)",
+      "quote": "Iron sharpeneth iron; so a man sharpeneth the countenance of his friend.",
+      "lesson": "Brotherhood is not comfort. Two edges only get sharp by friction. Soft company leaves a dull blade; a true friend applies pressure that refines the face you take into the fight. Armor and appearance are not the thing. Trials forge the warrior in the presence of another man who will not let him stay blunt. Strategy over raw strength begins with the companion who tells you the truth.",
+      "today": "Pick one man who will not flatter you. Ask him one hard question about your work before nightfall. Take the edge he gives you.",
+      "lanes": [
+        "faith",
+        "warrior"
+      ]
+    },
+    {
       "date": "2026-09-12",
       "title": "Discipline Is the Soul of an Army",
       "image": "https://upload.wikimedia.org/wikipedia/commons/2/2b/Washington-at-ValleyForge.jpg",
@@ -169,7 +184,7 @@
       "date": "2026-09-01",
       "title": "Difficulties Show the Man",
       "image": "./images/2026-09-01.jpg",
-      "imageAlt": "Anonymous Ming painter — cavalry with guandao, detail of Departure Herald / Return Clearing (出警入軯圖), full landscape painting, National Palace Museum",
+      "imageAlt": "Anonymous Ming painter — cavalry with guandao, detail of Departure Herald / Return Clearing (出警入軹圖), full landscape painting, National Palace Museum",
       "fallback": "./images/2026-09-01.jpg",
       "source": "Epictetus, Discourses 1.24",
       "quote": "It is difficulties that show what men are.",
