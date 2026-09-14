@@ -1,6 +1,21 @@
 {
   "lessons": [
     {
+      "date": "2026-09-14",
+      "title": "Plan All the Way to the End",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/2/2b/Washington-at-ValleyForge.jpg",
+      "imageAlt": "Edward P. Moran / Percy Moran — Washington at Valley Forge, full landscape print, Library of Congress",
+      "fallback": "./images/2026-09-04.jpg",
+      "source": "Robert Greene, The 48 Laws of Power, Law 29",
+      "quote": "The ending is everything. Plan all the way to it, taking into account all the possible consequences, obstacles, and twists of fortune that might reverse your hard work and give the glory to others.",
+      "lesson": "Raw strength starts the charge. Strategy finishes it. Greene’s point is not caution for its own sake—it is refusing to spend a campaign you have not already walked to the last square. Armor and appearance are not the thing. The man who looks fierce at the opening and empty at the close is already beaten. Trials forge the warrior who can see the end while he is still in the mud.",
+      "today": "Before you commit to the next hard move, write the last step first. If you cannot name the end, do not start the middle.",
+      "lanes": [
+        "power",
+        "warrior"
+      ]
+    },
+    {
       "date": "2026-09-13",
       "title": "Iron Sharpens Iron",
       "image": "https://upload.wikimedia.org/wikipedia/commons/2/2b/Washington-at-ValleyForge.jpg",
