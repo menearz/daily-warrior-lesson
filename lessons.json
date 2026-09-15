@@ -1,6 +1,21 @@
 {
   "lessons": [
     {
+      "date": "2026-09-15",
+      "title": "Better Than the Mighty",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/2/29/Krak_des_Chevaliers_landscape.jpg",
+      "imageAlt": "Krak des Chevaliers in full landscape — Hospitaller crusader castle above the Homs gap, Syria (photo Ergo, CC BY 2.0)",
+      "fallback": "./images/2026-09-04.jpg",
+      "source": "Proverbs 16:32 (King James Version)",
+      "quote": "He that is slow to anger is better than the mighty; and he that ruleth his spirit than he that taketh a city.",
+      "lesson": "Strategy over raw strength. Storming a city is the kind of power other men can see. Ruling the spirit is the siege no one applauds. Armor and appearance are not the thing. The Hospitallers who held Krak des Chevaliers did not survive on stone alone; a garrison that cannot command itself loses the wall from the inside. Faith under pressure is self-command when the temper wants the cheap victory.",
+      "today": "The first flash of anger is the city you do not need to take. Rule the spirit before noon. Do the next necessary thing without the outburst.",
+      "lanes": [
+        "faith",
+        "warrior"
+      ]
+    },
+    {
       "date": "2026-09-14",
       "title": "Plan All the Way to the End",
       "image": "https://upload.wikimedia.org/wikipedia/commons/2/2b/Washington-at-ValleyForge.jpg",
