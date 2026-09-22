@@ -1,1 +1,76 @@
-{"lessons":[{"date":"2026-09-21","title":"Hold the Post","image":"https://menearz.github.io/daily-warrior-lesson/images/2026-09-06.jpg","imageAlt":"Jacques-Louis David — The Death of Socrates (1787), full painting, Metropolitan Museum of Art","fallback":"./images/2026-09-06.jpg","source":"Plato, Apology 28d–29a (Benjamin Jowett translation)","quote":"Wherever a man's place is, whether the place which he has chosen or that in which he has been placed by a commander, there he ought to remain in the hour of danger.","lesson":"Socrates is on trial for his life and still talks like a hoplite. He reminds Athens that at Potidaea and Delium he kept the station the generals gave him. The same rule now holds in the city: the examined life is a post, not a costume. Armor and appearance are not the thing. Trials forge the warrior who does not renegotiate the assignment when the sentence comes due. Strategy over raw strength is remaining where duty put you instead of spending the hour on a prettier exit.","today":"Name the post that is actually yours this morning. Stay on it through the first hard hour. Do not invent a better assignment.","lanes":["thinker","warrior"]},{"date":"2026-09-20","title":"Death Ground","image":"https://upload.wikimedia.org/wikipedia/commons/2/2b/Washington-at-ValleyForge.jpg","imageAlt":"Edward P. Moran / Percy Moran — Washington at Valley Forge, full landscape print, Library of Congress","fallback":"./images/2026-09-04.jpg","source":"Robert Greene, The 33 Strategies of War, Strategy 4 — The Death-Ground Strategy","quote":"Place yourself on \"death ground,\" where your back is against the wall and you have to fight like hell to get out alive.","lesson":"Comfort dilutes the will. Greene's point, drawn from Sun Tzu and Cortés burning the ships, is that a man with an easy exit never spends his full strength. Trials forge the warrior when the back is actually on the wall. Armor and appearance are not the thing—a parade ground looks fierce and still folds. Strategy over raw strength is the choice to cut the retreat so the present work gets the whole mind.","today":"Remove one escape hatch before noon. Pick the task you have been half-doing and give it no other option but finish.","lanes":["power","warrior"]},{"date":"2026-09-19","title":"The First Transformation","image":"https://upload.wikimedia.org/wikipedia/commons/9/96/The_Iron_Forge_Viewed_from_Without.jpg","imageAlt":"Joseph Wright of Derby — An Iron Forge Viewed from Without (1773), full landscape painting, Hermitage Museum","fallback":"./images/2026-09-04.jpg","source":"Robert Greene, Mastery, The Apprenticeship Phase","quote":"The goal of an apprenticeship is not money, a good position, a title, or a diploma, but rather the transformation of your mind and character—the first transformation on the way to mastery.","lesson":"Mastery through struggle is the point. Armor and appearance are not the thing—neither is the title you want to wear before the work has remade you. Greene’s first transformation is the forge: impatience and scattered appetite become discipline and a mind that can hold complexity. Trials forge the warrior who stays in the shop long enough to be changed. Strategy over raw strength begins with valuing the learning more than the pay of the hour.","today":"Choose the task that teaches over the one that merely pays or flatters. Stay in it past the first boredom. Let the work alter you before noon.","lanes":["builder","warrior"]},{"date":"2026-09-18","title":"If Thou Faint","image":"https://upload.wikimedia.org/wikipedia/commons/8/87/Taking_of_Jerusalem_by_the_Crusaders%2C_15th_July_1099.jpg","imageAlt":"Emile Signol — Taking of Jerusalem by the Crusaders, 15 July 1099, full landscape painting, Palace of Versailles","fallback":"./images/2026-09-04.jpg","source":"Proverbs 24:10 (King James Version)","quote":"If thou faint in the day of adversity, thy strength is small.","lesson":"Trials forge the warrior. Easy weather does not measure a man. The day of adversity is the only scale that counts. Armor and appearance are not the thing—you can look formidable on parade and still fold when the wall is actually hit. Faith under pressure is remaining on the post after the first shock. Strategy over raw strength starts here: do not spend a strength you have not proved under fire.","today":"Name the adversity already on the calendar. Meet it before noon without the collapse you rehearsed in your head.","lanes":["faith","warrior"]},{"date":"2026-09-17","title":"Life Is a Warfare","image":"https://menearz.github.io/daily-warrior-lesson/images/2026-09-08.jpg","imageAlt":"Hubert Robert — Equestrian Statue of Marcus Aurelius on the Capitoline (1757), full landscape drawing, Metropolitan Museum of Art","fallback":"./images/2026-09-08.jpg","source":"Marcus Aurelius, Meditations 2.17 (George Long translation)","quote":"Life is a warfare and a stranger's sojourn, and after-fame is oblivion.","lesson":"Armor and appearance are not the thing. Marcus wrote as emperor on campaign: body a stream, soul a vapor, fame a fog. The campaign is the life. Trials forge the warrior because the field does not pause for reputation. Strategy over raw strength is philosophy—one governing mind that holds when the sojourn turns hard. After-fame is oblivion; the work is the watch you keep today.","today":"Treat one inconvenience as the campaign, not an insult. Hold the post. Do the next necessary thing without asking who will remember it.","lanes":["thinker","warrior"]}]}
+{
+  "lessons": [
+    {
+      "date": "2026-09-22",
+      "title": "Disturbed by Judgments",
+      "image": "https://menearz.github.io/daily-warrior-lesson/images/2026-09-08.jpg",
+      "imageAlt": "Hubert Robert — Equestrian Statue of Marcus Aurelius on the Capitoline (1757), full landscape drawing, Metropolitan Museum of Art",
+      "fallback": "./images/2026-09-08.jpg",
+      "source": "Epictetus, Enchiridion 5 (George Long translation)",
+      "quote": "Men are disturbed, not by things, but by the principles and notions which they form concerning things.",
+      "lesson": "Armor and appearance are not the thing. The blow is public; the wound is the story you tell about it. Epictetus wrote this as a man who had been a slave: events stay events. What breaks the post is the judgment that the event is an insult, a verdict, a reason to leave the work. Trials forge the warrior who keeps the fact and drops the extra meaning. Strategy over raw strength is command of the inner report, not a louder reply.",
+      "today": "When the first hard thing lands this morning, name the fact in one sentence. Then refuse the second sentence that turns it into an injury.",
+      "lanes": ["thinker", "warrior"]
+    },
+    {
+      "date": "2026-09-21",
+      "title": "Hold the Post",
+      "image": "https://menearz.github.io/daily-warrior-lesson/images/2026-09-06.jpg",
+      "imageAlt": "Jacques-Louis David — The Death of Socrates (1787), full painting, Metropolitan Museum of Art",
+      "fallback": "./images/2026-09-06.jpg",
+      "source": "Plato, Apology 28d–29a (Benjamin Jowett translation)",
+      "quote": "Wherever a man's place is, whether the place which he has chosen or that in which he has been placed by a commander, there he ought to remain in the hour of danger.",
+      "lesson": "Socrates is on trial for his life and still talks like a hoplite. He reminds Athens that at Potidaea and Delium he kept the station the generals gave him. The same rule now holds in the city: the examined life is a post, not a costume. Armor and appearance are not the thing. Trials forge the warrior who does not renegotiate the assignment when the sentence comes due. Strategy over raw strength is remaining where duty put you instead of spending the hour on a prettier exit.",
+      "today": "Name the post that is actually yours this morning. Stay on it through the first hard hour. Do not invent a better assignment.",
+      "lanes": ["thinker", "warrior"]
+    },
+    {
+      "date": "2026-09-20",
+      "title": "Death Ground",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/2/2b/Washington-at-ValleyForge.jpg",
+      "imageAlt": "Edward P. Moran / Percy Moran — Washington at Valley Forge, full landscape print, Library of Congress",
+      "fallback": "./images/2026-09-04.jpg",
+      "source": "Robert Greene, The 33 Strategies of War, Strategy 4 — The Death-Ground Strategy",
+      "quote": "Place yourself on \"death ground,\" where your back is against the wall and you have to fight like hell to get out alive.",
+      "lesson": "Comfort dilutes the will. Greene's point, drawn from Sun Tzu and Cortés burning the ships, is that a man with an easy exit never spends his full strength. Trials forge the warrior when the back is actually on the wall. Armor and appearance are not the thing—a parade ground looks fierce and still folds. Strategy over raw strength is the choice to cut the retreat so the present work gets the whole mind.",
+      "today": "Remove one escape hatch before noon. Pick the task you have been half-doing and give it no other option but finish.",
+      "lanes": ["power", "warrior"]
+    },
+    {
+      "date": "2026-09-19",
+      "title": "The First Transformation",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/9/96/The_Iron_Forge_Viewed_from_Without.jpg",
+      "imageAlt": "Joseph Wright of Derby — An Iron Forge Viewed from Without (1773), full landscape painting, Hermitage Museum",
+      "fallback": "./images/2026-09-04.jpg",
+      "source": "Robert Greene, Mastery, The Apprenticeship Phase",
+      "quote": "The goal of an apprenticeship is not money, a good position, a title, or a diploma, but rather the transformation of your mind and character—the first transformation on the way to mastery.",
+      "lesson": "Mastery through struggle is the point. Armor and appearance are not the thing—neither is the title you want to wear before the work has remade you. Greene’s first transformation is the forge: impatience and scattered appetite become discipline and a mind that can hold complexity. Trials forge the warrior who stays in the shop long enough to be changed. Strategy over raw strength begins with valuing the learning more than the pay of the hour.",
+      "today": "Choose the task that teaches over the one that merely pays or flatters. Stay in it past the first boredom. Let the work alter you before noon.",
+      "lanes": ["builder", "warrior"]
+    },
+    {
+      "date": "2026-09-18",
+      "title": "If Thou Faint",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/8/87/Taking_of_Jerusalem_by_the_Crusaders%2C_15th_July_1099.jpg",
+      "imageAlt": "Emile Signol — Taking of Jerusalem by the Crusaders, 15 July 1099, full landscape painting, Palace of Versailles",
+      "fallback": "./images/2026-09-04.jpg",
+      "source": "Proverbs 24:10 (King James Version)",
+      "quote": "If thou faint in the day of adversity, thy strength is small.",
+      "lesson": "Trials forge the warrior. Easy weather does not measure a man. The day of adversity is the only scale that counts. Armor and appearance are not the thing—you can look formidable on parade and still fold when the wall is actually hit. Faith under pressure is remaining on the post after the first shock. Strategy over raw strength starts here: do not spend a strength you have not proved under fire.",
+      "today": "Name the adversity already on the calendar. Meet it before noon without the collapse you rehearsed in your head.",
+      "lanes": ["faith", "warrior"]
+    },
+    {
+      "date": "2026-09-17",
+      "title": "Life Is a Warfare",
+      "image": "https://menearz.github.io/daily-warrior-lesson/images/2026-09-08.jpg",
+      "imageAlt": "Hubert Robert — Equestrian Statue of Marcus Aurelius on the Capitoline (1757), full landscape drawing, Metropolitan Museum of Art",
+      "fallback": "./images/2026-09-08.jpg",
+      "source": "Marcus Aurelius, Meditations 2.17 (George Long translation)",
+      "quote": "Life is a warfare and a stranger's sojourn, and after-fame is oblivion.",
+      "lesson": "Armor and appearance are not the thing. Marcus wrote as emperor on campaign: body a stream, soul a vapor, fame a fog. The campaign is the life. Trials forge the warrior because the field does not pause for reputation. Strategy over raw strength is philosophy—one governing mind that holds when the sojourn turns hard. After-fame is oblivion; the work is the watch you keep today.",
+      "today": "Treat one inconvenience as the campaign, not an insult. Hold the post. Do the next necessary thing without asking who will remember it.",
+      "lanes": ["thinker", "warrior"]
+    }
+  ]
+}
