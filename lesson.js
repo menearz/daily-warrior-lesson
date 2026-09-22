@@ -70,16 +70,16 @@
   };
 
   var DEFAULT_LESSON = {
-    date: "2026-09-11",
-    title: "Nobody by Fraud and Not by Force",
-    image: "https://upload.wikimedia.org/wikipedia/commons/f/fe/Polyphemus_Eleusis_2630.jpg",
-    imageAlt: "Proto-Attic Eleusis amphora (~660 BC) — Odysseus and companions blinding Polyphemus (detail), Archaeological Museum of Eleusis",
-    fallback: "./images/2026-09-11.jpg",
-    source: "Homer, Odyssey Book IX (Samuel Butler translation)",
-    quote: "Noman is killing me by fraud; no man is killing me by force.",
-    lesson: "The giant had the door and the strength. Odysseus had a name he could spend. He did not meet force with force; he made himself nobody, did the work in the dark, and walked out under the flock. Craft is not cowardice. It is refusing to fight on the enemy’s terms when those terms get you eaten.",
-    today: "Before you push a hard door today, ask whether a quieter path exists—then take that path until you are clear.",
-    lanes: ["odyssey","warrior"]
+    date: "2026-09-22",
+    title: "Disturbed by Judgments",
+    image: "https://menearz.github.io/daily-warrior-lesson/images/2026-09-08.jpg",
+    imageAlt: "Hubert Robert — Equestrian Statue of Marcus Aurelius on the Capitoline (1757), full landscape drawing, Metropolitan Museum of Art",
+    fallback: "./images/2026-09-08.jpg",
+    source: "Epictetus, Enchiridion 5 (George Long translation)",
+    quote: "Men are disturbed, not by things, but by the principles and notions which they form concerning things.",
+    lesson: "Armor and appearance are not the thing. The blow is public; the wound is the story you tell about it. Epictetus wrote this as a man who had been a slave: events stay events. What breaks the post is the judgment that the event is an insult, a verdict, a reason to leave the work. Trials forge the warrior who keeps the fact and drops the extra meaning. Strategy over raw strength is command of the inner report, not a louder reply.",
+    today: "When the first hard thing lands this morning, name the fact in one sentence. Then refuse the second sentence that turns it into an injury.",
+    lanes: ["thinker","warrior"]
   };
 
   var LANE_LABEL = {warrior:'Warrior',thinker:'Thinker',builder:'Builder',power:'Power',faith:'Faith',odyssey:'Odyssey'};
