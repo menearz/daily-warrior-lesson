@@ -70,16 +70,16 @@
   };
 
   var DEFAULT_LESSON = {
-    date: "2026-09-22",
-    title: "Disturbed by Judgments",
-    image: "https://menearz.github.io/daily-warrior-lesson/images/2026-09-08.jpg",
-    imageAlt: "Hubert Robert — Equestrian Statue of Marcus Aurelius on the Capitoline (1757), full landscape drawing, Metropolitan Museum of Art",
-    fallback: "./images/2026-09-08.jpg",
-    source: "Epictetus, Enchiridion 5 (George Long translation)",
-    quote: "Men are disturbed, not by things, but by the principles and notions which they form concerning things.",
-    lesson: "Armor and appearance are not the thing. The blow is public; the wound is the story you tell about it. Epictetus wrote this as a man who had been a slave: events stay events. What breaks the post is the judgment that the event is an insult, a verdict, a reason to leave the work. Trials forge the warrior who keeps the fact and drops the extra meaning. Strategy over raw strength is command of the inner report, not a louder reply.",
-    today: "When the first hard thing lands this morning, name the fact in one sentence. Then refuse the second sentence that turns it into an injury.",
-    lanes: ["thinker","warrior"]
+    date: "2026-09-23",
+    title: "The Trying of Your Faith",
+    image: "https://upload.wikimedia.org/wikipedia/commons/8/87/Taking_of_Jerusalem_by_the_Crusaders%2C_15th_July_1099.jpg",
+    imageAlt: "Emile Signol — Taking of Jerusalem by the Crusaders, 15 July 1099, full landscape painting, Palace of Versailles",
+    fallback: "./images/2026-09-04.jpg",
+    source: "James 1:2–4 (King James Version)",
+    quote: "My brethren, count it all joy when ye fall into divers temptations; Knowing this, that the trying of your faith worketh patience.",
+    lesson: "Trials forge the warrior. James does not treat the test as a detour from the work—it is the work. Armor and appearance are not the thing; a man can look steadfast until the trial actually lands. Faith under pressure is remaining long enough for patience to finish what it started. Strategy over raw strength is refusing the early exit that leaves you unfinished.",
+    today: "Do not abort the hard thing already in motion. Let it run one full cycle before you renegotiate.",
+    lanes: ["faith","warrior"]
   };
 
   var LANE_LABEL = {warrior:'Warrior',thinker:'Thinker',builder:'Builder',power:'Power',faith:'Faith',odyssey:'Odyssey'};
