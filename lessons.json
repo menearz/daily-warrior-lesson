@@ -1,6 +1,18 @@
 {
   "lessons": [
     {
+      "date": "2026-09-26",
+      "title": "My Name Is Noman",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/d/db/Turner_-_Ulysses_deriding_Polyphemus_1829.jpg",
+      "imageAlt": "J. M. W. Turner — Ulysses Deriding Polyphemus (1829), full landscape painting of Odysseus at sea, National Gallery, London",
+      "fallback": "./images/2026-09-04.jpg",
+      "source": "Homer, Odyssey Book 9 (Samuel Butler translation)",
+      "quote": "My name is Noman; my father and mother and all my friends call me Noman.",
+      "lesson": "Armor and appearance are not the thing. Odysseus does not beat the Cyclops by matching bulk. He gives a false name, waits for the wine to work, and leaves by clinging under a ram. Trials forge the warrior who can look like nothing and still hold the plan. Strategy over raw strength is the refusal to announce yourself to a thing that only understands force.",
+      "today": "Do not advertise the move. Finish one piece of work before noon without explaining it, branding it, or asking to be seen doing it.",
+      "lanes": ["odyssey", "warrior"]
+    },
+    {
       "date": "2026-09-25",
       "title": "Train Both",
       "image": "https://upload.wikimedia.org/wikipedia/commons/2/20/Jean-Leon_Gerome_Pollice_Verso.jpg",
