@@ -1,6 +1,18 @@
 {
   "lessons": [
     {
+      "date": "2026-09-27",
+      "title": "I Will Not Steal a Victory",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/e/e9/Pietro_da_Cortona_-_Battle_of_Alexander_versus_Darius_-_Google_Art_Project.jpg",
+      "imageAlt": "Pietro da Cortona — Battle of Alexander versus Darius, full landscape painting (Google Art Project)",
+      "fallback": "./images/2026-09-04.jpg",
+      "source": "Plutarch, Life of Alexander 31 (Dryden translation)",
+      "quote": "I will not steal a victory.",
+      "lesson": "The night before Gaugamela, Parmenio and the senior captains wanted a night attack. The Persian fires filled the plain; the numbers looked impossible in daylight. Alexander refused the cheap win. Armor and appearance are not the thing—neither is a victory you can later explain away as luck or darkness. Trials forge the warrior who will fight in the open so the result cannot be walked back. Strategy over raw strength is that refusal: he would rather risk the day than leave Darius an excuse.",
+      "today": "Do the hard piece in the light. No quiet shortcut that lets you claim the result without standing over it.",
+      "lanes": ["warrior", "power"]
+    },
+    {
       "date": "2026-09-26",
       "title": "My Name Is Noman",
       "image": "https://upload.wikimedia.org/wikipedia/commons/d/db/Turner_-_Ulysses_deriding_Polyphemus_1829.jpg",
@@ -80,7 +92,7 @@
       "fallback": "./images/2026-09-04.jpg",
       "source": "Robert Greene, The 33 Strategies of War, Strategy 4 — The Death-Ground Strategy",
       "quote": "Place yourself on \"death ground,\" where your back is against the wall and you have to fight like hell to get out alive.",
-      "lesson": "Comfort dilutes the will. Greene's point, drawn from Sun Tzu and Cortés burning the ships, is that a man with an easy exit never spends his full strength. Trials forge the warrior when the back is actually on the wall. Armor and appearance are not the thing\u2014a parade ground looks fierce and still folds. Strategy over raw strength is the choice to cut the retreat so the present work gets the whole mind.",
+      "lesson": "Comfort dilutes the will. Greene's point, drawn from Sun Tzu and Cortés burning the ships, is that a man with an easy exit never spends his full strength. Trials forge the warrior when the back is actually on the wall. Armor and appearance are not the thing—a parade ground looks fierce and still folds. Strategy over raw strength is the choice to cut the retreat so the present work gets the whole mind.",
       "today": "Remove one escape hatch before noon. Pick the task you have been half-doing and give it no other option but finish.",
       "lanes": ["power", "warrior"]
     },
@@ -92,7 +104,7 @@
       "fallback": "./images/2026-09-04.jpg",
       "source": "Robert Greene, Mastery, The Apprenticeship Phase",
       "quote": "The goal of an apprenticeship is not money, a good position, a title, or a diploma, but rather the transformation of your mind and character\u2014the first transformation on the way to mastery.",
-      "lesson": "Mastery through struggle is the point. Armor and appearance are not the thing\u2014neither is the title you want to wear before the work has remade you. Greene’s first transformation is the forge: impatience and scattered appetite become discipline and a mind that can hold complexity. Trials forge the warrior who stays in the shop long enough to be changed. Strategy over raw strength begins with valuing the learning more than the pay of the hour.",
+      "lesson": "Mastery through struggle is the point. Armor and appearance are not the thing—neither is the title you want to wear before the work has remade you. Greene’s first transformation is the forge: impatience and scattered appetite become discipline and a mind that can hold complexity. Trials forge the warrior who stays in the shop long enough to be changed. Strategy over raw strength begins with valuing the learning more than the pay of the hour.",
       "today": "Choose the task that teaches over the one that merely pays or flatters. Stay in it past the first boredom. Let the work alter you before noon.",
       "lanes": ["builder", "warrior"]
     },
@@ -104,7 +116,7 @@
       "fallback": "./images/2026-09-04.jpg",
       "source": "Proverbs 24:10 (King James Version)",
       "quote": "If thou faint in the day of adversity, thy strength is small.",
-      "lesson": "Trials forge the warrior. Easy weather does not measure a man. The day of adversity is the only scale that counts. Armor and appearance are not the thing\u2014you can look formidable on parade and still fold when the wall is actually hit. Faith under pressure is remaining on the post after the first shock. Strategy over raw strength starts here: do not spend a strength you have not proved under fire.",
+      "lesson": "Trials forge the warrior. Easy weather does not measure a man. The day of adversity is the only scale that counts. Armor and appearance are not the thing—you can look formidable on parade and still fold when the wall is actually hit. Faith under pressure is remaining on the post after the first shock. Strategy over raw strength starts here: do not spend a strength you have not proved under fire.",
       "today": "Name the adversity already on the calendar. Meet it before noon without the collapse you rehearsed in your head.",
       "lanes": ["faith", "warrior"]
     },
