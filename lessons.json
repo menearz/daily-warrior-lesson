@@ -1,6 +1,18 @@
 {
   "lessons": [
     {
+      "date": "2026-09-28",
+      "title": "Groundless Fears",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/8/81/Luca_giordano%2C_morte_di_seneca%2C_1684-85_ca..JPG",
+      "imageAlt": "Luca Giordano — Death of Seneca (c. 1684–85), full landscape painting, Musée du Louvre",
+      "fallback": "./images/2026-09-04.jpg",
+      "source": "Seneca, Moral Letters to Lucilius 13.4 (Richard M. Gummere translation)",
+      "quote": "There are more things, Lucilius, likely to frighten us than there are to crush us; we suffer more often in imagination than in reality.",
+      "lesson": "Armor and appearance are not the thing. Seneca is not telling Lucilius to deny a blow that has already landed. He is telling him not to bleed for the one that has not arrived. Trials forge the warrior; rehearsal of disaster does not. Fearlessness is refusing to be unhappy before the crisis comes. Strategy over raw strength is keeping the mind on the present fact instead of funding a second war in the head.",
+      "today": "Before noon, name one trouble you have been suffering that has not yet happened. Drop it. Do the next real task.",
+      "lanes": ["thinker", "warrior"]
+    },
+    {
       "date": "2026-09-27",
       "title": "I Will Not Steal a Victory",
       "image": "https://upload.wikimedia.org/wikipedia/commons/e/e9/Pietro_da_Cortona_-_Battle_of_Alexander_versus_Darius_-_Google_Art_Project.jpg",
