@@ -1,6 +1,18 @@
 {
   "lessons": [
     {
+      "date": "2026-09-29",
+      "title": "Conceal Your Intentions",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/5/5a/The_Conspiracy_of_Claudius_Civilis_by_Rembrandt_van_Rijn.jpg",
+      "imageAlt": "Rembrandt — The Conspiracy of the Batavians under Claudius Civilis (1661–62), full landscape painting, Nationalmuseum, Stockholm",
+      "fallback": "./images/2026-09-04.jpg",
+      "source": "Robert Greene, The 48 Laws of Power, Law 3",
+      "quote": "Keep people off-balance and in the dark by never revealing the purpose behind your actions. If they have no clue what you are up to, they cannot prepare a defense.",
+      "lesson": "Armor and appearance are not the thing. Greene is not praising theater; he is warning that a declared plan gifts the other side time. Trials forge the warrior who can work without an audience. Strategy over raw strength is silence about the destination until the move is already done. Fearlessness here is not volume. It is the refusal to need witnesses before the work exists.",
+      "today": "Finish one real task before noon without previewing it, explaining it, or asking who noticed.",
+      "lanes": ["power", "warrior"]
+    },
+    {
       "date": "2026-09-28",
       "title": "Groundless Fears",
       "image": "https://upload.wikimedia.org/wikipedia/commons/8/81/Luca_giordano%2C_morte_di_seneca%2C_1684-85_ca..JPG",
@@ -42,10 +54,10 @@
       "image": "https://upload.wikimedia.org/wikipedia/commons/2/20/Jean-Leon_Gerome_Pollice_Verso.jpg",
       "imageAlt": "Jean-Léon Gérôme — Pollice Verso (1872), full landscape painting of the arena, Phoenix Art Museum",
       "fallback": "./images/2026-09-04.jpg",
-      "source": "Musonius Rufus, Lecture 6 \u201cOn Training\u201d (Cora E. Lutz translation)",
+      "source": "Musonius Rufus, Lecture 6 “On Training” (Cora E. Lutz translation)",
       "quote": "We use the training common to both when we discipline ourselves to cold, heat, thirst, hunger, meager rations, hard beds, avoidance of pleasures, and patience under suffering.",
-      "lesson": "Armor and appearance are not the thing. Musonius would not let a man call himself trained because he can recite the theory. Virtue is a craft, like medicine: it exists in the doing. Trials forge the warrior by hardening body and soul on the same drill\u2014cold, short rations, a hard bed, the refusal of the easy pleasure. Strategy over raw strength is that common training: the soul learns courage by staying under the hardship, not by talking about it.",
-      "today": "Take one voluntary discomfort before noon\u2014cold water, a skipped extra, a harder bed for the work. Stay in it. Do not narrate it.",
+      "lesson": "Armor and appearance are not the thing. Musonius would not let a man call himself trained because he can recite the theory. Virtue is a craft, like medicine: it exists in the doing. Trials forge the warrior by hardening body and soul on the same drill—cold, short rations, a hard bed, the refusal of the easy pleasure. Strategy over raw strength is that common training: the soul learns courage by staying under the hardship, not by talking about it.",
+      "today": "Take one voluntary discomfort before noon—cold water, a skipped extra, a harder bed for the work. Stay in it. Do not narrate it.",
       "lanes": ["thinker", "warrior"]
     },
     {
@@ -57,7 +69,7 @@
       "source": "George Washington, Letter of Instructions to the Captains of the Virginia Regiments, 29 July 1759",
       "quote": "Discipline is the soul of an army. It makes small numbers formidable; procures success to the weak, and esteem to all.",
       "lesson": "Armor and appearance are not the thing. Washington was not praising numbers, kit, or a loud charge. He was telling captains that a thin line held together by order will beat a larger mob that looks fierce and folds. Trials forge the warrior by forcing the daily drill when no one is watching. Strategy over raw strength is that drill: fewer men, tighter command, no wasted motion.",
-      "today": "Before noon, pick one post you already own and run it by the clock\u2014no extra gear, no new plan. Hold the form.",
+      "today": "Before noon, pick one post you already own and run it by the clock—no extra gear, no new plan. Hold the form.",
       "lanes": ["warrior", "builder"]
     },
     {
@@ -68,7 +80,7 @@
       "fallback": "./images/2026-09-04.jpg",
       "source": "James 1:2–4 (King James Version)",
       "quote": "My brethren, count it all joy when ye fall into divers temptations; Knowing this, that the trying of your faith worketh patience.",
-      "lesson": "Trials forge the warrior. James does not treat the test as a detour from the work\u2014it is the work. Armor and appearance are not the thing; a man can look steadfast until the trial actually lands. Faith under pressure is remaining long enough for patience to finish what it started. Strategy over raw strength is refusing the early exit that leaves you unfinished.",
+      "lesson": "Trials forge the warrior. James does not treat the test as a detour from the work—it is the work. Armor and appearance are not the thing; a man can look steadfast until the trial actually lands. Faith under pressure is remaining long enough for patience to finish what it started. Strategy over raw strength is refusing the early exit that leaves you unfinished.",
       "today": "Do not abort the hard thing already in motion. Let it run one full cycle before you renegotiate.",
       "lanes": ["faith", "warrior"]
     },
@@ -115,7 +127,7 @@
       "imageAlt": "Joseph Wright of Derby — An Iron Forge Viewed from Without (1773), full landscape painting, Hermitage Museum",
       "fallback": "./images/2026-09-04.jpg",
       "source": "Robert Greene, Mastery, The Apprenticeship Phase",
-      "quote": "The goal of an apprenticeship is not money, a good position, a title, or a diploma, but rather the transformation of your mind and character\u2014the first transformation on the way to mastery.",
+      "quote": "The goal of an apprenticeship is not money, a good position, a title, or a diploma, but rather the transformation of your mind and character—the first transformation on the way to mastery.",
       "lesson": "Mastery through struggle is the point. Armor and appearance are not the thing—neither is the title you want to wear before the work has remade you. Greene’s first transformation is the forge: impatience and scattered appetite become discipline and a mind that can hold complexity. Trials forge the warrior who stays in the shop long enough to be changed. Strategy over raw strength begins with valuing the learning more than the pay of the hour.",
       "today": "Choose the task that teaches over the one that merely pays or flatters. Stay in it past the first boredom. Let the work alter you before noon.",
       "lanes": ["builder", "warrior"]
@@ -140,7 +152,7 @@
       "fallback": "./images/2026-09-08.jpg",
       "source": "Marcus Aurelius, Meditations 2.17 (George Long translation)",
       "quote": "Life is a warfare and a stranger's sojourn, and after-fame is oblivion.",
-      "lesson": "Armor and appearance are not the thing. Marcus wrote as emperor on campaign: body a stream, soul a vapor, fame a fog. The campaign is the life. Trials forge the warrior because the field does not pause for reputation. Strategy over raw strength is philosophy\u2014one governing mind that holds when the sojourn turns hard. After-fame is oblivion; the work is the watch you keep today.",
+      "lesson": "Armor and appearance are not the thing. Marcus wrote as emperor on campaign: body a stream, soul a vapor, fame a fog. The campaign is the life. Trials forge the warrior because the field does not pause for reputation. Strategy over raw strength is philosophy—one governing mind that holds when the sojourn turns hard. After-fame is oblivion; the work is the watch you keep today.",
       "today": "Treat one inconvenience as the campaign, not an insult. Hold the post. Do the next necessary thing without asking who will remember it.",
       "lanes": ["thinker", "warrior"]
     }
