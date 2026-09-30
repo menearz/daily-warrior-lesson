@@ -1,6 +1,18 @@
 {
   "lessons": [
     {
+      "date": "2026-09-30",
+      "title": "Now Become Knights",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/8/8e/Pape_Urbain_II_sur_la_place_de_Clermont_pr%C3%AAchant_la_Premi%C3%A8re_Croisade_-_Francesco_Hayez.jpg",
+      "imageAlt": "Francesco Hayez — Pope Urban II preaching the First Crusade in the square of Clermont (1835), full landscape painting, Gallerie d'Italia, Milan",
+      "fallback": "./images/2026-09-04.jpg",
+      "source": "Pope Urban II at Clermont, November 1095, recorded by Fulcher of Chartres (Thatcher and McNeal translation)",
+      "quote": "Let those who for a long time, have been robbers, now become knights.",
+      "lesson": "Urban was not asking for more private war. He told the same men to convert feud, raid, and hired steel into a vowed purpose. The later wreck of the First Crusade is the gap between that vow and the conduct on the road. Faith under pressure is not the shout in the square. It is whether the knight still answers the vow when the loot is close and the post is hard.",
+      "today": "Name one habit you still run as a private war. Convert it before noon into work that actually serves the post.",
+      "lanes": ["faith", "warrior"]
+    },
+    {
       "date": "2026-09-29",
       "title": "Conceal Your Intentions",
       "image": "https://upload.wikimedia.org/wikipedia/commons/5/5a/The_Conspiracy_of_Claudius_Civilis_by_Rembrandt_van_Rijn.jpg",
@@ -54,7 +66,7 @@
       "image": "https://upload.wikimedia.org/wikipedia/commons/2/20/Jean-Leon_Gerome_Pollice_Verso.jpg",
       "imageAlt": "Jean-Léon Gérôme — Pollice Verso (1872), full landscape painting of the arena, Phoenix Art Museum",
       "fallback": "./images/2026-09-04.jpg",
-      "source": "Musonius Rufus, Lecture 6 “On Training” (Cora E. Lutz translation)",
+      "source": "Musonius Rufus, Lecture 6 \u201cOn Training\u201d (Cora E. Lutz translation)",
       "quote": "We use the training common to both when we discipline ourselves to cold, heat, thirst, hunger, meager rations, hard beds, avoidance of pleasures, and patience under suffering.",
       "lesson": "Armor and appearance are not the thing. Musonius would not let a man call himself trained because he can recite the theory. Virtue is a craft, like medicine: it exists in the doing. Trials forge the warrior by hardening body and soul on the same drill—cold, short rations, a hard bed, the refusal of the easy pleasure. Strategy over raw strength is that common training: the soul learns courage by staying under the hardship, not by talking about it.",
       "today": "Take one voluntary discomfort before noon—cold water, a skipped extra, a harder bed for the work. Stay in it. Do not narrate it.",
