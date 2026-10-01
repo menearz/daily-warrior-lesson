@@ -1,6 +1,21 @@
 {
   "lessons": [
     {
+      "date": "2026-10-01",
+      "title": "I Here Offer My Commission",
+      "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Flickr_-_USCapitol_-_General_George_Washington_Resigning_His_Commission.jpg",
+      "imageAlt": "John Trumbull — General George Washington Resigning His Commission (1824), full landscape painting, United States Capitol rotunda",
+      "fallback": "./images/2026-09-04.jpg",
+      "source": "George Washington, Address to Congress on resigning his commission, Annapolis, 23 December 1783 (Founders Online)",
+      "quote": "Having now finished the work assigned me, I retire from the great theatre of Action—and bidding an Affectionate farewell to this August body under whose orders I have so long acted, I here offer my Commission, and take my leave of all the employments of public life.",
+      "lesson": "Washington did not wait to be relieved. The Treaty was signed, the army was going home, and he walked into the Maryland State House and put the commission back in Congress's hands. The point is civilian control of force: the sword was borrowed for a war, not owned. A man who keeps the appointment after the work is finished has started a different career.",
+      "today": "Finish the piece that was actually assigned. Hand it back. Do not keep the authority as a souvenir.",
+      "lanes": [
+        "warrior",
+        "builder"
+      ]
+    },
+    {
       "date": "2026-09-30",
       "title": "Now Become Knights",
       "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Pape_Urbain_II_sur_la_place_de_Clermont_pr%C3%AAchant_la_Premi%C3%A8re_Croisade_-_Francesco_Hayez.jpg",
@@ -10,7 +25,10 @@
       "quote": "Let those who for a long time, have been robbers, now become knights.",
       "lesson": "Urban was not asking for more private war. He told the same men to convert feud, raid, and hired steel into a vowed purpose. The later wreck of the First Crusade is the gap between that vow and the conduct on the road. Faith under pressure is not the shout in the square. It is whether the knight still answers the vow when the loot is close and the post is hard.",
       "today": "Name one habit you still run as a private war. Convert it before noon into work that actually serves the post.",
-      "lanes": ["faith", "warrior"]
+      "lanes": [
+        "faith",
+        "warrior"
+      ]
     },
     {
       "date": "2026-09-29",
@@ -22,7 +40,10 @@
       "quote": "Keep people off-balance and in the dark by never revealing the purpose behind your actions. If they have no clue what you are up to, they cannot prepare a defense.",
       "lesson": "Armor and appearance are not the thing. Greene is not praising theater; he is warning that a declared plan gifts the other side time. Trials forge the warrior who can work without an audience. Strategy over raw strength is silence about the destination until the move is already done. Fearlessness here is not volume. It is the refusal to need witnesses before the work exists.",
       "today": "Finish one real task before noon without previewing it, explaining it, or asking who noticed.",
-      "lanes": ["power", "warrior"]
+      "lanes": [
+        "power",
+        "warrior"
+      ]
     },
     {
       "date": "2026-09-28",
@@ -34,7 +55,10 @@
       "quote": "There are more things, Lucilius, likely to frighten us than there are to crush us; we suffer more often in imagination than in reality.",
       "lesson": "Armor and appearance are not the thing. Seneca is not telling Lucilius to deny a blow that has already landed. He is telling him not to bleed for the one that has not arrived. Trials forge the warrior; rehearsal of disaster does not. Fearlessness is refusing to be unhappy before the crisis comes. Strategy over raw strength is keeping the mind on the present fact instead of funding a second war in the head.",
       "today": "Before noon, name one trouble you have been suffering that has not yet happened. Drop it. Do the next real task.",
-      "lanes": ["thinker", "warrior"]
+      "lanes": [
+        "thinker",
+        "warrior"
+      ]
     },
     {
       "date": "2026-09-27",
@@ -46,7 +70,10 @@
       "quote": "I will not steal a victory.",
       "lesson": "The night before Gaugamela, Parmenio and the senior captains wanted a night attack. The Persian fires filled the plain; the numbers looked impossible in daylight. Alexander refused the cheap win. Armor and appearance are not the thing—neither is a victory you can later explain away as luck or darkness. Trials forge the warrior who will fight in the open so the result cannot be walked back. Strategy over raw strength is that refusal: he would rather risk the day than leave Darius an excuse.",
       "today": "Do the hard piece in the light. No quiet shortcut that lets you claim the result without standing over it.",
-      "lanes": ["warrior", "power"]
+      "lanes": [
+        "warrior",
+        "power"
+      ]
     },
     {
       "date": "2026-09-26",
@@ -58,7 +85,10 @@
       "quote": "My name is Noman; my father and mother and all my friends call me Noman.",
       "lesson": "Armor and appearance are not the thing. Odysseus does not beat the Cyclops by matching bulk. He gives a false name, waits for the wine to work, and leaves by clinging under a ram. Trials forge the warrior who can look like nothing and still hold the plan. Strategy over raw strength is the refusal to announce yourself to a thing that only understands force.",
       "today": "Do not advertise the move. Finish one piece of work before noon without explaining it, branding it, or asking to be seen doing it.",
-      "lanes": ["odyssey", "warrior"]
+      "lanes": [
+        "odyssey",
+        "warrior"
+      ]
     },
     {
       "date": "2026-09-25",
@@ -66,11 +96,14 @@
       "image": "https://upload.wikimedia.org/wikipedia/commons/2/20/Jean-Leon_Gerome_Pollice_Verso.jpg",
       "imageAlt": "Jean-Léon Gérôme — Pollice Verso (1872), full landscape painting of the arena, Phoenix Art Museum",
       "fallback": "./images/2026-09-04.jpg",
-      "source": "Musonius Rufus, Lecture 6 \u201cOn Training\u201d (Cora E. Lutz translation)",
+      "source": "Musonius Rufus, Lecture 6 “On Training” (Cora E. Lutz translation)",
       "quote": "We use the training common to both when we discipline ourselves to cold, heat, thirst, hunger, meager rations, hard beds, avoidance of pleasures, and patience under suffering.",
       "lesson": "Armor and appearance are not the thing. Musonius would not let a man call himself trained because he can recite the theory. Virtue is a craft, like medicine: it exists in the doing. Trials forge the warrior by hardening body and soul on the same drill—cold, short rations, a hard bed, the refusal of the easy pleasure. Strategy over raw strength is that common training: the soul learns courage by staying under the hardship, not by talking about it.",
       "today": "Take one voluntary discomfort before noon—cold water, a skipped extra, a harder bed for the work. Stay in it. Do not narrate it.",
-      "lanes": ["thinker", "warrior"]
+      "lanes": [
+        "thinker",
+        "warrior"
+      ]
     },
     {
       "date": "2026-09-24",
@@ -82,7 +115,10 @@
       "quote": "Discipline is the soul of an army. It makes small numbers formidable; procures success to the weak, and esteem to all.",
       "lesson": "Armor and appearance are not the thing. Washington was not praising numbers, kit, or a loud charge. He was telling captains that a thin line held together by order will beat a larger mob that looks fierce and folds. Trials forge the warrior by forcing the daily drill when no one is watching. Strategy over raw strength is that drill: fewer men, tighter command, no wasted motion.",
       "today": "Before noon, pick one post you already own and run it by the clock—no extra gear, no new plan. Hold the form.",
-      "lanes": ["warrior", "builder"]
+      "lanes": [
+        "warrior",
+        "builder"
+      ]
     },
     {
       "date": "2026-09-23",
@@ -94,7 +130,10 @@
       "quote": "My brethren, count it all joy when ye fall into divers temptations; Knowing this, that the trying of your faith worketh patience.",
       "lesson": "Trials forge the warrior. James does not treat the test as a detour from the work—it is the work. Armor and appearance are not the thing; a man can look steadfast until the trial actually lands. Faith under pressure is remaining long enough for patience to finish what it started. Strategy over raw strength is refusing the early exit that leaves you unfinished.",
       "today": "Do not abort the hard thing already in motion. Let it run one full cycle before you renegotiate.",
-      "lanes": ["faith", "warrior"]
+      "lanes": [
+        "faith",
+        "warrior"
+      ]
     },
     {
       "date": "2026-09-22",
@@ -106,7 +145,10 @@
       "quote": "Men are disturbed, not by things, but by the principles and notions which they form concerning things.",
       "lesson": "Armor and appearance are not the thing. The blow is public; the wound is the story you tell about it. Epictetus wrote this as a man who had been a slave: events stay events. What breaks the post is the judgment that the event is an insult, a verdict, a reason to leave the work. Trials forge the warrior who keeps the fact and drops the extra meaning. Strategy over raw strength is command of the inner report, not a louder reply.",
       "today": "When the first hard thing lands this morning, name the fact in one sentence. Then refuse the second sentence that turns it into an injury.",
-      "lanes": ["thinker", "warrior"]
+      "lanes": [
+        "thinker",
+        "warrior"
+      ]
     },
     {
       "date": "2026-09-21",
@@ -118,7 +160,10 @@
       "quote": "Wherever a man's place is, whether the place which he has chosen or that in which he has been placed by a commander, there he ought to remain in the hour of danger.",
       "lesson": "Socrates is on trial for his life and still talks like a hoplite. He reminds Athens that at Potidaea and Delium he kept the station the generals gave him. The same rule now holds in the city: the examined life is a post, not a costume. Armor and appearance are not the thing. Trials forge the warrior who does not renegotiate the assignment when the sentence comes due. Strategy over raw strength is remaining where duty put you instead of spending the hour on a prettier exit.",
       "today": "Name the post that is actually yours this morning. Stay on it through the first hard hour. Do not invent a better assignment.",
-      "lanes": ["thinker", "warrior"]
+      "lanes": [
+        "thinker",
+        "warrior"
+      ]
     },
     {
       "date": "2026-09-20",
@@ -130,7 +175,10 @@
       "quote": "Place yourself on \"death ground,\" where your back is against the wall and you have to fight like hell to get out alive.",
       "lesson": "Comfort dilutes the will. Greene's point, drawn from Sun Tzu and Cortés burning the ships, is that a man with an easy exit never spends his full strength. Trials forge the warrior when the back is actually on the wall. Armor and appearance are not the thing—a parade ground looks fierce and still folds. Strategy over raw strength is the choice to cut the retreat so the present work gets the whole mind.",
       "today": "Remove one escape hatch before noon. Pick the task you have been half-doing and give it no other option but finish.",
-      "lanes": ["power", "warrior"]
+      "lanes": [
+        "power",
+        "warrior"
+      ]
     },
     {
       "date": "2026-09-19",
@@ -142,7 +190,10 @@
       "quote": "The goal of an apprenticeship is not money, a good position, a title, or a diploma, but rather the transformation of your mind and character—the first transformation on the way to mastery.",
       "lesson": "Mastery through struggle is the point. Armor and appearance are not the thing—neither is the title you want to wear before the work has remade you. Greene’s first transformation is the forge: impatience and scattered appetite become discipline and a mind that can hold complexity. Trials forge the warrior who stays in the shop long enough to be changed. Strategy over raw strength begins with valuing the learning more than the pay of the hour.",
       "today": "Choose the task that teaches over the one that merely pays or flatters. Stay in it past the first boredom. Let the work alter you before noon.",
-      "lanes": ["builder", "warrior"]
+      "lanes": [
+        "builder",
+        "warrior"
+      ]
     },
     {
       "date": "2026-09-18",
@@ -154,7 +205,10 @@
       "quote": "If thou faint in the day of adversity, thy strength is small.",
       "lesson": "Trials forge the warrior. Easy weather does not measure a man. The day of adversity is the only scale that counts. Armor and appearance are not the thing—you can look formidable on parade and still fold when the wall is actually hit. Faith under pressure is remaining on the post after the first shock. Strategy over raw strength starts here: do not spend a strength you have not proved under fire.",
       "today": "Name the adversity already on the calendar. Meet it before noon without the collapse you rehearsed in your head.",
-      "lanes": ["faith", "warrior"]
+      "lanes": [
+        "faith",
+        "warrior"
+      ]
     },
     {
       "date": "2026-09-17",
@@ -166,7 +220,10 @@
       "quote": "Life is a warfare and a stranger's sojourn, and after-fame is oblivion.",
       "lesson": "Armor and appearance are not the thing. Marcus wrote as emperor on campaign: body a stream, soul a vapor, fame a fog. The campaign is the life. Trials forge the warrior because the field does not pause for reputation. Strategy over raw strength is philosophy—one governing mind that holds when the sojourn turns hard. After-fame is oblivion; the work is the watch you keep today.",
       "today": "Treat one inconvenience as the campaign, not an insult. Hold the post. Do the next necessary thing without asking who will remember it.",
-      "lanes": ["thinker", "warrior"]
+      "lanes": [
+        "thinker",
+        "warrior"
+      ]
     }
   ]
 }
