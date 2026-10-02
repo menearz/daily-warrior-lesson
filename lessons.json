@@ -1,6 +1,21 @@
 {
   "lessons": [
     {
+      "date": "2026-10-02",
+      "title": "Leave the Herds",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/f/fb/Pellegrino_Tibaldi_001.jpg",
+      "imageAlt": "Pellegrino Tibaldi — The companions of Odysseus rob the cattle of Helios (1554–56), full landscape fresco, Palazzo Poggi, Bologna",
+      "fallback": "./images/2026-09-04.jpg",
+      "source": "Homer, Odyssey Book 12 (Samuel Butler translation)",
+      "quote": "If you leave these flocks unharmed, and think of nothing but getting home, you may yet after much hardship reach Ithaca; but if you harm them, then I forewarn you of the destruction both of your ship and of your comrades.",
+      "lesson": "Circe is not talking about a trick. She is naming a ban. The herds belong to the sun. They are not rations, and they are not a prize for getting this far. Odysseus makes the crew swear. Then he sleeps, hunger does the talking, Eurylochus talks them into the kill, and the ship is gone. Home was still possible if the line held. One broken oath costs the men.",
+      "today": "There is one thing you already promised not to touch. Leave it. Eat what is already in the ship.",
+      "lanes": [
+        "odyssey",
+        "warrior"
+      ]
+    },
+    {
       "date": "2026-10-01",
       "title": "I Here Offer My Commission",
       "image": "https://commons.wikimedia.org/wiki/Special:FilePath/Flickr_-_USCapitol_-_General_George_Washington_Resigning_His_Commission.jpg",
