@@ -1,6 +1,21 @@
 {
   "lessons": [
     {
+      "date": "2026-10-03",
+      "title": "Say It at Dawn",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/a/a0/Arch_Marcus_Aurelius_Tripoli.jpg",
+      "imageAlt": "Luigi Mayer — the Arch of Marcus Aurelius at Tripoli (1803), full landscape view of the arch in the city, public domain",
+      "fallback": "./images/2026-09-04.jpg",
+      "source": "Marcus Aurelius, Meditations 2.1 (George Long translation, 1862)",
+      "quote": "Begin the morning by saying to thyself, I shall meet with the busybody, the ungrateful, arrogant, deceitful, envious, unsocial. ... To act against one another, then, is contrary to nature; and it is acting against one another to be vexed and to turn away.",
+      "lesson": "Marcus opens the second book with a line you say before the day starts. You will meet the meddler, the ingrate, the arrogant, the cheat, the envious, and the man who will not join in. He treats that conduct as ignorance of good and evil, not as a private war aimed at you. None of them can plant what is ugly in you. Anger, and turning away, are the real break: we are built to work together, like hands, like eyelids, like the two rows of teeth.",
+      "today": "When the first difficult person shows up, do not rehearse the insult. Name the conduct, stay on the shared work, and do not turn away.",
+      "lanes": [
+        "thinker",
+        "warrior"
+      ]
+    },
+    {
       "date": "2026-10-02",
       "title": "Leave the Herds",
       "image": "https://upload.wikimedia.org/wikipedia/commons/f/fb/Pellegrino_Tibaldi_001.jpg",
