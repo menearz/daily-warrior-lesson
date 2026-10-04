@@ -70,15 +70,15 @@
   };
 
   var DEFAULT_LESSON = {
-    date: "2026-09-23",
-    title: "The Trying of Your Faith",
-    image: "https://upload.wikimedia.org/wikipedia/commons/8/87/Taking_of_Jerusalem_by_the_Crusaders%2C_15th_July_1099.jpg",
-    imageAlt: "Emile Signol — Taking of Jerusalem by the Crusaders, 15 July 1099, full landscape painting, Palace of Versailles",
+    date: "2026-10-04",
+    title: "A City Without Walls",
+    image: "https://upload.wikimedia.org/wikipedia/commons/c/c0/David_Roberts_-_Jerusalem_from_the_Mount_of_Olives_-_1927.124_-_Cleveland_Museum_of_Art.jpg",
+    imageAlt: "David Roberts — Jerusalem from the Mount of Olives (1839), full landscape view of the walled city, Cleveland Museum of Art, public domain",
     fallback: "./images/2026-09-04.jpg",
-    source: "James 1:2–4 (King James Version)",
-    quote: "My brethren, count it all joy when ye fall into divers temptations; Knowing this, that the trying of your faith worketh patience.",
-    lesson: "Trials forge the warrior. James does not treat the test as a detour from the work—it is the work. Armor and appearance are not the thing; a man can look steadfast until the trial actually lands. Faith under pressure is remaining long enough for patience to finish what it started. Strategy over raw strength is refusing the early exit that leaves you unfinished.",
-    today: "Do not abort the hard thing already in motion. Let it run one full cycle before you renegotiate.",
+    source: "Proverbs 25:28 (King James Version)",
+    quote: "He that hath no rule over his own spirit is like a city that is broken down, and without walls.",
+    lesson: "Solomon is talking about the gate, not the garrison. In his world a city stood or fell by its wall. A man who cannot hold his own temper, appetite, or tongue has already opened the gate. Strength outside does not help if the inside will not obey. The breach is self-command, and anyone who wants the city can walk in.",
+    today: "Before you answer the first sharp thing, hold the reply for one breath. That pause is the wall.",
     lanes: ["faith","warrior"]
   };
 
