@@ -70,16 +70,16 @@
   };
 
   var DEFAULT_LESSON = {
-    date: "2026-10-04",
-    title: "A City Without Walls",
-    image: "https://upload.wikimedia.org/wikipedia/commons/c/c0/David_Roberts_-_Jerusalem_from_the_Mount_of_Olives_-_1927.124_-_Cleveland_Museum_of_Art.jpg",
-    imageAlt: "David Roberts — Jerusalem from the Mount of Olives (1839), full landscape view of the walled city, Cleveland Museum of Art, public domain",
+    date: "2026-10-05",
+    title: "Among Friends",
+    image: "https://upload.wikimedia.org/wikipedia/commons/1/12/Jean-L%C3%A9on_G%C3%A9r%C3%B4me_-_The_Death_of_Caesar_-_Walters_37884.jpg",
+    imageAlt: "Jean-Léon Gérôme — The Death of Caesar (1859–67), full landscape painting, Walters Art Museum, public domain",
     fallback: "./images/2026-09-04.jpg",
-    source: "Proverbs 25:28 (King James Version)",
-    quote: "He that hath no rule over his own spirit is like a city that is broken down, and without walls.",
-    lesson: "Solomon is talking about the gate, not the garrison. In his world a city stood or fell by its wall. A man who cannot hold his own temper, appetite, or tongue has already opened the gate. Strength outside does not help if the inside will not obey. The breach is self-command, and anyone who wants the city can walk in.",
-    today: "Before you answer the first sharp thing, hold the reply for one breath. That pause is the wall.",
-    lanes: ["faith","warrior"]
+    source: "Robert Greene, The Laws of Human Nature, Chapter 10, The Law of Envy",
+    quote: "Envy occurs most commonly and painfully among friends.",
+    lesson: "Greene is not talking about the man across the field. Envy bites where the comparison is close. A friend sees the detail of your progress, and the people already inclined to envy you are often the ones who move in. The turn usually arrives as a small cut, a cold silence, or a bit of sabotage, and you go looking for the quarrel that caused it. Often there is no quarrel. The closeness was the fuel.",
+    today: "When a near person praises you and slips a cut into the same sentence, do not explain yourself. Note it, keep the work moving, and stop handing them the scoreboard.",
+    lanes: ["power","warrior"]
   };
 
   var LANE_LABEL = {warrior:'Warrior',thinker:'Thinker',builder:'Builder',power:'Power',faith:'Faith',odyssey:'Odyssey'};
