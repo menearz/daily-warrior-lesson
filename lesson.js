@@ -70,16 +70,16 @@
   };
 
   var DEFAULT_LESSON = {
-    date: "2026-10-05",
-    title: "Among Friends",
-    image: "https://upload.wikimedia.org/wikipedia/commons/1/12/Jean-L%C3%A9on_G%C3%A9r%C3%B4me_-_The_Death_of_Caesar_-_Walters_37884.jpg",
-    imageAlt: "Jean-Léon Gérôme — The Death of Caesar (1859–67), full landscape painting, Walters Art Museum, public domain",
+    date: "2026-10-06",
+    title: "I Neither Know Nor Think I Know",
+    image: "https://upload.wikimedia.org/wikipedia/commons/d/d3/Aleksandr_Notbek%2C_Socrates_With_His_Students%2C_1831%2C_Irkutsk_Regional_Art_Museum_%D0%96-678.jpg",
+    imageAlt: "Alexander von Nothbeck — Socrates With His Students (1831), full landscape painting, Irkutsk Regional Art Museum, public domain",
     fallback: "./images/2026-09-04.jpg",
-    source: "Robert Greene, The Laws of Human Nature, Chapter 10, The Law of Envy",
-    quote: "Envy occurs most commonly and painfully among friends.",
-    lesson: "Greene is not talking about the man across the field. Envy bites where the comparison is close. A friend sees the detail of your progress, and the people already inclined to envy you are often the ones who move in. The turn usually arrives as a small cut, a cold silence, or a bit of sabotage, and you go looking for the quarrel that caused it. Often there is no quarrel. The closeness was the fuel.",
-    today: "When a near person praises you and slips a cut into the same sentence, do not explain yourself. Note it, keep the work moving, and stop handing them the scoreboard.",
-    lanes: ["power","warrior"]
+    source: "Plato, Apology 21d (Benjamin Jowett translation)",
+    quote: "I am better off than he is—for he knows nothing, and thinks that he knows. I neither know nor think that I know.",
+    lesson: "Socrates is answering the oracle, not posing. Delphi said no one was wiser. He went to a politician with a reputation and found a man who knew nothing of real worth and thought he did. Socrates walked away with one small edge. He did not think he knew what he did not. That is the start of the examined life. It is not a costume of humility, and it made him enemies.",
+    today: "Before noon, name one thing you have been answering as if it were already settled. Ask it again. Do not close it to look sure.",
+    lanes: ["thinker","warrior"]
   };
 
   var LANE_LABEL = {warrior:'Warrior',thinker:'Thinker',builder:'Builder',power:'Power',faith:'Faith',odyssey:'Odyssey'};
