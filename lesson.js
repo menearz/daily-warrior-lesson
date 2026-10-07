@@ -70,15 +70,15 @@
   };
 
   var DEFAULT_LESSON = {
-    date: "2026-10-06",
-    title: "I Neither Know Nor Think I Know",
-    image: "https://upload.wikimedia.org/wikipedia/commons/d/d3/Aleksandr_Notbek%2C_Socrates_With_His_Students%2C_1831%2C_Irkutsk_Regional_Art_Museum_%D0%96-678.jpg",
-    imageAlt: "Alexander von Nothbeck — Socrates With His Students (1831), full landscape painting, Irkutsk Regional Art Museum, public domain",
+    date: "2026-10-07",
+    title: "Count the Cost",
+    image: "https://upload.wikimedia.org/wikipedia/commons/1/1e/Jean-L%C3%A9on_G%C3%A9r%C3%B4me_-_Young_Greeks_Attending_a_Cock_Fight_-_Google_Art_Project.jpg",
+    imageAlt: "Jean-Léon Gérôme — Young Greeks Attending a Cock Fight (1846), full landscape painting, Musée d'Orsay, public domain",
     fallback: "./images/2026-09-04.jpg",
-    source: "Plato, Apology 21d (Benjamin Jowett translation)",
-    quote: "I am better off than he is—for he knows nothing, and thinks that he knows. I neither know nor think that I know.",
-    lesson: "Socrates is answering the oracle, not posing. Delphi said no one was wiser. He went to a politician with a reputation and found a man who knew nothing of real worth and thought he did. Socrates walked away with one small edge. He did not think he knew what he did not. That is the start of the examined life. It is not a costume of humility, and it made him enemies.",
-    today: "Before noon, name one thing you have been answering as if it were already settled. Ask it again. Do not close it to look sure.",
+    source: "Epictetus, Enchiridion 29 (George Long translation)",
+    quote: "In every affair consider what precedes and what follows, and then undertake it. Otherwise you will begin with spirit, indeed, careless of the consequences, and when these are developed, you will shamefully desist.",
+    lesson: "Epictetus is not praising the wish to win. He is pricing it. The Olympic crown looks fine from the seats. The work before it is a diet, fixed hours, heat, cold, no wine when you want it, and handing yourself to a trainer the way you hand yourself to a doctor. Then the contest itself can throw you in a ditch, break an arm, fill your mouth with dust, and you can still lose. Count that before you start. Spirit at the beginning is cheap. Quitting when the bill arrives is the disgrace.",
+    today: "Before noon, write the cost of the thing you keep saying you want. If you still want it after the list, start the next hard piece. If you do not, drop the wish and stop talking about it.",
     lanes: ["thinker","warrior"]
   };
 
