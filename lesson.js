@@ -70,16 +70,16 @@
   };
 
   var DEFAULT_LESSON = {
-    date: "2026-10-07",
-    title: "Count the Cost",
-    image: "https://upload.wikimedia.org/wikipedia/commons/1/1e/Jean-L%C3%A9on_G%C3%A9r%C3%B4me_-_Young_Greeks_Attending_a_Cock_Fight_-_Google_Art_Project.jpg",
-    imageAlt: "Jean-Léon Gérôme — Young Greeks Attending a Cock Fight (1846), full landscape painting, Musée d'Orsay, public domain",
+    date: "2026-10-08",
+    title: "I Will Show Mine",
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/81/Entr%C3%A9e_d%27Alexandre_dans_Babylone_-_Charles_Lebrun_-_Mus%C3%A9e_du_Louvre_Peintures_INV_2898_%3B_MR_1919.jpg/1920px-Entr%C3%A9e_d%27Alexandre_dans_Babylone_-_Charles_Lebrun_-_Mus%C3%A9e_du_Louvre_Peintures_INV_2898_%3B_MR_1919.jpg",
+    imageAlt: "Charles Le Brun — Alexander Entering Babylon (1664–65), full landscape painting, Louvre, public domain",
     fallback: "./images/2026-09-04.jpg",
-    source: "Epictetus, Enchiridion 29 (George Long translation)",
-    quote: "In every affair consider what precedes and what follows, and then undertake it. Otherwise you will begin with spirit, indeed, careless of the consequences, and when these are developed, you will shamefully desist.",
-    lesson: "Epictetus is not praising the wish to win. He is pricing it. The Olympic crown looks fine from the seats. The work before it is a diet, fixed hours, heat, cold, no wine when you want it, and handing yourself to a trainer the way you hand yourself to a doctor. Then the contest itself can throw you in a ditch, break an arm, fill your mouth with dust, and you can still lose. Count that before you start. Spirit at the beginning is cheap. Quitting when the bill arrives is the disgrace.",
-    today: "Before noon, write the cost of the thing you keep saying you want. If you still want it after the list, start the next hard piece. If you do not, drop the wish and stop talking about it.",
-    lanes: ["thinker","warrior"]
+    source: "Arrian, Anabasis of Alexander 7.10, the speech at Opis (E. J. Chinnock translation)",
+    quote: "Come now! whoever of you has wounds, let him strip and show them, and I will show mine in turn; for there is no part of my body, in front at any rate, remaining free from wounds.",
+    lesson: "At Opis in 324 the Macedonians mutinied. Alexander was sending the old and the wounded home, and they heard dismissal, not mercy. He did not answer with a speech about destiny. He answered with the front of his own body: sword, arrow, stone, and engine-bolt. He ate what they ate, slept no more than they slept, and sat the night watch so they could sleep. Leading from the front is not a pose at the start of the march. It is the bill you can still point to when the men are done.",
+    today: "Do the hard piece of today's work yourself before you hand the rest down. If you cannot show the mark, do not ask them to show theirs.",
+    lanes: ["warrior","power"]
   };
 
   var LANE_LABEL = {warrior:'Warrior',thinker:'Thinker',builder:'Builder',power:'Power',faith:'Faith',odyssey:'Odyssey'};
