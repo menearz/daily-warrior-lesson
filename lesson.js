@@ -70,16 +70,16 @@
   };
 
   var DEFAULT_LESSON = {
-    date: "2026-10-08",
-    title: "I Will Show Mine",
-    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/81/Entr%C3%A9e_d%27Alexandre_dans_Babylone_-_Charles_Lebrun_-_Mus%C3%A9e_du_Louvre_Peintures_INV_2898_%3B_MR_1919.jpg/1920px-Entr%C3%A9e_d%27Alexandre_dans_Babylone_-_Charles_Lebrun_-_Mus%C3%A9e_du_Louvre_Peintures_INV_2898_%3B_MR_1919.jpg",
-    imageAlt: "Charles Le Brun — Alexander Entering Babylon (1664–65), full landscape painting, Louvre, public domain",
+    date: "2026-10-09",
+    title: "Let This Go With the Rest",
+    image: "https://upload.wikimedia.org/wikipedia/commons/1/1f/Hendrick_van_Balen_-_Odysseus_as_guest_of_the_nymph_Calypso.jpg",
+    imageAlt: "Hendrick van Balen — Odysseus as guest of the nymph Calypso, full landscape painting, public domain",
     fallback: "./images/2026-09-04.jpg",
-    source: "Arrian, Anabasis of Alexander 7.10, the speech at Opis (E. J. Chinnock translation)",
-    quote: "Come now! whoever of you has wounds, let him strip and show them, and I will show mine in turn; for there is no part of my body, in front at any rate, remaining free from wounds.",
-    lesson: "At Opis in 324 the Macedonians mutinied. Alexander was sending the old and the wounded home, and they heard dismissal, not mercy. He did not answer with a speech about destiny. He answered with the front of his own body: sword, arrow, stone, and engine-bolt. He ate what they ate, slept no more than they slept, and sat the night watch so they could sleep. Leading from the front is not a pose at the start of the march. It is the bill you can still point to when the men are done.",
-    today: "Do the hard piece of today's work yourself before you hand the rest down. If you cannot show the mark, do not ask them to show theirs.",
-    lanes: ["warrior","power"]
+    source: "Homer, Odyssey Book 5 (Samuel Butler translation)",
+    quote: "Nevertheless, I want to get home, and can think of nothing else. If some god wrecks me when I am on the sea, I will bear it and make the best of it. I have had infinite trouble both by land and sea already, so let this go with the rest.",
+    lesson: "Calypso has already offered the thing most men would take. Immortality, no aging, a goddess for a wife, and a cave that does not end. She also names the price of leaving: more suffering on the water before Ithaca. Odysseus does not argue her beauty. He grants it. He still wants the mortal house. Homecoming here is not comfort. It is choosing the finite life, and the next wreck, over a perfect island that is not his.",
+    today: "Name the comfortable stay that is not the work. Leave it before noon. Take the harder road that still points home.",
+    lanes: ["odyssey","warrior"]
   };
 
   var LANE_LABEL = {warrior:'Warrior',thinker:'Thinker',builder:'Builder',power:'Power',faith:'Faith',odyssey:'Odyssey'};

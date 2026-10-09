@@ -1,6 +1,21 @@
 {
   "lessons": [
     {
+      "date": "2026-10-09",
+      "title": "Let This Go With the Rest",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/1/1f/Hendrick_van_Balen_-_Odysseus_as_guest_of_the_nymph_Calypso.jpg",
+      "imageAlt": "Hendrick van Balen — Odysseus as guest of the nymph Calypso, full landscape painting, public domain",
+      "fallback": "./images/2026-09-04.jpg",
+      "source": "Homer, Odyssey Book 5 (Samuel Butler translation)",
+      "quote": "Nevertheless, I want to get home, and can think of nothing else. If some god wrecks me when I am on the sea, I will bear it and make the best of it. I have had infinite trouble both by land and sea already, so let this go with the rest.",
+      "lesson": "Calypso has already offered the thing most men would take. Immortality, no aging, a goddess for a wife, and a cave that does not end. She also names the price of leaving: more suffering on the water before Ithaca. Odysseus does not argue her beauty. He grants it. He still wants the mortal house. Homecoming here is not comfort. It is choosing the finite life, and the next wreck, over a perfect island that is not his.",
+      "today": "Name the comfortable stay that is not the work. Leave it before noon. Take the harder road that still points home.",
+      "lanes": [
+        "odyssey",
+        "warrior"
+      ]
+    },
+    {
       "date": "2026-10-08",
       "title": "I Will Show Mine",
       "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/81/Entr%C3%A9e_d%27Alexandre_dans_Babylone_-_Charles_Lebrun_-_Mus%C3%A9e_du_Louvre_Peintures_INV_2898_%3B_MR_1919.jpg/1920px-Entr%C3%A9e_d%27Alexandre_dans_Babylone_-_Charles_Lebrun_-_Mus%C3%A9e_du_Louvre_Peintures_INV_2898_%3B_MR_1919.jpg",
