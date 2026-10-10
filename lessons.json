@@ -1,1 +1,19 @@
-$(cat /tmp/lessons_updated.json)
+{
+  "lessons": [
+    {
+      "date": "2026-10-10",
+      "title": "Hold Every Hour",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/e/e9/Jacques-Louis_David_-_The_Death_of_Seneca_-_WGA06041.jpg",
+      "imageAlt": "Jacques-Louis David — The Death of Seneca (1773), full landscape painting, Petit Palais, public domain",
+      "fallback": "./images/2026-09-04.jpg",
+      "source": "Seneca, Moral Letters to Lucilius 1 (Richard M. Gummere translation)",
+      "quote": "While we are postponing, life speeds by.",
+      "lesson": "Seneca is not offering a slogan about urgency. He is naming the only possession that is actually ours. Time is forced from us, filched, or allowed to slip. We carefully reckon the price of cheap things we can replace, and never enter time in the ledger at all. The years already lived are already in death’s hands. Hold the present hour, or it is gone.",
+      "today": "Before noon, finish the task you have been postponing. Do not trade it for one more delay.",
+      "lanes": [
+        "thinker",
+        "warrior"
+      ]
+    }
+  ]
+}
