@@ -70,16 +70,16 @@
   };
 
   var DEFAULT_LESSON = {
-    date: "2026-10-09",
-    title: "Let This Go With the Rest",
-    image: "https://upload.wikimedia.org/wikipedia/commons/1/1f/Hendrick_van_Balen_-_Odysseus_as_guest_of_the_nymph_Calypso.jpg",
-    imageAlt: "Hendrick van Balen — Odysseus as guest of the nymph Calypso, full landscape painting, public domain",
+    date: "2026-10-10",
+    title: "Hold Every Hour",
+    image: "https://upload.wikimedia.org/wikipedia/commons/e/e9/Jacques-Louis_David_-_The_Death_of_Seneca_-_WGA06041.jpg",
+    imageAlt: "Jacques-Louis David — The Death of Seneca (1773), full landscape painting, Petit Palais, public domain",
     fallback: "./images/2026-09-04.jpg",
-    source: "Homer, Odyssey Book 5 (Samuel Butler translation)",
-    quote: "Nevertheless, I want to get home, and can think of nothing else. If some god wrecks me when I am on the sea, I will bear it and make the best of it. I have had infinite trouble both by land and sea already, so let this go with the rest.",
-    lesson: "Calypso has already offered the thing most men would take. Immortality, no aging, a goddess for a wife, and a cave that does not end. She also names the price of leaving: more suffering on the water before Ithaca. Odysseus does not argue her beauty. He grants it. He still wants the mortal house. Homecoming here is not comfort. It is choosing the finite life, and the next wreck, over a perfect island that is not his.",
-    today: "Name the comfortable stay that is not the work. Leave it before noon. Take the harder road that still points home.",
-    lanes: ["odyssey","warrior"]
+    source: "Seneca, Moral Letters to Lucilius 1 (Richard M. Gummere translation)",
+    quote: "While we are postponing, life speeds by.",
+    lesson: "Seneca is not offering a slogan about urgency. He is naming the only possession that is actually ours. Time is forced from us, filched, or allowed to slip. We carefully reckon the price of cheap things we can replace, and never enter time in the ledger at all. The years already lived are already in death’s hands. Hold the present hour, or it is gone.",
+    today: "Before noon, finish the task you have been postponing. Do not trade it for one more delay.",
+    lanes: ["thinker","warrior"]
   };
 
   var LANE_LABEL = {warrior:'Warrior',thinker:'Thinker',builder:'Builder',power:'Power',faith:'Faith',odyssey:'Odyssey'};
