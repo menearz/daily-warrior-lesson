@@ -1,1 +1,34 @@
-PLACEHOLDER_WILL_REPLACE
+{
+  "lessons": [
+    {
+      "date": "2026-10-12",
+      "title": "Train Both",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/4/49/%22The_School_of_Athens%22_by_Raffaello_Sanzio_da_Urbino.jpg",
+      "imageAlt": "Raphael — The School of Athens (1509–11), full landscape fresco, Vatican, public domain",
+      "fallback": "./images/2026-09-04.jpg",
+      "source": "Musonius Rufus, Lecture 6, On Training (Cora E. Lutz translation)",
+      "quote": "Now there are two kinds of training, one which is appropriate for the soul alone, and the other which is common to both soul and body. We use the training common to both when we discipline ourselves to cold, heat, thirst, hunger, meager rations, hard beds, avoidance of pleasures, and patience under suffering.",
+      "lesson": "Musonius is not separating the mind from the body. A man is both, and the virtues use the body as an instrument. The shared training—cold, heat, short food, hard rest, skipped pleasure, and sitting with discomfort—builds the body for work and the soul for courage and self-control at the same time. Knowing the theory without the practice leaves you unready when the heat or the hunger arrives.",
+      "today": "Before noon, choose one small discomfort you can meet on purpose. Cold water, a skipped comfort, or a hard task with no delay. Do it, and do not explain it.",
+      "lanes": [
+        "thinker",
+        "warrior"
+      ]
+    },
+    {
+      "date": "2026-10-11",
+      "title": "Transformation of Mind",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/c/c6/The_Blacksmith%27s_Studio.jpg",
+      "imageAlt": "Albert Brument — The Blacksmith's Workshop (late 19th century), full landscape painting of a forge with workers, public domain",
+      "fallback": "./images/2026-09-04.jpg",
+      "source": "Robert Greene, Mastery (apprenticeship phase)",
+      "quote": "The goal of an apprenticeship is not money, a good position, a title, or a diploma, but rather the transformation of your mind and character—the first transformation on the way to mastery.",
+      "lesson": "Greene is not talking about collecting credentials. The early years are meant to remake how you think and who you are. You start as an outsider, full of fantasies. The work forces you into the real constraints of the craft, into handling other people and criticism, until the scattered impatient person becomes disciplined and able to hold complexity. Mastery of the skill starts with mastery of the self.",
+      "today": "Before noon, choose the hard practice that actually changes how you work, not the task that only looks like progress.",
+      "lanes": [
+        "power",
+        "warrior"
+      ]
+    }
+  ]
+}
