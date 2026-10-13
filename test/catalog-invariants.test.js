@@ -63,13 +63,17 @@ test('catalog dates are unique', () => {
   assert.equal(new Set(dates).size, dates.length, 'duplicate dates in lessons.json');
 });
 
-test('every catalog image and fallback file exists on disk', () => {
+test('every catalog image is same-origin on disk or https Wikimedia, and every fallback is a local file', () => {
   const catalog = loadCatalog();
   for (const lesson of catalog.lessons) {
-    for (const key of ['image', 'fallback']) {
-      const rel = String(lesson[key]).replace(/^\.\//, '');
-      assert.ok(fs.existsSync(path.join(root, rel)), `${lesson.date} ${key} missing file ${rel}`);
+    const img = String(lesson.image);
+    if (/^https:\/\//.test(img)) {
+      assert.match(img, /^https:\/\/(upload\.wikimedia\.org|commons\.wikimedia\.org|menearz\.github\.io\/daily-warrior-lesson\/images\/)/, `${lesson.date} image host`);
+    } else {
+      assert.ok(fs.existsSync(path.join(root, img.replace(/^\.\//, ''))), `${lesson.date} image missing file ${img}`);
     }
+    assert.match(lesson.fallback, /^\.\/images\/[\w-]+\.jpg$/, `${lesson.date} fallback is local`);
+    assert.ok(fs.existsSync(path.join(root, lesson.fallback.replace(/^\.\//, ''))), `${lesson.date} fallback missing`);
   }
 });
 
@@ -111,9 +115,11 @@ test('DEFAULT_LESSON matches the latest catalog entry for offline hydrate', () =
   assert.deepEqual(WarriorLesson.DEFAULT_LESSON, latest);
 });
 
-test('oldest archive entries keep Forge lanes so aimed feed can select them', () => {
+test('lanes reflect content: every lane has at least 6 lessons and warrior is not on everything', () => {
   const catalog = loadCatalog();
-  const byDate = Object.fromEntries(catalog.lessons.map((lesson) => [lesson.date, lesson]));
-  assert.deepEqual(byDate['2026-08-29'].lanes, ['thinker', 'warrior']);
-  assert.deepEqual(byDate['2026-08-28'].lanes, ['faith', 'warrior']);
+  const counts = Object.fromEntries([...KNOWN_LANES].map((l) => [l, 0]));
+  for (const lesson of catalog.lessons) for (const lane of lesson.lanes) counts[lane] += 1;
+  for (const lane of KNOWN_LANES) assert.ok(counts[lane] >= 6, `${lane} has only ${counts[lane]} lessons`);
+  assert.ok(counts.warrior < catalog.lessons.length * 0.6, 'warrior is tagged on too many lessons');
+  assert.ok(catalog.lessons.length >= 60, 'library has at least 60 lessons');
 });

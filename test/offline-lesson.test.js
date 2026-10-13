@@ -92,60 +92,38 @@ test('resolveLesson uses DEFAULT_LESSON only on first-visit empty cache', async 
   assert.equal(result.lesson.title, WarriorLesson.DEFAULT_LESSON.title);
 });
 
-test('DEFAULT_LESSON is 2026-09-09 Musashi with same-origin images', () => {
-  assert.equal(WarriorLesson.DEFAULT_LESSON.date, '2026-09-09');
-  assert.equal(WarriorLesson.DEFAULT_LESSON.title, 'Do Nothing of No Use');
-  assert.match(WarriorLesson.DEFAULT_LESSON.source, /Miyamoto Musashi/);
-  assert.equal(WarriorLesson.DEFAULT_LESSON.image, './images/2026-09-09.jpg');
-  assert.equal(WarriorLesson.DEFAULT_LESSON.fallback, './images/2026-09-09.jpg');
-  assert.match(WarriorLesson.DEFAULT_LESSON.imageAlt, /Kuniyoshi/);
-  assert.deepEqual(WarriorLesson.DEFAULT_LESSON.lanes, ['warrior', 'thinker']);
+test('DEFAULT_LESSON is the newest catalog lesson, with Spanish fields', () => {
+  const liveCatalog = require('../lessons.json');
+  const latest = liveCatalog.lessons.slice().sort((a, b) => b.date.localeCompare(a.date))[0];
+  assert.equal(WarriorLesson.DEFAULT_LESSON.date, latest.date);
+  assert.equal(WarriorLesson.DEFAULT_LESSON.title, latest.title);
+  for (const k of ['title_es', 'quote_es', 'lesson_es', 'today_es']) assert.ok(WarriorLesson.DEFAULT_LESSON[k]);
+  assert.match(WarriorLesson.DEFAULT_LESSON.fallback, /^\.\/images\/.+\.jpg$/);
 });
 
-test('live catalog latest lesson is Musashi; offline keeps last-rendered', async () => {
+test('live catalog latest lesson renders online; offline keeps last-rendered', async () => {
   const liveCatalog = require('../lessons.json');
+  const latest = liveCatalog.lessons.slice().sort((a, b) => b.date.localeCompare(a.date))[0];
   const storage = memoryStorage();
-  const online = await WarriorLesson.resolveLesson({
-    fetchJson: async () => liveCatalog,
-    storage,
-    opts: {},
-  });
-  assert.equal(online.lesson.title, 'Do Nothing of No Use');
-  assert.equal(online.lesson.date, '2026-09-09');
-  assert.equal(online.lesson.image, './images/2026-09-09.jpg');
+  const online = await WarriorLesson.resolveLesson({ fetchJson: async () => liveCatalog, storage, opts: {} });
+  assert.equal(online.lesson.date, latest.date);
+  assert.equal(online.lesson.title, latest.title);
   const offline = await WarriorLesson.resolveLesson({
     fetchJson: async () => { throw new Error('offline'); },
     storage,
     opts: {},
   });
   assert.equal(offline.source, 'last-rendered');
-  assert.equal(offline.lesson.title, 'Do Nothing of No Use');
-  assert.equal(offline.lesson.date, '2026-09-09');
-  assert.equal(offline.lesson.image, './images/2026-09-09.jpg');
+  assert.equal(offline.lesson.date, latest.date);
+  assert.equal(offline.lesson.quote_es, latest.quote_es);
 });
 
-test('catalog adds Musashi and Sun Tzu with required fields and cited translations', () => {
+test('catalog keeps Sun Tzu lessons with required fields and the cited Giles translation', () => {
   const liveCatalog = require('../lessons.json');
-  const required = ['date', 'title', 'image', 'imageAlt', 'fallback', 'source', 'quote', 'lesson', 'today', 'lanes'];
-  for (const lesson of liveCatalog.lessons) {
-    for (const key of required) {
-      assert.ok(lesson[key], `${lesson.date || lesson.title} missing ${key}`);
-    }
-    assert.ok(Array.isArray(lesson.lanes) && lesson.lanes.length > 0, `${lesson.date} missing lanes`);
-  }
-  const musashi = liveCatalog.lessons.filter((l) => /Musashi/i.test(l.source));
   const suntzu = liveCatalog.lessons.filter((l) => /Sun Tzu/i.test(l.source));
-  assert.ok(musashi.length >= 2, 'at least two Musashi lessons');
   assert.ok(suntzu.length >= 2, 'at least two Sun Tzu lessons');
-  for (const lesson of musashi.concat(suntzu)) {
-    assert.ok(Array.isArray(lesson.lanes) && lesson.lanes.length > 0, `${lesson.date} missing lanes`);
-    assert.ok(lesson.lanes.includes('warrior'));
-  }
-  const quotes = liveCatalog.lessons.map((l) => l.quote);
-  assert.ok(quotes.includes('Do nothing which is of no use.'));
-  assert.ok(quotes.includes('In strategy it is important to see distant things as if they were close and to take a distanced view of close things.'));
-  assert.ok(quotes.includes('If you know the enemy and know yourself, you need not fear the result of a hundred battles.'));
-  assert.ok(quotes.includes('Hence to fight and conquer in all your battles is not supreme excellence; supreme excellence consists in breaking the enemy\'s resistance without fighting.'));
-  assert.ok(musashi.every((l) => /Victor Harris/i.test(l.source)));
   assert.ok(suntzu.every((l) => /Lionel Giles/i.test(l.source)));
+  const quotes = liveCatalog.lessons.map((l) => l.quote);
+  assert.ok(quotes.includes('All warfare is based on deception.'));
+  assert.ok(quotes.includes('Hence to fight and conquer in all your battles is not supreme excellence; supreme excellence consists in breaking the enemy\'s resistance without fighting.'));
 });

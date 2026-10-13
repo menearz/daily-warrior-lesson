@@ -1,10 +1,13 @@
 #!/usr/bin/env node
-// Guard for lessons.json: valid JSON, no placeholders, unique dates, and the
-// lesson count never drops versus a base file (default: previous commit).
+// Guard for lessons.json: valid JSON, no placeholders, unique dates, every
+// lesson passes scripts/lesson-schema.js (English + Spanish _es fields and
+// lane tags from the fixed set), and the lesson count never drops versus a
+// base file (default: previous commit).
 // Usage: node scripts/check-lessons.js [baseFile]
 'use strict';
 const fs = require('fs');
 const { execSync } = require('child_process');
+const { BAD, lessonErrors } = require('./lesson-schema');
 function parse(text, label) {
   let d;
   try { d = JSON.parse(text); } catch (e) { fail(`${label} is not valid JSON: ${e.message}`); }
@@ -14,9 +17,11 @@ function parse(text, label) {
 function fail(msg) { console.error('lessons.json guard FAILED: ' + msg); process.exit(1); }
 const text = fs.readFileSync('lessons.json', 'utf8');
 const now = parse(text, 'lessons.json');
-if (/SEE_FILE|PLACEHOLDER|FULL_CONTENT|[A-Z]+_HERE\b|\bTODO\b|lorem ipsum|\$\(cat /.test(text)) fail('placeholder marker found');
+if (BAD.test(text)) fail('placeholder marker found');
 const dates = now.map((l) => l.date);
 if (new Set(dates).size !== dates.length) fail('duplicate lesson dates');
+const errs = now.flatMap(lessonErrors);
+if (errs.length) fail(errs.slice(0, 10).join('; ') + (errs.length > 10 ? ` (+${errs.length - 10} more)` : ''));
 let baseText = null;
 if (process.argv[2]) baseText = fs.readFileSync(process.argv[2], 'utf8');
 else { try { baseText = execSync('git show HEAD~1:lessons.json', { encoding: 'utf8', stdio: ['ignore', 'pipe', 'ignore'] }); } catch (_) {} }
