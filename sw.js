@@ -18,6 +18,8 @@ const PRECACHE = [
   "./icon-192.png",
   "./icon-512.png",
   "./favicon.ico",
+  "./images/2026-09-11.jpg",
+  "./images/2026-09-10.jpg",
   "./images/2026-09-09.jpg",
   "./images/2026-09-08.jpg",
   "./images/2026-09-07.jpg",

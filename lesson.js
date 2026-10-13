@@ -72,16 +72,25 @@
   };
 
   var DEFAULT_LESSON = {
-    date: "2026-10-10",
-    title: "Hold Every Hour",
-    image: "https://upload.wikimedia.org/wikipedia/commons/e/e9/Jacques-Louis_David_-_The_Death_of_Seneca_-_WGA06041.jpg",
-    imageAlt: "Jacques-Louis David — The Death of Seneca (1773), full landscape painting, Petit Palais, public domain",
-    fallback: "./images/2026-09-04.jpg",
-    source: "Seneca, Moral Letters to Lucilius 1 (Richard M. Gummere translation)",
-    quote: "While we are postponing, life speeds by.",
-    lesson: "Seneca is not offering a slogan about urgency. He is naming the only possession that is actually ours. Time is forced from us, filched, or allowed to slip. We carefully reckon the price of cheap things we can replace, and never enter time in the ledger at all. The years already lived are already in death’s hands. Hold the present hour, or it is gone.",
-    today: "Before noon, finish the task you have been postponing. Do not trade it for one more delay.",
-    lanes: ["thinker","warrior"]
+    "date": "2026-10-13",
+    "title": "Doers of the Word",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/b/bf/Martin_Schongauer%2C_The_Battle_of_Saint_James_at_Clavijo%2C_c._1470-1475%2C_NGA_33864.jpg",
+    "imageAlt": "Martin Schongauer — The Battle of Saint James at Clavijo (c. 1470–75), full landscape engraving, National Gallery of Art, public domain",
+    "fallback": "./images/2026-09-04.jpg",
+    "source": "James 1:22 (King James Version)",
+    "quote": "But be ye doers of the word, and not hearers only, deceiving your own selves.",
+    "lesson": "James is not collecting listeners. Hearing the word and stopping there is self-deception. The man who looks at his face in a mirror and walks away, forgetting what he saw, is the hearer who nods and does nothing. The deed is the test. Faith that stays in the head does not move the hands. The work proves what the words only claimed.",
+    "today": "Before noon, take one clear instruction you already know and do it. Do not explain why it counts.",
+    "lanes": [
+      "faith",
+      "builder"
+    ],
+    "title_es": "Hacedores de la palabra",
+    "quote_es": "Mas sed hacedores de la palabra, y no tan solamente oidores, engañándoos á vosotros mismos.",
+    "lesson_es": "Santiago no está juntando oyentes. Oír la palabra y quedarse ahí es engañarse. El hombre que se mira la cara en un espejo y se va, olvidando lo que vio, es el oyente que asiente y no hace nada. La obra es la prueba. La fe que se queda en la cabeza no mueve las manos. El trabajo demuestra lo que las palabras solo afirmaban.",
+    "today_es": "Antes del mediodía, toma una instrucción clara que ya conoces y cúmplela. No expliques por qué cuenta.",
+    "source_es": "Santiago 1:22 (Reina-Valera 1909)",
+    "sourceUrl": "https://www.gutenberg.org/ebooks/10"
   };
 
   var LANE_LABEL = {warrior:'Warrior',thinker:'Thinker',builder:'Builder',power:'Power',faith:'Faith',odyssey:'Odyssey'};
@@ -92,14 +101,44 @@
     return n;
   }
 
+  var LANES = ['warrior', 'thinker', 'builder', 'odyssey', 'power', 'faith'];
+  var LOCALIZED_FIELDS = ['title', 'quote', 'lesson', 'today', 'source'];
+
+  // Return a copy of the lesson with Spanish text when lang is 'es'.
+  // Any missing _es field falls back to the English one.
+  function localizeLesson(lesson, lang) {
+    if (!lesson) return lesson;
+    var out = {};
+    for (var k in lesson) if (Object.prototype.hasOwnProperty.call(lesson, k)) out[k] = lesson[k];
+    if (lang === 'es') {
+      for (var i = 0; i < LOCALIZED_FIELDS.length; i++) {
+        var f = LOCALIZED_FIELDS[i];
+        var v = lesson[f + '_es'];
+        if (typeof v === 'string' && v.trim()) out[f] = v;
+      }
+    }
+    return out;
+  }
+
+  function hasAnyLane(lesson, lanes) {
+    if (!lesson || !lesson.lanes) return false;
+    for (var i = 0; i < lanes.length; i++) if (lesson.lanes.indexOf(lanes[i]) !== -1) return true;
+    return false;
+  }
+
+  // 70 / 30: seven days in ten draw from the lessons tagged with one of the
+  // user's Forge lanes (primary or secondary); three in ten draw from the
+  // other lanes so the feed is not one note. Same day + same path = same pick.
   function pickPersonalized(lessons, forged, stamp) {
     if (!forged || !forged.primary) return null;
-    var primary = lessons.filter(function(l){ return l.lanes && l.lanes.indexOf(forged.primary) !== -1; });
-    var secondary = lessons.filter(function(l){ return l.lanes && forged.secondary && l.lanes.indexOf(forged.secondary) !== -1; });
-    var pool = (hashStamp(stamp) % 10 < 7 ? primary : secondary);
-    if (!pool.length) pool = primary.length ? primary : secondary;
+    var mine = [forged.primary];
+    if (forged.secondary && forged.secondary !== forged.primary) mine.push(forged.secondary);
+    var inLanes = lessons.filter(function (l) { return hasAnyLane(l, mine); });
+    var others = lessons.filter(function (l) { return l.lanes && l.lanes.length && !hasAnyLane(l, mine); });
+    var pool = (hashStamp(stamp) % 10 < 7 ? inLanes : others);
+    if (!pool.length) pool = inLanes.length ? inLanes : others;
     if (!pool.length) return null;
-    return pool[hashStamp(stamp + (forged.primary || '')) % pool.length];
+    return pool[hashStamp(stamp + mine.join('/')) % pool.length];
   }
 
   function pickDailyLesson(lessons, opts) {
@@ -304,6 +343,8 @@
   return {
     DEFAULT_LESSON: DEFAULT_LESSON,
     LANE_LABEL: LANE_LABEL,
+    LANES: LANES,
+    localizeLesson: localizeLesson,
     LAST_LESSONS_KEY: LAST_LESSONS_KEY,
     LAST_RENDERED_KEY: LAST_RENDERED_KEY,
     LANG_KEY: LANG_KEY,
