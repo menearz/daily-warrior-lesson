@@ -8,7 +8,7 @@ const fs = require('fs');
 const { execSync } = require('child_process');
 const [before, after] = process.argv.slice(2);
 const REQUIRED = ['date', 'title', 'image', 'imageAlt', 'fallback', 'source', 'quote', 'lesson', 'today', 'lanes'];
-const BAD = /SEE_FILE|PLACEHOLDER|FULL_CONTENT|[A-Z]+_HERE\b|\bTODO\b|lorem ipsum|\$\(cat /i;
+const BAD = /SEE_FILE|PLACEHOLDER|FULL_CONTENT|[A-Z]+_HERE\b|\bTODO\b|lorem ipsum|\$\(cat /;
 const sh = (c) => execSync(c, { encoding: 'utf8', stdio: ['ignore', 'pipe', 'ignore'], maxBuffer: 1 << 26 });
 function load(sha) {
   try { const t = sh(`git show ${sha}:lessons.json`); if (BAD.test(t)) return null; const d = JSON.parse(t); return Array.isArray(d.lessons) ? d.lessons : null; } catch (_) { return null; }
