@@ -1,0 +1,31 @@
+# Daily Warrior subscription API
+
+Small node:http service (one dependency: `stripe`). It is meant to be deployed by Harbor at `https://dw-api.arbiterresearch.net`. **Nothing is deployed yet.**
+
+## Live mode off: Ancilla payouts paused
+`src/config.js` sets `LIVE_MODE_OFF = true`. Startup is refused (exit 1) if `DW_STRIPE_SECRET_KEY` is `sk_live_`/`rk_live_` or isn't `sk_test_`. Live-mode webhook events are ignored. To turn live mode on, someone has to change the code in a PR.
+
+## Env (only DW_* vars are read)
+DW_API_HOST, DW_API_PORT, DW_STORE_PATH (JSON store, atomic writes, 0600), DW_ALLOWED_ORIGIN (default https://menearz.github.io), DW_SITE_URL,
+DW_STRIPE_SECRET_KEY (sk_test_ only), DW_STRIPE_WEBHOOK_SECRET, DW_STRIPE_PRICE_MONTHLY / DW_STRIPE_PRICE_YEARLY (price ids; if unset, inline prices are used),
+DW_PRICE_MONTHLY_CENTS=499, DW_PRICE_YEARLY_CENTS=3999,
+DW_AGENTMAIL_API_KEY, DW_AGENTMAIL_INBOX_ID, DW_MAIL_FROM.
+
+## Auth
+Sign-in is by magic link only. The token is SHA-256 hashed, is single use, expires after 15 min, and is rate limited (10/IP and 3/email per 15 min).
+The primary auth is a bearer access token (15 min) plus a rotating refresh token (30 days). Reusing a refresh token revokes its whole token family.
+An HttpOnly; Secure; SameSite=None cookie is also set, but only as a fallback. A real-Chromium test showed that cookie is dropped when third-party cookies are blocked.
+
+## Entitlement and retention
+The Forge questions and today's lesson are free. The 70/30 aimed feed and /sync need an active plan (no trial).
+Stored per user: email, forged_path, read dates, language, plan status, and Stripe customer/sub ids.
+An hourly job deletes answers and history 30 days after cancel.
+
+## Stripe
+Endpoints: POST /billing/checkout (subscription Checkout Session), POST /billing/portal, POST /stripe/webhook (signature verified, idempotent by event id). Events handled: checkout.session.completed and customer.subscription.updated/deleted.
+
+## Still needed (Harbor)
+DNS + TLS for dw-api.arbiterresearch.net, a process manager, a persistent store dir, a test-mode webhook endpoint registered at `/stripe/webhook`, and Zachary's sk_test / whsec / price ids.
+
+## Tests
+`npm test` (run with STRIPE_* unset).
