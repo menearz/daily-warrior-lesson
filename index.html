@@ -124,8 +124,9 @@
   var currentLang = WarriorLesson.readLang(window.localStorage);
   var lastResult = null;
 
-  function render(LESSON, aimed) {
+  function render(RAW, aimed) {
     var lang = currentLang || 'en';
+    var LESSON = WarriorLesson.localizeLesson(RAW, lang);
     document.getElementById('date').textContent = LESSON.date;
     document.getElementById('title').textContent = LESSON.title;
     var art = document.getElementById('art');

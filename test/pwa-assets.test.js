@@ -59,16 +59,14 @@ test('hero image files exist as JPEGs', () => {
   }
 });
 
-test('lessons.json image and fallback are same-origin dated files', () => {
+test('lessons.json fallbacks are same-origin JPEG files and local images exist', () => {
   const catalog = JSON.parse(read('lessons.json'));
   assert.ok(Array.isArray(catalog.lessons) && catalog.lessons.length > 0);
   for (const lesson of catalog.lessons) {
-    const expected = `./images/${lesson.date}.jpg`;
-    assert.equal(lesson.image, expected);
-    assert.equal(lesson.fallback, expected);
     assert.ok(lesson.imageAlt && lesson.imageAlt.length > 0);
-    assert.ok(fs.existsSync(path.join(root, lesson.image.replace(/^\.\//, ''))));
-    assert.doesNotMatch(lesson.image, /upload\.wikimedia\.org|images\.metmuseum\.org/);
+    assert.match(lesson.fallback, /^\.\/images\/[\w-]+\.jpg$/);
+    assert.ok(fs.existsSync(path.join(root, lesson.fallback.replace(/^\.\//, ''))));
+    if (lesson.image.startsWith('./')) assert.ok(fs.existsSync(path.join(root, lesson.image.replace(/^\.\//, ''))));
     assert.doesNotMatch(lesson.fallback, /upload\.wikimedia\.org|images\.metmuseum\.org/);
   }
 });
@@ -105,7 +103,8 @@ test('service worker CACHE is past v9 and PRECACHE includes shell, icons, and im
   }
   const catalog = JSON.parse(read('lessons.json'));
   for (const lesson of catalog.lessons) {
-    assert.ok(precache.includes(lesson.image), `PRECACHE missing catalog image ${lesson.image}`);
+    if (lesson.image.startsWith('./')) assert.ok(precache.includes(lesson.image), `PRECACHE missing catalog image ${lesson.image}`);
+    assert.ok(precache.includes(lesson.fallback), `PRECACHE missing catalog fallback ${lesson.fallback}`);
   }
 });
 

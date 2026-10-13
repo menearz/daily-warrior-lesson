@@ -118,7 +118,8 @@
       return;
     }
     var unavailable = WarriorLesson.t(lang, 'imageUnavailable');
-    list.innerHTML = lessons.map(function (l) {
+    list.innerHTML = lessons.map(function (raw) {
+      var l = WarriorLesson.localizeLesson(raw, lang);
       var img = l.image || l.fallback || '';
       var alt = l.imageAlt || l.title || WarriorLesson.t(lang, 'untitled');
       return '<a class="item" href="./index.html?date=' + encodeURIComponent(l.date) + '">' +
@@ -128,8 +129,8 @@
           : '') +
         '<div class="meta">' +
         '<div class="d">' + (l.date || '') + '</div>' +
-        '<div class="t">' + (l.title || WarriorLesson.t(lang, 'untitled')) + '</div>' +
-        '<div class="s">' + (l.source || '') + '</div>' +
+        '<div class="t">' + escapeAttr(l.title || WarriorLesson.t(lang, 'untitled')) + '</div>' +
+        '<div class="s">' + escapeAttr(l.source || '') + '</div>' +
         '</div></a>';
     }).join('');
   }
