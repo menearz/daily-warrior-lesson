@@ -2,7 +2,8 @@
 // Rebuild lessons.json after a bad push: start from the newest commit (before
 // BEFORE_SHA inclusive) whose lessons.json is valid, then add any new lessons
 // found in the commits of the bad push that pass scripts/lesson-schema.js
-// (complete English + Spanish fields, valid lanes, no placeholders).
+// (complete English fields, valid lanes, no placeholders;
+// Spanish fields optional).
 // Usage: node scripts/restore-lessons.js <beforeSha> <afterSha>
 'use strict';
 const fs = require('fs');

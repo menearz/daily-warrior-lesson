@@ -2,8 +2,8 @@
 // Append one lesson to lessons.json without replacing the file.
 // Usage: node scripts/add-lesson.js new-lesson.json
 //        node scripts/add-lesson.js --update fields.json
-// The entry must pass scripts/lesson-schema.js (English + _es fields, valid
-// lanes). Skips if the date already exists; keeps newest-first order.
+// The entry must pass scripts/lesson-schema.js (English fields, valid lanes;
+// _es fields optional). Skips if the date already exists; keeps newest-first order.
 // --update merges translation fields, sourceUrl and lanes into the lesson
 // with the same date. It never removes a lesson and never changes the
 // English text, quote, source or image.

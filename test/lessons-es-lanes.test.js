@@ -7,7 +7,7 @@ const os = require('node:os');
 const path = require('node:path');
 const { execFileSync, spawnSync } = require('node:child_process');
 const WarriorLesson = require('../lesson.js');
-const { LANES, lessonErrors } = require('../scripts/lesson-schema.js');
+const { LANES, lessonErrors, lessonWarnings } = require('../scripts/lesson-schema.js');
 
 const root = path.join(__dirname, '..');
 const catalog = JSON.parse(fs.readFileSync(path.join(root, 'lessons.json'), 'utf8'));
@@ -30,8 +30,10 @@ function newLesson(date) {
   return Object.assign(sample(), { date, title: 'Test ' + date });
 }
 
-test('every lesson passes the shared schema (EN + _es fields, valid lanes)', () => {
+test('every lesson passes the shared schema and the 62 current lessons all carry Spanish', () => {
   for (const l of catalog.lessons) assert.deepEqual(lessonErrors(l), [], l.date);
+  assert.ok(catalog.lessons.length >= 62);
+  for (const l of catalog.lessons) assert.deepEqual(lessonWarnings(l), [], `${l.date} lost its Spanish`);
   assert.deepEqual(LANES.slice().sort(), ['builder', 'faith', 'odyssey', 'power', 'thinker', 'warrior']);
   assert.deepEqual(WarriorLesson.LANES.slice().sort(), LANES.slice().sort());
 });
@@ -93,13 +95,16 @@ test('index and archive render through localizeLesson', () => {
 test('add-lesson.js rejects missing _es fields and bad lanes; --update cannot touch English', () => {
   const { dir } = tmpRepo(catalog.lessons.slice(0, 3));
   const write = (name, obj) => { const p = path.join(dir, name); fs.writeFileSync(p, JSON.stringify(obj)); return p; };
-  const noEs = newLesson('2030-01-01'); delete noEs.quote_es;
+  const noEs = newLesson('2030-01-01'); for (const k of ['title_es', 'quote_es', 'lesson_es', 'today_es', 'source_es']) delete noEs[k];
   let r = run(dir, 'add-lesson.js', write('a.json', noEs));
-  assert.equal(r.status, 1); assert.match(r.stderr, /missing quote_es/);
+  assert.equal(r.status, 0, r.stderr); assert.match(r.stdout, /3 -> 4/);
+  const noQuote = newLesson('2030-01-04'); delete noQuote.quote;
+  r = run(dir, 'add-lesson.js', write('a2.json', noQuote));
+  assert.equal(r.status, 1); assert.match(r.stderr, /missing quote/);
   r = run(dir, 'add-lesson.js', write('b.json', Object.assign(newLesson('2030-01-02'), { lanes: ['wizard'] })));
   assert.equal(r.status, 1); assert.match(r.stderr, /unknown lane/);
   r = run(dir, 'add-lesson.js', write('c.json', newLesson('2030-01-03')));
-  assert.equal(r.status, 0, r.stderr); assert.match(r.stdout, /3 -> 4/);
+  assert.equal(r.status, 0, r.stderr); assert.match(r.stdout, /4 -> 5/);
   r = run(dir, 'add-lesson.js', '--update', write('d.json', { date: '2030-01-03', quote: 'changed' }));
   assert.equal(r.status, 1); assert.match(r.stderr, /may not change: quote/);
   r = run(dir, 'add-lesson.js', '--update', write('e.json', { date: '2030-01-03', lanes: ['odyssey'], title_es: 'Prueba' }));
@@ -110,7 +115,7 @@ test('add-lesson.js rejects missing _es fields and bad lanes; --update cannot to
   fs.rmSync(dir, { recursive: true, force: true });
 });
 
-test('check-lessons.js fails when a lesson lacks Spanish or has an unknown lane', () => {
+test('check-lessons.js warns (not fails) on missing Spanish and fails on an unknown lane', () => {
   const { dir } = tmpRepo(catalog.lessons.slice(0, 3));
   const base = path.join(dir, 'base.json');
   fs.copyFileSync(path.join(dir, 'lessons.json'), base);
@@ -118,8 +123,12 @@ test('check-lessons.js fails when a lesson lacks Spanish or has an unknown lane'
   const bad = catalog.lessons.slice(0, 3).map((l) => Object.assign({}, l));
   delete bad[1].lesson_es;
   fs.writeFileSync(path.join(dir, 'lessons.json'), JSON.stringify({ lessons: bad }));
-  const r = run(dir, 'check-lessons.js', base);
-  assert.equal(r.status, 1); assert.match(r.stderr, /missing lesson_es/);
+  let r = run(dir, 'check-lessons.js', base);
+  assert.equal(r.status, 0, r.stderr); assert.match(r.stdout, /::warning::.*no Spanish lesson_es/);
+  bad[2].lanes = ['wizard'];
+  fs.writeFileSync(path.join(dir, 'lessons.json'), JSON.stringify({ lessons: bad }));
+  r = run(dir, 'check-lessons.js', base);
+  assert.equal(r.status, 1); assert.match(r.stderr, /unknown lane/);
   fs.rmSync(dir, { recursive: true, force: true });
 });
 
@@ -145,7 +154,7 @@ test('guard: an outside overwrite is restored to the full list plus the valid ne
   fs.rmSync(dir, { recursive: true, force: true });
 });
 
-test('guard: a placeholder overwrite and an English-only lesson are both dropped on restore', () => {
+test('guard: English-only new lesson is kept; placeholder overwrite is ignored', () => {
   const { dir, git } = tmpRepo(catalog.lessons);
   const before = git('rev-parse', 'HEAD');
   const enOnly = newLesson('2030-03-01');
@@ -157,8 +166,10 @@ test('guard: a placeholder overwrite and an English-only lesson are both dropped
   const after = git('rev-parse', 'HEAD');
   const restore = run(dir, 'restore-lessons.js', before, after);
   assert.equal(restore.status, 0, restore.stderr);
-  assert.match(restore.stdout, /dropped new lesson 2030-03-01/);
+  assert.match(restore.stdout, /kept new lesson 2030-03-01/);
   const restored = JSON.parse(fs.readFileSync(path.join(dir, 'lessons.json'), 'utf8')).lessons;
-  assert.equal(restored.length, catalog.lessons.length);
+  assert.equal(restored.length, catalog.lessons.length + 1);
+  const kept = restored.find((l) => l.date === '2030-03-01');
+  assert.equal(WarriorLesson.localizeLesson(kept, 'es').title, kept.title, 'Spanish mode falls back to English');
   fs.rmSync(dir, { recursive: true, force: true });
 });
