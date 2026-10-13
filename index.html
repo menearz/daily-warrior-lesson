@@ -109,6 +109,7 @@
     <div class="nav-row">
       <a class="archive" href="./forge.html" data-i18n="forgeNav">The Forge — personalize your path →</a>
       <a class="archive" href="./archive.html" data-i18n="archiveNav">Archive →</a>
+      <a class="archive" href="./account.html" data-i18n="accountNav">Account →</a>
     </div>
     <div class="lang-settings" id="lang-settings">
       <span class="lang-settings-label" data-i18n="language">Language</span>
@@ -120,6 +121,7 @@
     <div class="footer">When the game is over, the king and the pawn go back into the same box.</div>
   </div>
 <script src="lesson.js"></script>
+<script src="account-client.js"></script>
 <script>
   var currentLang = WarriorLesson.readLang(window.localStorage);
   var lastResult = null;
@@ -183,6 +185,8 @@
   const params = new URLSearchParams(window.location.search);
   var forged = null;
   try { forged = JSON.parse(localStorage.getItem('forged_path')); } catch(e){}
+  // Personalized 70/30 picks are part of The Forge plan; today's lesson stays free.
+  if (!DWAccount.isEntitledCached(window.localStorage)) forged = null;
 
   WarriorLesson.resolveLesson({
     fetchJson: function (url) {
@@ -199,6 +203,7 @@
     }
   }).then(function (result) {
     lastResult = result;
+    if (result && result.lesson) DWAccount.recordRead(window.localStorage, result.lesson.date);
     if (currentLang) render(result.lesson, result.aimed);
   });
 

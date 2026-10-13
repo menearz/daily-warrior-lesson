@@ -1,4 +1,4 @@
-const CACHE = "warrior-lesson-v15";
+const CACHE = "warrior-lesson-v17";
 const PRECACHE = [
   "./",
   "./index.html",
@@ -7,6 +7,11 @@ const PRECACHE = [
   "./archive.html",
   "./forge.html",
   "./privacy.html",
+  "./signin.html",
+  "./plans.html",
+  "./account.html",
+  "./account-client.js",
+  "./config.js",
   "./manifest.json",
   "./sw.js",
   "./icon.svg",
@@ -60,6 +65,9 @@ self.addEventListener("fetch", (e) => {
   const req = e.request;
   if (req.method !== "GET") return;
   const url = new URL(req.url);
+  // Never cache account/API calls: only same-origin files and cross-origin images.
+  if (url.origin !== self.location.origin && req.destination !== "image") return;
+  if (req.headers.has("Authorization")) return;
 
   if (isHtmlRequest(req, url)) {
     e.respondWith(

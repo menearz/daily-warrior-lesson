@@ -1,0 +1,14 @@
+{
+  "name": "daily-warrior-api",
+  "private": true,
+  "type": "commonjs",
+  "main": "server.js",
+  "engines": { "node": ">=20" },
+  "scripts": {
+    "start": "node server.js",
+    "test": "node --test test/*.test.js"
+  },
+  "dependencies": {
+    "stripe": "^17.7.0"
+  }
+}
