@@ -8,6 +8,11 @@
  *   POST /auth/logout
  *   GET  /me                                 account + plan; path/history only with a plan
  *   PUT  /me/lang         {lang}
+ *   GET  /me/profile                         language, themes, delivery time/zone, plan, cancel date, history
+ *   PUT  /me/profile      {lang, themes, deliveryTime, timezone}
+ *   GET  /questionnaire                      the 12 Forge questions (subscribers only)
+ *   PUT  /me/answers      {answers}          save the 12 answers (subscribers only)
+ *   GET  /me/lesson[?date=YYYY-MM-DD]        personalized lesson (subscribers only), logged to history
  *   PUT  /sync            {forgedPath, reads} merge Forge answers + read dates (plan required)
  *   DELETE /me                               delete account and answers now
  *   POST /billing/checkout {plan}            Stripe Checkout Session (subscription, TEST mode)
@@ -23,6 +28,8 @@ const { newToken, findToken, pruneExpired } = require('./tokens');
 const { createRateLimiter, clientIp } = require('./rateLimit');
 const { buildMagicLinkEmail } = require('./mail');
 const { LIVE_MODE_OFF_REASON } = require('./config');
+const { QUESTIONS, validateAnswers } = require('./questionnaire');
+const { loadCatalog, defaultCatalogPath, buildPersonalLesson } = require('./personalize');
 
 const LANES = ['warrior', 'thinker', 'builder', 'odyssey', 'power', 'faith'];
 const EMAIL_RE = /^[^\s@]{1,64}@[^\s@]{1,190}\.[^\s@]{2,}$/;
@@ -32,8 +39,25 @@ const MAX_READS = 3650;
 const ENTITLED = new Set(['active']);
 const ENDED = new Set(['canceled', 'unpaid', 'incomplete_expired']);
 const COOKIE = 'dw_sid';
+const MAX_THEMES = 3;
+const MAX_SENT = 3650;
+const TIME_RE = /^([01]\d|2[0-3]):[0-5]\d$/;
 
-function isEntitled(user) { return Boolean(user && user.plan && ENTITLED.has(user.plan.status)); }
+/** Paid (Stripe TEST webhook says active) or on the owner/test override list. */
+function isEntitled(user, overrideEmails = []) {
+  if (!user) return false;
+  if (user.plan && ENTITLED.has(user.plan.status)) return true;
+  return overrideEmails.includes(user.email);
+}
+function validTimezone(tz) {
+  if (typeof tz !== 'string' || !tz || tz.length > 64) return false;
+  try { new Intl.DateTimeFormat('en-US', { timeZone: tz }); return true; } catch (_) { return false; }
+}
+function localDate(ms, tz) {
+  const parts = new Intl.DateTimeFormat('en-CA', { timeZone: tz || 'UTC', year: 'numeric', month: '2-digit', day: '2-digit' }).formatToParts(new Date(ms));
+  const g = (t) => parts.find((x) => x.type === t).value;
+  return `${g('year')}-${g('month')}-${g('day')}`;
+}
 
 function validForgedPath(fp) {
   if (!fp || typeof fp !== 'object' || Array.isArray(fp)) return false;
@@ -74,6 +98,7 @@ function runRetention(store, now = Date.now()) {
   for (const u of Object.values(store.data.users)) {
     if (u.deleteDataAfter && Number(u.deleteDataAfter) <= now && !isEntitled(u)) {
       u.forgedPath = null; u.reads = []; u.deleteDataAfter = null;
+      u.answers = null; u.answersAt = null; u.themes = []; u.sentLessons = [];
       purged.push(u.email);
     }
   }
@@ -93,7 +118,11 @@ function periodEnd(sub) {
   return item && item.current_period_end ? Number(item.current_period_end) * 1000 : null;
 }
 
-function createApp({ config, store, mail, stripe, now = () => Date.now(), log = () => {} }) {
+function createApp({ config, store, mail, stripe, now = () => Date.now(), log = () => {}, catalog = null }) {
+  const overrides = config.testOverrideEmails || [];
+  const entitled = (u) => isEntitled(u, overrides);
+  let lessons = catalog;
+  const getCatalog = () => { if (!lessons) lessons = loadCatalog(config.lessonsPath || defaultCatalogPath()); return lessons; };
   const limits = {
     magicIp: createRateLimiter({ limit: 10, windowMs: 15 * 60e3, now }),
     magicEmail: createRateLimiter({ limit: 3, windowMs: 15 * 60e3, now }),
@@ -165,11 +194,22 @@ function createApp({ config, store, mail, stripe, now = () => Date.now(), log = 
   }
 
   function publicMe(u) {
-    const entitled = isEntitled(u);
-    const out = { email: u.email, lang: u.lang, entitled, plan: u.plan };
-    if (entitled) { out.forgedPath = u.forgedPath; out.reads = u.reads; }
-    else out.hasSavedPath = Boolean(u.forgedPath);
+    const ok = entitled(u);
+    const paid = Boolean(u.plan && ENTITLED.has(u.plan.status));
+    const out = { email: u.email, lang: u.lang, entitled: ok, entitledVia: paid ? 'stripe' : ok ? 'test_override' : null, plan: u.plan };
+    if (ok) { out.forgedPath = u.forgedPath; out.reads = u.reads; out.hasAnswers = Boolean(u.answers); }
+    else { out.hasSavedPath = Boolean(u.forgedPath); out.hasAnswers = Boolean(u.answers); }
     return out;
+  }
+  function profile(u) {
+    const ok = entitled(u);
+    return {
+      email: u.email, lang: u.lang || 'en', themes: u.themes || [], deliveryTime: u.deliveryTime || null, timezone: u.timezone || null,
+      plan: u.plan, entitled: ok, entitledVia: publicMe(u).entitledVia,
+      cancelDate: (u.plan && u.plan.canceledAt) || null, answersDeleteAt: u.deleteDataAfter || null,
+      answers: ok ? (u.answers || null) : null, answersAt: u.answersAt || null,
+      sentLessons: ok ? (u.sentLessons || []) : [],
+    };
   }
 
   async function handleWebhook(req, res) {
@@ -309,8 +349,58 @@ function createApp({ config, store, mail, stripe, now = () => Date.now(), log = 
       user.lang = body.lang; store.save();
       return send(res, 200, publicMe(user));
     }
+    if (p === '/me/profile' && req.method === 'GET') return send(res, 200, profile(user));
+    if (p === '/me/profile' && req.method === 'PUT') {
+      const body = json(await readBody(req));
+      if (body.lang !== undefined && body.lang !== 'en' && body.lang !== 'es') return send(res, 400, { error: 'bad_lang' });
+      if (body.themes !== undefined && (!Array.isArray(body.themes) || body.themes.length > MAX_THEMES || new Set(body.themes).size !== body.themes.length || body.themes.some((t) => !LANES.includes(t)))) return send(res, 400, { error: 'bad_themes', max: MAX_THEMES, allowed: LANES });
+      if (body.deliveryTime !== undefined && !TIME_RE.test(String(body.deliveryTime))) return send(res, 400, { error: 'bad_delivery_time' });
+      if (body.timezone !== undefined && !validTimezone(body.timezone)) return send(res, 400, { error: 'bad_timezone' });
+      if (body.lang !== undefined) user.lang = body.lang;
+      if (body.themes !== undefined) user.themes = body.themes.slice();
+      if (body.deliveryTime !== undefined) user.deliveryTime = body.deliveryTime;
+      if (body.timezone !== undefined) user.timezone = body.timezone;
+      store.save();
+      return send(res, 200, profile(user));
+    }
+    if (p === '/questionnaire' && req.method === 'GET') {
+      if (!entitled(user)) return send(res, 402, { error: 'plan_required' });
+      return send(res, 200, { questions: QUESTIONS, answers: user.answers || null });
+    }
+    if (p === '/me/answers' && req.method === 'PUT') {
+      if (!entitled(user)) return send(res, 402, { error: 'plan_required' });
+      const body = json(await readBody(req));
+      const v = validateAnswers(body.answers);
+      if (v.error) return send(res, 400, { error: v.error });
+      user.answers = v.answers; user.answersAt = now();
+      store.save();
+      return send(res, 200, profile(user));
+    }
+    if (p === '/me/lesson' && req.method === 'GET') {
+      if (!entitled(user)) return send(res, 402, { error: 'plan_required' });
+      if (!user.answers) return send(res, 409, { error: 'answers_required' });
+      const today = localDate(now(), user.timezone || 'UTC');
+      const date = url.searchParams.get('date') || today;
+      if (!DATE_RE.test(date) || date > today) return send(res, 400, { error: 'bad_date' });
+      user.sentLessons = user.sentLessons || [];
+      const prior = user.sentLessons.find((s) => s.date === date); // one lesson per day, in whatever language is set now
+      let lesson;
+      try {
+        const cat = getCatalog();
+        if (prior) {
+          const sentOnly = Object.assign({}, user, { sentLessons: user.sentLessons.filter((s) => s !== prior) });
+          lesson = buildPersonalLesson(cat.filter((l) => l.date === prior.lessonDate), sentOnly, date);
+        } else lesson = buildPersonalLesson(cat, user, date);
+      } catch (err) { log(`personal lesson refused: ${err.message}`); return send(res, 500, { error: 'lesson_guard_failed' }); }
+      if (!prior) {
+        user.sentLessons.push({ date, lessonDate: lesson.lessonDate, lang: lesson.lang, title: lesson.title, at: now() });
+        user.sentLessons = user.sentLessons.slice(-MAX_SENT);
+        store.save();
+      }
+      return send(res, 200, { lesson, repeat: Boolean(prior) });
+    }
     if (p === '/sync' && req.method === 'PUT') {
-      if (!isEntitled(user)) return send(res, 402, { error: 'plan_required' });
+      if (!entitled(user)) return send(res, 402, { error: 'plan_required' });
       const r = mergeSync(user, json(await readBody(req)));
       if (r.error) return send(res, 400, { error: r.error });
       store.save();
@@ -328,7 +418,7 @@ function createApp({ config, store, mail, stripe, now = () => Date.now(), log = 
       const body = json(await readBody(req));
       const plan = config.plans[body.plan];
       if (!plan) return send(res, 400, { error: 'bad_plan' });
-      if (isEntitled(user)) return send(res, 409, { error: 'already_subscribed' });
+      if (user.plan && ENTITLED.has(user.plan.status)) return send(res, 409, { error: 'already_subscribed' });
       if (!user.stripeCustomerId) {
         const c = await stripe.customers.create({ email: user.email, metadata: { app: 'daily-warrior' } });
         user.stripeCustomerId = c.id; store.save();
@@ -373,4 +463,4 @@ function createApp({ config, store, mail, stripe, now = () => Date.now(), log = 
   return { server, limits };
 }
 
-module.exports = { createApp, runRetention, mergeSync, isEntitled, LANES };
+module.exports = { createApp, runRetention, mergeSync, isEntitled, localDate, LANES };

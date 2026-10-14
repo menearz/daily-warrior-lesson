@@ -58,3 +58,26 @@ DELETE /me cancels the Stripe subscription right away, with no proration or refu
 
 ## Site "Send an idea" link
 `window.DW_IDEA_FORM_URL` in the root `config.js` (an https Google Form URL). If it's empty, no link is shown.
+
+## Subscribers: questionnaire, profile, personalized lessons (2026-10-14)
+
+Free readers get the shared daily lesson only. The 12 Forge questions are
+subscriber-only: `GET /questionnaire`, `PUT /me/answers` and `GET /me/lesson`
+answer 402 unless the account is entitled, which means a Stripe TEST
+subscription marked active by the signed webhook, or an email on
+`DW_TEST_OVERRIDE_EMAILS` (local testing only; refuses to start unless the
+site URL is loopback and DW_LAUNCH is off).
+
+- `GET/PUT /me/profile`: language (en/es), up to 3 themes (lanes), delivery
+  time (HH:MM) and IANA timezone, plan, cancel date, the date answers will be
+  deleted, the saved answers and the sent-lesson history.
+- `GET /me/lesson[?date=]`: one real lesson from `lessons.json` (quote, source
+  and link untouched), picked by themes (weight 3) and admired figures (weight
+  1), never one already sent, plus one "today" line aimed at an answer from
+  questions 2 and 3, and the subscriber's own empty-chair words. English goes
+  through `scripts/humanize.js` (humanizer-3.1.0 + fact guard); Spanish is
+  linted. One lesson per day; it is logged to the history.
+- Retention: when a plan ends, answers, themes and history are deleted 30
+  days later by the hourly `runRetention` job.
+- The API reads `../scripts/humanize.js` and `../lessons.json`, so Harbor must
+  deploy the whole repo, not only `api/`.

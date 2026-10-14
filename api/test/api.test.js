@@ -263,7 +263,7 @@ test('store keeps only the listed account fields', async () => {
   try {
     await a.signIn('f@example.com');
     const u = JSON.parse(fs.readFileSync(a.config.storePath, 'utf8')).users['f@example.com'];
-    assert.deepEqual(Object.keys(u).sort(), ['createdAt', 'deleteDataAfter', 'email', 'forgedPath', 'lang', 'plan', 'reads', 'stripeCustomerId', 'stripeSubscriptionId']);
+    assert.deepEqual(Object.keys(u).sort(), ['answers', 'answersAt', 'createdAt', 'deleteDataAfter', 'deliveryTime', 'email', 'forgedPath', 'lang', 'plan', 'reads', 'sentLessons', 'stripeCustomerId', 'stripeSubscriptionId', 'themes', 'timezone']);
     assert.equal(fs.statSync(a.config.storePath).mode & 0o777, 0o600);
   } finally { await a.close(); }
 });

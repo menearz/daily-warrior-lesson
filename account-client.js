@@ -208,6 +208,11 @@
       checkout: function (plan) { return call('POST', '/billing/checkout', { plan: plan }); },
       portal: function () { return call('POST', '/billing/portal'); },
       setLang: function (lang) { return call('PUT', '/me/lang', { lang: lang }); },
+      profile: function () { return call('GET', '/me/profile'); },
+      saveProfile: function (p) { return call('PUT', '/me/profile', p); },
+      questionnaire: function () { return call('GET', '/questionnaire'); },
+      saveAnswers: function (answers) { return call('PUT', '/me/answers', { answers: answers }); },
+      lesson: function (date) { return call('GET', '/me/lesson' + (date ? '?date=' + encodeURIComponent(date) : '')); },
       remove: function () { return call('DELETE', '/me').then(function (r) { if (r.status === 200) { setAuth(null); write(storage, ENT_KEY, null); } return r; }); },
       signOut: function () { var a = auth(); return raw('POST', '/auth/logout', { refreshToken: a && a.refreshToken }, a && a.accessToken).catch(function () {}).then(function () { setAuth(null); write(storage, ENT_KEY, null); }); },
     };
