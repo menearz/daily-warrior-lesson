@@ -17,3 +17,9 @@ Open The Forge from today's lesson. Twelve questions. Answers stay on your phone
 ## Specs
 
 See `INTAKE_SPEC.md` and `BRANDING.md` for scoring and visual rules.
+
+## Guard
+
+- `scripts/check-lessons.js` — validates lessons.json (JSON, no placeholders, unique dates, schema, no count drops).
+- `scripts/add-lesson.js` — appends one lesson without rewriting the file. This is the only safe way to add a lesson.
+- `.githooks/pre-push` — blocks pushes to main that fail the guard. Install with `git config core.hooksPath .githooks`.

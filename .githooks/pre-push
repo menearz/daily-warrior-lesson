@@ -1,0 +1,24 @@
+#!/bin/sh
+# Pre-push guard: block pushes to main that would break lessons.json.
+# Runs scripts/check-lessons.js against the staged lessons.json.
+# Install: git config core.hooksPath .githooks
+
+remote="$1"
+url="$2"
+
+while read local_ref local_sha remote_ref remote_sha; do
+  case "$remote_ref" in
+    refs/heads/main)
+      if [ -f lessons.json ]; then
+        echo "Running lessons.json guard before push to main..."
+        node scripts/check-lessons.js || {
+          echo "Push to main blocked: lessons.json guard failed."
+          echo "Fix lessons.json (or run scripts/add-lesson.js for a single lesson) and try again."
+          exit 1
+        }
+      fi
+      ;;
+  esac
+done
+
+exit 0
