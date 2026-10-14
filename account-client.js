@@ -31,7 +31,7 @@
       underButton: 'Renews automatically until you cancel. Cancel in two taps from Manage plan.',
       freeStays: 'Free stays free. Every reader still gets the daily lesson (painting, quote, lesson, and one act for today) in English and Spanish, plus the archive. The Forge adds the aimed feed and your saved answers on every device.',
       paymentCancelled: "Payment cancelled. You weren't charged. Your free daily lesson is still here.", backToPlans: 'Back to plans',
-      testMode: 'Test mode: checkout uses Stripe test mode. No real card is charged.',
+      testMode: 'Test mode: checkout is not live yet, so no card will be charged.',
       confirmTitle: 'Your path is forged.',
       confirmBody: "You're on The Forge, {plan}. Starting tomorrow morning, your lesson is aimed at your two lanes: {primary} and {secondary}. A receipt is on its way to {email}.",
       seeToday: "See today's lesson",
@@ -67,7 +67,7 @@
       underButton: 'Se renueva solo hasta que canceles. Cancela en dos toques desde Administrar plan.',
       freeStays: 'Lo gratis sigue gratis. Todos siguen recibiendo la lección diaria (pintura, cita, lección y una acción para hoy) en español e inglés, y el archivo. La Forja suma la lección dirigida y tus respuestas guardadas en todos tus dispositivos.',
       paymentCancelled: 'Cancelaste el pago. No se te cobró nada. Tu lección diaria gratis sigue aquí.', backToPlans: 'Volver a los planes',
-      testMode: 'Modo de prueba: el pago usa el modo de prueba de Stripe. No se cobra ninguna tarjeta real.',
+      testMode: 'Modo de prueba: el pago todavía no está activo, así que no se cobrará ninguna tarjeta.',
       confirmTitle: 'Tu camino está forjado.',
       confirmBody: 'Ya tienes La Forja, plan {plan}. Desde mañana, tu lección apunta a tus dos caminos: {primary} y {secondary}. Te enviamos el recibo a {email}.',
       seeToday: 'Ver la lección de hoy',
@@ -144,6 +144,9 @@
     en: 'Daily Warrior is a product of {seller}.',
     es: 'Daily Warrior es un producto de {seller}.',
   };
+  /** Test-mode notice shows only when the API says Stripe is in test mode. */
+  function showTestNotice(health) { return Boolean(health && health.stripeMode === 'test'); }
+
   /** Returns the refund + seller block for a complete /legal answer, else null. */
   function legalBlock(lang, legal) {
     if (!legal || legal.pending || !legal.sellerName || !legal.supportEmail || !legal.refundPolicy) return null;
@@ -201,6 +204,7 @@
         return call('PUT', '/sync', body).then(function (r) { if (r.status === 200) { mergeLocal(storage, r.data); cacheMe(r.data); } return r; });
       },
       legal: function () { return raw('GET', '/legal'); },
+      health: function () { return raw('GET', '/health'); },
       checkout: function (plan) { return call('POST', '/billing/checkout', { plan: plan }); },
       portal: function () { return call('POST', '/billing/portal'); },
       setLang: function (lang) { return call('PUT', '/me/lang', { lang: lang }); },
@@ -209,5 +213,5 @@
     };
   }
 
-  return { create: create, legalBlock: legalBlock, REFUND: REFUND, t: t, laneName: laneName, mergeLocal: mergeLocal, recordRead: recordRead, isEntitledCached: isEntitledCached, AUTH_KEY: AUTH_KEY, ENT_KEY: ENT_KEY, READS_KEY: READS_KEY, STRINGS: T };
+  return { create: create, legalBlock: legalBlock, showTestNotice: showTestNotice, REFUND: REFUND, t: t, laneName: laneName, mergeLocal: mergeLocal, recordRead: recordRead, isEntitledCached: isEntitledCached, AUTH_KEY: AUTH_KEY, ENT_KEY: ENT_KEY, READS_KEY: READS_KEY, STRINGS: T };
 });
