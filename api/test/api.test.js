@@ -263,7 +263,7 @@ test('store keeps only the listed account fields', async () => {
   try {
     await a.signIn('f@example.com');
     const u = JSON.parse(fs.readFileSync(a.config.storePath, 'utf8')).users['f@example.com'];
-    assert.deepEqual(Object.keys(u).sort(), ['createdAt', 'deleteDataAfter', 'email', 'forgedPath', 'lang', 'plan', 'reads', 'stripeCustomerId', 'stripeSubscriptionId']);
+    assert.deepEqual(Object.keys(u).sort(), ['answers', 'answersAt', 'createdAt', 'deleteDataAfter', 'deliveryTime', 'email', 'forgedPath', 'lang', 'plan', 'reads', 'sentLessons', 'stripeCustomerId', 'stripeSubscriptionId', 'themes', 'timezone']);
     assert.equal(fs.statSync(a.config.storePath).mode & 0o777, 0o600);
   } finally { await a.close(); }
 });
@@ -274,4 +274,17 @@ test('mergeSync unit rules', () => {
   assert.deepEqual(mergeSync(u, { forgedPath: { primary: 'warrior', at: 'x' } }), { error: 'bad_forged_path' });
   assert.deepEqual(mergeSync(u, { forgedPath: { primary: 'warrior', at: 5, evil: 1 } }), { ok: true });
   assert.equal(u.forgedPath.evil, undefined);
+});
+
+test('Stripe API failure on checkout returns 502 stripe_error with type/code only', async () => {
+  const { fakeStripe } = require('./helpers');
+  const st = fakeStripe();
+  st.checkout = { sessions: { create: async () => { const e = new Error('No such price: price_secretish'); e.type = 'StripeInvalidRequestError'; e.code = 'resource_missing'; e.param = 'line_items[0][price]'; e.statusCode = 400; throw e; } } };
+  const a = await start({ stripe: st });
+  try {
+    const s = await a.signIn('se@example.com');
+    const r = await a.call('POST', '/billing/checkout', { token: s.accessToken, body: { plan: 'monthly' } });
+    assert.equal(r.status, 502);
+    assert.deepEqual(r.data, { error: 'stripe_error', stripeType: 'StripeInvalidRequestError', stripeCode: 'resource_missing' });
+  } finally { await a.close(); }
 });

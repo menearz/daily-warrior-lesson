@@ -154,7 +154,8 @@
     <div id="intro">
       <h1>Forge your path.</h1>
       <p class="sub">Twelve questions. No right answers — only honest ones. Your replies aim the daily lessons at who you actually want to become, not who you say you are.</p>
-      <p class="sub">This is the paid tier. In this preview it runs free so you can test it. Accounts and billing come later.</p>
+      <p class="sub">The questions are for subscribers. Free readers get the shared daily lesson every day.</p>
+      <p class="sub" id="forge-gate" role="status" hidden></p>
       <button class="btn btn-primary" onclick="start()">Begin</button>
     </div>
 
@@ -192,7 +193,21 @@
   </div>
 
 <script src="lesson.js"></script>
+<script src="account-client.js"></script>
 <script>
+// Subscriber-only (Zachary, 2026-10-14): the questionnaire opens only when the
+// API says this account is entitled (Stripe TEST subscription or the owner/test
+// override). Answers are saved to the account, not just this phone.
+var DWA = (window.DW_ACCOUNTS_OPEN === true && window.DWAccount) ? DWAccount.create({ storage: window.localStorage, fetch: window.fetch.bind(window), apiBase: window.DW_API_BASE }) : null;
+var FORGE_GATE = {
+  en: { closed: 'The Forge questions open for subscribers once accounts open.', signin: 'Sign in with a subscription to answer the questions.', plan: 'The questions are part of a subscription. See the plans to start one.', saveFail: 'Your answers could not be saved to your account. Try again.' },
+  es: { closed: 'Las preguntas de La Forja se abren para suscriptores cuando abran las cuentas.', signin: 'Entra con una suscripción para responder las preguntas.', plan: 'Las preguntas son parte de una suscripción. Mira los planes para empezar una.', saveFail: 'No se pudieron guardar tus respuestas en tu cuenta. Inténtalo de nuevo.' }
+};
+function forgeLang(){ try { return localStorage.getItem('dw-lang') === 'es' ? 'es' : 'en'; } catch (e) { return 'en'; } }
+function showGate(key, href){
+  var el = document.getElementById('forge-gate'); el.hidden = false; el.textContent = FORGE_GATE[forgeLang()][key];
+  if (href) { var a = document.createElement('a'); a.href = href; a.textContent = ' →'; a.style.color = '#FF6A1A'; el.appendChild(a); }
+}
 const QUESTIONS = [
   { type:'multi', key:'admire', max:3,
     q:'Who do you look up to? Pick three.',
@@ -281,7 +296,15 @@ const LANE_KEYWORDS = {
 let idx = 0;
 let answers = {};
 
-function start(){ document.getElementById('intro').classList.add('hidden'); document.getElementById('quiz').classList.remove('hidden'); render(); }
+function start(){
+  if (!DWA) return showGate('closed', './plans.html');
+  if (!DWA.signedIn()) return showGate('signin', './signin.html');
+  DWA.questionnaire().then(function (r) {
+    if (r.status === 200) { if (r.data.answers) answers = r.data.answers; return openQuiz(); }
+    showGate(r.status === 401 ? 'signin' : 'plan', r.status === 401 ? './signin.html' : './plans.html');
+  }).catch(function () { showGate('closed', './plans.html'); });
+}
+function openQuiz(){ document.getElementById('intro').classList.add('hidden'); document.getElementById('quiz').classList.remove('hidden'); render(); }
 function uniqueList(arr){
   var seen = {};
   var out = [];
@@ -440,7 +463,13 @@ function finish(){
   if(crisisCheck()){ const c=document.getElementById('crisisBox'); c.classList.remove('hidden'); c.innerHTML='<b style="color:#B22222">If you are in crisis, this is not the tool for it.</b><br><br>Call or text <b>988</b> (US) right now, or go to findahelpline.com for local support. A licensed professional, not a quote, is what you need here.'; }
   try { localStorage.setItem('forged_path', JSON.stringify({primary,secondary,lanes,at:Date.now(),answers})); } catch(e){}
 }
-function applyPath(){ window.location.href='./index.html?forged=1'; }
+function applyPath(){
+  if (!DWA) return;
+  DWA.saveAnswers(answers).then(function (r) {
+    if (r.status === 200) window.location.href = './index.html?forged=1';
+    else window.alert(FORGE_GATE[forgeLang()].saveFail);
+  }).catch(function () { window.alert(FORGE_GATE[forgeLang()].saveFail); });
+}
 
 WarriorLesson.startLang(document, window.localStorage, function (lang) {
   WarriorLesson.applyChrome(document, lang);

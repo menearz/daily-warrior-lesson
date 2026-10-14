@@ -37,7 +37,7 @@
 <div class="wrap">
   <div class="brand">Daily Warrior&#39;s Lesson</div>
   <h1 data-k="plansTitle"></h1>
-  <div class="notice" data-k="testMode"></div>
+  <div class="notice hidden" id="test-mode" role="note" data-k="testMode"></div>
   <div class="notice hidden" id="cancelled"><span data-k="paymentCancelled"></span></div>
   <div class="card"><b data-k="monthly"></b> <span class="muted" data-k="monthlySub"></span><br><button type="button" data-plan="monthly" data-k="start"></button></div>
   <div class="card"><b data-k="yearly"></b> <span class="muted" data-k="yearlySub"></span><br><button type="button" data-plan="yearly" data-k="start"></button></div>
@@ -84,6 +84,7 @@
     document.getElementById("seller-line").textContent = b.seller;
   }
   window.onLang = paintLegal;
+  DW.health().then(function (r) { show("test-mode", r.status === 200 && DWAccount.showTestNotice(r.data)); }).catch(function () {});
   DW.legal().then(function (r) { if (r.status === 200) { LEGAL = r.data; paintLegal(); } }).catch(function () {});
   if (/checkout=cancel/.test(location.search)) show("cancelled", true);
   document.addEventListener("click", function (e) {

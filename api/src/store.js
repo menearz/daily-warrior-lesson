@@ -4,7 +4,8 @@
  * (temp file + rename, mode 0600), ported from arbiter-research store.js.
  * Separate from Arbiter's store. Holds only:
  *   users[email] = { email, lang, forgedPath, reads, plan, stripeCustomerId,
- *                    stripeSubscriptionId, createdAt, deleteDataAfter }
+ *                    stripeSubscriptionId, createdAt, deleteDataAfter,
+ *                    answers, answersAt, themes, deliveryTime, timezone, sentLessons }
  * plus operational rows: magicLinks / refreshTokens / accessTokens / sessions
  * (SHA-256 hashes only, pruned when expired) and processed Stripe event ids.
  */
@@ -13,7 +14,7 @@ const path = require('path');
 
 const VERSION = 1;
 function empty() {
-  return { version: VERSION, users: {}, magicLinks: {}, refreshTokens: {}, accessTokens: {}, sessions: {}, stripeEvents: {} };
+  return { version: VERSION, users: {}, magicLinks: {}, refreshTokens: {}, accessTokens: {}, sessions: {}, stripeEvents: {}, deliveries: {} };
 }
 
 function atomicWriteJson(filePath, data) {
@@ -40,7 +41,7 @@ function openStore(filePath) {
     upsertUser(email, now = Date.now()) {
       const key = normEmail(email);
       if (!data.users[key]) {
-        data.users[key] = { email: key, lang: 'en', forgedPath: null, reads: [], plan: { status: 'none', interval: null, currentPeriodEnd: null, cancelAtPeriodEnd: false, canceledAt: null }, stripeCustomerId: null, stripeSubscriptionId: null, createdAt: now, deleteDataAfter: null };
+        data.users[key] = { email: key, lang: 'en', forgedPath: null, reads: [], plan: { status: 'none', interval: null, currentPeriodEnd: null, cancelAtPeriodEnd: false, canceledAt: null }, stripeCustomerId: null, stripeSubscriptionId: null, createdAt: now, deleteDataAfter: null, answers: null, answersAt: null, themes: [], deliveryTime: null, timezone: null, sentLessons: [] };
       }
       return data.users[key];
     },

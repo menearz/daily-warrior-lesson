@@ -27,6 +27,8 @@ function missingLegal(env) { return LEGAL_KEYS.filter((k) => !String(env[k] || '
 
 function int(v, d) { const n = Number(v); return Number.isFinite(n) && n > 0 ? Math.round(n) : d; }
 
+function emailList(v, d) { return String(v == null ? d : v).split(',').map((e) => e.trim().toLowerCase()).filter(Boolean); }
+
 function loadConfig(env = process.env) {
   const key = String(env.DW_STRIPE_SECRET_KEY || '').trim();
   if (/^(sk|rk)_live_/.test(key)) {
@@ -40,6 +42,19 @@ function loadConfig(env = process.env) {
   if (legal.refundPolicy && !REFUND_POLICIES.includes(legal.refundPolicy)) throw new Error(`DW_REFUND_POLICY must be one of: ${REFUND_POLICIES.join(', ')}`);
   if (legal.supportEmail && !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(legal.supportEmail)) throw new Error('DW_SUPPORT_EMAIL is not an email address');
   const webhookSecret = String(env.DW_STRIPE_WEBHOOK_SECRET || '').trim();
+  // Owner/test override (OFF by default): DW_TEST_OVERRIDE_EMAILS lists
+  // emails that count as subscribed without paying, so the whole flow can be
+  // tested end to end. It refuses to start unless the site URL is loopback
+  // (127.0.0.1 / localhost) and DW_LAUNCH is off, so it can never be on in prod.
+  const overrideEmails = String(env.DW_TEST_OVERRIDE_EMAILS || '').split(',').map((e) => e.trim().toLowerCase()).filter(Boolean);
+  const siteUrlRaw = String(env.DW_SITE_URL || 'https://menearz.github.io/daily-warrior-lesson');
+  if (overrideEmails.length) {
+    let host = '';
+    try { host = new URL(siteUrlRaw).hostname; } catch (_) {}
+    if (launch || !['127.0.0.1', 'localhost', '::1', '[::1]'].includes(host)) {
+      throw new Error('Refusing to start: DW_TEST_OVERRIDE_EMAILS is only allowed with a loopback DW_SITE_URL and DW_LAUNCH off');
+    }
+  }
   const cfg = {
     port: int(env.DW_API_PORT, 8787),
     host: String(env.DW_API_HOST || '127.0.0.1'),
@@ -68,6 +83,18 @@ function loadConfig(env = process.env) {
       from: String(env.DW_MAIL_FROM || '').trim(), // sender is configurable; NEED from Zachary
       apiUrl: String(env.DW_AGENTMAIL_API_URL || '').trim(),
     },
+    // Daily lesson email sender (Zachary via CoS 2026-10-14). Never Arbiter.
+    lessonMail: {
+      inboxId: String(env.DW_LESSON_INBOX_ID || 'dailywarrior@agentmail.to').trim(),
+      fromName: 'Daily Warrior',
+    },
+    // Production-safe free access (separate from the loopback-only override).
+    // Owners: DW_OWNER_EMAILS, default Zachary's two addresses. Testers:
+    // TESTER_EMAILS, empty by default. Trimmed, lower-cased. Never touch Stripe.
+    ownerEmails: emailList(env.DW_OWNER_EMAILS, 'menearz@gmail.com,menearz@yahoo.com'),
+    testerEmails: emailList(env.TESTER_EMAILS, ''),
+    testOverrideEmails: overrideEmails,
+    lessonsPath: env.DW_LESSONS_PATH ? path.resolve(String(env.DW_LESSONS_PATH)) : null,
     magicLinkTtlMs: 15 * 60 * 1000,
     accessTtlMs: 15 * 60 * 1000,
     refreshTtlMs: 30 * 24 * 60 * 60 * 1000,

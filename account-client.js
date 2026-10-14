@@ -31,7 +31,7 @@
       underButton: 'Renews automatically until you cancel. Cancel in two taps from Manage plan.',
       freeStays: 'Free stays free. Every reader still gets the daily lesson (painting, quote, lesson, and one act for today) in English and Spanish, plus the archive. The Forge adds the aimed feed and your saved answers on every device.',
       paymentCancelled: "Payment cancelled. You weren't charged. Your free daily lesson is still here.", backToPlans: 'Back to plans',
-      testMode: 'Test mode: checkout uses Stripe test mode. No real card is charged.',
+      testMode: 'Test mode: checkout is not live yet, so no card will be charged.',
       confirmTitle: 'Your path is forged.',
       confirmBody: "You're on The Forge, {plan}. Starting tomorrow morning, your lesson is aimed at your two lanes: {primary} and {secondary}. A receipt is on its way to {email}.",
       seeToday: "See today's lesson",
@@ -40,6 +40,8 @@
       planRow: 'The Forge, {plan}. Renews {date}.',
       planEnds: 'Cancelled. You have The Forge until {date}. No more charges.',
       noPlan: 'Free plan: the daily lesson and the archive.',
+      testerBadge: 'Tester',
+      freeAccess: 'Full access, no payment needed.',
       manage: 'Manage plan', cancelPlan: 'Cancel plan', choosePlan: 'Pick your plan',
       deleteLine: 'Want your answers gone?', deleteBtn: 'Delete my account and answers',
       deleteConfirm: 'Delete your account and answers for good?',
@@ -67,7 +69,7 @@
       underButton: 'Se renueva solo hasta que canceles. Cancela en dos toques desde Administrar plan.',
       freeStays: 'Lo gratis sigue gratis. Todos siguen recibiendo la lección diaria (pintura, cita, lección y una acción para hoy) en español e inglés, y el archivo. La Forja suma la lección dirigida y tus respuestas guardadas en todos tus dispositivos.',
       paymentCancelled: 'Cancelaste el pago. No se te cobró nada. Tu lección diaria gratis sigue aquí.', backToPlans: 'Volver a los planes',
-      testMode: 'Modo de prueba: el pago usa el modo de prueba de Stripe. No se cobra ninguna tarjeta real.',
+      testMode: 'Modo de prueba: el pago todavía no está activo, así que no se cobrará ninguna tarjeta.',
       confirmTitle: 'Tu camino está forjado.',
       confirmBody: 'Ya tienes La Forja, plan {plan}. Desde mañana, tu lección apunta a tus dos caminos: {primary} y {secondary}. Te enviamos el recibo a {email}.',
       seeToday: 'Ver la lección de hoy',
@@ -76,6 +78,8 @@
       planRow: 'La Forja, {plan}. Se renueva el {date}.',
       planEnds: 'Listo, cancelado. Tienes La Forja hasta el {date}. No habrá más cobros.',
       noPlan: 'Plan gratis: la lección diaria y el archivo.',
+      testerBadge: 'Probador',
+      freeAccess: 'Acceso completo, sin pago.',
       manage: 'Administrar plan', cancelPlan: 'Cancelar plan', choosePlan: 'Elige tu plan',
       deleteLine: '¿Quieres borrar tus respuestas?', deleteBtn: 'Eliminar mi cuenta y mis respuestas',
       deleteConfirm: '¿Eliminar tu cuenta y tus respuestas para siempre?',
@@ -144,6 +148,9 @@
     en: 'Daily Warrior is a product of {seller}.',
     es: 'Daily Warrior es un producto de {seller}.',
   };
+  /** Test-mode notice shows only when the API says Stripe is in test mode. */
+  function showTestNotice(health) { return Boolean(health && health.stripeMode === 'test'); }
+
   /** Returns the refund + seller block for a complete /legal answer, else null. */
   function legalBlock(lang, legal) {
     if (!legal || legal.pending || !legal.sellerName || !legal.supportEmail || !legal.refundPolicy) return null;
@@ -201,13 +208,37 @@
         return call('PUT', '/sync', body).then(function (r) { if (r.status === 200) { mergeLocal(storage, r.data); cacheMe(r.data); } return r; });
       },
       legal: function () { return raw('GET', '/legal'); },
+      health: function () { return raw('GET', '/health'); },
       checkout: function (plan) { return call('POST', '/billing/checkout', { plan: plan }); },
       portal: function () { return call('POST', '/billing/portal'); },
       setLang: function (lang) { return call('PUT', '/me/lang', { lang: lang }); },
+      profile: function () { return call('GET', '/me/profile'); },
+      saveProfile: function (p) { return call('PUT', '/me/profile', p); },
+      questionnaire: function () { return call('GET', '/questionnaire'); },
+      saveAnswers: function (answers) { return call('PUT', '/me/answers', { answers: answers }); },
+      lesson: function (date) { return call('GET', '/me/lesson' + (date ? '?date=' + encodeURIComponent(date) : '')); },
       remove: function () { return call('DELETE', '/me').then(function (r) { if (r.status === 200) { setAuth(null); write(storage, ENT_KEY, null); } return r; }); },
       signOut: function () { var a = auth(); return raw('POST', '/auth/logout', { refreshToken: a && a.refreshToken }, a && a.accessToken).catch(function () {}).then(function () { setAuth(null); write(storage, ENT_KEY, null); }); },
     };
   }
 
-  return { create: create, legalBlock: legalBlock, REFUND: REFUND, t: t, laneName: laneName, mergeLocal: mergeLocal, recordRead: recordRead, isEntitledCached: isEntitledCached, AUTH_KEY: AUTH_KEY, ENT_KEY: ENT_KEY, READS_KEY: READS_KEY, STRINGS: T };
+  // Profile form (account.html): themes, language, delivery time and zone.
+  var LANES = ['warrior', 'thinker', 'builder', 'odyssey', 'power', 'faith'];
+  var PROFILE_T = {
+    en: { title: 'Your lessons', themes: 'Themes (pick up to 3)', lang: 'Language', time: 'Delivery time', zone: 'Time zone', save: 'Save', saved: 'Saved.', tooMany: 'Pick up to 3 themes.', badTime: 'Pick a delivery time.', badZone: 'Pick a time zone.', failed: 'Could not save. Try again.', needsPlan: 'Lesson emails go to subscribers. Your settings are saved for when you subscribe.', email: 'Your lesson email comes once a day at this time.' },
+    es: { title: 'Tus lecciones', themes: 'Temas (elige hasta 3)', lang: 'Idioma', time: 'Hora de entrega', zone: 'Zona horaria', save: 'Guardar', saved: 'Guardado.', tooMany: 'Elige hasta 3 temas.', badTime: 'Elige una hora de entrega.', badZone: 'Elige una zona horaria.', failed: 'No se pudo guardar. Inténtalo de nuevo.', needsPlan: 'Los correos con la lección son para suscriptores. Tus ajustes quedan guardados para cuando te suscribas.', email: 'Tu correo con la lección llega una vez al día a esta hora.' },
+  };
+  function validateProfile(p) {
+    if (!p || !Array.isArray(p.themes) || p.themes.length > 3 || p.themes.some(function (x) { return LANES.indexOf(x) < 0; })) return 'tooMany';
+    if (!/^([01]\d|2[0-3]):[0-5]\d$/.test(String(p.deliveryTime || ''))) return 'badTime';
+    if (!p.timezone || typeof p.timezone !== 'string') return 'badZone';
+    try { new Intl.DateTimeFormat('en-US', { timeZone: p.timezone }); } catch (e) { return 'badZone'; }
+    return null;
+  }
+  function timezones() {
+    try { if (Intl.supportedValuesOf) return Intl.supportedValuesOf('timeZone'); } catch (e) {}
+    return ['America/New_York', 'America/Chicago', 'America/Denver', 'America/Los_Angeles', 'America/Mexico_City', 'Europe/London', 'Europe/Madrid', 'UTC'];
+  }
+
+  return { LANES: LANES, PROFILE_T: PROFILE_T, validateProfile: validateProfile, timezones: timezones, create: create, legalBlock: legalBlock, showTestNotice: showTestNotice, REFUND: REFUND, t: t, laneName: laneName, mergeLocal: mergeLocal, recordRead: recordRead, isEntitledCached: isEntitledCached, AUTH_KEY: AUTH_KEY, ENT_KEY: ENT_KEY, READS_KEY: READS_KEY, STRINGS: T };
 });
