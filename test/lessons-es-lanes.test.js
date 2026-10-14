@@ -42,7 +42,7 @@ test('Spanish text differs from English and every new lesson cites a link', () =
   for (const l of catalog.lessons) {
     assert.notEqual(l.title_es, l.title, `${l.date} title_es copied from English`);
     assert.notEqual(l.lesson_es, l.lesson, `${l.date} lesson_es copied from English`);
-    if (l.sourceUrl) assert.match(l.sourceUrl, /^https:\/\/(www\.gutenberg\.org\/ebooks\/\d+|en\.wikisource\.org\/wiki\/)/);
+    if (l.sourceUrl) assert.match(l.sourceUrl, /^https:\/\/(www\.gutenberg\.org\/ebooks\/\d+|en\.wikisource\.org\/wiki\/|founders\.archives\.gov\/documents\/)/);
   }
   assert.ok(catalog.lessons.filter((l) => l.sourceUrl).length >= 35);
   const kjv = catalog.lessons.filter((l) => /King James/.test(l.source));

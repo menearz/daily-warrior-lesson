@@ -1,6 +1,27 @@
 {
   "lessons": [
     {
+      "date": "2026-10-14",
+      "title": "Discipline Is the Soul",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/c/c7/Washington_1772.jpg",
+      "imageAlt": "Charles Willson Peale — George Washington in the uniform of a colonel of the Virginia Regiment (1772), full portrait painting, public domain",
+      "fallback": "./images/2026-09-04.jpg",
+      "source": "George Washington, Instructions to Company Captains, Fort Loudoun, 29 July 1757 (Founders Online)",
+      "sourceUrl": "https://founders.archives.gov/documents/Washington/02-04-02-0223",
+      "quote": "Permit me, before I finish ... to recommend, and I do in the strongest manner I can to you and your Officers; to devote some part of your leisure hours to the study of your profession, a knowledge in which can not be attained without application ... Discipline is the soul of an army. It makes small numbers formidable; procures success to the weak, and esteem to all.",
+      "lesson": "Washington was 25 and in charge of a small, green regiment. He did not ask his captains for more men or better gear. He asked them to use their free hours to study their job. Skill does not come by itself. It comes from steady work when no one makes you do it. That daily habit is the discipline he means. It lets a few people do the work of many, and it earns respect that talk never will.",
+      "today": "Before bed, spend 20 minutes studying one part of your work you are weak at. No phone, no shortcuts. Just study.",
+      "lanes": [
+        "warrior",
+        "thinker"
+      ],
+      "title_es": "La disciplina es el alma",
+      "quote_es": "Permítanme, antes de terminar ... recomendarles, y lo hago de la manera más firme que puedo, a ustedes y a sus oficiales, que dediquen parte de sus horas libres al estudio de su profesión, un conocimiento que no se puede lograr sin aplicación ... La disciplina es el alma de un ejército. Hace temibles a los pocos, procura el éxito a los débiles y estima a todos.",
+      "lesson_es": "Washington tenía 25 años y estaba al mando de un regimiento pequeño y sin experiencia. No pidió a sus capitanes más hombres ni mejor equipo. Les pidió usar sus horas libres para estudiar su oficio. La habilidad no llega sola. Llega con trabajo constante cuando nadie te obliga. Ese hábito diario es la disciplina de la que habla. Permite que pocos hagan el trabajo de muchos, y gana un respeto que las palabras nunca ganan.",
+      "today_es": "Antes de dormir, dedica 20 minutos a estudiar una parte de tu trabajo en la que eres débil. Sin teléfono, sin atajos. Solo estudia.",
+      "source_es": "George Washington, instrucciones a los capitanes de compañía, Fort Loudoun, 29 de julio de 1757 (Founders Online) (traducción fiel al español de la original en inglés)"
+    },
+    {
       "date": "2026-10-13",
       "title": "Doers of the Word",
       "image": "https://upload.wikimedia.org/wikipedia/commons/b/bf/Martin_Schongauer%2C_The_Battle_of_Saint_James_at_Clavijo%2C_c._1470-1475%2C_NGA_33864.jpg",
