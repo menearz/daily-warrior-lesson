@@ -30,8 +30,10 @@
   .lang { margin-top:24px; font-size:13px; }
   .lang button { margin:0 6px 0 0; padding:6px 10px; font-size:13px; background:transparent; color:var(--ink); border-color:var(--line); font-weight:400; }
 </style>
+<script src="config.js"></script>
+<style>html:not(.dw-accounts-open) body[data-account-page] .wrap{display:none}</style>
 </head>
-<body>
+<body data-account-page>
 <div class="wrap">
   <div class="brand">Daily Warrior&#39;s Lesson</div>
   <h1 data-k="plansTitle"></h1>
@@ -41,11 +43,11 @@
   <div class="card"><b data-k="yearly"></b> <span class="muted" data-k="yearlySub"></span><br><button type="button" data-plan="yearly" data-k="start"></button></div>
   <p class="muted" style="margin-top:12px" data-k="underButton"></p>
   <p data-k="freeStays"></p>
+  <section class="hidden" id="legal"><h2 id="refund-title"></h2><ul id="refund-items"></ul><p id="refund-prices"></p><p class="muted" id="seller-line"></p></section>
   <div class="err" id="plan-err" role="alert"></div>
   <div class="nav"><a href="./index.html" data-k="seeToday">Today</a><a href="./account.html" data-k="account">Account</a><a href="./privacy.html">Privacy</a></div>
   <div class="lang"><button type="button" data-set-lang="en">English</button><button type="button" data-set-lang="es">Español</button></div>
 </div>
-<script src="config.js"></script>
 <script src="account-client.js"></script>
 <script>
   var LANG = (function () { try { var l = localStorage.getItem("dw-lang"); return l === "es" ? "es" : "en"; } catch (e) { return "en"; } })();
@@ -70,6 +72,19 @@
 </script>
 <script>
   paintText();
+  var LEGAL = null;
+  function paintLegal() {
+    var b = DWAccount.legalBlock(LANG, LEGAL);
+    show("legal", Boolean(b));
+    if (!b) return;
+    document.getElementById("refund-title").textContent = b.title;
+    var ul = document.getElementById("refund-items"); ul.textContent = "";
+    b.items.forEach(function (x) { var li = document.createElement("li"); li.textContent = x; ul.appendChild(li); });
+    document.getElementById("refund-prices").textContent = b.prices;
+    document.getElementById("seller-line").textContent = b.seller;
+  }
+  window.onLang = paintLegal;
+  DW.legal().then(function (r) { if (r.status === 200) { LEGAL = r.data; paintLegal(); } }).catch(function () {});
   if (/checkout=cancel/.test(location.search)) show("cancelled", true);
   document.addEventListener("click", function (e) {
     var b = e.target.closest && e.target.closest("[data-plan]");

@@ -12,6 +12,19 @@ const path = require('path');
 const LIVE_MODE_OFF = true;
 const LIVE_MODE_OFF_REASON = 'Live mode off: Ancilla payouts paused';
 
+// Launch flag: ON means customer-facing launch (refund + seller + support
+// shown). Off by default. Turning it on with any legal value unset refuses.
+// The three values are pending Zachary's pick and have NO defaults.
+const LEGAL_KEYS = ['DW_SELLER_NAME', 'DW_SUPPORT_EMAIL', 'DW_REFUND_POLICY'];
+// Refund policy is chosen by id. 'webcopy-2026-10-13' = Web Copy's proposal.
+const REFUND_POLICIES = ['webcopy-2026-10-13'];
+
+function legalFrom(env) {
+  const v = (k) => String(env[k] || '').trim() || null;
+  return { sellerName: v('DW_SELLER_NAME'), supportEmail: v('DW_SUPPORT_EMAIL'), refundPolicy: v('DW_REFUND_POLICY') };
+}
+function missingLegal(env) { return LEGAL_KEYS.filter((k) => !String(env[k] || '').trim()); }
+
 function int(v, d) { const n = Number(v); return Number.isFinite(n) && n > 0 ? Math.round(n) : d; }
 
 function loadConfig(env = process.env) {
@@ -20,6 +33,12 @@ function loadConfig(env = process.env) {
     throw new Error(`Refusing to start: DW_STRIPE_SECRET_KEY is a LIVE key. ${LIVE_MODE_OFF_REASON}. Use an sk_test_ key.`);
   }
   if (key && !/^(sk|rk)_test_/.test(key)) throw new Error('DW_STRIPE_SECRET_KEY must be an sk_test_ key');
+  const launch = String(env.DW_LAUNCH || '') === '1';
+  const missing = missingLegal(env);
+  if (launch && missing.length) throw new Error(`Refusing to start: DW_LAUNCH=1 but ${missing.join(', ')} unset`);
+  const legal = legalFrom(env);
+  if (legal.refundPolicy && !REFUND_POLICIES.includes(legal.refundPolicy)) throw new Error(`DW_REFUND_POLICY must be one of: ${REFUND_POLICIES.join(', ')}`);
+  if (legal.supportEmail && !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(legal.supportEmail)) throw new Error('DW_SUPPORT_EMAIL is not an email address');
   const webhookSecret = String(env.DW_STRIPE_WEBHOOK_SECRET || '').trim();
   const cfg = {
     port: int(env.DW_API_PORT, 8787),
@@ -38,8 +57,8 @@ function loadConfig(env = process.env) {
     // Price is config (Zachary): $4.99/mo or $39.99/yr, USD cents. If Stripe
     // Price ids are set they are used; otherwise Checkout gets inline price_data.
     plans: {
-      monthly: { amount: int(env.DW_PRICE_MONTHLY_CENTS, 499), interval: 'month', priceId: env.DW_STRIPE_PRICE_MONTHLY || null },
-      yearly: { amount: int(env.DW_PRICE_YEARLY_CENTS, 3999), interval: 'year', priceId: env.DW_STRIPE_PRICE_YEARLY || null },
+      monthly: { amount: int(env.DW_PRICE_MONTHLY_CENTS, 499), interval: 'month', priceId: env.DW_STRIPE_PRICE_MONTHLY || (/^price_/.test(env.DW_PRICE_MONTHLY || '') ? env.DW_PRICE_MONTHLY : null) },
+      yearly: { amount: int(env.DW_PRICE_YEARLY_CENTS, 3999), interval: 'year', priceId: env.DW_STRIPE_PRICE_YEARLY || (/^price_/.test(env.DW_PRICE_YEARLY || '') ? env.DW_PRICE_YEARLY : null) },
     },
     currency: 'usd',
     productName: String(env.DW_PRODUCT_NAME || 'The Forge (Daily Warrior\u2019s Lesson)'),
@@ -55,8 +74,11 @@ function loadConfig(env = process.env) {
     sessionCookieTtlMs: 30 * 24 * 60 * 60 * 1000,
     retentionMs: 30 * 24 * 60 * 60 * 1000,
     liveModeOff: LIVE_MODE_OFF,
+    launch,
+    legal,
+    legalComplete: missing.length === 0,
   };
   return cfg;
 }
 
-module.exports = { loadConfig, LIVE_MODE_OFF, LIVE_MODE_OFF_REASON };
+module.exports = { loadConfig, LEGAL_KEYS, REFUND_POLICIES, missingLegal, LIVE_MODE_OFF, LIVE_MODE_OFF_REASON };

@@ -14,6 +14,7 @@
  *   POST /billing/portal                     Stripe Customer Portal (cancel / change)
  *   POST /stripe/webhook                     signed Stripe events, idempotent
  *   GET  /health
+ *   GET  /legal           seller/support/refund policy id, or {pending} until all are set
  *
  * LIVE MODE OFF: Ancilla payouts paused. See config.js.
  */
@@ -225,7 +226,12 @@ function createApp({ config, store, mail, stripe, now = () => Date.now(), log = 
       return send(res, 403, { error: 'origin' });
     }
     if (p === '/health' && (req.method === 'GET' || req.method === 'HEAD')) {
-      return send(res, 200, { ok: true, stripeMode: 'test', liveModeOff: true, reason: LIVE_MODE_OFF_REASON, stripeConfigured: Boolean(stripe), mail: mail.name });
+      return send(res, 200, { ok: true, stripeMode: 'test', liveModeOff: true, reason: LIVE_MODE_OFF_REASON, stripeConfigured: Boolean(stripe), mail: mail.name === 'fake' ? 'fake' : (mail.configured ? 'agentmail' : 'unconfigured') });
+    }
+
+    if (p === '/legal' && (req.method === 'GET' || req.method === 'HEAD')) {
+      if (!config.legalComplete) return send(res, 200, { pending: true });
+      return send(res, 200, { pending: false, sellerName: config.legal.sellerName, supportEmail: config.legal.supportEmail, refundPolicy: config.legal.refundPolicy });
     }
 
     if (p === '/auth/magic' && req.method === 'POST') {

@@ -97,3 +97,19 @@ test('privacy.html describes accounts, the data kept, Stripe, and the 30-day del
   for (const s of ['emailed link', 'Stripe', '30 days', 'Delete my account and answers', 'AgentMail', 'Eliminar mi cuenta y mis respuestas', '30 días']) assert.ok(p.includes(s), s);
   assert.doesNotMatch(p, /\{[A-Z_]+\}/, 'no unfilled placeholders');
 });
+
+test('refund/seller block hidden until /legal is complete; no placeholders', () => {
+  const DWA = require('../account-client.js');
+  assert.strictEqual(DWA.legalBlock('en', { pending: true }), null);
+  assert.strictEqual(DWA.legalBlock('en', { pending: false, sellerName: 'S', supportEmail: '', refundPolicy: 'webcopy-2026-10-13' }), null);
+  const b = DWA.legalBlock('es', { pending: false, sellerName: 'Seller LLC', supportEmail: 'h@e.test', refundPolicy: 'webcopy-2026-10-13' });
+  assert.strictEqual(b.title, 'Reembolsos y cancelación');
+  assert.strictEqual(b.seller, 'Daily Warrior es un producto de Seller LLC.');
+  assert.ok(![b.title, b.prices, b.seller].concat(b.items).some((x) => /[{}]/.test(x)));
+});
+
+test('aimed line uses Spanish lane labels in ES', () => {
+  const WL = require('../lesson.js');
+  assert.match(WL.formatAimed('es', 'Warrior / Thinker'), /Guerrero \/ Pensador/);
+  assert.match(WL.formatAimed('en', 'Warrior / Thinker'), /Warrior \/ Thinker/);
+});

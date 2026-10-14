@@ -29,7 +29,7 @@ async function start(opts = {}) {
   const config = loadConfig({ DW_STORE_PATH: path.join(dir, 'store.json'), DW_STRIPE_WEBHOOK_SECRET: WHSEC, DW_STRIPE_SECRET_KEY: 'sk_test_fixture' });
   const clock = { t: opts.t || Date.UTC(2026, 9, 13, 18, 0, 0) };
   const store = openStore(config.storePath);
-  const mail = fakeTransport();
+  const mail = opts.mail || fakeTransport();
   const stripe = opts.stripe === null ? null : (opts.stripe || fakeStripe());
   const { server } = createApp({ config, store, mail, stripe, now: () => clock.t });
   await new Promise((r) => server.listen(0, '127.0.0.1', r));
