@@ -249,6 +249,12 @@ test('delete account: cancels the Stripe subscription and removes the user now',
     assert.deepEqual(a.stripe.calls.find((c) => c[0] === 'subscriptions.cancel'), ['subscriptions.cancel', 'sub_test_1']);
     assert.equal(a.store.user('del@example.com'), null);
     assert.equal(JSON.parse(fs.readFileSync(a.config.storePath, 'utf8')).users['del@example.com'], undefined);
+    // Paid access ends the same day: old token is dead, a fresh sign-in is not entitled.
+    assert.equal((await a.call('GET', '/me', { token: s.accessToken })).status, 401);
+    const again = await a.signIn('del@example.com');
+    const me = await a.call('GET', '/me', { token: again.accessToken });
+    assert.equal(me.data.entitled, false);
+    assert.equal((await a.call('PUT', '/sync', { token: again.accessToken, body: { reads: [] } })).status, 402);
   } finally { await a.close(); }
 });
 

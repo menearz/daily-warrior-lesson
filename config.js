@@ -9,6 +9,10 @@ window.DW_API_BASE = window.DW_API_BASE || 'https://dw-api.arbiterresearch.net';
 // together, API first (DW_LAUNCH=1 needs seller/support/refund set).
 window.DW_ACCOUNTS_OPEN = false;
 
+// "Send an idea" Google Form link. Shown whether or not accounts are open.
+// Empty = no link shown anywhere. Label EN/ES is ours (Web Copy had none).
+window.DW_IDEA_FORM_URL = 'https://docs.google.com/forms/d/e/1FAIpQLSehRZ6PBTylJ9W8Df3mB_wS1d0FKaV75jPN9qfPAJFyz1kfkw/viewform';
+
 (function (w) {
   var NOTICE = {
     en: 'Accounts and Forge plans are not open yet. The daily lesson is still free, every day.',
@@ -21,6 +25,13 @@ window.DW_ACCOUNTS_OPEN = false;
   var open = w.DW_ACCOUNTS_OPEN === true;
   root.classList.toggle('dw-accounts-open', open);
   function apply() {
+    var idea = String(w.DW_IDEA_FORM_URL || '').trim();
+    var ideaOk = /^https:\/\/[^\s"<>]+$/.test(idea);
+    var ideas = document.querySelectorAll('[data-idea-link]');
+    for (var j = 0; j < ideas.length; j++) {
+      ideas[j].hidden = !ideaOk;
+      if (ideaOk) { ideas[j].setAttribute('href', idea); ideas[j].setAttribute('target', '_blank'); ideas[j].setAttribute('rel', 'noopener'); }
+    }
     var entries = document.querySelectorAll('[data-account-entry]');
     for (var i = 0; i < entries.length; i++) entries[i].hidden = !open;
     if (open || !document.body || !document.body.hasAttribute('data-account-page')) return;

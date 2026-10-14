@@ -141,8 +141,8 @@
     },
   };
   var SELLER = {
-    en: 'Daily Warrior is a product of {seller}. Questions or billing problems: {support}.',
-    es: 'Daily Warrior es un producto de {seller}. Preguntas o problemas con un cobro: {support}.',
+    en: 'Daily Warrior is a product of {seller}.',
+    es: 'Daily Warrior es un producto de {seller}.',
   };
   /** Returns the refund + seller block for a complete /legal answer, else null. */
   function legalBlock(lang, legal) {

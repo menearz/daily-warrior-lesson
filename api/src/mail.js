@@ -44,43 +44,6 @@ function buildMagicLinkEmail({ url, lang }) {
   return render(t.subject, t.preview, t.paras(url), url);
 }
 
-// Yearly renewal reminder (7 days before): gap file section 3 (verbatim).
-// The support line needs DW_SUPPORT_EMAIL (pending Zachary's pick); without it
-// this refuses to build, so no placeholder address can ever be mailed.
-// Not wired to a job yet (gap file Flag 4).
-const RENEWAL = {
-  en: (d) => ({
-    subject: `Your Daily Warrior year renews on ${d.renewal_date}`,
-    preview: '$39.99 for another year of The Forge. Cancel anytime before then.',
-    paras: [
-      'This is a heads-up so nothing surprises you.',
-      `Your yearly Forge plan renews on ${d.renewal_date}. On that day we'll charge $39.99 to the card you have on file, and you'll get another year of lessons aimed at your lanes.`,
-      "You don't need to do anything to keep it.",
-      `If you'd rather stop, go to your Account page before ${d.renewal_date} and choose "Manage plan". You'll keep The Forge until the end of the year you already paid for, and you won't be charged again.`,
-      d.account_url,
-      `Questions? Write to ${d.support}.`,
-    ],
-  }),
-  es: (d) => ({
-    subject: `Tu año de Daily Warrior se renueva el ${d.renewal_date}`,
-    preview: 'US$39.99 por otro año de La Forja. Puedes cancelar antes de esa fecha.',
-    paras: [
-      'Te avisamos para que nada te tome por sorpresa.',
-      `Tu plan anual de La Forja se renueva el ${d.renewal_date}. Ese día cobraremos US$39.99 a la tarjeta que tienes registrada, y tendrás otro año de lecciones dirigidas a tus caminos.`,
-      'No tienes que hacer nada para mantenerlo.',
-      `Si prefieres dejarlo, ve a la página de tu Cuenta antes del ${d.renewal_date} y elige "Administrar plan". Sigues teniendo La Forja hasta que termine el año que ya pagaste, y no se te cobra de nuevo.`,
-      d.account_url,
-      `¿Preguntas? Escríbenos a ${d.support}.`,
-    ],
-  }),
-};
-
-function buildRenewalReminderEmail({ lang, renewalDate, accountUrl, supportEmail }) {
-  if (!supportEmail) throw new Error('renewal reminder needs DW_SUPPORT_EMAIL (pending)');
-  const m = (lang === 'es' ? RENEWAL.es : RENEWAL.en)({ renewal_date: renewalDate, account_url: accountUrl, support: supportEmail });
-  return render(m.subject, m.preview, m.paras, accountUrl);
-}
-
 function agentMailTransport(mailCfg, fetchFn = globalThis.fetch) {
   return {
     name: 'agentmail',
@@ -104,4 +67,4 @@ function fakeTransport() {
   return { name: 'fake', configured: true, outbox, async send(m) { outbox.push(m); return { ok: true, transport: 'fake' }; } };
 }
 
-module.exports = { buildMagicLinkEmail, buildRenewalReminderEmail, agentMailTransport, fakeTransport };
+module.exports = { buildMagicLinkEmail, agentMailTransport, fakeTransport };

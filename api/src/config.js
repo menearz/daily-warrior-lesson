@@ -57,8 +57,8 @@ function loadConfig(env = process.env) {
     // Price is config (Zachary): $4.99/mo or $39.99/yr, USD cents. If Stripe
     // Price ids are set they are used; otherwise Checkout gets inline price_data.
     plans: {
-      monthly: { amount: int(env.DW_PRICE_MONTHLY_CENTS, 499), interval: 'month', priceId: env.DW_STRIPE_PRICE_MONTHLY || null },
-      yearly: { amount: int(env.DW_PRICE_YEARLY_CENTS, 3999), interval: 'year', priceId: env.DW_STRIPE_PRICE_YEARLY || null },
+      monthly: { amount: int(env.DW_PRICE_MONTHLY_CENTS, 499), interval: 'month', priceId: env.DW_STRIPE_PRICE_MONTHLY || (/^price_/.test(env.DW_PRICE_MONTHLY || '') ? env.DW_PRICE_MONTHLY : null) },
+      yearly: { amount: int(env.DW_PRICE_YEARLY_CENTS, 3999), interval: 'year', priceId: env.DW_STRIPE_PRICE_YEARLY || (/^price_/.test(env.DW_PRICE_YEARLY || '') ? env.DW_PRICE_YEARLY : null) },
     },
     currency: 'usd',
     productName: String(env.DW_PRODUCT_NAME || 'The Forge (Daily Warrior\u2019s Lesson)'),

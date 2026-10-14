@@ -104,7 +104,7 @@ test('refund/seller block hidden until /legal is complete; no placeholders', () 
   assert.strictEqual(DWA.legalBlock('en', { pending: false, sellerName: 'S', supportEmail: '', refundPolicy: 'webcopy-2026-10-13' }), null);
   const b = DWA.legalBlock('es', { pending: false, sellerName: 'Seller LLC', supportEmail: 'h@e.test', refundPolicy: 'webcopy-2026-10-13' });
   assert.strictEqual(b.title, 'Reembolsos y cancelación');
-  assert.strictEqual(b.seller, 'Daily Warrior es un producto de Seller LLC. Preguntas o problemas con un cobro: h@e.test.');
+  assert.strictEqual(b.seller, 'Daily Warrior es un producto de Seller LLC.');
   assert.ok(![b.title, b.prices, b.seller].concat(b.items).some((x) => /[{}]/.test(x)));
 });
 
