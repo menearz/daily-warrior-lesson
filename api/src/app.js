@@ -360,6 +360,12 @@ function createApp({ config, store, mail, stripe, now = () => Date.now(), log = 
 
   const server = http.createServer((req, res) => {
     route(req, res).catch((err) => {
+      if (err && typeof err.type === 'string' && err.type.startsWith('Stripe')) {
+        // Stripe API failure: say so (type/code/param only; never keys or ids).
+        log(`stripe error ${err.type} code=${err.code || '-'} param=${err.param || '-'} status=${err.statusCode || '-'} ${req.method} ${req.url.split('?')[0]}`);
+        if (!res.headersSent) send(res, 502, { error: 'stripe_error', stripeType: err.type, stripeCode: err.code || null });
+        return;
+      }
       log(`error ${err && err.message}`);
       if (!res.headersSent) send(res, err.status || 500, { error: err.status ? err.message : 'server_error' });
     });
