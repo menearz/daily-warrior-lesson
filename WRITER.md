@@ -10,7 +10,8 @@ write `lessons.json` yourself, and never push a whole new copy of it.
    `lesson`, `today` and 1 to 3 `lanes`. `sourceUrl` and the Spanish `_es`
    fields are recommended. Make sure the file holds real text: check it opens
    as JSON before you go on.
-2. From the repo root, run:
+2. From the repo root, preview it first with
+   `node scripts/add-lesson.js --dry-run new-lesson.json`, then run:
 
    ```
    node scripts/add-lesson.js new-lesson.json
@@ -19,6 +20,13 @@ write `lessons.json` yourself, and never push a whole new copy of it.
    It prints `added 2026-10-15: 63 -> 64`. If it prints an error (a missing
    field, a date that already has a lesson, or a file that is not JSON), stop
    and fix the lesson file. Nothing was changed.
+
+   Before writing, add-lesson.js runs the humanizer rules (`scripts/humanize.js`)
+   on the title, lesson and today text: dashes, curly quotes, stock AI words
+   and filler are fixed, and it shows you before and after. The quote, source,
+   link, date and Spanish fields are never changed, and it refuses to write if
+   any number, date, name or link would change. If it lists AI habits it cannot
+   fix (for example "not just X but Y"), rewrite that sentence yourself.
 3. Then commit and push only `lessons.json`:
 
    ```
