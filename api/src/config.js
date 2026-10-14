@@ -27,6 +27,8 @@ function missingLegal(env) { return LEGAL_KEYS.filter((k) => !String(env[k] || '
 
 function int(v, d) { const n = Number(v); return Number.isFinite(n) && n > 0 ? Math.round(n) : d; }
 
+function emailList(v, d) { return String(v == null ? d : v).split(',').map((e) => e.trim().toLowerCase()).filter(Boolean); }
+
 function loadConfig(env = process.env) {
   const key = String(env.DW_STRIPE_SECRET_KEY || '').trim();
   if (/^(sk|rk)_live_/.test(key)) {
@@ -86,6 +88,11 @@ function loadConfig(env = process.env) {
       inboxId: String(env.DW_LESSON_INBOX_ID || 'dailywarrior@agentmail.to').trim(),
       fromName: 'Daily Warrior',
     },
+    // Production-safe free access (separate from the loopback-only override).
+    // Owners: DW_OWNER_EMAILS, default Zachary's two addresses. Testers:
+    // TESTER_EMAILS, empty by default. Trimmed, lower-cased. Never touch Stripe.
+    ownerEmails: emailList(env.DW_OWNER_EMAILS, 'menearz@gmail.com,menearz@yahoo.com'),
+    testerEmails: emailList(env.TESTER_EMAILS, ''),
     testOverrideEmails: overrideEmails,
     lessonsPath: env.DW_LESSONS_PATH ? path.resolve(String(env.DW_LESSONS_PATH)) : null,
     magicLinkTtlMs: 15 * 60 * 1000,

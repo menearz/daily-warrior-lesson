@@ -49,3 +49,12 @@ test('saveProfile sends PUT /me/profile with the bearer token', async () => {
   assert.equal(calls[0].init.headers.Authorization, 'Bearer tok');
   assert.deepEqual(JSON.parse(calls[0].init.body).themes, ['faith']);
 });
+
+test('Tester badge on account.html, EN and ES, shown only for testers; no Stripe manage button for free access', () => {
+  assert.match(html, /<span class="badge hidden" id="tester-badge" data-k="testerBadge"><\/span>/);
+  assert.match(html, /show\("tester-badge", ME\.entitledVia === "tester"\)/);
+  assert.match(html, /show\("manage", !free &&/);
+  assert.equal(DWAccount.t('en', 'testerBadge'), 'Tester');
+  assert.equal(DWAccount.t('es', 'testerBadge'), 'Probador');
+  assert.equal(DWAccount.t('es', 'freeAccess'), 'Acceso completo, sin pago.');
+});

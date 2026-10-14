@@ -35,6 +35,7 @@
   .pf select, .pf input[type=time] { width:100%; min-height:44px; padding:10px 12px; font-size:16px; border-radius:6px; border:1px solid var(--line); background:var(--bg); color:var(--ink); }
   .pf button[type=submit] { width:100%; min-height:48px; }
   @media (max-width:380px) { .pf .themes { grid-template-columns:1fr; } .wrap { padding:20px 14px 48px; } }
+  .badge { display:inline-block; padding:4px 10px; border-radius:999px; border:1px solid var(--accent); color:var(--accent); font-size:12px; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; margin-bottom:10px; }
   .lang button { margin:0 6px 0 0; padding:6px 10px; font-size:13px; background:transparent; color:var(--ink); border-color:var(--line); font-weight:400; }
 </style>
 <script src="config.js"></script>
@@ -53,6 +54,7 @@
   <section id="signed-in" class="hidden">
     <h1 data-k="account"></h1>
     <p id="who"></p>
+    <span class="badge hidden" id="tester-badge" data-k="testerBadge"></span>
     <div class="card">
       <p id="plan-line"></p>
       <div class="row">
@@ -115,11 +117,13 @@
     if (!ME) return;
     document.getElementById("who").textContent = DW.t(LANG, "signedInAs", { email: ME.email });
     var plan = ME.plan || {}; var name = DW.t(LANG, plan.interval === "yearly" ? "yearlyName" : "monthlyName");
-    var line = !ME.entitled ? DW.t(LANG, "noPlan")
+    var free = ME.entitledVia === "tester" || ME.entitledVia === "owner";
+    show("tester-badge", ME.entitledVia === "tester");
+    var line = free ? DW.t(LANG, "freeAccess") : !ME.entitled ? DW.t(LANG, "noPlan")
       : plan.cancelAtPeriodEnd ? DW.t(LANG, "planEnds", { date: fmtDate(plan.currentPeriodEnd) })
       : DW.t(LANG, "planRow", { plan: name, date: plan.currentPeriodEnd ? fmtDate(plan.currentPeriodEnd) : "—" });
     document.getElementById("plan-line").textContent = line;
-    show("manage", Boolean(ME.entitled || plan.status === "past_due")); show("choose", !ME.entitled);
+    show("manage", !free && Boolean(ME.entitled || plan.status === "past_due")); show("choose", !ME.entitled);
     document.getElementById("sync-line").textContent = DW.t(LANG, ME.entitled ? "synced" : "syncNeedsPlan");
     if (/checkout=success/.test(location.search) && ME.entitled) {
       var fp = ME.forgedPath || {};

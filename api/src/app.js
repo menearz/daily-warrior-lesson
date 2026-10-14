@@ -119,8 +119,12 @@ function periodEnd(sub) {
 }
 
 function createApp({ config, store, mail, stripe, now = () => Date.now(), log = () => {}, catalog = null }) {
+  const owners = config.ownerEmails || [];
+  const testers = config.testerEmails || [];
   const overrides = config.testOverrideEmails || [];
-  const entitled = (u) => isEntitled(u, overrides);
+  const freeVia = (u) => (!u ? null : owners.includes(u.email) ? 'owner' : testers.includes(u.email) ? 'tester' : overrides.includes(u.email) ? 'test_override' : null);
+  const paid = (u) => Boolean(u && u.plan && ENTITLED.has(u.plan.status));
+  const entitled = (u) => paid(u) || Boolean(freeVia(u));
   let lessons = catalog;
   const getCatalog = () => { if (!lessons) lessons = loadCatalog(config.lessonsPath || defaultCatalogPath()); return lessons; };
   const limits = {
@@ -195,8 +199,7 @@ function createApp({ config, store, mail, stripe, now = () => Date.now(), log = 
 
   function publicMe(u) {
     const ok = entitled(u);
-    const paid = Boolean(u.plan && ENTITLED.has(u.plan.status));
-    const out = { email: u.email, lang: u.lang, entitled: ok, entitledVia: paid ? 'stripe' : ok ? 'test_override' : null, plan: u.plan };
+    const out = { email: u.email, lang: u.lang, entitled: ok, entitledVia: paid(u) ? 'stripe' : freeVia(u), plan: u.plan };
     if (ok) { out.forgedPath = u.forgedPath; out.reads = u.reads; out.hasAnswers = Boolean(u.answers); }
     else { out.hasSavedPath = Boolean(u.forgedPath); out.hasAnswers = Boolean(u.answers); }
     return out;
@@ -205,7 +208,9 @@ function createApp({ config, store, mail, stripe, now = () => Date.now(), log = 
     const ok = entitled(u);
     return {
       email: u.email, lang: u.lang || 'en', themes: u.themes || [], deliveryTime: u.deliveryTime || null, timezone: u.timezone || null,
-      plan: u.plan, entitled: ok, entitledVia: publicMe(u).entitledVia,
+      plan: !paid(u) && freeVia(u) === 'tester' ? Object.assign({}, u.plan, { status: 'tester' }) : !paid(u) && freeVia(u) === 'owner' ? Object.assign({}, u.plan, { status: 'owner' }) : u.plan,
+      planName: paid(u) ? (u.plan.interval || 'paid') : freeVia(u) === 'tester' ? 'tester' : freeVia(u) === 'owner' ? 'owner' : null,
+      entitled: ok, entitledVia: publicMe(u).entitledVia,
       cancelDate: (u.plan && u.plan.canceledAt) || null, answersDeleteAt: u.deleteDataAfter || null,
       answers: ok ? (u.answers || null) : null, answersAt: u.answersAt || null,
       sentLessons: ok ? (u.sentLessons || []) : [],
@@ -401,6 +406,9 @@ function createApp({ config, store, mail, stripe, now = () => Date.now(), log = 
       }
       store.deleteUser(user.email); store.save();
       return send(res, 200, { deleted: true }, { 'Set-Cookie': sessionCookie('deleted', 0) });
+    }
+    if ((p === '/billing/checkout' || p === '/billing/portal') && req.method === 'POST' && !paid(user) && (freeVia(user) === 'owner' || freeVia(user) === 'tester')) {
+      return send(res, 409, { error: 'free_access', via: freeVia(user) }); // owners/testers never touch Stripe
     }
     if (p === '/billing/checkout' && req.method === 'POST') {
       if (!stripe) return send(res, 503, { error: 'stripe_not_configured' });

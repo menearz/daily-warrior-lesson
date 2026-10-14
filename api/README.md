@@ -91,3 +91,20 @@ AgentMail inbox `dailywarrior@agentmail.to` (display name "Daily Warrior",
 override with DW_LESSON_INBOX_ID; same DW_AGENTMAIL_API_KEY). A delivery row
 is saved before each send, so restarts never double-send; mailer failures are
 logged (no addresses) and retried up to 3 times that day.
+
+## Free access: owners and testers (production-safe)
+
+Separate from the loopback-only `DW_TEST_OVERRIDE_EMAILS`, these two lists
+work in production:
+
+- `DW_OWNER_EMAILS` (comma list). Default `menearz@gmail.com,menearz@yahoo.com`.
+  Owners are fully entitled with no payment. `/me` says `entitledVia: owner`.
+- `TESTER_EMAILS` (comma list). Empty by default. Testers are entitled with no
+  payment; `/me/profile` returns `plan.status` and `planName` `tester`, and
+  account.html shows a "Tester" / "Probador" badge.
+
+Matching is trimmed and case-insensitive. Neither list ever calls Stripe:
+`/billing/checkout` and `/billing/portal` answer 409 `free_access`. Cancel
+dates and the 30-day answer deletion come only from Stripe webhooks, so they
+apply to paying users only. Owners and testers also get the daily lesson email.
+Removing an address from a list ends its free access on the next restart.
