@@ -97,4 +97,18 @@ function buildPersonalLesson(catalog, user, date) {
   });
 }
 
-module.exports = { loadCatalog, defaultCatalogPath, pickLesson, buildPersonalLesson, FOCUS, ADMIRE_LANE };
+/** The day's lesson for a subscriber: same lesson all day (any language), logged once to history. */
+function lessonForDay(catalog, user, date, now = Date.now()) {
+  user.sentLessons = user.sentLessons || [];
+  const prior = user.sentLessons.find((s) => s.date === date);
+  if (prior) {
+    const others = Object.assign({}, user, { sentLessons: user.sentLessons.filter((s) => s !== prior) });
+    return { lesson: buildPersonalLesson(catalog.filter((l) => l.date === prior.lessonDate), others, date), repeat: true };
+  }
+  const lesson = buildPersonalLesson(catalog, user, date);
+  user.sentLessons.push({ date, lessonDate: lesson.lessonDate, lang: lesson.lang, title: lesson.title, at: now });
+  user.sentLessons = user.sentLessons.slice(-3650);
+  return { lesson, repeat: false };
+}
+
+module.exports = { lessonForDay, loadCatalog, defaultCatalogPath, pickLesson, buildPersonalLesson, FOCUS, ADMIRE_LANE };

@@ -14,7 +14,7 @@ const path = require('path');
 
 const VERSION = 1;
 function empty() {
-  return { version: VERSION, users: {}, magicLinks: {}, refreshTokens: {}, accessTokens: {}, sessions: {}, stripeEvents: {} };
+  return { version: VERSION, users: {}, magicLinks: {}, refreshTokens: {}, accessTokens: {}, sessions: {}, stripeEvents: {}, deliveries: {} };
 }
 
 function atomicWriteJson(filePath, data) {

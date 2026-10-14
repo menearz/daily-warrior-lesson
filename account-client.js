@@ -218,5 +218,23 @@
     };
   }
 
-  return { create: create, legalBlock: legalBlock, showTestNotice: showTestNotice, REFUND: REFUND, t: t, laneName: laneName, mergeLocal: mergeLocal, recordRead: recordRead, isEntitledCached: isEntitledCached, AUTH_KEY: AUTH_KEY, ENT_KEY: ENT_KEY, READS_KEY: READS_KEY, STRINGS: T };
+  // Profile form (account.html): themes, language, delivery time and zone.
+  var LANES = ['warrior', 'thinker', 'builder', 'odyssey', 'power', 'faith'];
+  var PROFILE_T = {
+    en: { title: 'Your lessons', themes: 'Themes (pick up to 3)', lang: 'Language', time: 'Delivery time', zone: 'Time zone', save: 'Save', saved: 'Saved.', tooMany: 'Pick up to 3 themes.', badTime: 'Pick a delivery time.', badZone: 'Pick a time zone.', failed: 'Could not save. Try again.', needsPlan: 'Lesson emails go to subscribers. Your settings are saved for when you subscribe.', email: 'Your lesson email comes once a day at this time.' },
+    es: { title: 'Tus lecciones', themes: 'Temas (elige hasta 3)', lang: 'Idioma', time: 'Hora de entrega', zone: 'Zona horaria', save: 'Guardar', saved: 'Guardado.', tooMany: 'Elige hasta 3 temas.', badTime: 'Elige una hora de entrega.', badZone: 'Elige una zona horaria.', failed: 'No se pudo guardar. Inténtalo de nuevo.', needsPlan: 'Los correos con la lección son para suscriptores. Tus ajustes quedan guardados para cuando te suscribas.', email: 'Tu correo con la lección llega una vez al día a esta hora.' },
+  };
+  function validateProfile(p) {
+    if (!p || !Array.isArray(p.themes) || p.themes.length > 3 || p.themes.some(function (x) { return LANES.indexOf(x) < 0; })) return 'tooMany';
+    if (!/^([01]\d|2[0-3]):[0-5]\d$/.test(String(p.deliveryTime || ''))) return 'badTime';
+    if (!p.timezone || typeof p.timezone !== 'string') return 'badZone';
+    try { new Intl.DateTimeFormat('en-US', { timeZone: p.timezone }); } catch (e) { return 'badZone'; }
+    return null;
+  }
+  function timezones() {
+    try { if (Intl.supportedValuesOf) return Intl.supportedValuesOf('timeZone'); } catch (e) {}
+    return ['America/New_York', 'America/Chicago', 'America/Denver', 'America/Los_Angeles', 'America/Mexico_City', 'Europe/London', 'Europe/Madrid', 'UTC'];
+  }
+
+  return { LANES: LANES, PROFILE_T: PROFILE_T, validateProfile: validateProfile, timezones: timezones, create: create, legalBlock: legalBlock, showTestNotice: showTestNotice, REFUND: REFUND, t: t, laneName: laneName, mergeLocal: mergeLocal, recordRead: recordRead, isEntitledCached: isEntitledCached, AUTH_KEY: AUTH_KEY, ENT_KEY: ENT_KEY, READS_KEY: READS_KEY, STRINGS: T };
 });

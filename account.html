@@ -28,6 +28,13 @@
   .nav { margin-top:28px; display:flex; gap:18px; flex-wrap:wrap; }
   .nav a { color:var(--accent); text-decoration:none; font-size:14px; letter-spacing:0.08em; text-transform:uppercase; }
   .lang { margin-top:24px; font-size:13px; }
+  .pf fieldset { border:0; }
+  .pf .themes { display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:8px; }
+  .pf .themes label { margin:0; display:flex; align-items:center; gap:10px; min-height:44px; padding:8px 12px; border:1px solid var(--line); border-radius:6px; font-size:15px; letter-spacing:0; text-transform:none; color:var(--ink); cursor:pointer; }
+  .pf .themes input { width:20px; height:20px; accent-color:var(--accent); }
+  .pf select, .pf input[type=time] { width:100%; min-height:44px; padding:10px 12px; font-size:16px; border-radius:6px; border:1px solid var(--line); background:var(--bg); color:var(--ink); }
+  .pf button[type=submit] { width:100%; min-height:48px; }
+  @media (max-width:380px) { .pf .themes { grid-template-columns:1fr; } .wrap { padding:20px 14px 48px; } }
   .lang button { margin:0 6px 0 0; padding:6px 10px; font-size:13px; background:transparent; color:var(--ink); border-color:var(--line); font-weight:400; }
 </style>
 <script src="config.js"></script>
@@ -54,6 +61,20 @@
       </div>
       <p class="muted" id="sync-line"></p>
     </div>
+    <form class="card pf" id="profile-form" novalidate>
+      <h2 style="font-size:18px;margin-bottom:6px" data-pk="title"></h2>
+      <p class="muted hidden" id="pf-plan" data-pk="needsPlan"></p>
+      <p class="muted" data-pk="email"></p>
+      <fieldset><legend style="font-size:12px;letter-spacing:0.16em;text-transform:uppercase;color:var(--muted);margin:16px 0 6px" data-pk="themes"></legend><div class="themes" id="pf-themes"></div></fieldset>
+      <label for="pf-lang" data-pk="lang"></label>
+      <select id="pf-lang"><option value="en">English</option><option value="es">Español</option></select>
+      <label for="pf-time" data-pk="time"></label>
+      <input type="time" id="pf-time" step="60" required>
+      <label for="pf-zone" data-pk="zone"></label>
+      <select id="pf-zone"></select>
+      <button type="submit" data-pk="save"></button>
+      <p class="muted" id="pf-msg" role="status" aria-live="polite"></p>
+    </form>
     <div class="card">
       <p data-k="deleteLine"></p>
       <button type="button" class="ghost" id="delete" data-k="deleteBtn"></button>
@@ -106,12 +127,50 @@
       show("confirm", true);
     }
   }
-  window.onLang = paintMe;
+  var PROF = null;
+  function pt(k) { return DWAccount.PROFILE_T[LANG][k]; }
+  function paintProfile() {
+    var n = document.querySelectorAll("[data-pk]");
+    for (var i = 0; i < n.length; i++) n[i].textContent = pt(n[i].getAttribute("data-pk"));
+    var box = document.getElementById("pf-themes"); box.textContent = "";
+    var chosen = (PROF && PROF.themes) || [];
+    DWAccount.LANES.forEach(function (l) {
+      var lab = document.createElement("label"); var cb = document.createElement("input");
+      cb.type = "checkbox"; cb.value = l; cb.name = "theme"; cb.checked = chosen.indexOf(l) >= 0;
+      lab.appendChild(cb); lab.appendChild(document.createTextNode(DW.laneName(LANG, l))); box.appendChild(lab);
+    });
+    if (!PROF) return;
+    document.getElementById("pf-lang").value = PROF.lang || LANG;
+    document.getElementById("pf-time").value = PROF.deliveryTime || "06:40";
+    var zone = document.getElementById("pf-zone");
+    if (!zone.options.length) DWAccount.timezones().forEach(function (z) { var o = document.createElement("option"); o.value = z; o.textContent = z.replace(/_/g, " "); zone.appendChild(o); });
+    var guess = ""; try { guess = Intl.DateTimeFormat().resolvedOptions().timeZone; } catch (e) {}
+    zone.value = PROF.timezone || guess || "UTC";
+    document.getElementById("pf-plan").classList.toggle("hidden", Boolean(PROF.entitled));
+  }
+  document.getElementById("pf-themes").addEventListener("change", function (e) {
+    var on = document.querySelectorAll("#pf-themes input:checked");
+    if (on.length > 3) { e.target.checked = false; document.getElementById("pf-msg").textContent = pt("tooMany"); }
+  });
+  document.getElementById("profile-form").onsubmit = function (e) {
+    e.preventDefault();
+    var themes = Array.prototype.map.call(document.querySelectorAll("#pf-themes input:checked"), function (c) { return c.value; });
+    var body = { themes: themes, lang: document.getElementById("pf-lang").value, deliveryTime: document.getElementById("pf-time").value, timezone: document.getElementById("pf-zone").value };
+    var bad = DWAccount.validateProfile(body); var msg = document.getElementById("pf-msg");
+    if (bad) { msg.textContent = pt(bad); return; }
+    DW.saveProfile(body).then(function (r) {
+      if (r.status !== 200) { msg.textContent = pt("failed"); return; }
+      PROF = r.data; msg.textContent = pt("saved");
+      if (body.lang !== LANG) { LANG = body.lang; try { localStorage.setItem("dw-lang", LANG); } catch (x) {} paintMe(); }
+    }).catch(function () { msg.textContent = pt("failed"); });
+  };
+  window.onLang = function () { paintMe(); paintProfile(); };
   function load() {
     if (!DW.signedIn()) { paintText(); show("signed-out", true); return; }
     DW.sync().then(function (r) { return r.status === 200 ? r : DW.me(); }).then(function (r) {
       if (r.status !== 200) { show("signed-out", true); paintText(); return; }
       ME = r.data; show("signed-in", true); paintMe();
+      DW.profile().then(function (p) { if (p.status === 200) PROF = p.data; paintProfile(); }).catch(function () { paintProfile(); });
     }).catch(function () { paintText(); err("acct-err", "network"); });
   }
   document.getElementById("manage").onclick = function () { DW.portal().then(function (r) { if (r.data && r.data.url) location.href = r.data.url; else err("acct-err", "network"); }).catch(function () { err("acct-err", "network"); }); };

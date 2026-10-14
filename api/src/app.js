@@ -29,7 +29,7 @@ const { createRateLimiter, clientIp } = require('./rateLimit');
 const { buildMagicLinkEmail } = require('./mail');
 const { LIVE_MODE_OFF_REASON } = require('./config');
 const { QUESTIONS, validateAnswers } = require('./questionnaire');
-const { loadCatalog, defaultCatalogPath, buildPersonalLesson } = require('./personalize');
+const { loadCatalog, defaultCatalogPath, lessonForDay } = require('./personalize');
 
 const LANES = ['warrior', 'thinker', 'builder', 'odyssey', 'power', 'faith'];
 const EMAIL_RE = /^[^\s@]{1,64}@[^\s@]{1,190}\.[^\s@]{2,}$/;
@@ -382,22 +382,11 @@ function createApp({ config, store, mail, stripe, now = () => Date.now(), log = 
       const today = localDate(now(), user.timezone || 'UTC');
       const date = url.searchParams.get('date') || today;
       if (!DATE_RE.test(date) || date > today) return send(res, 400, { error: 'bad_date' });
-      user.sentLessons = user.sentLessons || [];
-      const prior = user.sentLessons.find((s) => s.date === date); // one lesson per day, in whatever language is set now
-      let lesson;
-      try {
-        const cat = getCatalog();
-        if (prior) {
-          const sentOnly = Object.assign({}, user, { sentLessons: user.sentLessons.filter((s) => s !== prior) });
-          lesson = buildPersonalLesson(cat.filter((l) => l.date === prior.lessonDate), sentOnly, date);
-        } else lesson = buildPersonalLesson(cat, user, date);
-      } catch (err) { log(`personal lesson refused: ${err.message}`); return send(res, 500, { error: 'lesson_guard_failed' }); }
-      if (!prior) {
-        user.sentLessons.push({ date, lessonDate: lesson.lessonDate, lang: lesson.lang, title: lesson.title, at: now() });
-        user.sentLessons = user.sentLessons.slice(-MAX_SENT);
-        store.save();
-      }
-      return send(res, 200, { lesson, repeat: Boolean(prior) });
+      let r;
+      try { r = lessonForDay(getCatalog(), user, date, now()); }
+      catch (err) { log(`personal lesson refused: ${err.message}`); return send(res, 500, { error: 'lesson_guard_failed' }); }
+      if (!r.repeat) store.save();
+      return send(res, 200, r);
     }
     if (p === '/sync' && req.method === 'PUT') {
       if (!entitled(user)) return send(res, 402, { error: 'plan_required' });
@@ -460,7 +449,7 @@ function createApp({ config, store, mail, stripe, now = () => Date.now(), log = 
       if (!res.headersSent) send(res, err.status || 500, { error: err.status ? err.message : 'server_error' });
     });
   });
-  return { server, limits };
+  return { server, limits, getCatalog, entitled };
 }
 
 module.exports = { createApp, runRetention, mergeSync, isEntitled, localDate, LANES };

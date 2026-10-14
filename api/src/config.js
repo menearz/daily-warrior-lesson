@@ -81,6 +81,11 @@ function loadConfig(env = process.env) {
       from: String(env.DW_MAIL_FROM || '').trim(), // sender is configurable; NEED from Zachary
       apiUrl: String(env.DW_AGENTMAIL_API_URL || '').trim(),
     },
+    // Daily lesson email sender (Zachary via CoS 2026-10-14). Never Arbiter.
+    lessonMail: {
+      inboxId: String(env.DW_LESSON_INBOX_ID || 'dailywarrior@agentmail.to').trim(),
+      fromName: 'Daily Warrior',
+    },
     testOverrideEmails: overrideEmails,
     lessonsPath: env.DW_LESSONS_PATH ? path.resolve(String(env.DW_LESSONS_PATH)) : null,
     magicLinkTtlMs: 15 * 60 * 1000,

@@ -81,3 +81,13 @@ site URL is loopback and DW_LAUNCH is off).
   days later by the hourly `runRetention` job.
 - The API reads `../scripts/humanize.js` and `../lessons.json`, so Harbor must
   deploy the whole repo, not only `api/`.
+
+## Daily lesson email (src/delivery.js)
+
+Every minute (and at boot) the API emails each entitled subscriber with
+answers, a delivery time and a timezone their personalized lesson, once per
+local day, after their local clock reaches the delivery time. Sender is the
+AgentMail inbox `dailywarrior@agentmail.to` (display name "Daily Warrior",
+override with DW_LESSON_INBOX_ID; same DW_AGENTMAIL_API_KEY). A delivery row
+is saved before each send, so restarts never double-send; mailer failures are
+logged (no addresses) and retried up to 3 times that day.
