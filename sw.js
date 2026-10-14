@@ -1,4 +1,4 @@
-const CACHE = "warrior-lesson-v18";
+const CACHE = "warrior-lesson-v19";
 const PRECACHE = [
   "./",
   "./index.html",
@@ -17,6 +17,7 @@ const PRECACHE = [
   "./icon.svg",
   "./icon-192.png",
   "./icon-512.png",
+  "./apple-touch-icon.png",
   "./favicon.ico",
   "./images/2026-09-11.jpg",
   "./images/2026-09-10.jpg",
