@@ -7,7 +7,7 @@ window.DW_API_BASE = window.DW_API_BASE || 'https://dw-api.arbiterresearch.net';
 // and a direct visit to signin/plans/account shows a plain not-open-yet notice
 // and makes no API calls. The site twin of the API's DW_LAUNCH: flip both
 // together, API first (DW_LAUNCH=1 needs seller/support/refund set).
-window.DW_ACCOUNTS_OPEN = false;
+window.DW_ACCOUNTS_OPEN = true;
 
 // "Send an idea" Google Form link. Shown whether or not accounts are open.
 // Empty = no link shown anywhere. Label EN/ES is ours (Web Copy had none).

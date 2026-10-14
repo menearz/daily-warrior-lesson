@@ -19,14 +19,14 @@ function runConfig({ open, accountPage, lang = 'en' }) {
   const document = { readyState: 'complete', body, documentElement: { classList: { toggle: (c, on) => (on ? classes.add(c) : classes.delete(c)) } },
     querySelectorAll: (s) => (s === '[data-account-entry]' ? entries : []), createElement: el, addEventListener() {} };
   const window = {};
-  const src = open ? CONFIG.replace('window.DW_ACCOUNTS_OPEN = false;', 'window.DW_ACCOUNTS_OPEN = true;') : CONFIG;
+  const src = CONFIG.replace(/^window\.DW_ACCOUNTS_OPEN = (true|false);$/m, `window.DW_ACCOUNTS_OPEN = ${open};`);
   vm.runInNewContext(src, { window, document, localStorage: { getItem: () => (lang === 'es' ? 'es' : null) } });
   return { window, entries, body, classes };
 }
 
-test('site launch flag is one switch and defaults OFF', () => {
+test('site launch flag is one switch and is ON (accounts opened 2026-10-13)', () => {
   assert.equal((CONFIG.match(/^window\.DW_ACCOUNTS_OPEN = (true|false);$/gm) || []).length, 1);
-  assert.match(CONFIG, /^window\.DW_ACCOUNTS_OPEN = false;$/m);
+  assert.match(CONFIG, /^window\.DW_ACCOUNTS_OPEN = true;$/m);
 });
 
 test('flag OFF: entry points hidden; account pages show only the not-open notice', () => {
@@ -81,7 +81,7 @@ function runIdea(url, open = false) {
     documentElement: { classList: { toggle() {} } },
     querySelectorAll: (s) => (s === '[data-idea-link]' ? [link] : []), createElement() {}, addEventListener() {} };
   let src = url === null ? CONFIG : CONFIG.replace(/^window\.DW_IDEA_FORM_URL = .*;$/m, `window.DW_IDEA_FORM_URL = ${JSON.stringify(url)};`);
-  if (open) src = src.replace('window.DW_ACCOUNTS_OPEN = false;', 'window.DW_ACCOUNTS_OPEN = true;');
+  src = src.replace(/^window\.DW_ACCOUNTS_OPEN = (true|false);$/m, `window.DW_ACCOUNTS_OPEN = ${open};`);
   vm.runInNewContext(src, { window: {}, document, localStorage: { getItem: () => null } });
   return link;
 }
@@ -125,4 +125,16 @@ test('account delete ends paid access the same day: privacy and refund copy agre
   const pol = DWA.REFUND['webcopy-2026-10-13'];
   assert.ok(pol.en.items.includes('If you delete your account, your plan stops right away, and so does your access to The Forge.'));
   assert.ok(pol.es.items.includes('Si borras tu cuenta, tu plan termina en ese momento, y también tu acceso a La Forja.'));
+});
+
+test('plans test-mode notice: shown only when API reports Stripe test mode', () => {
+  const DWA = require('../account-client.js');
+  assert.equal(DWA.showTestNotice({ ok: true, stripeMode: 'test' }), true);
+  assert.equal(DWA.showTestNotice({ ok: true, stripeMode: 'live' }), false);
+  assert.equal(DWA.showTestNotice(null), false);
+  assert.equal(DWA.STRINGS.en.testMode, 'Test mode: checkout is not live yet, so no card will be charged.');
+  assert.equal(DWA.STRINGS.es.testMode, 'Modo de prueba: el pago todavía no está activo, así que no se cobrará ninguna tarjeta.');
+  const plans = read('plans.html');
+  assert.match(plans, /<div class="notice hidden" id="test-mode" role="note" data-k="testMode"><\/div>/);
+  assert.match(plans, /show\("test-mode", r\.status === 200 && DWAccount\.showTestNotice\(r\.data\)\)/);
 });
