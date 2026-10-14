@@ -22,18 +22,14 @@ jobs:
         id: check
         run: |
           BASE='${{ github.event.pull_request.base.sha || github.event.before }}'
-          if git cat-file -e "$BASE:lessons.json" 2>/dev/null; then
-            git show "$BASE:lessons.json" > /tmp/base.json
-            node scripts/check-lessons.js /tmp/base.json
-          else
-            node scripts/check-lessons.js
-          fi
+          # Fails on invalid JSON, placeholder text, schema errors, or fewer
+          # lessons than the base / last good version (scripts/guard-lessons.js).
+          node scripts/guard-lessons.js check "${BASE:--}"
       - name: Auto-restore last good lessons.json on main
         if: failure() && github.event_name == 'push'
         run: |
-          node scripts/restore-lessons.js '${{ github.event.before }}' '${{ github.sha }}'
-          git show '${{ github.event.before }}:lessons.json' > /tmp/base.json 2>/dev/null || true
-          node scripts/check-lessons.js /tmp/base.json || node scripts/check-lessons.js
+          # Last good list plus any valid new lesson; re-checked before commit.
+          node scripts/guard-lessons.js restore '${{ github.event.before }}' '${{ github.sha }}'
           git config user.name "github-actions[bot]"
           git config user.email "41898388+github-actions[bot]@users.noreply.github.com"
           git add lessons.json
