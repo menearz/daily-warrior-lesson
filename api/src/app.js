@@ -226,7 +226,7 @@ function createApp({ config, store, mail, stripe, now = () => Date.now(), log = 
       return send(res, 403, { error: 'origin' });
     }
     if (p === '/health' && (req.method === 'GET' || req.method === 'HEAD')) {
-      return send(res, 200, { ok: true, stripeMode: 'test', liveModeOff: true, reason: LIVE_MODE_OFF_REASON, stripeConfigured: Boolean(stripe), mail: mail.name });
+      return send(res, 200, { ok: true, stripeMode: 'test', liveModeOff: true, reason: LIVE_MODE_OFF_REASON, stripeConfigured: Boolean(stripe), mail: mail.name === 'fake' ? 'fake' : (mail.configured ? 'agentmail' : 'unconfigured') });
     }
 
     if (p === '/legal' && (req.method === 'GET' || req.method === 'HEAD')) {

@@ -82,6 +82,7 @@
   }
   .lang-chip.active { border-color:var(--accent); color:var(--accent); }
 </style>
+<script src="config.js"></script>
 </head>
 <body>
   <div id="lang-picker" class="lang-picker" role="dialog" aria-modal="true" aria-labelledby="lang-picker-title">
@@ -109,7 +110,7 @@
     <div class="nav-row">
       <a class="archive" href="./forge.html" data-i18n="forgeNav">The Forge — personalize your path →</a>
       <a class="archive" href="./archive.html" data-i18n="archiveNav">Archive →</a>
-      <a class="archive" href="./account.html" data-i18n="accountNav">Account →</a>
+      <a class="archive" href="./account.html" data-i18n="accountNav" data-account-entry hidden>Account →</a>
     </div>
     <div class="lang-settings" id="lang-settings">
       <span class="lang-settings-label" data-i18n="language">Language</span>

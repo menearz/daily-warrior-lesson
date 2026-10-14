@@ -154,6 +154,9 @@
   }
 
   function create(opts) {
+    // Site launch flag OFF: no network calls at all from account pages.
+    var closed = typeof window !== 'undefined' && window.DW_ACCOUNTS_OPEN !== true && opts.ignoreLaunchFlag !== true;
+    if (closed) opts = Object.assign({}, opts, { fetch: function () { return Promise.reject(new Error('accounts_not_open')); } });
     var storage = opts.storage, fetchFn = opts.fetch, base = String(opts.apiBase || '').replace(/\/$/, '');
     function auth() { return read(storage, AUTH_KEY); }
     function setAuth(a) { write(storage, AUTH_KEY, a ? { accessToken: a.accessToken, refreshToken: a.refreshToken, exp: Date.now() + (a.expiresIn || 900) * 1000 } : null); }

@@ -37,3 +37,12 @@ DNS + TLS for dw-api.arbiterresearch.net, a process manager, a persistent store 
 - `DW_REFUND_POLICY` (policy id; `webcopy-2026-10-13` is Web Copy's proposal)
 
 `GET /legal` returns `{pending:true}` until all three are set. While pending, plans.html shows no refund or seller block, and the renewal reminder email refuses to build. No placeholder text is shown anywhere.
+
+## Site launch flag vs API DW_LAUNCH
+These two switches are the same idea on each side:
+- **Site:** `window.DW_ACCOUNTS_OPEN` in the root `config.js` defaults to `false`. While false, the site hides every sign-in/plans/account entry point. Direct visits show a not-open-yet notice and make no API calls.
+- **API:** `DW_LAUNCH=1` refuses to start unless seller, support and refund values are set.
+
+To launch, set the API's `DW_LAUNCH=1` first (with the legal values), then flip the site flag.
+
+`/health` reports `mail` as `agentmail` only when DW_AGENTMAIL_API_KEY and DW_AGENTMAIL_INBOX_ID are set. Otherwise it reports `unconfigured`, or `fake` in local runs.
