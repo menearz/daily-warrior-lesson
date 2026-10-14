@@ -17,3 +17,7 @@ Open The Forge from today's lesson. Twelve questions. Answers stay on your phone
 ## Specs
 
 See `INTAKE_SPEC.md` and `BRANDING.md` for scoring and visual rules.
+
+## Adding lessons
+
+See [WRITER.md](WRITER.md): `node scripts/add-lesson.js new-lesson.json`, then commit and push `lessons.json`. The lessons.json guard (`scripts/guard-lessons.js`) rejects and auto-restores bad pushes.
