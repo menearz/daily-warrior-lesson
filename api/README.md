@@ -29,3 +29,11 @@ DNS + TLS for dw-api.arbiterresearch.net, a process manager, a persistent store 
 
 ## Tests
 `npm test` (run with STRIPE_* unset).
+
+## Launch flag and pending legal values
+`DW_LAUNCH=1` turns on the customer launch. With it on, startup is refused unless all three of these are set. They have **no defaults** and are pending Zachary's pick:
+- `DW_SELLER_NAME`
+- `DW_SUPPORT_EMAIL`
+- `DW_REFUND_POLICY` (policy id; `webcopy-2026-10-13` is Web Copy's proposal)
+
+`GET /legal` returns `{pending:true}` until all three are set. While pending, plans.html shows no refund or seller block, and the renewal reminder email refuses to build. No placeholder text is shown anywhere.

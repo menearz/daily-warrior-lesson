@@ -94,6 +94,8 @@
   };
 
   var LANE_LABEL = {warrior:'Warrior',thinker:'Thinker',builder:'Builder',power:'Power',faith:'Faith',odyssey:'Odyssey'};
+  // Spanish lane labels: Web Copy gap file 2026-10-13, section 4 (verbatim).
+  var LANE_LABEL_ES = {warrior:'Guerrero',thinker:'Pensador',builder:'Constructor',power:'Poder',faith:'Fe',odyssey:'Odisea'};
 
   function hashStamp(stamp) {
     var n = 0;
@@ -232,6 +234,12 @@
 
   function formatAimed(lang, aimed) {
     if (!aimed) return '';
+    if (lang === 'es') {
+      aimed = String(aimed).split(' / ').map(function (n) {
+        for (var k in LANE_LABEL) if (LANE_LABEL[k] === n) return LANE_LABEL_ES[k];
+        return n;
+      }).join(' / ');
+    }
     return t(lang, 'aimedAt', { name: aimed });
   }
 
@@ -343,6 +351,7 @@
   return {
     DEFAULT_LESSON: DEFAULT_LESSON,
     LANE_LABEL: LANE_LABEL,
+    LANE_LABEL_ES: LANE_LABEL_ES,
     LANES: LANES,
     localizeLesson: localizeLesson,
     LAST_LESSONS_KEY: LAST_LESSONS_KEY,

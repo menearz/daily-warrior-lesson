@@ -118,6 +118,41 @@
     return Boolean(e && e.entitled && (now || Date.now()) - Number(e.at || 0) < ENT_MAX_AGE);
   }
 
+  // Refund policy + seller/support lines: Web Copy gap file 2026-10-13,
+  // sections 1 and 5 (verbatim). Seller, support address and refund policy
+  // choice are pending Zachary; the API's /legal returns {pending:true} until
+  // all three are configured, and then nothing here is shown (no placeholders).
+  var REFUND = {
+    'webcopy-2026-10-13': {
+      en: { title: 'Refunds and cancelling', items: [
+        'You can cancel anytime from your Account page. It takes a few taps.',
+        "When you cancel, you keep The Forge until the end of the month or year you already paid for. After that, you won't be charged again.",
+        "We don't give partial refunds for time you didn't use.",
+        'If you delete your account, your plan stops right away, and so does your access to The Forge.',
+        "If we charged you by mistake, for example twice, write to us at {support} and we'll fix it."],
+        prices: "Prices: $4.99 a month or $39.99 a year. There's no free trial." },
+      es: { title: 'Reembolsos y cancelación', items: [
+        'Puedes cancelar cuando quieras desde la página de tu Cuenta. Solo toma unos toques.',
+        'Si cancelas, sigues teniendo La Forja hasta que termine el mes o el año que ya pagaste. Después de eso, no se te cobra de nuevo.',
+        'No damos reembolsos parciales por el tiempo que no usaste.',
+        'Si borras tu cuenta, tu plan termina en ese momento, y también tu acceso a La Forja.',
+        'Si te cobramos por error, por ejemplo dos veces, escríbenos a {support} y lo arreglamos.'],
+        prices: 'Precios: US$4.99 al mes o US$39.99 al año. No hay prueba gratis.' },
+    },
+  };
+  var SELLER = {
+    en: 'Daily Warrior is a product of {seller}. Questions or billing problems: {support}.',
+    es: 'Daily Warrior es un producto de {seller}. Preguntas o problemas con un cobro: {support}.',
+  };
+  /** Returns the refund + seller block for a complete /legal answer, else null. */
+  function legalBlock(lang, legal) {
+    if (!legal || legal.pending || !legal.sellerName || !legal.supportEmail || !legal.refundPolicy) return null;
+    var pol = REFUND[legal.refundPolicy]; if (!pol) return null;
+    var L = lang === 'es' ? 'es' : 'en', r = pol[L];
+    function f(x) { return x.replace(/\{support\}/g, legal.supportEmail).replace(/\{seller\}/g, legal.sellerName); }
+    return { title: r.title, items: r.items.map(f), prices: r.prices, seller: f(SELLER[L]) };
+  }
+
   function create(opts) {
     var storage = opts.storage, fetchFn = opts.fetch, base = String(opts.apiBase || '').replace(/\/$/, '');
     function auth() { return read(storage, AUTH_KEY); }
@@ -162,6 +197,7 @@
         if (body.forgedPath && !body.forgedPath.at) body.forgedPath.at = 1;
         return call('PUT', '/sync', body).then(function (r) { if (r.status === 200) { mergeLocal(storage, r.data); cacheMe(r.data); } return r; });
       },
+      legal: function () { return raw('GET', '/legal'); },
       checkout: function (plan) { return call('POST', '/billing/checkout', { plan: plan }); },
       portal: function () { return call('POST', '/billing/portal'); },
       setLang: function (lang) { return call('PUT', '/me/lang', { lang: lang }); },
@@ -170,5 +206,5 @@
     };
   }
 
-  return { create: create, t: t, laneName: laneName, mergeLocal: mergeLocal, recordRead: recordRead, isEntitledCached: isEntitledCached, AUTH_KEY: AUTH_KEY, ENT_KEY: ENT_KEY, READS_KEY: READS_KEY, STRINGS: T };
+  return { create: create, legalBlock: legalBlock, REFUND: REFUND, t: t, laneName: laneName, mergeLocal: mergeLocal, recordRead: recordRead, isEntitledCached: isEntitledCached, AUTH_KEY: AUTH_KEY, ENT_KEY: ENT_KEY, READS_KEY: READS_KEY, STRINGS: T };
 });
