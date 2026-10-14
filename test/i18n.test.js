@@ -245,14 +245,14 @@ test('applyChrome LTR and Spanish chrome, leaving no RTL', () => {
   assert.match(doc.i18nNodes[3].textContent, /La Forja/);
 });
 
-test('aimed chrome localizes wrapper but keeps the lane name as given', () => {
+test('aimed chrome localizes wrapper and lane labels (Web Copy ES labels)', () => {
   assert.equal(
     WarriorLesson.formatAimed('en', 'Warrior / Thinker'),
     'Aimed at Warrior / Thinker — your Forged path'
   );
   assert.equal(
     WarriorLesson.formatAimed('es', 'Warrior / Thinker'),
-    'Dirigido a Warrior / Thinker — tu camino forjado'
+    'Dirigido a Guerrero / Pensador — tu camino forjado'
   );
 });
 
