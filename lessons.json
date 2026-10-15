@@ -1,6 +1,27 @@
 {
   "lessons": [
     {
+      "date": "2026-10-15",
+      "title": "The Man in the Arena",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/5/5b/Theodore_Roosevelt_by_the_Pach_Bros.jpg",
+      "imageAlt": "Pach Brothers — Theodore Roosevelt, head-and-shoulders portrait photograph (1904), public domain",
+      "fallback": "./images/2026-09-04.jpg",
+      "source": "Theodore Roosevelt, \"Citizenship in a Republic,\" speech at the Sorbonne, Paris, 23 April 1910 (Wikisource)",
+      "sourceUrl": "https://en.wikisource.org/wiki/Citizenship_in_a_Republic",
+      "quote": "It is not the critic who counts; not the man who points out how the strong man stumbles, or where the doer of deeds could have done them better. The credit belongs to the man who is actually in the arena, whose face is marred by dust and sweat and blood; who strives valiantly; who errs, who comes short again and again, because there is no effort without error and shortcoming; but who does actually strive to do the deeds; who knows great enthusiasms, the great devotions; who spends himself in a worthy cause; who at the best knows in the end the triumph of high achievement, and who at the worst, if he fails, at least fails while daring greatly, so that his place shall never be with those cold and timid souls who neither know victory nor defeat.",
+      "lesson": "Roosevelt had left the White House a year earlier. He stood in front of a room full of scholars in Paris and told them the man who does the work matters more than the man who judges it. Look at what he puts in the arena: dust, sweat, blood, and mistakes again and again. He does not promise a win. He says failing while you dare is still better than standing safe on the side. Critics never lose, because they never play. Get in the fight and take the bruises.",
+      "today": "Name one thing you have been judging from the sidelines or putting off because you might fail. Take the first real step on it today, before noon.",
+      "lanes": [
+        "warrior",
+        "builder"
+      ],
+      "title_es": "El hombre en la arena",
+      "source_es": "Theodore Roosevelt, \"La ciudadanía en una república\", discurso en la Sorbona, París, 23 de abril de 1910 (Wikisource) (traducción fiel al español del original en inglés)",
+      "quote_es": "No es el crítico quien cuenta; ni el hombre que señala cómo tropieza el fuerte, o dónde el que hace las cosas pudo haberlas hecho mejor. El mérito pertenece al hombre que está de verdad en la arena, cuyo rostro está manchado de polvo, sudor y sangre; que se esfuerza con valor; que se equivoca, que se queda corto una y otra vez, porque no hay esfuerzo sin error ni falla; pero que de verdad se esfuerza por hacer las cosas; que conoce los grandes entusiasmos, las grandes devociones; que se entrega a una causa digna; que, en el mejor de los casos, conoce al final el triunfo de un gran logro, y que, en el peor, si fracasa, al menos fracasa mientras se atreve con grandeza, de modo que su lugar nunca estará con esas almas frías y tímidas que no conocen ni la victoria ni la derrota.",
+      "lesson_es": "Roosevelt había dejado la Casa Blanca un año antes. Se paró frente a una sala llena de académicos en París y les dijo que el hombre que hace el trabajo importa más que el hombre que lo juzga. Mira lo que pone en la arena: polvo, sudor, sangre y errores una y otra vez. No promete una victoria. Dice que fracasar mientras te atreves sigue siendo mejor que quedarte a salvo a un lado. Los críticos nunca pierden, porque nunca juegan. Entra a la pelea y aguanta los golpes.",
+      "today_es": "Nombra una cosa que has estado juzgando desde afuera o dejando para después porque podrías fallar. Da hoy el primer paso real, antes del mediodía."
+    },
+    {
       "date": "2026-10-14",
       "title": "Discipline Is the Soul",
       "image": "https://upload.wikimedia.org/wikipedia/commons/c/c7/Washington_1772.jpg",
