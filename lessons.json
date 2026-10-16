@@ -1,6 +1,27 @@
 {
   "lessons": [
     {
+      "date": "2026-10-16",
+      "title": "No Struggle, No Progress",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/c/c5/Frederick_Douglass_%28circa_1879%29.jpg",
+      "imageAlt": "Frederick Douglass, head-and-shoulders portrait photograph (about 1879), public domain",
+      "fallback": "./images/2026-09-04.jpg",
+      "source": "Frederick Douglass, West India Emancipation speech, Canandaigua, New York, 3 August 1857 (BlackPast)",
+      "sourceUrl": "https://www.blackpast.org/african-american-history/1857-frederick-douglass-if-there-no-struggle-there-no-progress/",
+      "quote": "If there is no struggle there is no progress. Those who profess to favor freedom and yet deprecate agitation are men who want crops without plowing up the ground; they want rain without thunder and lightning. They want the ocean without the awful roar of its many waters.",
+      "lesson": "Douglass had escaped slavery in 1838. Years later he stood before a crowd in Canandaigua, New York, on the anniversary of the day Britain freed the slaves in its West Indies colonies. He told them that every bit of freedom ever won came out of hard struggle. Then he gave three pictures: crops without plowing, rain without thunder, the ocean without its roar. People want the harvest and want to skip the dirt. Real progress comes with noise, sweat and trouble. If you want the result, accept the fight that comes with it.",
+      "today": "Pick the one hard thing you keep hoping will get easier on its own. Do the plowing part of it today, the dull or uncomfortable step you have been skipping.",
+      "lanes": [
+        "warrior",
+        "builder"
+      ],
+      "title_es": "Sin lucha no hay progreso",
+      "source_es": "Frederick Douglass, discurso sobre la emancipación en las Indias Occidentales, Canandaigua, Nueva York, 3 de agosto de 1857 (BlackPast) (traducción fiel al español del original en inglés)",
+      "quote_es": "Si no hay lucha, no hay progreso. Quienes dicen estar a favor de la libertad y aun así desaprueban la agitación son hombres que quieren cosechas sin arar la tierra; quieren lluvia sin truenos ni relámpagos. Quieren el océano sin el terrible rugido de sus muchas aguas.",
+      "lesson_es": "Douglass había escapado de la esclavitud en 1838. Años después se paró frente a una multitud en Canandaigua, Nueva York, en el aniversario del día en que Gran Bretaña liberó a los esclavos de sus colonias en las Indias Occidentales. Les dijo que cada pedazo de libertad que se ha ganado salió de una lucha dura. Luego les dio tres imágenes: cosechas sin arar, lluvia sin truenos, el océano sin su rugido. La gente quiere la cosecha y quiere saltarse la tierra. El progreso real llega con ruido, sudor y problemas. Si quieres el resultado, acepta la pelea que viene con él.",
+      "today_es": "Elige la única cosa difícil que sigues esperando que se vuelva fácil por sí sola. Haz hoy la parte de arar, el paso aburrido o incómodo que has estado evitando."
+    },
+    {
       "date": "2026-10-15",
       "title": "The Man in the Arena",
       "image": "https://upload.wikimedia.org/wikipedia/commons/5/5b/Theodore_Roosevelt_by_the_Pach_Bros.jpg",
