@@ -1,6 +1,27 @@
 {
   "lessons": [
     {
+      "date": "2026-10-17",
+      "title": "The Summer Soldier",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/1/13/Thomas_Paine_by_Laurent_Dabos.jpg",
+      "imageAlt": "Thomas Paine, oil portrait by Laurent Dabos, public domain",
+      "fallback": "./images/2026-09-04.jpg",
+      "source": "Thomas Paine, The American Crisis, No. 1, Pennsylvania Journal, 19 December 1776 (Project Gutenberg)",
+      "sourceUrl": "https://www.gutenberg.org/ebooks/3741",
+      "quote": "THESE are the times that try men's souls. The summer soldier and the sunshine patriot will, in this crisis, shrink from the service of their country; but he that stands it now, deserves the love and thanks of man and woman. Tyranny, like hell, is not easily conquered; yet we have this consolation with us, that the harder the conflict, the more glorious the triumph.",
+      "lesson": "In December 1776 the American army was retreating across the Delaware, cold, beaten and shrinking by the week. Paine was with that army and wrote these words during the retreat. Washington had them read aloud to his tired soldiers, and a few days later they crossed the river and won at Trenton. Paine split people into two kinds. The summer soldier shows up when things are easy and leaves when they turn hard. The one who stands when it is cold and losing is the one who counts. Anyone can be loyal on a good day. Your worth shows on the bad ones.",
+      "today": "Think of the commitment that feels hardest to keep right now. Show up for it today exactly as you would if it were going well.",
+      "lanes": [
+        "warrior",
+        "thinker"
+      ],
+      "title_es": "El soldado de verano",
+      "source_es": "Thomas Paine, La crisis americana, n.º 1, Pennsylvania Journal, 19 de diciembre de 1776 (Project Gutenberg) (traducción fiel al español del original en inglés)",
+      "quote_es": "Estos son los tiempos que ponen a prueba el alma de los hombres. El soldado de verano y el patriota de días soleados, en esta crisis, se apartarán del servicio a su país; pero quien lo resista ahora merece el amor y la gratitud de hombres y mujeres. La tiranía, como el infierno, no se vence fácilmente; pero tenemos este consuelo: cuanto más dura la lucha, más glorioso el triunfo.",
+      "lesson_es": "En diciembre de 1776 el ejército americano se retiraba a través del río Delaware, con frío, derrotado y cada semana más pequeño. Paine estaba con ese ejército y escribió estas palabras durante la retirada. Washington las hizo leer en voz alta a sus soldados cansados, y pocos días después cruzaron el río y ganaron en Trenton. Paine dividió a la gente en dos tipos. El soldado de verano aparece cuando todo es fácil y se va cuando se pone difícil. El que se mantiene firme cuando hace frío y se va perdiendo es el que cuenta. Cualquiera es leal en un buen día. Tu valor se ve en los malos.",
+      "today_es": "Piensa en el compromiso que más te cuesta cumplir ahora mismo. Preséntate hoy para cumplirlo igual que lo harías si todo fuera bien."
+    },
+    {
       "date": "2026-10-16",
       "title": "No Struggle, No Progress",
       "image": "https://upload.wikimedia.org/wikipedia/commons/c/c5/Frederick_Douglass_%28circa_1879%29.jpg",
