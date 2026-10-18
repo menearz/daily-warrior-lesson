@@ -1,6 +1,27 @@
 {
   "lessons": [
     {
+      "date": "2026-10-18",
+      "title": "Never Give In",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/f/f9/Winston_Churchill_As_Prime_Minister_1940-1945_H2646A.jpg",
+      "imageAlt": "Winston Churchill as Prime Minister, wartime photograph by William George Horton, public domain",
+      "fallback": "./images/2026-09-04.jpg",
+      "source": "Winston Churchill, address at Harrow School, 29 October 1941 (Wikisource)",
+      "sourceUrl": "https://en.wikisource.org/wiki/Never_Give_In,_Never,_Never,_Never",
+      "quote": "This is the lesson: never give in, never give in, never, never, never, never—in nothing, great or small, large or petty—never give in except to convictions of honour and good sense. Never yield to force; never yield to the apparently overwhelming might of the enemy.",
+      "lesson": "In October 1941 Churchill went back to Harrow, the school where he had once been near the bottom of his class. He reminded the boys that a year earlier Britain had stood alone against Hitler, and many countries thought it was finished. People like to say he stood up, said three words and sat down. He did not. He gave a full speech, and this was its heart. Notice the limit he puts on it. You do not quit because of force, fear or a stronger enemy. You only give way to honor and good sense. Stubborn is not the goal. Unbreakable for the right reasons is.",
+      "today": "Name the one thing you are tempted to drop only because it got hard. Unless honor or good sense says stop, do one more round of it today.",
+      "lanes": [
+        "warrior",
+        "power"
+      ],
+      "title_es": "Nunca te rindas",
+      "source_es": "Winston Churchill, discurso en la escuela de Harrow, 29 de octubre de 1941 (Wikisource) (traducción fiel al español del original en inglés)",
+      "quote_es": "Esta es la lección: nunca te rindas, nunca te rindas, nunca, nunca, nunca, nunca, en nada, grande o pequeño, importante o insignificante, nunca te rindas excepto ante las convicciones del honor y del buen juicio. Nunca cedas ante la fuerza; nunca cedas ante el poderío aparentemente abrumador del enemigo.",
+      "lesson_es": "En octubre de 1941 Churchill volvió a Harrow, la escuela donde una vez estuvo entre los últimos de su clase. Les recordó a los muchachos que un año antes Gran Bretaña había estado sola contra Hitler, y muchos países la daban por acabada. A la gente le gusta decir que se levantó, dijo tres palabras y se sentó. No fue así. Dio un discurso de verdad, y este era su centro. Fíjate en el límite que pone. No abandonas por la fuerza, el miedo o un enemigo más fuerte. Solo cedes ante el honor y el buen juicio. La meta no es ser terco. Es ser inquebrantable por las razones correctas.",
+      "today_es": "Nombra lo único que te tienta dejar solo porque se puso difícil. A menos que el honor o el buen juicio digan que pares, haz hoy una ronda más."
+    },
+    {
       "date": "2026-10-17",
       "title": "The Summer Soldier",
       "image": "https://upload.wikimedia.org/wikipedia/commons/1/13/Thomas_Paine_by_Laurent_Dabos.jpg",
