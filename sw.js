@@ -1,4 +1,4 @@
-const CACHE = "warrior-lesson-v22";
+const CACHE = "warrior-lesson-v23";
 const PRECACHE = [
   "./",
   "./index.html",
@@ -64,10 +64,16 @@ self.addEventListener("activate", (e) => {
   );
 });
 
+function isPerUserApi(url) {
+  return /\/(me|questionnaire|sync|auth|billing)(\/|\?|$)/.test(url.pathname);
+}
+
 self.addEventListener("fetch", (e) => {
   const req = e.request;
   if (req.method !== "GET") return;
   const url = new URL(req.url);
+  // Never cache per-user API responses (account, history, Forge, billing).
+  if (isPerUserApi(url)) return;
   // Never cache account/API calls: only same-origin files and cross-origin images.
   if (url.origin !== self.location.origin && req.destination !== "image") return;
   if (req.headers.has("Authorization")) return;

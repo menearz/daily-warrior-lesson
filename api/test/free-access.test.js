@@ -52,7 +52,7 @@ test('tester (case-insensitive) is entitled, profile plan is tester, no Stripe',
 });
 
 test('a non-listed user gets 402; a paying user still gets cancel + 30-day deletion', async () => {
-  const t = await start({ env: ENV });
+  const t = await start({ env: Object.assign({ DW_PAYWALL_ENABLED: '1' }, ENV) });
   try {
     const { accessToken: tok } = await t.signIn('stranger@example.com');
     assert.equal((await t.call('GET', '/questionnaire', { token: tok })).status, 402);

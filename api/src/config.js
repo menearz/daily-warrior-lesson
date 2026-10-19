@@ -29,6 +29,12 @@ function int(v, d) { const n = Number(v); return Number.isFinite(n) && n > 0 ? M
 
 function emailList(v, d) { return String(v == null ? d : v).split(',').map((e) => e.trim().toLowerCase()).filter(Boolean); }
 
+/** DW_PAYWALL_ENABLED: unset / 0 / false means every signed-in account is entitled. 1 / true / yes / on restores subscriber gating. */
+function flagOn(v) {
+  const s = String(v == null ? '' : v).trim().toLowerCase();
+  return s === '1' || s === 'true' || s === 'yes' || s === 'on';
+}
+
 function loadConfig(env = process.env) {
   const key = String(env.DW_STRIPE_SECRET_KEY || '').trim();
   if (/^(sk|rk)_live_/.test(key)) {
@@ -94,6 +100,9 @@ function loadConfig(env = process.env) {
     ownerEmails: emailList(env.DW_OWNER_EMAILS, 'menearz@gmail.com,menearz@yahoo.com'),
     testerEmails: emailList(env.TESTER_EMAILS, ''),
     testOverrideEmails: overrideEmails,
+    // Default off while testing: any signed-in account gets the lesson, the
+    // 12 questions, and a personalized path. true restores subscriber gating.
+    paywallEnabled: flagOn(env.DW_PAYWALL_ENABLED),
     lessonsPath: env.DW_LESSONS_PATH ? path.resolve(String(env.DW_LESSONS_PATH)) : null,
     magicLinkTtlMs: 15 * 60 * 1000,
     accessTtlMs: 15 * 60 * 1000,

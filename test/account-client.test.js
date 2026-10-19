@@ -81,14 +81,18 @@ test('every string key exists in English and Spanish; Web Copy wording is used v
   }
 });
 
-test('index gates the 70/30 pick on the plan and records reads; sign-in strips the token from the URL', () => {
+test('index aims from the account path and records the read on the API; sign-in strips the token from the URL', () => {
   const index = read('index.html');
-  assert.match(index, /if \(!DWAccount\.isEntitledCached\(window\.localStorage\)\) forged = null;/);
-  assert.match(index, /DWAccount\.recordRead\(window\.localStorage, result\.lesson\.date\)/);
+  assert.match(index, /me\.forgedPath/);
+  assert.match(index, /DW\.recordHistory\(result\.lesson\.date\)/);
+  assert.match(index, /id="dw-gate"/);
+  assert.match(index, /<template id="dw-app">/);
   assert.match(read('signin.html'), /history\.replaceState\(null, "", location\.pathname\)/);
   assert.match(read('config.js'), /https:\/\/dw-api\.arbiterresearch\.net/);
   const sw = read('sw.js');
   assert.match(sw, /url\.origin !== self\.location\.origin && req\.destination !== "image"\) return;/, 'service worker never caches API calls');
+  assert.match(sw, /isPerUserApi/);
+  assert.match(sw, /warrior-lesson-v23/);
 });
 
 test('privacy.html describes accounts, the data kept, Stripe, and the 30-day delete in EN and ES', () => {
