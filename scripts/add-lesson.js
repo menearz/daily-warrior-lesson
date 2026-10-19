@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 // The one supported way to add a lesson (see WRITER.md). One-way: it adds
 // exactly one lesson and never rewrites, reorders or removes existing ones.
+// After a write it refreshes DEFAULT_LESSON in lesson.js from the newest entry.
 // Usage: node scripts/add-lesson.js new-lesson.json   (add --dry-run to preview)
 //        node scripts/add-lesson.js --update fields.json
 // The entry must be a single lesson object that passes scripts/lesson-schema.js
@@ -14,6 +15,7 @@
 const fs = require('fs');
 const { lessonErrors } = require('./lesson-schema');
 const { humanizeLesson, aiTells, HUMANIZED_FIELDS, RULESET } = require('./humanize');
+const { syncDefaultLesson } = require('./sync-default-lesson');
 const UPDATABLE = ['lanes', 'title_es', 'quote_es', 'lesson_es', 'today_es', 'source_es', 'sourceUrl'];
 const args = process.argv.slice(2);
 const dryRun = args.includes('--dry-run');
@@ -64,4 +66,8 @@ if (update) {
 if (cat.lessons.length < before) { console.error('count dropped; not writing'); process.exit(1); }
 if (!update && cat.lessons.length !== before + 1) { console.error('append must add exactly one lesson; not writing'); process.exit(1); }
 fs.writeFileSync('lessons.json', canon(cat));
+// Offline hydrate reads DEFAULT_LESSON from lesson.js. Keep it equal to the
+// newest catalog entry. No lesson.js (guard tests) is a skip, not a failure.
+const synced = syncDefaultLesson();
+if (synced.changed) console.log(`DEFAULT_LESSON set to ${synced.date}`);
 console.log(`${result}: ${before} -> ${cat.lessons.length}`);

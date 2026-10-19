@@ -21,16 +21,22 @@ write `lessons.json` yourself, and never push a whole new copy of it.
    field, a date that already has a lesson, or a file that is not JSON), stop
    and fix the lesson file. Nothing was changed.
 
+   After a successful write it runs `scripts/sync-default-lesson.js`, which
+   rewrites `DEFAULT_LESSON` in `lesson.js` from the newest lesson so the
+   offline copy stays equal to the catalog.
+
    Before writing, add-lesson.js runs the humanizer rules (`scripts/humanize.js`)
    on the title, lesson and today text: dashes, curly quotes, stock AI words
    and filler are fixed, and it shows you before and after. The quote, source,
    link, date and Spanish fields are never changed, and it refuses to write if
    any number, date, name or link would change. If it lists AI habits it cannot
    fix (for example "not just X but Y"), rewrite that sentence yourself.
-3. Then commit and push only `lessons.json`:
+3. Then commit and push `lessons.json` and `lesson.js`. `lesson.js` is in the
+   service-worker precache, so bump the `CACHE` name in `sw.js` by one and
+   include that file too:
 
    ```
-   git add lessons.json
+   git add lessons.json lesson.js sw.js
    git commit -m "Add 2026-10-15 lesson: <title>"
    git push
    ```
