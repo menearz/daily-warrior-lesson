@@ -9,6 +9,11 @@ window.DW_API_BASE = window.DW_API_BASE || 'https://dw-api.arbiterresearch.net';
 // together, API first (DW_LAUNCH=1 needs seller/support/refund set).
 window.DW_ACCOUNTS_OPEN = true;
 
+// PAYWALL (default OFF while testing). While OFF, plans and subscribe entry
+// points (data-paywall-entry) stay hidden. Signed-in accounts get the lesson,
+// the 12 questions, and a personalized path. true restores subscriber gating.
+window.DW_PAYWALL_ENABLED = false;
+
 // "Send an idea" Google Form link. Shown whether or not accounts are open.
 // Empty = no link shown anywhere. Label EN/ES is ours (Web Copy had none).
 window.DW_IDEA_FORM_URL = 'https://docs.google.com/forms/d/e/1FAIpQLSehRZ6PBTylJ9W8Df3mB_wS1d0FKaV75jPN9qfPAJFyz1kfkw/viewform';
@@ -34,6 +39,11 @@ window.DW_IDEA_FORM_URL = 'https://docs.google.com/forms/d/e/1FAIpQLSehRZ6PBTylJ
     }
     var entries = document.querySelectorAll('[data-account-entry]');
     for (var i = 0; i < entries.length; i++) entries[i].hidden = !open;
+    var paywall = w.DW_PAYWALL_ENABLED === true;
+    var pays = document.querySelectorAll('[data-paywall-entry]');
+    for (var k = 0; k < pays.length; k++) pays[k].hidden = !paywall;
+    var offs = document.querySelectorAll('[data-paywall-off]');
+    for (var n = 0; n < offs.length; n++) offs[n].hidden = paywall;
     if (open || !document.body || !document.body.hasAttribute('data-account-page')) return;
     var lang = 'en';
     try { if (localStorage.getItem('dw-lang') === 'es') lang = 'es'; } catch (e) {}
@@ -47,5 +57,6 @@ window.DW_IDEA_FORM_URL = 'https://docs.google.com/forms/d/e/1FAIpQLSehRZ6PBTylJ
     document.body.textContent = '';
     document.body.appendChild(box);
   }
+  w.DW_applyChrome = apply;
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', apply); else apply();
 })(window);

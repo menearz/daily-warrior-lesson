@@ -10,10 +10,12 @@
  *   PUT  /me/lang         {lang}
  *   GET  /me/profile                         language, themes, delivery time/zone, plan, cancel date, history
  *   PUT  /me/profile      {lang, themes, deliveryTime, timezone}
- *   GET  /questionnaire                      the 12 Forge questions (subscribers only)
- *   PUT  /me/answers      {answers}          save the 12 answers (subscribers only)
- *   GET  /me/lesson[?date=YYYY-MM-DD]        personalized lesson (subscribers only), logged to history
- *   PUT  /sync            {forgedPath, reads} merge Forge answers + read dates (plan required)
+ *   GET  /me/history                         this account's read dates
+ *   POST /me/history      {date}             record one lesson read (any signed-in account)
+ *   GET  /questionnaire                      the 12 Forge questions (subscribers only; every account while the paywall is off)
+ *   PUT  /me/answers      {answers}          save the 12 answers (subscribers only; every account while the paywall is off)
+ *   GET  /me/lesson[?date=YYYY-MM-DD]        personalized lesson (subscribers only; every account while the paywall is off), logged to history
+ *   PUT  /sync            {forgedPath, reads} merge Forge path + read dates (plan required; every account while the paywall is off)
  *   DELETE /me                               delete account and answers now
  *   POST /billing/checkout {plan}            Stripe Checkout Session (subscription, TEST mode)
  *   POST /billing/portal                     Stripe Customer Portal (cancel / change)
@@ -124,7 +126,10 @@ function createApp({ config, store, mail, stripe, now = () => Date.now(), log = 
   const overrides = config.testOverrideEmails || [];
   const freeVia = (u) => (!u ? null : owners.includes(u.email) ? 'owner' : testers.includes(u.email) ? 'tester' : overrides.includes(u.email) ? 'test_override' : null);
   const paid = (u) => Boolean(u && u.plan && ENTITLED.has(u.plan.status));
-  const entitled = (u) => paid(u) || Boolean(freeVia(u));
+  const paywall = config.paywallEnabled === true;
+  // Paywall off (testing default): any signed-in account is entitled. On: Stripe active, or owner / tester / loopback override.
+  const entitled = (u) => Boolean(u) && (!paywall || paid(u) || Boolean(freeVia(u)));
+  const via = (u) => (paid(u) ? 'stripe' : (freeVia(u) || (!paywall ? 'testing' : null)));
   let lessons = catalog;
   const getCatalog = () => { if (!lessons) lessons = loadCatalog(config.lessonsPath || defaultCatalogPath()); return lessons; };
   const limits = {
@@ -199,7 +204,7 @@ function createApp({ config, store, mail, stripe, now = () => Date.now(), log = 
 
   function publicMe(u) {
     const ok = entitled(u);
-    const out = { email: u.email, lang: u.lang, entitled: ok, entitledVia: paid(u) ? 'stripe' : freeVia(u), plan: u.plan };
+    const out = { email: u.email, lang: u.lang, entitled: ok, entitledVia: via(u), plan: u.plan };
     if (ok) { out.forgedPath = u.forgedPath; out.reads = u.reads; out.hasAnswers = Boolean(u.answers); }
     else { out.hasSavedPath = Boolean(u.forgedPath); out.hasAnswers = Boolean(u.answers); }
     return out;
@@ -271,7 +276,7 @@ function createApp({ config, store, mail, stripe, now = () => Date.now(), log = 
       return send(res, 403, { error: 'origin' });
     }
     if (p === '/health' && (req.method === 'GET' || req.method === 'HEAD')) {
-      return send(res, 200, { ok: true, stripeMode: 'test', liveModeOff: true, reason: LIVE_MODE_OFF_REASON, stripeConfigured: Boolean(stripe), mail: mail.name === 'fake' ? 'fake' : (mail.configured ? 'agentmail' : 'unconfigured') });
+      return send(res, 200, { ok: true, stripeMode: 'test', liveModeOff: true, reason: LIVE_MODE_OFF_REASON, stripeConfigured: Boolean(stripe), paywallEnabled: paywall, mail: mail.name === 'fake' ? 'fake' : (mail.configured ? 'agentmail' : 'unconfigured') });
     }
 
     if (p === '/legal' && (req.method === 'GET' || req.method === 'HEAD')) {
@@ -367,6 +372,17 @@ function createApp({ config, store, mail, stripe, now = () => Date.now(), log = 
       if (body.timezone !== undefined) user.timezone = body.timezone;
       store.save();
       return send(res, 200, profile(user));
+    }
+    if (p === '/me/history' && req.method === 'GET') return send(res, 200, { reads: user.reads || [] });
+    if (p === '/me/history' && req.method === 'POST') {
+      const body = json(await readBody(req));
+      const date = String(body.date || '');
+      if (!DATE_RE.test(date)) return send(res, 400, { error: 'bad_date' });
+      const set = new Set(user.reads || []);
+      set.add(date);
+      user.reads = [...set].sort().slice(-MAX_READS);
+      store.save();
+      return send(res, 200, { reads: user.reads });
     }
     if (p === '/questionnaire' && req.method === 'GET') {
       if (!entitled(user)) return send(res, 402, { error: 'plan_required' });

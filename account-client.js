@@ -48,6 +48,9 @@
       signOut: 'Sign out', synced: 'Your path and reading history are saved to your account.',
       syncNeedsPlan: 'Your Forge answers stay on this phone until you pick a plan.',
       signIn: 'Sign in', monthlyName: 'Monthly', yearlyName: 'Yearly',
+      createTitle: 'Create an account',
+      createHelper: 'Create an account to read the lesson. We email you a link. No password.',
+      included: 'The daily lesson, the questions, and your path are included with your account.',
     },
     es: {
       signinTitle: 'Guarda tu camino',
@@ -86,6 +89,9 @@
       signOut: 'Cerrar sesión', synced: 'Tu camino y tu historial de lectura están guardados en tu cuenta.',
       syncNeedsPlan: 'Tus respuestas de La Forja se quedan en este teléfono hasta que elijas un plan.',
       signIn: 'Iniciar sesión', monthlyName: 'Mensual', yearlyName: 'Anual',
+      createTitle: 'Crea una cuenta',
+      createHelper: 'Crea una cuenta para leer la lección. Te enviamos un enlace. Sin contraseña.',
+      included: 'La lección diaria, las preguntas y tu camino van incluidos con tu cuenta.',
     },
   };
   var LANE_ES = { warrior: 'Guerrero', thinker: 'Pensador', builder: 'Constructor', odyssey: 'Odisea', power: 'Poder', faith: 'Fe' };
@@ -99,6 +105,46 @@
 
   function read(storage, key) { try { return JSON.parse(storage.getItem(key)); } catch (e) { return null; } }
   function write(storage, key, v) { try { if (v == null) storage.removeItem(key); else storage.setItem(key, JSON.stringify(v)); } catch (e) {} }
+
+  // Phone copies of account data. dw-lang stays: it is the screen language, not an account.
+  var USER_KEYS = ['dw_auth', 'dw_entitlement', 'dw_reads', 'dw_profile', 'dw_answers', 'dw_history', 'forged_path', 'last_rendered_lesson'];
+  var USER_KEY_RE = /^(dw_auth|dw_entitlement|dw_reads|dw_profile|dw_answers|dw_history|forged_path|last_rendered_lesson)$/;
+  function storageKeys(storage) {
+    var keys = [];
+    try {
+      if (storage && typeof storage.key === 'function' && typeof storage.length === 'number') {
+        for (var i = 0; i < storage.length; i++) keys.push(storage.key(i));
+        return keys;
+      }
+    } catch (e) {}
+    if (storage && storage._m) return Object.keys(storage._m);
+    return keys;
+  }
+  function clearUserLocal(storage, session) {
+    USER_KEYS.forEach(function (k) { write(storage, k, null); });
+    storageKeys(storage).forEach(function (k) { if (USER_KEY_RE.test(k)) write(storage, k, null); });
+    if (!session) return;
+    try { if (typeof session.clear === 'function') { session.clear(); return; } } catch (e) {}
+    storageKeys(session).forEach(function (k) { try { session.removeItem(k); } catch (e) {} });
+  }
+  function isPerUserCacheUrl(url) {
+    return /\/(me|questionnaire|sync|auth|billing)(\/|\?|$)/.test(String(url || ''));
+  }
+  function clearUserCaches(cachesApi) {
+    if (!cachesApi || typeof cachesApi.keys !== 'function') return Promise.resolve();
+    return cachesApi.keys().then(function (names) {
+      return Promise.all(names.map(function (name) {
+        return cachesApi.open(name).then(function (cache) {
+          return cache.keys().then(function (reqs) {
+            return Promise.all(reqs.filter(function (req) { return isPerUserCacheUrl(req && req.url); }).map(function (req) { return cache.delete(req); }));
+          });
+        });
+      }));
+    }).catch(function () {});
+  }
+  function pageLang(storage) {
+    try { return storage && storage.getItem('dw-lang') === 'es' ? 'es' : 'en'; } catch (e) { return 'en'; }
+  }
 
   /** Union of read dates, newest-path-wins for forged_path (same rule as the API). */
   function mergeLocal(storage, me) {
@@ -165,6 +211,8 @@
     var closed = typeof window !== 'undefined' && window.DW_ACCOUNTS_OPEN !== true && opts.ignoreLaunchFlag !== true;
     if (closed) opts = Object.assign({}, opts, { fetch: function () { return Promise.reject(new Error('accounts_not_open')); } });
     var storage = opts.storage, fetchFn = opts.fetch, base = String(opts.apiBase || '').replace(/\/$/, '');
+    var session = opts.sessionStorage || null;
+    var cachesApi = opts.caches || null;
     function auth() { return read(storage, AUTH_KEY); }
     function setAuth(a) { write(storage, AUTH_KEY, a ? { accessToken: a.accessToken, refreshToken: a.refreshToken, exp: Date.now() + (a.expiresIn || 900) * 1000 } : null); }
 
@@ -198,7 +246,13 @@
       signedIn: function () { return Boolean(auth()); },
       requestLink: function (email, lang) { return raw('POST', '/auth/magic', { email: email, lang: lang }); },
       verify: function (token) {
-        return raw('POST', '/auth/verify', { token: token }).then(function (r) { if (r.status === 200) { setAuth(r.data); cacheMe(r.data.me); } return r; });
+        return raw('POST', '/auth/verify', { token: token }).then(function (r) {
+          if (r.status !== 200) return r;
+          clearUserLocal(storage, session);
+          setAuth(r.data);
+          cacheMe(r.data.me);
+          return clearUserCaches(cachesApi).then(function () { return r; });
+        });
       },
       me: function () { return call('GET', '/me').then(function (r) { if (r.status === 200) cacheMe(r.data); return r; }); },
       /** Upload this phone's forged_path + read dates (first sign-in or any time), then merge back. */
@@ -216,9 +270,27 @@
       saveProfile: function (p) { return call('PUT', '/me/profile', p); },
       questionnaire: function () { return call('GET', '/questionnaire'); },
       saveAnswers: function (answers) { return call('PUT', '/me/answers', { answers: answers }); },
+      savePath: function (forgedPath) { return call('PUT', '/sync', { forgedPath: forgedPath }); },
+      history: function () { return call('GET', '/me/history'); },
+      recordHistory: function (date) {
+        if (!/^\d{4}-\d{2}-\d{2}$/.test(String(date || ''))) return Promise.resolve({ status: 400, data: { error: 'bad_date' } });
+        return call('POST', '/me/history', { date: date });
+      },
       lesson: function (date) { return call('GET', '/me/lesson' + (date ? '?date=' + encodeURIComponent(date) : '')); },
-      remove: function () { return call('DELETE', '/me').then(function (r) { if (r.status === 200) { setAuth(null); write(storage, ENT_KEY, null); } return r; }); },
-      signOut: function () { var a = auth(); return raw('POST', '/auth/logout', { refreshToken: a && a.refreshToken }, a && a.accessToken).catch(function () {}).then(function () { setAuth(null); write(storage, ENT_KEY, null); }); },
+      remove: function () {
+        return call('DELETE', '/me').then(function (r) {
+          if (r.status !== 200) return r;
+          clearUserLocal(storage, session);
+          return clearUserCaches(cachesApi).then(function () { return r; });
+        });
+      },
+      signOut: function () {
+        var a = auth();
+        return raw('POST', '/auth/logout', { refreshToken: a && a.refreshToken }, a && a.accessToken).catch(function () {}).then(function () {
+          clearUserLocal(storage, session);
+          return clearUserCaches(cachesApi);
+        });
+      },
     };
   }
 
@@ -240,5 +312,105 @@
     return ['America/New_York', 'America/Chicago', 'America/Denver', 'America/Los_Angeles', 'America/Mexico_City', 'Europe/London', 'Europe/Madrid', 'UTC'];
   }
 
-  return { LANES: LANES, PROFILE_T: PROFILE_T, validateProfile: validateProfile, timezones: timezones, create: create, legalBlock: legalBlock, showTestNotice: showTestNotice, REFUND: REFUND, t: t, laneName: laneName, mergeLocal: mergeLocal, recordRead: recordRead, isEntitledCached: isEntitledCached, AUTH_KEY: AUTH_KEY, ENT_KEY: ENT_KEY, READS_KEY: READS_KEY, STRINGS: T };
+  function mountCreateAccount(host, client, opts) {
+    var doc = opts.document;
+    var storage = opts.storage;
+    if (!host || !doc || !client) return;
+    try { host.textContent = ''; } catch (e) {}
+    if (Array.isArray(host.children)) host.children.length = 0;
+    if (host.style) host.style.cssText = 'max-width:560px;margin:48px auto;padding:0 20px;color:#E7E9EC';
+    function make(tag) {
+      var n = doc.createElement(tag);
+      if (typeof n.appendChild === 'function') return n;
+      n.children = [];
+      n.appendChild = function (c) { n.children.push(c); return c; };
+      n.setAttribute = n.setAttribute || function (k, v) { n.attrs = n.attrs || {}; n.attrs[k] = v; };
+      n.addEventListener = n.addEventListener || function (type, fn) { n._ev = n._ev || {}; (n._ev[type] = n._ev[type] || []).push(fn); };
+      return n;
+    }
+    var lang = pageLang(storage);
+    var title = make('h1');
+    title.id = 'dw-create-title';
+    var helper = make('p');
+    var form = make('form');
+    var label = make('label');
+    label.setAttribute('for', 'dw-email');
+    var input = make('input');
+    input.id = 'dw-email';
+    input.type = 'email';
+    if (input.setAttribute) { input.setAttribute('type', 'email'); input.setAttribute('autocomplete', 'email'); }
+    var button = make('button');
+    button.type = 'submit';
+    if (button.setAttribute) button.setAttribute('type', 'submit');
+    var status = make('p');
+    status.id = 'dw-create-status';
+    var langRow = make('div');
+    ['en', 'es'].forEach(function (code) {
+      var b = make('button');
+      b.type = 'button';
+      if (b.setAttribute) { b.setAttribute('type', 'button'); b.setAttribute('data-gate-lang', code); }
+      b.textContent = code === 'es' ? 'Español' : 'English';
+      b.addEventListener('click', function () {
+        try { storage.setItem('dw-lang', code); } catch (e) {}
+        lang = code;
+        paint();
+      });
+      langRow.appendChild(b);
+    });
+    function paint() {
+      title.textContent = client.t(lang, 'createTitle');
+      helper.textContent = client.t(lang, 'createHelper');
+      label.textContent = client.t(lang, 'email');
+      if (input.setAttribute) input.setAttribute('placeholder', client.t(lang, 'emailPh'));
+      button.textContent = client.t(lang, 'sendLink');
+    }
+    form.addEventListener('submit', function (e) {
+      if (e && e.preventDefault) e.preventDefault();
+      var email = String(input.value || '').trim();
+      status.textContent = '';
+      client.requestLink(email, lang).then(function (r) {
+        if (r.status === 202) status.textContent = client.t(lang, 'sent', { email: email });
+        else if (r.status === 400) status.textContent = client.t(lang, 'badEmail');
+        else if (r.status === 429) status.textContent = client.t(lang, 'tooMany');
+        else status.textContent = client.t(lang, 'network');
+      }).catch(function () { status.textContent = client.t(lang, 'network'); });
+    });
+    form.appendChild(label);
+    form.appendChild(input);
+    form.appendChild(button);
+    host.appendChild(title);
+    host.appendChild(helper);
+    host.appendChild(form);
+    host.appendChild(status);
+    host.appendChild(langRow);
+    paint();
+  }
+
+  /** Show the create-account form. Clone #dw-app only after GET /me returns this account. */
+  function openWhenSignedIn(opts) {
+    opts = opts || {};
+    var doc = opts.document;
+    var client = opts.client;
+    var gate = doc && doc.getElementById('dw-gate');
+    var opened = false;
+    if (gate) mountCreateAccount(gate, client, opts);
+    function reveal(me) {
+      if (opened) return;
+      opened = true;
+      if (gate && typeof gate.remove === 'function') gate.remove();
+      else if (gate && gate.parentNode) gate.parentNode.removeChild(gate);
+      var tpl = doc.getElementById('dw-app');
+      if (tpl && tpl.content && typeof tpl.content.cloneNode === 'function' && doc.body) doc.body.appendChild(tpl.content.cloneNode(true));
+      if (typeof opts.onReady === 'function') opts.onReady(me);
+      var g = typeof window !== 'undefined' ? window : null;
+      if (g && typeof g.DW_applyChrome === 'function') g.DW_applyChrome();
+    }
+    return client.me().then(function (r) {
+      if (r && r.status === 200 && r.data && r.data.email) { reveal(r.data); return r; }
+      if (r && r.status === 401) clearUserLocal(opts.storage, opts.sessionStorage);
+      return r;
+    }).catch(function () { return null; });
+  }
+
+  return { LANES: LANES, PROFILE_T: PROFILE_T, validateProfile: validateProfile, timezones: timezones, create: create, legalBlock: legalBlock, showTestNotice: showTestNotice, REFUND: REFUND, t: t, laneName: laneName, mergeLocal: mergeLocal, recordRead: recordRead, isEntitledCached: isEntitledCached, clearUserLocal: clearUserLocal, clearUserCaches: clearUserCaches, isPerUserCacheUrl: isPerUserCacheUrl, mountCreateAccount: mountCreateAccount, openWhenSignedIn: openWhenSignedIn, USER_KEYS: USER_KEYS, AUTH_KEY: AUTH_KEY, ENT_KEY: ENT_KEY, READS_KEY: READS_KEY, STRINGS: T };
 });

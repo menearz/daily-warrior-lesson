@@ -53,7 +53,7 @@ test('override is off by default and refuses to start outside loopback or with l
 });
 
 test('free user: shared lesson only, questionnaire/answers/lesson are 402', async () => {
-  const t = await start();
+  const t = await start({ env: { DW_PAYWALL_ENABLED: '1' } });
   try {
     const { accessToken } = await t.signIn('free@example.com');
     assert.equal((await t.call('GET', '/questionnaire', { token: accessToken })).status, 402);
@@ -78,7 +78,7 @@ test('profile: language, up to 3 themes, delivery time and IANA zone validated',
 });
 
 test('Stripe TEST webhook unlocks the questionnaire; cancel sets cancel date; answers deleted 30 days later (job)', async () => {
-  const t = await start();
+  const t = await start({ env: { DW_PAYWALL_ENABLED: '1' } });
   try {
     const { accessToken: tok } = await t.signIn('sub@example.com');
     let r = await t.webhook(evt('evt_1', 'checkout.session.completed', { mode: 'subscription', status: 'complete', payment_status: 'paid', client_reference_id: 'sub@example.com', customer: 'cus_A', subscription: 'sub_A', metadata: { plan: 'monthly' } }));
@@ -106,7 +106,7 @@ test('Stripe TEST webhook unlocks the questionnaire; cancel sets cancel date; an
 });
 
 test('owner/test override: full flow without payment, personalized lesson logged, no repeats', async () => {
-  const t = await start({ env: LOCAL });
+  const t = await start({ env: Object.assign({ DW_PAYWALL_ENABLED: '1' }, LOCAL) });
   try {
     let { accessToken: tok } = await t.signIn('owner@example.com');
     let r = await t.call('GET', '/me', { token: tok });
@@ -160,9 +160,10 @@ test('every focus line passes the humanizer lint (no AI habits, EN and ES neutra
 });
 
 test('fact guard: a lesson whose wording would lose a number is refused, never served', () => {
+  const day = CATALOG[0].date;
   const bad = [{ ...CATALOG[0], today: 'Train \u2014 20 to 30 minutes \u2014 then rest.', lesson: 'Plain words.', lanes: ['warrior'] }];
   // dashes are humanized into commas without losing numbers: still allowed
-  assert.ok(buildPersonalLesson(bad, { email: 'g@x.co', lang: 'en', themes: [], answers: ANSWERS, sentLessons: [] }, '2026-10-14'));
+  assert.ok(buildPersonalLesson(bad, { email: 'g@x.co', lang: 'en', themes: [], answers: ANSWERS, sentLessons: [] }, day));
   const tell = [{ ...CATALOG[0], lesson: 'This is a vibrant tapestry of courage.' }];
-  assert.throws(() => buildPersonalLesson(tell, { email: 'g@x.co', lang: 'en', themes: [], answers: ANSWERS, sentLessons: [] }, '2026-10-14'), /AI writing habits/);
+  assert.throws(() => buildPersonalLesson(tell, { email: 'g@x.co', lang: 'en', themes: [], answers: ANSWERS, sentLessons: [] }, day), /AI writing habits/);
 });

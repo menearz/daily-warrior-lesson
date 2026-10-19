@@ -9,7 +9,8 @@ Small node:http service (one dependency: `stripe`). It is meant to be deployed b
 DW_API_HOST, DW_API_PORT, DW_STORE_PATH (JSON store, atomic writes, 0600), DW_ALLOWED_ORIGIN (default https://menearz.github.io), DW_SITE_URL,
 DW_STRIPE_SECRET_KEY (sk_test_ only), DW_STRIPE_WEBHOOK_SECRET, DW_STRIPE_PRICE_MONTHLY / DW_STRIPE_PRICE_YEARLY (price ids; if unset, inline prices are used),
 DW_PRICE_MONTHLY_CENTS=499, DW_PRICE_YEARLY_CENTS=3999,
-DW_AGENTMAIL_API_KEY, DW_AGENTMAIL_INBOX_ID, DW_MAIL_FROM.
+DW_AGENTMAIL_API_KEY, DW_AGENTMAIL_INBOX_ID, DW_MAIL_FROM,
+DW_PAYWALL_ENABLED (default off: unset, `0`, or `false`. `1` / `true` / `yes` / `on` turns subscriber gating back on).
 
 ## Auth
 Sign-in is by magic link only. The token is SHA-256 hashed, is single use, expires after 15 min, and is rate limited (10/IP and 3/email per 15 min).
@@ -59,14 +60,22 @@ DELETE /me cancels the Stripe subscription right away, with no proration or refu
 ## Site "Send an idea" link
 `window.DW_IDEA_FORM_URL` in the root `config.js` (an https Google Form URL). If it's empty, no link is shown.
 
+## Paywall flag (default off while testing)
+
+`DW_PAYWALL_ENABLED` defaults off. Any signed-in account then gets the daily lesson, the 12 Forge questions, and a personalized lesson, with no plan. Stripe checkout, the portal, and webhooks stay in place; set the flag to `1` to restore the subscriber gate (402 `plan_required` without an active plan, owner, tester, or loopback test override). `GET /health` includes `paywallEnabled`. The site twin is `window.DW_PAYWALL_ENABLED` in the root `config.js` (default `false`), which hides plan and subscribe entry points. It does not show a "coming soon" stand-in.
+
+## Reading history
+
+`POST /me/history` with `{date: "YYYY-MM-DD"}` records one lesson read on the signed-in account (any account, paywall on or off). `GET /me/history` returns `{reads: [...]}` for that account only. Answers, the forged path, and these dates live on the user row. The phone is not the source of truth.
+
 ## Subscribers: questionnaire, profile, personalized lessons (2026-10-14)
 
-Free readers get the shared daily lesson only. The 12 Forge questions are
+With `DW_PAYWALL_ENABLED=1`, free readers get the shared daily lesson only. The 12 Forge questions are
 subscriber-only: `GET /questionnaire`, `PUT /me/answers` and `GET /me/lesson`
 answer 402 unless the account is entitled, which means a Stripe TEST
 subscription marked active by the signed webhook, or an email on
 `DW_TEST_OVERRIDE_EMAILS` (local testing only; refuses to start unless the
-site URL is loopback and DW_LAUNCH is off).
+site URL is loopback and DW_LAUNCH is off). With the paywall off, those three routes succeed for every signed-in account.
 
 - `GET/PUT /me/profile`: language (en/es), up to 3 themes (lanes), delivery
   time (HH:MM) and IANA timezone, plan, cancel date, the date answers will be

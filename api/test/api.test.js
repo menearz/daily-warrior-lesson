@@ -131,7 +131,7 @@ test('CORS: only https://menearz.github.io gets credentials; other origins refus
 });
 
 test('entitlement: free account cannot sync or get its path; active plan can; today stays free', async () => {
-  const a = await start();
+  const a = await start({ env: { DW_PAYWALL_ENABLED: '1' } });
   try {
     const s = await a.signIn('p@example.com');
     const fp = { primary: 'builder', secondary: 'odyssey', lanes: { builder: 5, odyssey: 3 }, at: 1000, answers: { q1: 'x' } };
@@ -182,7 +182,7 @@ test('webhook: bad signature refused; events idempotent; live events refused; up
 });
 
 test('30-day delete: answers and history kept 30 days after cancel, then deleted by the retention job', async () => {
-  const a = await start();
+  const a = await start({ env: { DW_PAYWALL_ENABLED: '1' } });
   try {
     const s = await a.signIn('d@example.com');
     await a.webhook(active('d@example.com'));
@@ -240,7 +240,7 @@ test('checkout: subscription session with configured price ($4.99/mo, $39.99/yr)
 });
 
 test('delete account: cancels the Stripe subscription and removes the user now', async () => {
-  const a = await start();
+  const a = await start({ env: { DW_PAYWALL_ENABLED: '1' } });
   try {
     const s = await a.signIn('del@example.com');
     await a.webhook(active('del@example.com'));
