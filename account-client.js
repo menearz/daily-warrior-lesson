@@ -51,6 +51,7 @@
       createTitle: 'Create an account',
       createHelper: 'Create an account to read the lesson. We email you a link. No password.',
       included: 'The daily lesson, the questions, and your path are included with your account.',
+      loading: 'Loading…',
     },
     es: {
       signinTitle: 'Guarda tu camino',
@@ -92,6 +93,7 @@
       createTitle: 'Crea una cuenta',
       createHelper: 'Crea una cuenta para leer la lección. Te enviamos un enlace. Sin contraseña.',
       included: 'La lección diaria, las preguntas y tu camino van incluidos con tu cuenta.',
+      loading: 'Cargando…',
     },
   };
   var LANE_ES = { warrior: 'Guerrero', thinker: 'Pensador', builder: 'Constructor', odyssey: 'Odisea', power: 'Poder', faith: 'Fe' };
@@ -286,8 +288,10 @@
       },
       signOut: function () {
         var a = auth();
+        // Drop the phone session before any network wait so the account
+        // screen can clear the signed-in UI in the same turn.
+        clearUserLocal(storage, session);
         return raw('POST', '/auth/logout', { refreshToken: a && a.refreshToken }, a && a.accessToken).catch(function () {}).then(function () {
-          clearUserLocal(storage, session);
           return clearUserCaches(cachesApi);
         });
       },
@@ -318,7 +322,6 @@
     if (!host || !doc || !client) return;
     try { host.textContent = ''; } catch (e) {}
     if (Array.isArray(host.children)) host.children.length = 0;
-    if (host.style) host.style.cssText = 'max-width:560px;margin:48px auto;padding:0 20px;color:#E7E9EC';
     function make(tag) {
       var n = doc.createElement(tag);
       if (typeof n.appendChild === 'function') return n;
@@ -344,10 +347,13 @@
     if (button.setAttribute) button.setAttribute('type', 'submit');
     var status = make('p');
     status.id = 'dw-create-status';
+    if (status.setAttribute) status.setAttribute('role', 'status');
     var langRow = make('div');
+    if (langRow.setAttribute) langRow.setAttribute('class', 'lang-chips');
     ['en', 'es'].forEach(function (code) {
       var b = make('button');
       b.type = 'button';
+      b._gateLang = code;
       if (b.setAttribute) { b.setAttribute('type', 'button'); b.setAttribute('data-gate-lang', code); }
       b.textContent = code === 'es' ? 'Español' : 'English';
       b.addEventListener('click', function () {
@@ -363,17 +369,31 @@
       label.textContent = client.t(lang, 'email');
       if (input.setAttribute) input.setAttribute('placeholder', client.t(lang, 'emailPh'));
       button.textContent = client.t(lang, 'sendLink');
+      var chips = langRow.children || [];
+      for (var i = 0; i < chips.length; i++) {
+        var on = chips[i]._gateLang === lang;
+        if (chips[i].setAttribute) {
+          chips[i].setAttribute('class', on ? 'lang-chip active' : 'lang-chip');
+          chips[i].setAttribute('aria-pressed', on ? 'true' : 'false');
+        }
+      }
     }
     form.addEventListener('submit', function (e) {
       if (e && e.preventDefault) e.preventDefault();
       var email = String(input.value || '').trim();
       status.textContent = '';
+      if (status.setAttribute) status.setAttribute('class', '');
       client.requestLink(email, lang).then(function (r) {
+        var bad = r.status !== 202;
         if (r.status === 202) status.textContent = client.t(lang, 'sent', { email: email });
         else if (r.status === 400) status.textContent = client.t(lang, 'badEmail');
         else if (r.status === 429) status.textContent = client.t(lang, 'tooMany');
         else status.textContent = client.t(lang, 'network');
-      }).catch(function () { status.textContent = client.t(lang, 'network'); });
+        if (status.setAttribute) status.setAttribute('class', bad ? 'err' : 'muted');
+      }).catch(function () {
+        status.textContent = client.t(lang, 'network');
+        if (status.setAttribute) status.setAttribute('class', 'err');
+      });
     });
     form.appendChild(label);
     form.appendChild(input);
@@ -386,14 +406,43 @@
     paint();
   }
 
-  /** Show the create-account form. Clone #dw-app only after GET /me returns this account. */
+  function paintGateStatus(gate, doc, text) {
+    if (!gate || !doc) return;
+    try { gate.textContent = ''; } catch (e) {}
+    if (Array.isArray(gate.children)) gate.children.length = 0;
+    var p = doc.createElement('p');
+    if (!p) return;
+    p.textContent = text || 'Loading…';
+    if (p.setAttribute) { p.setAttribute('role', 'status'); p.setAttribute('class', 'muted'); }
+    if (typeof gate.appendChild === 'function') gate.appendChild(p);
+  }
+
+  /** Hide every signed-in account block in this turn, before logout or redirect. */
+  function clearSignedInUi(doc) {
+    if (!doc || typeof doc.getElementById !== 'function') return;
+    ['signed-in', 'confirm', 'tester-badge'].forEach(function (id) {
+      var el = doc.getElementById(id);
+      if (!el) return;
+      if (el.classList && typeof el.classList.add === 'function') el.classList.add('hidden');
+      if (el.className != null && String(el.className).indexOf('hidden') < 0) el.className = (String(el.className) + ' hidden').trim();
+    });
+    ['who', 'plan-line', 'sync-line', 'confirm-body', 'pf-msg'].forEach(function (id) {
+      var el = doc.getElementById(id);
+      if (el) el.textContent = '';
+    });
+  }
+
+  /** Show the create-account form only when there is no session, or /me says signed out.
+   *  A token keeps a neutral loading line until /me returns. Clone #dw-app only after 200. */
   function openWhenSignedIn(opts) {
     opts = opts || {};
     var doc = opts.document;
     var client = opts.client;
     var gate = doc && doc.getElementById('dw-gate');
     var opened = false;
-    if (gate) mountCreateAccount(gate, client, opts);
+    var formShown = false;
+    var lang = pageLang(opts.storage);
+    function say(key) { return (client && client.t(lang, key)) || (key === 'loading' ? 'Loading…' : ''); }
     function reveal(me) {
       if (opened) return;
       opened = true;
@@ -405,12 +454,28 @@
       var g = typeof window !== 'undefined' ? window : null;
       if (g && typeof g.DW_applyChrome === 'function') g.DW_applyChrome();
     }
+    function showGateForm() {
+      if (formShown || opened) return;
+      formShown = true;
+      if (gate) mountCreateAccount(gate, client, opts);
+    }
+    var hasToken = Boolean(client && typeof client.signedIn === 'function' && client.signedIn());
+    if (hasToken) paintGateStatus(gate, doc, say('loading'));
+    else showGateForm();
+    if (!client || typeof client.me !== 'function') return Promise.resolve(null);
     return client.me().then(function (r) {
       if (r && r.status === 200 && r.data && r.data.email) { reveal(r.data); return r; }
+      var signedOut = !hasToken || (r && r.status === 401);
       if (r && r.status === 401) clearUserLocal(opts.storage, opts.sessionStorage);
+      if (signedOut) { if (!opened) showGateForm(); return r; }
+      if (!opened) paintGateStatus(gate, doc, say('network'));
       return r;
-    }).catch(function () { return null; });
+    }).catch(function () {
+      if (!opened && !hasToken) showGateForm();
+      else if (!opened) paintGateStatus(gate, doc, say('network'));
+      return null;
+    });
   }
 
-  return { LANES: LANES, PROFILE_T: PROFILE_T, validateProfile: validateProfile, timezones: timezones, create: create, legalBlock: legalBlock, showTestNotice: showTestNotice, REFUND: REFUND, t: t, laneName: laneName, mergeLocal: mergeLocal, recordRead: recordRead, isEntitledCached: isEntitledCached, clearUserLocal: clearUserLocal, clearUserCaches: clearUserCaches, isPerUserCacheUrl: isPerUserCacheUrl, mountCreateAccount: mountCreateAccount, openWhenSignedIn: openWhenSignedIn, USER_KEYS: USER_KEYS, AUTH_KEY: AUTH_KEY, ENT_KEY: ENT_KEY, READS_KEY: READS_KEY, STRINGS: T };
+  return { LANES: LANES, PROFILE_T: PROFILE_T, validateProfile: validateProfile, timezones: timezones, create: create, legalBlock: legalBlock, showTestNotice: showTestNotice, REFUND: REFUND, t: t, laneName: laneName, mergeLocal: mergeLocal, recordRead: recordRead, isEntitledCached: isEntitledCached, clearUserLocal: clearUserLocal, clearUserCaches: clearUserCaches, clearSignedInUi: clearSignedInUi, isPerUserCacheUrl: isPerUserCacheUrl, mountCreateAccount: mountCreateAccount, openWhenSignedIn: openWhenSignedIn, USER_KEYS: USER_KEYS, AUTH_KEY: AUTH_KEY, ENT_KEY: ENT_KEY, READS_KEY: READS_KEY, STRINGS: T };
 });

@@ -92,7 +92,7 @@ test('index aims from the account path and records the read on the API; sign-in 
   const sw = read('sw.js');
   assert.match(sw, /url\.origin !== self\.location\.origin && req\.destination !== "image"\) return;/, 'service worker never caches API calls');
   assert.match(sw, /isPerUserApi/);
-  assert.match(sw, /warrior-lesson-v23/);
+  assert.match(sw, /warrior-lesson-v24/);
 });
 
 test('privacy.html describes accounts, the data kept, Stripe, and the 30-day delete in EN and ES', () => {

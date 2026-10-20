@@ -191,6 +191,160 @@ test('two accounts stay separate on the phone after sign-out and sign-in', async
   assert.equal(users['a@ex.co'].answers.emptychair, 'alpha path');
 });
 
+test('sign-up gate reuses the lesson palette, full-width controls, and the existing language chips', () => {
+  for (const f of ['index.html', 'archive.html', 'forge.html']) {
+    const html = read(f);
+    assert.match(html, /#dw-gate[\s\S]*#ece6da/, f);
+    assert.match(html, /#dw-gate input\[type="email"\] \{[\s\S]*width:100%/, f);
+    assert.match(html, /#dw-gate button\[type="submit"\] \{[\s\S]*width:100%/, f);
+    assert.match(html, /#dw-gate \.lang-chip\.active/, f);
+    assert.match(html, /--accent:#FF6A1A/, f);
+  }
+});
+
+test('a session token shows Loading… until /me returns, and not the sign-up form', async () => {
+  let release;
+  const pending = new Promise((resolve) => { release = resolve; });
+  const gate = el('div');
+  const lesson = el('div');
+  const doc = docWith(gate, lesson);
+  const storage = mem({ dw_auth: JSON.stringify({ accessToken: 'tok', refreshToken: 'r', exp: Date.now() + 600e3 }) });
+  const dw = DWAccount.create({
+    storage,
+    fetch: () => pending.then((body) => ({ status: body.status, json: async () => body.data })),
+    apiBase: 'https://api.test',
+  });
+  const ready = [];
+  const done = DWAccount.openWhenSignedIn({ document: doc, client: dw, storage, onReady(me) { ready.push(me); } });
+  assert.match(textOf(gate), /Loading…/);
+  assert.doesNotMatch(textOf(gate), /Create an account/);
+  assert.equal(doc.body.children.includes(lesson), false);
+  release({ status: 200, data: { email: 'a@ex.co', entitled: true } });
+  await done;
+  assert.equal(ready.length, 1);
+  assert.equal(gate.removed, true);
+  assert.doesNotMatch(textOf(gate), /Create an account/);
+});
+
+test('sign-up form appears only after /me returns 401, not while it is pending', async () => {
+  let release;
+  const pending = new Promise((resolve) => { release = resolve; });
+  const gate = el('div');
+  const doc = docWith(gate, el('div'));
+  const storage = mem({ dw_auth: JSON.stringify({ accessToken: 'tok', refreshToken: 'r', exp: Date.now() + 600e3 }) });
+  const dw = DWAccount.create({
+    storage,
+    fetch: () => pending.then((body) => ({ status: body.status, json: async () => body.data })),
+    apiBase: 'https://api.test',
+  });
+  const done = DWAccount.openWhenSignedIn({ document: doc, client: dw, storage });
+  assert.doesNotMatch(textOf(gate), /Create an account/);
+  assert.match(textOf(gate), /Loading…/);
+  release({ status: 401, data: { error: 'signed_out' } });
+  await done;
+  assert.match(textOf(gate), /Create an account/);
+  assert.equal(storage.getItem('dw_auth'), null);
+});
+
+test('a network error with a token does not show the sign-up form', async () => {
+  const gate = el('div');
+  const storage = mem({ dw_auth: JSON.stringify({ accessToken: 'tok', refreshToken: 'r', exp: Date.now() + 600e3 }), 'dw-lang': 'en' });
+  const dw = DWAccount.create({
+    storage,
+    fetch: async () => { throw new Error('offline'); },
+    apiBase: 'https://api.test',
+  });
+  await DWAccount.openWhenSignedIn({ document: docWith(gate, el('div')), client: dw, storage });
+  assert.doesNotMatch(textOf(gate), /Create an account/);
+  assert.match(textOf(gate), /couldn't connect/i);
+  assert.equal(storage.getItem('dw_auth') != null, true);
+});
+
+test('a non-401 failure with a token does not show the sign-up form', async () => {
+  const gate = el('div');
+  const storage = mem({ dw_auth: JSON.stringify({ accessToken: 'tok', refreshToken: 'r', exp: Date.now() + 600e3 }) });
+  const dw = DWAccount.create({
+    storage,
+    fetch: async () => ({ status: 500, json: async () => ({ error: 'down' }) }),
+    apiBase: 'https://api.test',
+  });
+  await DWAccount.openWhenSignedIn({ document: docWith(gate, el('div')), client: dw, storage });
+  assert.doesNotMatch(textOf(gate), /Create an account/);
+  assert.match(textOf(gate), /couldn't connect/i);
+});
+
+test('Spanish gate loading uses the existing Cargando line', async () => {
+  let release;
+  const pending = new Promise((resolve) => { release = resolve; });
+  const gate = el('div');
+  const storage = mem({ dw_auth: JSON.stringify({ accessToken: 'tok', refreshToken: 'r', exp: Date.now() + 600e3 }), 'dw-lang': 'es' });
+  const dw = DWAccount.create({
+    storage,
+    fetch: () => pending.then(() => ({ status: 200, json: async () => ({ email: 'a@ex.co' }) })),
+    apiBase: 'https://api.test',
+  });
+  const done = DWAccount.openWhenSignedIn({ document: docWith(gate, el('div')), client: dw, storage });
+  assert.match(textOf(gate), /Cargando…/);
+  assert.doesNotMatch(textOf(gate), /Crea una cuenta/);
+  release();
+  await done;
+});
+
+function classBag() {
+  const set = new Set();
+  return { add(c) { set.add(c); }, contains(c) { return set.has(c); }, set };
+}
+
+test('sign-out clears Signed in as synchronously, before logout finishes', async () => {
+  let release;
+  const pending = new Promise((resolve) => { release = resolve; });
+  const calls = [];
+  const storage = mem({
+    dw_auth: JSON.stringify({ accessToken: 'tok', refreshToken: 'ref', exp: Date.now() + 600e3 }),
+    forged_path: JSON.stringify({ primary: 'warrior', at: 1 }),
+    'dw-lang': 'en',
+  });
+  const who = { textContent: 'Signed in as a@ex.co', className: '' };
+  const signedIn = { textContent: 'account body', className: '', classList: classBag() };
+  const plan = { textContent: 'The Forge, Monthly.', className: '' };
+  const nodes = {
+    who,
+    'signed-in': signedIn,
+    'plan-line': plan,
+    'sync-line': { textContent: 'saved', className: '' },
+    confirm: { textContent: '', className: '', classList: classBag() },
+    'tester-badge': { textContent: 'Tester', className: '', classList: classBag() },
+    'confirm-body': { textContent: 'forged', className: '' },
+    'pf-msg': { textContent: 'Saved.', className: '' },
+  };
+  const doc = { getElementById(id) { return nodes[id] || null; } };
+  const dw = DWAccount.create({
+    storage,
+    fetch: (url, init) => {
+      calls.push({ url, init });
+      return pending.then(() => ({ status: 200, json: async () => ({ ok: true }) }));
+    },
+    apiBase: 'https://api.test',
+  });
+  const html = read('account.html');
+  const handler = html.slice(html.indexOf('getElementById("signout").onclick'));
+  assert.ok(handler.indexOf('clearSignedInUi(document)') < handler.indexOf('DW.signOut()'));
+  DWAccount.clearSignedInUi(doc);
+  const out = dw.signOut();
+  assert.equal(who.textContent, '');
+  assert.equal(plan.textContent, '');
+  assert.equal(signedIn.classList.contains('hidden'), true);
+  assert.match(String(signedIn.className), /hidden/);
+  assert.equal(storage.getItem('dw_auth'), null);
+  assert.equal(storage.getItem('forged_path'), null);
+  assert.equal(storage.getItem('dw-lang'), 'en');
+  assert.equal(calls.length, 1);
+  assert.match(calls[0].init.body, /"refreshToken":"ref"/);
+  assert.match(calls[0].init.headers.Authorization, /Bearer tok/);
+  release();
+  await out;
+});
+
 test('paywall flag off hides subscribe entry points', () => {
   const offers = { hidden: false };
   const included = { hidden: true };

@@ -74,25 +74,25 @@
   };
 
   var DEFAULT_LESSON = {
-    "date": "2026-10-14",
-    "title": "Discipline Is the Soul",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/c/c7/Washington_1772.jpg",
-    "imageAlt": "Charles Willson Peale — George Washington in the uniform of a colonel of the Virginia Regiment (1772), full portrait painting, public domain",
+    "date": "2026-10-19",
+    "title": "Right Makes Might",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/a/a7/Lincoln_O-17_CDV_by_Brady%2C_1860.jpg",
+    "imageAlt": "Abraham Lincoln, three-quarter length portrait by Mathew Brady, taken in New York before the Cooper Union address, 1860, public domain",
     "fallback": "./images/2026-09-04.jpg",
-    "source": "George Washington, Instructions to Company Captains, Fort Loudoun, 29 July 1757 (Founders Online)",
-    "sourceUrl": "https://founders.archives.gov/documents/Washington/02-04-02-0223",
-    "quote": "Permit me, before I finish ... to recommend, and I do in the strongest manner I can to you and your Officers; to devote some part of your leisure hours to the study of your profession, a knowledge in which can not be attained without application ... Discipline is the soul of an army. It makes small numbers formidable; procures success to the weak, and esteem to all.",
-    "lesson": "Washington was 25 and in charge of a small, green regiment. He did not ask his captains for more men or better gear. He asked them to use their free hours to study their job. Skill does not come by itself. It comes from steady work when no one makes you do it. That daily habit is the discipline he means. It lets a few people do the work of many, and it earns respect that talk never will.",
-    "today": "Before bed, spend 20 minutes studying one part of your work you are weak at. No phone, no shortcuts. Just study.",
+    "source": "Abraham Lincoln, address at Cooper Union, New York City, 27 February 1860 (Wikisource)",
+    "sourceUrl": "https://en.wikisource.org/wiki/Cooper_Union_Speech",
+    "quote": "Neither let us be slandered from our duty by false accusations against us, nor frightened from it by menaces of destruction to the Government nor of dungeons to ourselves. Let us have faith that right makes might, and in that faith, let us, to the end, dare to do our duty as we understand it.",
+    "lesson": "In February 1860 Abraham Lincoln was a lawyer from Illinois who had lost his last race for the Senate. Most people in New York barely knew his name. At Cooper Union he spoke on whether slavery should be allowed to spread into the new territories, and he closed with these lines. He named the two things that pull people off their duty: lies told about them and threats made against them. His answer was to settle what is right and keep doing it, even when your side looks weaker. Within a few months he was the Republican nominee for president. Duty starts with knowing what yours is. Then you refuse to be talked or scared out of it.",
+    "today": "Write down one duty you have been dodging because someone doubted you or the cost looked high. Do the first piece of it before noon.",
     "lanes": [
       "warrior",
       "thinker"
     ],
-    "title_es": "La disciplina es el alma",
-    "quote_es": "Permítanme, antes de terminar ... recomendarles, y lo hago de la manera más firme que puedo, a ustedes y a sus oficiales, que dediquen parte de sus horas libres al estudio de su profesión, un conocimiento que no se puede lograr sin aplicación ... La disciplina es el alma de un ejército. Hace temibles a los pocos, procura el éxito a los débiles y estima a todos.",
-    "lesson_es": "Washington tenía 25 años y estaba al mando de un regimiento pequeño y sin experiencia. No pidió a sus capitanes más hombres ni mejor equipo. Les pidió usar sus horas libres para estudiar su oficio. La habilidad no llega sola. Llega con trabajo constante cuando nadie te obliga. Ese hábito diario es la disciplina de la que habla. Permite que pocos hagan el trabajo de muchos, y gana un respeto que las palabras nunca ganan.",
-    "today_es": "Antes de dormir, dedica 20 minutos a estudiar una parte de tu trabajo en la que eres débil. Sin teléfono, sin atajos. Solo estudia.",
-    "source_es": "George Washington, instrucciones a los capitanes de compañía, Fort Loudoun, 29 de julio de 1757 (Founders Online) (traducción fiel al español de la original en inglés)"
+    "title_es": "El derecho hace la fuerza",
+    "source_es": "Abraham Lincoln, discurso en Cooper Union, Nueva York, 27 de febrero de 1860 (Wikisource) (traducción fiel al español del original en inglés)",
+    "quote_es": "Tampoco nos dejemos apartar de nuestro deber por falsas acusaciones contra nosotros, ni asustar por amenazas de destrucción del Gobierno ni de calabozos para nosotros mismos. Tengamos fe en que el derecho hace la fuerza, y con esa fe, atrevámonos, hasta el final, a cumplir nuestro deber tal como lo entendemos.",
+    "lesson_es": "En febrero de 1860 Abraham Lincoln era un abogado de Illinois que había perdido su última carrera al Senado. En Nueva York casi nadie conocía su nombre. En Cooper Union habló sobre si se debía permitir que la esclavitud se extendiera a los nuevos territorios, y cerró con estas líneas. Nombró las dos cosas que apartan a la gente de su deber: las mentiras que se dicen de ellos y las amenazas que reciben. Su respuesta fue decidir qué es lo correcto y seguir haciéndolo, aunque tu lado parezca más débil. A los pocos meses era el candidato republicano a la presidencia. El deber empieza por saber cuál es el tuyo. Después te niegas a que te convenzan o te asusten para dejarlo.",
+    "today_es": "Escribe un deber que has estado evitando porque alguien dudó de ti o porque el costo parecía alto. Haz la primera parte antes del mediodía."
   };
 
   var LANE_LABEL = {warrior:'Warrior',thinker:'Thinker',builder:'Builder',power:'Power',faith:'Faith',odyssey:'Odyssey'};
@@ -103,6 +103,30 @@
     var n = 0;
     for (var i = 0; i < stamp.length; i++) n = (n * 31 + stamp.charCodeAt(i)) >>> 0;
     return n;
+  }
+
+  // Calendar day in America/Chicago. UTC midnight is still the previous evening there.
+  function chicagoDate(now) {
+    var d = now instanceof Date ? now : new Date(now == null ? Date.now() : now);
+    try {
+      var parts = new Intl.DateTimeFormat('en-CA', { timeZone: 'America/Chicago', year: 'numeric', month: '2-digit', day: '2-digit' }).formatToParts(d);
+      function g(t) {
+        for (var i = 0; i < parts.length; i++) if (parts[i].type === t) return parts[i].value;
+        return '';
+      }
+      var y = g('year'), m = g('month'), day = g('day');
+      if (/^\d{4}$/.test(y) && /^\d{2}$/.test(m) && /^\d{2}$/.test(day)) return y + '-' + m + '-' + day;
+    } catch (e) {}
+    return d.toISOString().slice(0, 10);
+  }
+
+  function lessonForDisplay(lesson, date) {
+    if (!lesson) return lesson;
+    var out = {};
+    for (var k in lesson) if (Object.prototype.hasOwnProperty.call(lesson, k)) out[k] = lesson[k];
+    if (out.date && out.date !== date) out.lessonDate = out.date;
+    out.date = date;
+    return out;
   }
 
   var LANES = ['warrior', 'thinker', 'builder', 'odyssey', 'power', 'faith'];
@@ -154,8 +178,13 @@
     }
     if (opts.forged && opts.forged.primary) {
       aimed = LANE_LABEL[opts.forged.primary] + (opts.forged.secondary ? ' / ' + LANE_LABEL[opts.forged.secondary] : '');
-      var picked = pickPersonalized(lessons || [], opts.forged, opts.stamp || '');
-      return { lesson: picked || (lessons && lessons[0]) || DEFAULT_LESSON, aimed: aimed };
+      var seed = opts.stamp || '';
+      // The page shows today's Chicago date. The catalog date stays on lessonDate
+      // so a lane pick from an older day is not labeled as that older day.
+      var day = /^\d{4}-\d{2}-\d{2}$/.test(String(seed)) ? seed : chicagoDate(opts.now);
+      var picked = pickPersonalized(lessons || [], opts.forged, seed || day);
+      var lesson = picked || (lessons && lessons[0]) || DEFAULT_LESSON;
+      return { lesson: lessonForDisplay(lesson, day), aimed: aimed };
     }
     if (lessons && lessons.length) {
       var latest = lessons.slice().sort(function (a, b) {
@@ -363,6 +392,7 @@
     hashStamp: hashStamp,
     pickPersonalized: pickPersonalized,
     pickDailyLesson: pickDailyLesson,
+    chicagoDate: chicagoDate,
     persistLastLessons: persistLastLessons,
     readLastLessons: readLastLessons,
     persistLastRendered: persistLastRendered,

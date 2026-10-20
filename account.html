@@ -180,7 +180,10 @@
   }
   document.getElementById("manage").onclick = function () { DW.portal().then(function (r) { if (r.data && r.data.url) location.href = r.data.url; else err("acct-err", "network"); }).catch(function () { err("acct-err", "network"); }); };
   document.getElementById("delete").onclick = function () { if (!confirm(DW.t(LANG, "deleteConfirm"))) return; DW.remove().then(function () { location.replace("./index.html"); }); };
-  document.getElementById("signout").onclick = function () { DW.signOut().then(function () { location.replace("./index.html"); }); };
+  document.getElementById("signout").onclick = function () {
+    DWAccount.clearSignedInUi(document);
+    DW.signOut().then(function () { location.replace("./index.html"); });
+  };
   load();
 </script>
 </body>

@@ -88,6 +88,21 @@ test('guard: a valid one-lesson append (via add-lesson.js) passes untouched', ()
   fs.rmSync(r.dir, { recursive: true, force: true });
 });
 
+test('add-lesson.js rewrites DEFAULT_LESSON from the newest lesson', () => {
+  const r = repo();
+  fs.writeFileSync(path.join(r.dir, 'lesson.js'), 'var DEFAULT_LESSON = {\n  "date": "1999-01-01",\n  "title": "Old"\n};\n');
+  const p = path.join(r.dir, 'new.json');
+  fs.writeFileSync(p, JSON.stringify(newLesson('2030-06-01')));
+  const res = run(r.dir, 'add-lesson.js', p);
+  assert.equal(res.status, 0, res.stderr);
+  const src = fs.readFileSync(path.join(r.dir, 'lesson.js'), 'utf8');
+  assert.match(src, /var DEFAULT_LESSON = \{/);
+  assert.match(src, /2030-06-01/);
+  assert.match(src, /Test 2030-06-01/);
+  assert.doesNotMatch(src, /1999-01-01/);
+  fs.rmSync(r.dir, { recursive: true, force: true });
+});
+
 test('add-lesson.js: existing lessons are byte-identical after an append', () => {
   const r = repo();
   const original = r.read();

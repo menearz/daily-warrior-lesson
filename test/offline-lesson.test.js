@@ -37,6 +37,53 @@ test('pickDailyLesson uses latest catalog date, not DEFAULT_LESSON', () => {
   assert.notEqual(picked.lesson.date, WarriorLesson.DEFAULT_LESSON.date);
 });
 
+test('a forged lesson displays the Chicago day, not the source catalog date', () => {
+  const lessons = [
+    { date: '2026-10-06', title: 'I Neither Know Nor Think I Know', lanes: ['thinker'], quote: 'q' },
+    { date: '2026-10-06', title: 'Also Older', lanes: ['warrior'], quote: 'r' },
+  ];
+  const picked = WarriorLesson.pickDailyLesson(lessons, {
+    forged: { primary: 'thinker', secondary: 'builder' },
+    stamp: '2026-10-19',
+  });
+  assert.equal(picked.lesson.date, '2026-10-19');
+  assert.equal(picked.lesson.lessonDate, '2026-10-06');
+  assert.ok(['I Neither Know Nor Think I Know', 'Also Older'].includes(picked.lesson.title));
+  assert.match(picked.aimed, /Thinker/);
+  assert.equal(lessons[0].date, '2026-10-06');
+  assert.equal(lessons[1].date, '2026-10-06');
+  const daily = WarriorLesson.pickDailyLesson(lessons, { stamp: '2026-10-19' });
+  assert.equal(daily.lesson.date, '2026-10-06', 'an unforged lesson keeps its catalog date');
+});
+
+test('forged display date follows America/Chicago across UTC midnight when no stamp is passed', () => {
+  const lessons = [
+    { date: '2026-10-06', title: 'Older', lanes: ['faith'], quote: 'q' },
+  ];
+  // 04:30 UTC on Oct 20 is still Oct 19 in Chicago (CDT, UTC-5).
+  const early = WarriorLesson.pickDailyLesson(lessons, {
+    forged: { primary: 'faith' },
+    now: new Date('2026-10-20T04:30:00Z'),
+  });
+  assert.equal(WarriorLesson.chicagoDate(new Date('2026-10-20T04:30:00Z')), '2026-10-19');
+  assert.equal(early.lesson.date, '2026-10-19');
+  assert.equal(early.lesson.lessonDate, '2026-10-06');
+  const later = WarriorLesson.pickDailyLesson(lessons, {
+    forged: { primary: 'faith' },
+    now: new Date('2026-10-20T05:30:00Z'),
+  });
+  assert.equal(later.lesson.date, '2026-10-20');
+  assert.equal(lessons[0].date, '2026-10-06');
+});
+
+test('index stamps a forged lesson with the Chicago day', () => {
+  const fs = require('node:fs');
+  const path = require('node:path');
+  const index = fs.readFileSync(path.join(__dirname, '..', 'index.html'), 'utf8');
+  assert.match(index, /stamp:\s*WarriorLesson\.chicagoDate\(new Date\(\)\)/);
+  assert.doesNotMatch(index, /toISOString\(\)\.slice\(0,\s*10\)/);
+});
+
 test('pickDailyLesson uses DEFAULT_LESSON only when catalog is empty', () => {
   const picked = WarriorLesson.pickDailyLesson([], {});
   assert.equal(picked.lesson.title, WarriorLesson.DEFAULT_LESSON.title);
