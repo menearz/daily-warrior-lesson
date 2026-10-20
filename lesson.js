@@ -74,25 +74,25 @@
   };
 
   var DEFAULT_LESSON = {
-    "date": "2026-10-19",
-    "title": "Right Makes Might",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/a/a7/Lincoln_O-17_CDV_by_Brady%2C_1860.jpg",
-    "imageAlt": "Abraham Lincoln, three-quarter length portrait by Mathew Brady, taken in New York before the Cooper Union address, 1860, public domain",
+    "date": "2026-10-20",
+    "title": "Trust Thyself",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/d/d5/Ralph_Waldo_Emerson_ca1857_retouched.jpg",
+    "imageAlt": "Ralph Waldo Emerson, photograph portrait from about 1857",
     "fallback": "./images/2026-09-04.jpg",
-    "source": "Abraham Lincoln, address at Cooper Union, New York City, 27 February 1860 (Wikisource)",
-    "sourceUrl": "https://en.wikisource.org/wiki/Cooper_Union_Speech",
-    "quote": "Neither let us be slandered from our duty by false accusations against us, nor frightened from it by menaces of destruction to the Government nor of dungeons to ourselves. Let us have faith that right makes might, and in that faith, let us, to the end, dare to do our duty as we understand it.",
-    "lesson": "In February 1860 Abraham Lincoln was a lawyer from Illinois who had lost his last race for the Senate. Most people in New York barely knew his name. At Cooper Union he spoke on whether slavery should be allowed to spread into the new territories, and he closed with these lines. He named the two things that pull people off their duty: lies told about them and threats made against them. His answer was to settle what is right and keep doing it, even when your side looks weaker. Within a few months he was the Republican nominee for president. Duty starts with knowing what yours is. Then you refuse to be talked or scared out of it.",
-    "today": "Write down one duty you have been dodging because someone doubted you or the cost looked high. Do the first piece of it before noon.",
+    "source": "Ralph Waldo Emerson, \"Self-Reliance,\" Essays: First Series, 1841 (Project Gutenberg)",
+    "sourceUrl": "https://www.gutenberg.org/ebooks/16643",
+    "quote": "Trust thyself: every heart vibrates to that iron string. Accept the place the divine providence has found for you, the society of your contemporaries, the connection of events.",
+    "lesson": "Emerson wrote this in 1841, when most Americans still looked to Europe to tell them what to think. His answer was to stop waiting for permission. You already know more than you give yourself credit for, and that inner voice is the iron string he means. He also says to accept your place. You were born into this time, these people and these problems for a reason. Quit wishing for a different hand and play the one you were dealt with conviction.",
+    "today": "Pick one decision you have been putting off because you wanted someone else to make it for you. Make it yourself today and act on it before the evening.",
     "lanes": [
-      "warrior",
-      "thinker"
+      "thinker",
+      "builder"
     ],
-    "title_es": "El derecho hace la fuerza",
-    "source_es": "Abraham Lincoln, discurso en Cooper Union, Nueva York, 27 de febrero de 1860 (Wikisource) (traducción fiel al español del original en inglés)",
-    "quote_es": "Tampoco nos dejemos apartar de nuestro deber por falsas acusaciones contra nosotros, ni asustar por amenazas de destrucción del Gobierno ni de calabozos para nosotros mismos. Tengamos fe en que el derecho hace la fuerza, y con esa fe, atrevámonos, hasta el final, a cumplir nuestro deber tal como lo entendemos.",
-    "lesson_es": "En febrero de 1860 Abraham Lincoln era un abogado de Illinois que había perdido su última carrera al Senado. En Nueva York casi nadie conocía su nombre. En Cooper Union habló sobre si se debía permitir que la esclavitud se extendiera a los nuevos territorios, y cerró con estas líneas. Nombró las dos cosas que apartan a la gente de su deber: las mentiras que se dicen de ellos y las amenazas que reciben. Su respuesta fue decidir qué es lo correcto y seguir haciéndolo, aunque tu lado parezca más débil. A los pocos meses era el candidato republicano a la presidencia. El deber empieza por saber cuál es el tuyo. Después te niegas a que te convenzan o te asusten para dejarlo.",
-    "today_es": "Escribe un deber que has estado evitando porque alguien dudó de ti o porque el costo parecía alto. Haz la primera parte antes del mediodía."
+    "title_es": "Confía en ti mismo",
+    "source_es": "Ralph Waldo Emerson, \"Confianza en uno mismo\" (Self-Reliance), Ensayos: primera serie, 1841 (traducción fiel al español del original inglés en Project Gutenberg)",
+    "quote_es": "Confía en ti mismo: todo corazón vibra con esa cuerda de hierro. Acepta el lugar que la divina providencia ha encontrado para ti, la sociedad de tus contemporáneos, el encadenamiento de los acontecimientos.",
+    "lesson_es": "Emerson escribió esto en 1841, cuando la mayoría de los estadounidenses todavía miraba a Europa para que le dijera qué pensar. Su respuesta fue dejar de esperar permiso. Ya sabes más de lo que te reconoces, y esa voz interior es la cuerda de hierro de la que habla. También dice que aceptes tu lugar. Naciste en este tiempo, con esta gente y con estos problemas por una razón. Deja de desear otra mano y juega con convicción la que te tocó.",
+    "today_es": "Elige una decisión que has ido aplazando porque querías que otro la tomara por ti. Tómala tú mismo hoy y actúa antes de que caiga la tarde."
   };
 
   var LANE_LABEL = {warrior:'Warrior',thinker:'Thinker',builder:'Builder',power:'Power',faith:'Faith',odyssey:'Odyssey'};
