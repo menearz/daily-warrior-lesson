@@ -74,25 +74,25 @@
   };
 
   var DEFAULT_LESSON = {
-    "date": "2026-10-20",
-    "title": "Trust Thyself",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/d/d5/Ralph_Waldo_Emerson_ca1857_retouched.jpg",
-    "imageAlt": "Ralph Waldo Emerson, photograph portrait from about 1857",
+    "date": "2026-10-21",
+    "title": "Measure the Climb",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/1/1b/Booker_T_Washington_retouched_flattened-crop.jpg",
+    "imageAlt": "Booker T. Washington, photograph portrait",
     "fallback": "./images/2026-09-04.jpg",
-    "source": "Ralph Waldo Emerson, \"Self-Reliance,\" Essays: First Series, 1841 (Project Gutenberg)",
-    "sourceUrl": "https://www.gutenberg.org/ebooks/16643",
-    "quote": "Trust thyself: every heart vibrates to that iron string. Accept the place the divine providence has found for you, the society of your contemporaries, the connection of events.",
-    "lesson": "Emerson wrote this in 1841, when most Americans still looked to Europe to tell them what to think. His answer was to stop waiting for permission. You already know more than you give yourself credit for, and that inner voice is the iron string he means. He also says to accept your place. You were born into this time, these people and these problems for a reason. Quit wishing for a different hand and play the one you were dealt with conviction.",
-    "today": "Pick one decision you have been putting off because you wanted someone else to make it for you. Make it yourself today and act on it before the evening.",
+    "source": "Booker T. Washington, Up from Slavery, Chapter II, \"Boyhood Days,\" 1901 (Project Gutenberg)",
+    "sourceUrl": "https://www.gutenberg.org/ebooks/2376",
+    "quote": "I have learned that success is to be measured not so much by the position that one has reached in life as by the obstacles which he has overcome while trying to succeed.",
+    "lesson": "Booker T. Washington was born into slavery in Virginia and worked in a salt furnace and a coal mine as a boy, fitting school in around the work. He went on to build Tuskegee Institute from almost nothing. When he looked back in 1901, he did not judge a man by the rung he stood on. He judged him by how much he had to climb to get there. Stop comparing your spot to someone who started higher. Count what you have pushed through, because that is the real score.",
+    "today": "Write down one obstacle you beat in the last year that nobody else saw. Then pick the next hard thing in front of you and take one step on it before noon.",
     "lanes": [
-      "thinker",
-      "builder"
+      "builder",
+      "thinker"
     ],
-    "title_es": "Confía en ti mismo",
-    "source_es": "Ralph Waldo Emerson, \"Confianza en uno mismo\" (Self-Reliance), Ensayos: primera serie, 1841 (traducción fiel al español del original inglés en Project Gutenberg)",
-    "quote_es": "Confía en ti mismo: todo corazón vibra con esa cuerda de hierro. Acepta el lugar que la divina providencia ha encontrado para ti, la sociedad de tus contemporáneos, el encadenamiento de los acontecimientos.",
-    "lesson_es": "Emerson escribió esto en 1841, cuando la mayoría de los estadounidenses todavía miraba a Europa para que le dijera qué pensar. Su respuesta fue dejar de esperar permiso. Ya sabes más de lo que te reconoces, y esa voz interior es la cuerda de hierro de la que habla. También dice que aceptes tu lugar. Naciste en este tiempo, con esta gente y con estos problemas por una razón. Deja de desear otra mano y juega con convicción la que te tocó.",
-    "today_es": "Elige una decisión que has ido aplazando porque querías que otro la tomara por ti. Tómala tú mismo hoy y actúa antes de que caiga la tarde."
+    "title_es": "Mide la subida",
+    "source_es": "Booker T. Washington, Up from Slavery (Ascenso desde la esclavitud), capítulo II, \"Días de infancia\", 1901 (traducción fiel al español del original inglés en Project Gutenberg)",
+    "quote_es": "He aprendido que el éxito no se mide tanto por la posición que uno ha alcanzado en la vida como por los obstáculos que ha superado mientras trataba de triunfar.",
+    "lesson_es": "Booker T. Washington nació esclavo en Virginia y de niño trabajó en un horno de sal y en una mina de carbón, estudiando cuando el trabajo lo permitía. Más tarde construyó el Instituto Tuskegee casi desde la nada. Cuando miró hacia atrás en 1901, no juzgaba a un hombre por el peldaño en el que estaba. Lo juzgaba por cuánto tuvo que subir para llegar ahí. Deja de comparar tu lugar con el de alguien que empezó más arriba. Cuenta lo que has superado, porque esa es la verdadera medida.",
+    "today_es": "Escribe un obstáculo que venciste en el último año y que nadie más vio. Luego elige la próxima cosa difícil que tienes delante y da un paso antes del mediodía."
   };
 
   var LANE_LABEL = {warrior:'Warrior',thinker:'Thinker',builder:'Builder',power:'Power',faith:'Faith',odyssey:'Odyssey'};
