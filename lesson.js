@@ -74,25 +74,25 @@
   };
 
   var DEFAULT_LESSON = {
-    "date": "2026-10-21",
-    "title": "Measure the Climb",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/1/1b/Booker_T_Washington_retouched_flattened-crop.jpg",
-    "imageAlt": "Booker T. Washington, photograph portrait",
+    "date": "2026-10-22",
+    "title": "Advance Confidently",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/f/f0/Benjamin_D._Maxham_-_Henry_David_Thoreau_-_Restored.jpg",
+    "imageAlt": "Henry David Thoreau, 1856 daguerreotype portrait by Benjamin D. Maxham (restored)",
     "fallback": "./images/2026-09-04.jpg",
-    "source": "Booker T. Washington, Up from Slavery, Chapter II, \"Boyhood Days,\" 1901 (Project Gutenberg)",
-    "sourceUrl": "https://www.gutenberg.org/ebooks/2376",
-    "quote": "I have learned that success is to be measured not so much by the position that one has reached in life as by the obstacles which he has overcome while trying to succeed.",
-    "lesson": "Booker T. Washington was born into slavery in Virginia and worked in a salt furnace and a coal mine as a boy, fitting school in around the work. He went on to build Tuskegee Institute from almost nothing. When he looked back in 1901, he did not judge a man by the rung he stood on. He judged him by how much he had to climb to get there. Stop comparing your spot to someone who started higher. Count what you have pushed through, because that is the real score.",
-    "today": "Write down one obstacle you beat in the last year that nobody else saw. Then pick the next hard thing in front of you and take one step on it before noon.",
+    "source": "Henry David Thoreau, Walden, \"Conclusion,\" 1854 (Project Gutenberg)",
+    "sourceUrl": "https://www.gutenberg.org/ebooks/205",
+    "quote": "I learned this, at least, by my experiment; that if one advances confidently in the direction of his dreams, and endeavors to live the life which he has imagined, he will meet with a success unexpected in common hours.",
+    "lesson": "In 1845 Thoreau built a small cabin by Walden Pond with his own hands and lived there for two years and two months. People called it a stunt. He called it an experiment, and this was the result he wrote down. He did not say the dream comes true because you wish for it. He said it pays off when you move toward it and actually live the life you pictured. Most people keep the dream in their head and wait for a sign. The ones who start walking find doors they could not see from the couch.",
+    "today": "Name the life you keep picturing in one sentence. Then do one thing before dinner that the person living that life would do today, even if it is small.",
     "lanes": [
       "builder",
       "thinker"
     ],
-    "title_es": "Mide la subida",
-    "source_es": "Booker T. Washington, Up from Slavery (Ascenso desde la esclavitud), capítulo II, \"Días de infancia\", 1901 (traducción fiel al español del original inglés en Project Gutenberg)",
-    "quote_es": "He aprendido que el éxito no se mide tanto por la posición que uno ha alcanzado en la vida como por los obstáculos que ha superado mientras trataba de triunfar.",
-    "lesson_es": "Booker T. Washington nació esclavo en Virginia y de niño trabajó en un horno de sal y en una mina de carbón, estudiando cuando el trabajo lo permitía. Más tarde construyó el Instituto Tuskegee casi desde la nada. Cuando miró hacia atrás en 1901, no juzgaba a un hombre por el peldaño en el que estaba. Lo juzgaba por cuánto tuvo que subir para llegar ahí. Deja de comparar tu lugar con el de alguien que empezó más arriba. Cuenta lo que has superado, porque esa es la verdadera medida.",
-    "today_es": "Escribe un obstáculo que venciste en el último año y que nadie más vio. Luego elige la próxima cosa difícil que tienes delante y da un paso antes del mediodía."
+    "title_es": "Avanza con confianza",
+    "source_es": "Henry David Thoreau, Walden, \"Conclusión\", 1854 (traducción fiel al español del original inglés en Project Gutenberg)",
+    "quote_es": "Aprendí esto, al menos, con mi experimento: que si uno avanza con confianza en la dirección de sus sueños, y se esfuerza por vivir la vida que ha imaginado, encontrará un éxito inesperado en las horas comunes.",
+    "lesson_es": "En 1845 Thoreau construyó con sus propias manos una pequeña cabaña junto al estanque de Walden y vivió allí dos años y dos meses. La gente lo llamó un capricho. Él lo llamó un experimento, y este fue el resultado que dejó escrito. No dijo que el sueño se cumple porque lo deseas. Dijo que da fruto cuando te mueves hacia él y de verdad vives la vida que imaginaste. La mayoría guarda el sueño en la cabeza y espera una señal. Los que empiezan a caminar encuentran puertas que no podían ver desde el sofá.",
+    "today_es": "Describe en una frase la vida que sigues imaginando. Luego haz antes de la cena una cosa que haría hoy la persona que vive esa vida, aunque sea pequeña."
   };
 
   var LANE_LABEL = {warrior:'Warrior',thinker:'Thinker',builder:'Builder',power:'Power',faith:'Faith',odyssey:'Odyssey'};
