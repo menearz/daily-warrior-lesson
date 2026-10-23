@@ -74,25 +74,25 @@
   };
 
   var DEFAULT_LESSON = {
-    "date": "2026-10-22",
-    "title": "Advance Confidently",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/f/f0/Benjamin_D._Maxham_-_Henry_David_Thoreau_-_Restored.jpg",
-    "imageAlt": "Henry David Thoreau, 1856 daguerreotype portrait by Benjamin D. Maxham (restored)",
+    "date": "2026-10-23",
+    "title": "The Unforgiving Minute",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/1/1c/Rudyard_Kipling_%28portrait%29.jpg",
+    "imageAlt": "Portrait photograph of Rudyard Kipling",
     "fallback": "./images/2026-09-04.jpg",
-    "source": "Henry David Thoreau, Walden, \"Conclusion,\" 1854 (Project Gutenberg)",
-    "sourceUrl": "https://www.gutenberg.org/ebooks/205",
-    "quote": "I learned this, at least, by my experiment; that if one advances confidently in the direction of his dreams, and endeavors to live the life which he has imagined, he will meet with a success unexpected in common hours.",
-    "lesson": "In 1845 Thoreau built a small cabin by Walden Pond with his own hands and lived there for two years and two months. People called it a stunt. He called it an experiment, and this was the result he wrote down. He did not say the dream comes true because you wish for it. He said it pays off when you move toward it and actually live the life you pictured. Most people keep the dream in their head and wait for a sign. The ones who start walking find doors they could not see from the couch.",
-    "today": "Name the life you keep picturing in one sentence. Then do one thing before dinner that the person living that life would do today, even if it is small.",
+    "source": "Rudyard Kipling, \"If—,\" Rewards and Fairies, 1910 (Project Gutenberg)",
+    "sourceUrl": "https://www.gutenberg.org/ebooks/556",
+    "quote": "If you can fill the unforgiving minute With sixty seconds' worth of distance run, Yours is the Earth and everything that's in it, And—which is more—you'll be a Man, my son!",
+    "lesson": "Kipling wrote this poem as advice from a father to his son, and these are its closing lines. A minute is unforgiving because it will not wait and it will not come back. You either use it or you lose it. Kipling's test for a man is simple: does he put real effort into each minute, or does he let time drift by? Most days are not lost in big failures. They are lost one wasted minute at a time, and they are won the same way.",
+    "today": "Pick one hour today and treat every minute of it as work that counts. No phone, no drifting. When the hour ends, write down what you got done.",
     "lanes": [
-      "builder",
-      "thinker"
+      "warrior",
+      "builder"
     ],
-    "title_es": "Avanza con confianza",
-    "source_es": "Henry David Thoreau, Walden, \"Conclusión\", 1854 (traducción fiel al español del original inglés en Project Gutenberg)",
-    "quote_es": "Aprendí esto, al menos, con mi experimento: que si uno avanza con confianza en la dirección de sus sueños, y se esfuerza por vivir la vida que ha imaginado, encontrará un éxito inesperado en las horas comunes.",
-    "lesson_es": "En 1845 Thoreau construyó con sus propias manos una pequeña cabaña junto al estanque de Walden y vivió allí dos años y dos meses. La gente lo llamó un capricho. Él lo llamó un experimento, y este fue el resultado que dejó escrito. No dijo que el sueño se cumple porque lo deseas. Dijo que da fruto cuando te mueves hacia él y de verdad vives la vida que imaginaste. La mayoría guarda el sueño en la cabeza y espera una señal. Los que empiezan a caminar encuentran puertas que no podían ver desde el sofá.",
-    "today_es": "Describe en una frase la vida que sigues imaginando. Luego haz antes de la cena una cosa que haría hoy la persona que vive esa vida, aunque sea pequeña."
+    "title_es": "El minuto implacable",
+    "source_es": "Rudyard Kipling, \"Si—\", Rewards and Fairies, 1910 (traducción fiel al español del original inglés en Project Gutenberg)",
+    "quote_es": "Si puedes llenar el minuto implacable con sesenta segundos de distancia recorrida, tuya es la Tierra y todo lo que hay en ella, y, lo que es más, ¡serás un Hombre, hijo mío!",
+    "lesson_es": "Kipling escribió este poema como consejo de un padre a su hijo, y estas son sus líneas finales. Un minuto es implacable porque no espera y no vuelve. O lo usas o lo pierdes. La prueba de Kipling para un hombre es sencilla: ¿pone esfuerzo real en cada minuto, o deja que el tiempo se le escape? La mayoría de los días no se pierden en grandes fracasos. Se pierden un minuto perdido a la vez, y se ganan de la misma manera.",
+    "today_es": "Elige hoy una hora y trata cada minuto de ella como trabajo que cuenta. Sin teléfono, sin distraerte. Cuando termine la hora, escribe lo que lograste."
   };
 
   var LANE_LABEL = {warrior:'Warrior',thinker:'Thinker',builder:'Builder',power:'Power',faith:'Faith',odyssey:'Odyssey'};
