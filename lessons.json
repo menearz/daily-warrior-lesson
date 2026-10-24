@@ -1,6 +1,27 @@
 {
   "lessons": [
     {
+      "date": "2026-10-24",
+      "title": "As Much Afraid of Me",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/1/1e/Ulysses_S_Grant_by_Brady%2C_c1864.jpg",
+      "imageAlt": "Mathew Brady portrait photograph of Ulysses S. Grant, about 1864",
+      "fallback": "./images/2026-09-04.jpg",
+      "source": "Ulysses S. Grant, Personal Memoirs of U. S. Grant, Chapter XVIII, 1885 (Project Gutenberg)",
+      "sourceUrl": "https://www.gutenberg.org/ebooks/4367",
+      "quote": "It occurred to me at once that Harris had been as much afraid of me as I had been of him. This was a view of the question I had never taken before; but it was one I never forgot afterwards.",
+      "lesson": "In 1861 Grant was a new colonel marching his regiment against an enemy camp in Missouri. As his men climbed the last hill, he said his heart was in his throat and he wished he were back in Illinois. He kept going anyway. When he reached the top, the enemy was gone. They had run. Grant saw that the other side was scared too, and he carried that lesson for the rest of the war. Fear tells you that you are the only one afraid. You almost never are.",
+      "today": "Name one person or task you have been dreading. Remind yourself the other side has worries too, then make the call or start the task before noon.",
+      "lanes": [
+        "warrior",
+        "thinker"
+      ],
+      "title_es": "Tan asustado de mí",
+      "source_es": "Ulysses S. Grant, Personal Memoirs of U. S. Grant, capítulo XVIII, 1885 (traducción fiel al español del original inglés en Project Gutenberg)",
+      "quote_es": "Se me ocurrió enseguida que Harris había tenido tanto miedo de mí como yo de él. Era una manera de ver la cuestión que nunca antes había considerado; pero fue una que nunca olvidé después.",
+      "lesson_es": "En 1861 Grant era un coronel nuevo que marchaba con su regimiento contra un campamento enemigo en Misuri. Mientras sus hombres subían la última colina, dijo que tenía el corazón en la garganta y que deseaba estar de vuelta en Illinois. Aun así siguió adelante. Cuando llegó a la cima, el enemigo ya no estaba. Habían huido. Grant vio que el otro lado también tenía miedo, y llevó esa lección el resto de la guerra. El miedo te dice que eres el único que tiene miedo. Casi nunca lo eres.",
+      "today_es": "Nombra a una persona o una tarea que has estado temiendo. Recuerda que el otro lado también tiene sus preocupaciones, y haz la llamada o empieza la tarea antes del mediodía."
+    },
+    {
       "date": "2026-10-23",
       "title": "The Unforgiving Minute",
       "image": "https://upload.wikimedia.org/wikipedia/commons/1/1c/Rudyard_Kipling_%28portrait%29.jpg",

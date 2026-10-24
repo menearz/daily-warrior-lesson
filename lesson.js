@@ -74,25 +74,25 @@
   };
 
   var DEFAULT_LESSON = {
-    "date": "2026-10-23",
-    "title": "The Unforgiving Minute",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/1/1c/Rudyard_Kipling_%28portrait%29.jpg",
-    "imageAlt": "Portrait photograph of Rudyard Kipling",
+    "date": "2026-10-24",
+    "title": "As Much Afraid of Me",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/1/1e/Ulysses_S_Grant_by_Brady%2C_c1864.jpg",
+    "imageAlt": "Mathew Brady portrait photograph of Ulysses S. Grant, about 1864",
     "fallback": "./images/2026-09-04.jpg",
-    "source": "Rudyard Kipling, \"If—,\" Rewards and Fairies, 1910 (Project Gutenberg)",
-    "sourceUrl": "https://www.gutenberg.org/ebooks/556",
-    "quote": "If you can fill the unforgiving minute With sixty seconds' worth of distance run, Yours is the Earth and everything that's in it, And—which is more—you'll be a Man, my son!",
-    "lesson": "Kipling wrote this poem as advice from a father to his son, and these are its closing lines. A minute is unforgiving because it will not wait and it will not come back. You either use it or you lose it. Kipling's test for a man is simple: does he put real effort into each minute, or does he let time drift by? Most days are not lost in big failures. They are lost one wasted minute at a time, and they are won the same way.",
-    "today": "Pick one hour today and treat every minute of it as work that counts. No phone, no drifting. When the hour ends, write down what you got done.",
+    "source": "Ulysses S. Grant, Personal Memoirs of U. S. Grant, Chapter XVIII, 1885 (Project Gutenberg)",
+    "sourceUrl": "https://www.gutenberg.org/ebooks/4367",
+    "quote": "It occurred to me at once that Harris had been as much afraid of me as I had been of him. This was a view of the question I had never taken before; but it was one I never forgot afterwards.",
+    "lesson": "In 1861 Grant was a new colonel marching his regiment against an enemy camp in Missouri. As his men climbed the last hill, he said his heart was in his throat and he wished he were back in Illinois. He kept going anyway. When he reached the top, the enemy was gone. They had run. Grant saw that the other side was scared too, and he carried that lesson for the rest of the war. Fear tells you that you are the only one afraid. You almost never are.",
+    "today": "Name one person or task you have been dreading. Remind yourself the other side has worries too, then make the call or start the task before noon.",
     "lanes": [
       "warrior",
-      "builder"
+      "thinker"
     ],
-    "title_es": "El minuto implacable",
-    "source_es": "Rudyard Kipling, \"Si—\", Rewards and Fairies, 1910 (traducción fiel al español del original inglés en Project Gutenberg)",
-    "quote_es": "Si puedes llenar el minuto implacable con sesenta segundos de distancia recorrida, tuya es la Tierra y todo lo que hay en ella, y, lo que es más, ¡serás un Hombre, hijo mío!",
-    "lesson_es": "Kipling escribió este poema como consejo de un padre a su hijo, y estas son sus líneas finales. Un minuto es implacable porque no espera y no vuelve. O lo usas o lo pierdes. La prueba de Kipling para un hombre es sencilla: ¿pone esfuerzo real en cada minuto, o deja que el tiempo se le escape? La mayoría de los días no se pierden en grandes fracasos. Se pierden un minuto perdido a la vez, y se ganan de la misma manera.",
-    "today_es": "Elige hoy una hora y trata cada minuto de ella como trabajo que cuenta. Sin teléfono, sin distraerte. Cuando termine la hora, escribe lo que lograste."
+    "title_es": "Tan asustado de mí",
+    "source_es": "Ulysses S. Grant, Personal Memoirs of U. S. Grant, capítulo XVIII, 1885 (traducción fiel al español del original inglés en Project Gutenberg)",
+    "quote_es": "Se me ocurrió enseguida que Harris había tenido tanto miedo de mí como yo de él. Era una manera de ver la cuestión que nunca antes había considerado; pero fue una que nunca olvidé después.",
+    "lesson_es": "En 1861 Grant era un coronel nuevo que marchaba con su regimiento contra un campamento enemigo en Misuri. Mientras sus hombres subían la última colina, dijo que tenía el corazón en la garganta y que deseaba estar de vuelta en Illinois. Aun así siguió adelante. Cuando llegó a la cima, el enemigo ya no estaba. Habían huido. Grant vio que el otro lado también tenía miedo, y llevó esa lección el resto de la guerra. El miedo te dice que eres el único que tiene miedo. Casi nunca lo eres.",
+    "today_es": "Nombra a una persona o una tarea que has estado temiendo. Recuerda que el otro lado también tiene sus preocupaciones, y haz la llamada o empieza la tarea antes del mediodía."
   };
 
   var LANE_LABEL = {warrior:'Warrior',thinker:'Thinker',builder:'Builder',power:'Power',faith:'Faith',odyssey:'Odyssey'};
