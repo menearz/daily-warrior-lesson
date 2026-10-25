@@ -74,25 +74,25 @@
   };
 
   var DEFAULT_LESSON = {
-    "date": "2026-10-24",
-    "title": "As Much Afraid of Me",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/1/1e/Ulysses_S_Grant_by_Brady%2C_c1864.jpg",
-    "imageAlt": "Mathew Brady portrait photograph of Ulysses S. Grant, about 1864",
+    "date": "2026-10-25",
+    "title": "Die Only Once",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/a/a2/Shakespeare.jpg",
+    "imageAlt": "The Chandos portrait of William Shakespeare, oil painting, about 1600 to 1610",
     "fallback": "./images/2026-09-04.jpg",
-    "source": "Ulysses S. Grant, Personal Memoirs of U. S. Grant, Chapter XVIII, 1885 (Project Gutenberg)",
-    "sourceUrl": "https://www.gutenberg.org/ebooks/4367",
-    "quote": "It occurred to me at once that Harris had been as much afraid of me as I had been of him. This was a view of the question I had never taken before; but it was one I never forgot afterwards.",
-    "lesson": "In 1861 Grant was a new colonel marching his regiment against an enemy camp in Missouri. As his men climbed the last hill, he said his heart was in his throat and he wished he were back in Illinois. He kept going anyway. When he reached the top, the enemy was gone. They had run. Grant saw that the other side was scared too, and he carried that lesson for the rest of the war. Fear tells you that you are the only one afraid. You almost never are.",
-    "today": "Name one person or task you have been dreading. Remind yourself the other side has worries too, then make the call or start the task before noon.",
+    "source": "William Shakespeare, Julius Caesar, Act II, Scene 2, about 1599 (Project Gutenberg)",
+    "sourceUrl": "https://www.gutenberg.org/ebooks/1522",
+    "quote": "Cowards die many times before their deaths; The valiant never taste of death but once.",
+    "lesson": "In the play, Caesar's wife Calphurnia begs him to stay home. She has had bad dreams and the city is full of omens. Caesar answers with these lines. Shakespeare gives him a hard truth about fear. The coward lives through the bad outcome again and again in his head, long before it comes, and often it never comes at all. The brave man takes the hit once, if it comes, and spends the rest of his time living. Worry does not protect you. It only makes you pay for the same trouble many times.",
+    "today": "Write down the one thing you keep replaying in your head. Decide the next step you would take if it happened, then put it away and get to work.",
     "lanes": [
       "warrior",
       "thinker"
     ],
-    "title_es": "Tan asustado de mí",
-    "source_es": "Ulysses S. Grant, Personal Memoirs of U. S. Grant, capítulo XVIII, 1885 (traducción fiel al español del original inglés en Project Gutenberg)",
-    "quote_es": "Se me ocurrió enseguida que Harris había tenido tanto miedo de mí como yo de él. Era una manera de ver la cuestión que nunca antes había considerado; pero fue una que nunca olvidé después.",
-    "lesson_es": "En 1861 Grant era un coronel nuevo que marchaba con su regimiento contra un campamento enemigo en Misuri. Mientras sus hombres subían la última colina, dijo que tenía el corazón en la garganta y que deseaba estar de vuelta en Illinois. Aun así siguió adelante. Cuando llegó a la cima, el enemigo ya no estaba. Habían huido. Grant vio que el otro lado también tenía miedo, y llevó esa lección el resto de la guerra. El miedo te dice que eres el único que tiene miedo. Casi nunca lo eres.",
-    "today_es": "Nombra a una persona o una tarea que has estado temiendo. Recuerda que el otro lado también tiene sus preocupaciones, y haz la llamada o empieza la tarea antes del mediodía."
+    "title_es": "Morir solo una vez",
+    "source_es": "William Shakespeare, Julio César, acto II, escena 2, hacia 1599 (traducción fiel al español del original inglés en Project Gutenberg)",
+    "quote_es": "Los cobardes mueren muchas veces antes de su muerte; los valientes nunca prueban la muerte más que una vez.",
+    "lesson_es": "En la obra, Calpurnia, la esposa de César, le ruega que se quede en casa. Ha tenido malos sueños y la ciudad está llena de presagios. César le responde con estas líneas. Shakespeare le da una verdad dura sobre el miedo. El cobarde vive el mal resultado una y otra vez en su cabeza, mucho antes de que llegue, y muchas veces nunca llega. El valiente recibe el golpe una sola vez, si llega, y pasa el resto de su tiempo viviendo. Preocuparte no te protege. Solo te hace pagar el mismo problema muchas veces.",
+    "today_es": "Escribe la única cosa que no dejas de repetir en tu cabeza. Decide el siguiente paso que darías si pasara, luego déjala a un lado y ponte a trabajar."
   };
 
   var LANE_LABEL = {warrior:'Warrior',thinker:'Thinker',builder:'Builder',power:'Power',faith:'Faith',odyssey:'Odyssey'};
