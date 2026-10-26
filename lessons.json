@@ -1,6 +1,27 @@
 {
   "lessons": [
     {
+      "date": "2026-10-26",
+      "title": "Fought Uphill",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/3/3e/Samuel_Smiles_by_Sir_George_Reid.jpg",
+      "imageAlt": "Portrait of Samuel Smiles by Sir George Reid, oil painting",
+      "fallback": "./images/2026-09-04.jpg",
+      "source": "Samuel Smiles, Self-Help, Chapter XI, \"Self-Culture: Facilities and Difficulties,\" 1859 (Project Gutenberg)",
+      "sourceUrl": "https://www.gutenberg.org/ebooks/935",
+      "quote": "The battle of life is, in most cases, fought up-hill; and to win it without a struggle were perhaps to win it without honour. If there were no difficulties there would be no success; if there were nothing to struggle for, there would be nothing to be achieved.",
+      "lesson": "Samuel Smiles was a Scottish doctor and newspaper editor who filled a whole book with stories of plain people who built great things through hard work. This line comes from his chapter on hardship. His point is simple. The hill is the normal road, not a sign you took a wrong turn. If a win came with no fight, it would not mean much, and you would not grow from it. The hard part of your work is where the value is made. Stop waiting for the road to flatten out and start climbing.",
+      "today": "Pick the hardest task on your list today and do it first, before anything easy. When it pushes back, keep going for ten more minutes.",
+      "lanes": [
+        "builder",
+        "warrior"
+      ],
+      "title_es": "Cuesta arriba",
+      "source_es": "Samuel Smiles, ¡Ayúdate! (Self-Help), capítulo XI, \"La cultura de uno mismo: facilidades y dificultades\", 1859 (traducción fiel al español del original inglés en Project Gutenberg)",
+      "quote_es": "La batalla de la vida se libra, en la mayoría de los casos, cuesta arriba; y ganarla sin lucha sería quizá ganarla sin honor. Si no hubiera dificultades no habría éxito; si no hubiera nada por qué luchar, no habría nada que lograr.",
+      "lesson_es": "Samuel Smiles fue un médico y editor de periódico escocés que llenó un libro entero con historias de gente sencilla que construyó grandes cosas con trabajo duro. Esta línea viene de su capítulo sobre las dificultades. Su punto es sencillo. La cuesta es el camino normal, no una señal de que te equivocaste. Si una victoria llegara sin pelea, no valdría mucho y no crecerías con ella. La parte difícil de tu trabajo es donde se crea el valor. Deja de esperar a que el camino se vuelva plano y empieza a subir.",
+      "today_es": "Elige hoy la tarea más difícil de tu lista y hazla primero, antes que cualquier cosa fácil. Cuando se resista, sigue diez minutos más."
+    },
+    {
       "date": "2026-10-25",
       "title": "Die Only Once",
       "image": "https://upload.wikimedia.org/wikipedia/commons/a/a2/Shakespeare.jpg",

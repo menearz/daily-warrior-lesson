@@ -74,25 +74,25 @@
   };
 
   var DEFAULT_LESSON = {
-    "date": "2026-10-25",
-    "title": "Die Only Once",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/a/a2/Shakespeare.jpg",
-    "imageAlt": "The Chandos portrait of William Shakespeare, oil painting, about 1600 to 1610",
+    "date": "2026-10-26",
+    "title": "Fought Uphill",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/3/3e/Samuel_Smiles_by_Sir_George_Reid.jpg",
+    "imageAlt": "Portrait of Samuel Smiles by Sir George Reid, oil painting",
     "fallback": "./images/2026-09-04.jpg",
-    "source": "William Shakespeare, Julius Caesar, Act II, Scene 2, about 1599 (Project Gutenberg)",
-    "sourceUrl": "https://www.gutenberg.org/ebooks/1522",
-    "quote": "Cowards die many times before their deaths; The valiant never taste of death but once.",
-    "lesson": "In the play, Caesar's wife Calphurnia begs him to stay home. She has had bad dreams and the city is full of omens. Caesar answers with these lines. Shakespeare gives him a hard truth about fear. The coward lives through the bad outcome again and again in his head, long before it comes, and often it never comes at all. The brave man takes the hit once, if it comes, and spends the rest of his time living. Worry does not protect you. It only makes you pay for the same trouble many times.",
-    "today": "Write down the one thing you keep replaying in your head. Decide the next step you would take if it happened, then put it away and get to work.",
+    "source": "Samuel Smiles, Self-Help, Chapter XI, \"Self-Culture: Facilities and Difficulties,\" 1859 (Project Gutenberg)",
+    "sourceUrl": "https://www.gutenberg.org/ebooks/935",
+    "quote": "The battle of life is, in most cases, fought up-hill; and to win it without a struggle were perhaps to win it without honour. If there were no difficulties there would be no success; if there were nothing to struggle for, there would be nothing to be achieved.",
+    "lesson": "Samuel Smiles was a Scottish doctor and newspaper editor who filled a whole book with stories of plain people who built great things through hard work. This line comes from his chapter on hardship. His point is simple. The hill is the normal road, not a sign you took a wrong turn. If a win came with no fight, it would not mean much, and you would not grow from it. The hard part of your work is where the value is made. Stop waiting for the road to flatten out and start climbing.",
+    "today": "Pick the hardest task on your list today and do it first, before anything easy. When it pushes back, keep going for ten more minutes.",
     "lanes": [
-      "warrior",
-      "thinker"
+      "builder",
+      "warrior"
     ],
-    "title_es": "Morir solo una vez",
-    "source_es": "William Shakespeare, Julio César, acto II, escena 2, hacia 1599 (traducción fiel al español del original inglés en Project Gutenberg)",
-    "quote_es": "Los cobardes mueren muchas veces antes de su muerte; los valientes nunca prueban la muerte más que una vez.",
-    "lesson_es": "En la obra, Calpurnia, la esposa de César, le ruega que se quede en casa. Ha tenido malos sueños y la ciudad está llena de presagios. César le responde con estas líneas. Shakespeare le da una verdad dura sobre el miedo. El cobarde vive el mal resultado una y otra vez en su cabeza, mucho antes de que llegue, y muchas veces nunca llega. El valiente recibe el golpe una sola vez, si llega, y pasa el resto de su tiempo viviendo. Preocuparte no te protege. Solo te hace pagar el mismo problema muchas veces.",
-    "today_es": "Escribe la única cosa que no dejas de repetir en tu cabeza. Decide el siguiente paso que darías si pasara, luego déjala a un lado y ponte a trabajar."
+    "title_es": "Cuesta arriba",
+    "source_es": "Samuel Smiles, ¡Ayúdate! (Self-Help), capítulo XI, \"La cultura de uno mismo: facilidades y dificultades\", 1859 (traducción fiel al español del original inglés en Project Gutenberg)",
+    "quote_es": "La batalla de la vida se libra, en la mayoría de los casos, cuesta arriba; y ganarla sin lucha sería quizá ganarla sin honor. Si no hubiera dificultades no habría éxito; si no hubiera nada por qué luchar, no habría nada que lograr.",
+    "lesson_es": "Samuel Smiles fue un médico y editor de periódico escocés que llenó un libro entero con historias de gente sencilla que construyó grandes cosas con trabajo duro. Esta línea viene de su capítulo sobre las dificultades. Su punto es sencillo. La cuesta es el camino normal, no una señal de que te equivocaste. Si una victoria llegara sin pelea, no valdría mucho y no crecerías con ella. La parte difícil de tu trabajo es donde se crea el valor. Deja de esperar a que el camino se vuelva plano y empieza a subir.",
+    "today_es": "Elige hoy la tarea más difícil de tu lista y hazla primero, antes que cualquier cosa fácil. Cuando se resista, sigue diez minutos más."
   };
 
   var LANE_LABEL = {warrior:'Warrior',thinker:'Thinker',builder:'Builder',power:'Power',faith:'Faith',odyssey:'Odyssey'};
