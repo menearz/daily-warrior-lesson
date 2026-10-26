@@ -367,3 +367,29 @@ test('paywall flag off hides subscribe entry points', () => {
   assert.match(read('plans.html'), /data-k="included"/);
   assert.match(read('plans.html'), /window\.DW_PAYWALL_ENABLED !== true/);
 });
+
+test('forge.html free-testing FORGE_GATE and start() prefer sign-in while paywall is off', () => {
+  const html = read('forge.html');
+  assert.match(html, /Free testing \(Zachary, 2026-10-19\)/);
+  assert.match(html, /var FORGE_GATE_ON = \{/);
+  assert.match(html, /var FORGE_GATE_OFF = \{/);
+  assert.match(html, /var FORGE_GATE = \(window\.DW_PAYWALL_ENABLED === true\) \? FORGE_GATE_ON : FORGE_GATE_OFF;/);
+  assert.match(html, /Create an account first\. Then you can answer the Forge questions\./);
+  assert.match(html, /Sign in to answer the questions and save your path\./);
+  assert.match(html, /We could not open the questions for this account\. Sign in again and try once more\./);
+  assert.match(html, /Primero crea una cuenta\. Luego puedes responder las preguntas de La Forja\./);
+  assert.match(html, /Entra para responder las preguntas y guardar tu camino\./);
+  assert.match(html, /No pudimos abrir las preguntas para esta cuenta\. Entra de nuevo e inténtalo otra vez\./);
+  // Subscriber strings kept for paywall-on.
+  assert.match(html, /The Forge questions open for subscribers once accounts open\./);
+  assert.match(html, /Sign in with a subscription to answer the questions\./);
+  assert.match(html, /The questions are part of a subscription\. See the plans to start one\./);
+  // start() chooses href by paywall flag (no signup.html in this repo).
+  assert.match(html, /var paywall = window\.DW_PAYWALL_ENABLED === true;/);
+  assert.match(html, /var closedHref = paywall \? '\.\/plans\.html' : '\.\/signin\.html';/);
+  assert.match(html, /var planHref = paywall \? '\.\/plans\.html' : '\.\/signin\.html';/);
+  assert.match(html, /showGate\('closed', closedHref\)/);
+  assert.match(html, /showGate\('signin', '\.\/signin\.html'\)/);
+  assert.doesNotMatch(html, /signup\.html/);
+  assert.match(read('config.js'), /^window\.DW_PAYWALL_ENABLED = false;$/m);
+});
