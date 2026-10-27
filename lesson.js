@@ -74,25 +74,25 @@
   };
 
   var DEFAULT_LESSON = {
-    "date": "2026-10-26",
-    "title": "Fought Uphill",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/3/3e/Samuel_Smiles_by_Sir_George_Reid.jpg",
-    "imageAlt": "Portrait of Samuel Smiles by Sir George Reid, oil painting",
+    "date": "2026-10-27",
+    "title": "Bestir Yourself",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/8/87/Joseph_Siffrein_Duplessis_-_Benjamin_Franklin_-_Google_Art_Project.jpg",
+    "imageAlt": "Portrait of Benjamin Franklin by Joseph Siffred Duplessis, oil painting",
     "fallback": "./images/2026-09-04.jpg",
-    "source": "Samuel Smiles, Self-Help, Chapter XI, \"Self-Culture: Facilities and Difficulties,\" 1859 (Project Gutenberg)",
-    "sourceUrl": "https://www.gutenberg.org/ebooks/935",
-    "quote": "The battle of life is, in most cases, fought up-hill; and to win it without a struggle were perhaps to win it without honour. If there were no difficulties there would be no success; if there were nothing to struggle for, there would be nothing to be achieved.",
-    "lesson": "Samuel Smiles was a Scottish doctor and newspaper editor who filled a whole book with stories of plain people who built great things through hard work. This line comes from his chapter on hardship. His point is simple. The hill is the normal road, not a sign you took a wrong turn. If a win came with no fight, it would not mean much, and you would not grow from it. The hard part of your work is where the value is made. Stop waiting for the road to flatten out and start climbing.",
-    "today": "Pick the hardest task on your list today and do it first, before anything easy. When it pushes back, keep going for ten more minutes.",
+    "source": "Benjamin Franklin, The Way to Wealth (Father Abraham's speech, first printed in Poor Richard's Almanack for 1758), W. and T. Darton edition, London, 1805 (Project Gutenberg)",
+    "sourceUrl": "https://www.gutenberg.org/ebooks/43855",
+    "quote": "So what signifies wishing and hoping for better times? We may make these times better, if we bestir ourselves.",
+    "lesson": "Benjamin Franklin was a printer who taught himself almost everything he knew and became one of the founders of the United States. In The Way to Wealth, an old man named Father Abraham answers a crowd that is complaining about hard times. He tells them that wishing for things to change does nothing. People who stir themselves and get to work are the ones who make their own times better. Waiting for a better market, a better boss or a better mood is still waiting. You can't control the times. You can control what you do with today.",
+    "today": "Write down one thing you have been waiting on to get better. Then do one small action on it before noon, without waiting for anyone's help.",
     "lanes": [
       "builder",
       "warrior"
     ],
-    "title_es": "Cuesta arriba",
-    "source_es": "Samuel Smiles, ¡Ayúdate! (Self-Help), capítulo XI, \"La cultura de uno mismo: facilidades y dificultades\", 1859 (traducción fiel al español del original inglés en Project Gutenberg)",
-    "quote_es": "La batalla de la vida se libra, en la mayoría de los casos, cuesta arriba; y ganarla sin lucha sería quizá ganarla sin honor. Si no hubiera dificultades no habría éxito; si no hubiera nada por qué luchar, no habría nada que lograr.",
-    "lesson_es": "Samuel Smiles fue un médico y editor de periódico escocés que llenó un libro entero con historias de gente sencilla que construyó grandes cosas con trabajo duro. Esta línea viene de su capítulo sobre las dificultades. Su punto es sencillo. La cuesta es el camino normal, no una señal de que te equivocaste. Si una victoria llegara sin pelea, no valdría mucho y no crecerías con ella. La parte difícil de tu trabajo es donde se crea el valor. Deja de esperar a que el camino se vuelva plano y empieza a subir.",
-    "today_es": "Elige hoy la tarea más difícil de tu lista y hazla primero, antes que cualquier cosa fácil. Cuando se resista, sigue diez minutos más."
+    "title_es": "Ponte en marcha",
+    "source_es": "Benjamin Franklin, El camino de la riqueza (The Way to Wealth), discurso del Padre Abraham publicado por primera vez en el Almanaque del Pobre Richard de 1758, edición de W. y T. Darton, Londres, 1805 (traducción fiel al español del original inglés en Project Gutenberg)",
+    "quote_es": "Entonces, ¿de qué sirve desear y esperar tiempos mejores? Podemos hacer mejores estos tiempos si nos ponemos en marcha.",
+    "lesson_es": "Benjamin Franklin fue un impresor que aprendió casi todo por su cuenta y llegó a ser uno de los fundadores de Estados Unidos. En El camino de la riqueza, un anciano llamado el Padre Abraham responde a una multitud que se queja de los tiempos difíciles. Les dice que desear que las cosas cambien no sirve de nada. Quienes se ponen en marcha y se ponen a trabajar son los que mejoran sus propios tiempos. Esperar un mejor mercado, un mejor jefe o un mejor ánimo sigue siendo esperar. No puedes controlar los tiempos. Sí puedes controlar lo que haces con el día de hoy.",
+    "today_es": "Escribe una cosa que has estado esperando que mejore. Luego haz una pequeña acción sobre ella antes del mediodía, sin esperar la ayuda de nadie."
   };
 
   var LANE_LABEL = {warrior:'Warrior',thinker:'Thinker',builder:'Builder',power:'Power',faith:'Faith',odyssey:'Odyssey'};
