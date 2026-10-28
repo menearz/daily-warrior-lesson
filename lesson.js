@@ -74,25 +74,25 @@
   };
 
   var DEFAULT_LESSON = {
-    "date": "2026-10-27",
-    "title": "Bestir Yourself",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/8/87/Joseph_Siffrein_Duplessis_-_Benjamin_Franklin_-_Google_Art_Project.jpg",
-    "imageAlt": "Portrait of Benjamin Franklin by Joseph Siffred Duplessis, oil painting",
+    "date": "2026-10-28",
+    "title": "Found His Work",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/2/2b/Thomas_Carlyle_by_James_McNeill_Whistler.jpg",
+    "imageAlt": "Portrait of Thomas Carlyle by James McNeill Whistler, oil painting",
     "fallback": "./images/2026-09-04.jpg",
-    "source": "Benjamin Franklin, The Way to Wealth (Father Abraham's speech, first printed in Poor Richard's Almanack for 1758), W. and T. Darton edition, London, 1805 (Project Gutenberg)",
-    "sourceUrl": "https://www.gutenberg.org/ebooks/43855",
-    "quote": "So what signifies wishing and hoping for better times? We may make these times better, if we bestir ourselves.",
-    "lesson": "Benjamin Franklin was a printer who taught himself almost everything he knew and became one of the founders of the United States. In The Way to Wealth, an old man named Father Abraham answers a crowd that is complaining about hard times. He tells them that wishing for things to change does nothing. People who stir themselves and get to work are the ones who make their own times better. Waiting for a better market, a better boss or a better mood is still waiting. You can't control the times. You can control what you do with today.",
-    "today": "Write down one thing you have been waiting on to get better. Then do one small action on it before noon, without waiting for anyone's help.",
+    "source": "Thomas Carlyle, Past and Present, Book III, Chapter XI, \"Labour,\" 1843 (Project Gutenberg)",
+    "sourceUrl": "https://www.gutenberg.org/ebooks/26159",
+    "quote": "Blessed is he who has found his work; let him ask no other blessedness.",
+    "lesson": "Thomas Carlyle was the son of a Scottish stonemason who walked to university and became one of the best known writers of his time. In Past and Present he looked at a country full of idle men and unhappy workers. He said there is always hope in a man who actually and earnestly works, and only despair in idleness. A person who has found real work to do does not need to go looking for happiness somewhere else. The work drains off the worry, the way a stream turns a swamp into a green meadow. You don't need to find yourself first. Find the work in front of you and do it well.",
+    "today": "Pick the one task today that matters most to your future. Give it a full hour of honest effort before you check your phone or messages.",
     "lanes": [
       "builder",
-      "warrior"
+      "thinker"
     ],
-    "title_es": "Ponte en marcha",
-    "source_es": "Benjamin Franklin, El camino de la riqueza (The Way to Wealth), discurso del Padre Abraham publicado por primera vez en el Almanaque del Pobre Richard de 1758, edición de W. y T. Darton, Londres, 1805 (traducción fiel al español del original inglés en Project Gutenberg)",
-    "quote_es": "Entonces, ¿de qué sirve desear y esperar tiempos mejores? Podemos hacer mejores estos tiempos si nos ponemos en marcha.",
-    "lesson_es": "Benjamin Franklin fue un impresor que aprendió casi todo por su cuenta y llegó a ser uno de los fundadores de Estados Unidos. En El camino de la riqueza, un anciano llamado el Padre Abraham responde a una multitud que se queja de los tiempos difíciles. Les dice que desear que las cosas cambien no sirve de nada. Quienes se ponen en marcha y se ponen a trabajar son los que mejoran sus propios tiempos. Esperar un mejor mercado, un mejor jefe o un mejor ánimo sigue siendo esperar. No puedes controlar los tiempos. Sí puedes controlar lo que haces con el día de hoy.",
-    "today_es": "Escribe una cosa que has estado esperando que mejore. Luego haz una pequeña acción sobre ella antes del mediodía, sin esperar la ayuda de nadie."
+    "title_es": "Encontró su obra",
+    "source_es": "Thomas Carlyle, Pasado y presente (Past and Present), Libro III, Capítulo XI, \"El trabajo\" (Labour), 1843 (traducción fiel al español del original inglés en Project Gutenberg)",
+    "quote_es": "Bienaventurado aquel que ha encontrado su obra; que no pida otra bienaventuranza.",
+    "lesson_es": "Thomas Carlyle era hijo de un cantero escocés, fue caminando a la universidad y llegó a ser uno de los escritores más conocidos de su tiempo. En Pasado y presente miró un país lleno de hombres ociosos y trabajadores infelices. Dijo que siempre hay esperanza en un hombre que trabaja de verdad y con empeño, y solo desesperación en la ociosidad. Una persona que ha encontrado un trabajo real que hacer no necesita salir a buscar la felicidad en otra parte. El trabajo drena la preocupación, como un arroyo que convierte un pantano en un prado verde. No necesitas encontrarte a ti mismo primero. Encuentra el trabajo que tienes delante y hazlo bien.",
+    "today_es": "Elige la tarea de hoy que más importa para tu futuro. Dale una hora completa de esfuerzo honesto antes de revisar tu teléfono o tus mensajes."
   };
 
   var LANE_LABEL = {warrior:'Warrior',thinker:'Thinker',builder:'Builder',power:'Power',faith:'Faith',odyssey:'Odyssey'};
