@@ -74,25 +74,25 @@
   };
 
   var DEFAULT_LESSON = {
-    "date": "2026-10-28",
-    "title": "Found His Work",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/2/2b/Thomas_Carlyle_by_James_McNeill_Whistler.jpg",
-    "imageAlt": "Portrait of Thomas Carlyle by James McNeill Whistler, oil painting",
+    "date": "2026-10-29",
+    "title": "Up and Doing",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/4/46/Henry_Wadsworth_Longfellow.jpg",
+    "imageAlt": "Portrait of Henry Wadsworth Longfellow, 19th century print after a painting by P. Krämer",
     "fallback": "./images/2026-09-04.jpg",
-    "source": "Thomas Carlyle, Past and Present, Book III, Chapter XI, \"Labour,\" 1843 (Project Gutenberg)",
-    "sourceUrl": "https://www.gutenberg.org/ebooks/26159",
-    "quote": "Blessed is he who has found his work; let him ask no other blessedness.",
-    "lesson": "Thomas Carlyle was the son of a Scottish stonemason who walked to university and became one of the best known writers of his time. In Past and Present he looked at a country full of idle men and unhappy workers. He said there is always hope in a man who actually and earnestly works, and only despair in idleness. A person who has found real work to do does not need to go looking for happiness somewhere else. The work drains off the worry, the way a stream turns a swamp into a green meadow. You don't need to find yourself first. Find the work in front of you and do it well.",
-    "today": "Pick the one task today that matters most to your future. Give it a full hour of honest effort before you check your phone or messages.",
+    "source": "Henry Wadsworth Longfellow, \"A Psalm of Life,\" 1838, closing stanza, in The Complete Poetical Works of Henry Wadsworth Longfellow (Project Gutenberg)",
+    "sourceUrl": "https://www.gutenberg.org/ebooks/1365",
+    "quote": "Let us, then, be up and doing, With a heart for any fate; Still achieving, still pursuing, Learn to labor and to wait.",
+    "lesson": "Longfellow wrote this poem as a young professor, a few years after his first wife died. He had every reason to sit still and grieve. Instead he wrote that life is real and earnest, and that we should act in the living present. These are the closing lines. He asks for two things that seem to pull against each other. Be up and doing, and keep pushing. But also learn to wait, because real results take time. Work hard today, and don't quit when the payoff is slow to show up. Doing and waiting are both part of the job.",
+    "today": "Pick one long-term goal that feels slow right now. Do one real piece of work on it today, then let it be without checking for results.",
     "lanes": [
       "builder",
-      "thinker"
+      "warrior"
     ],
-    "title_es": "Encontró su obra",
-    "source_es": "Thomas Carlyle, Pasado y presente (Past and Present), Libro III, Capítulo XI, \"El trabajo\" (Labour), 1843 (traducción fiel al español del original inglés en Project Gutenberg)",
-    "quote_es": "Bienaventurado aquel que ha encontrado su obra; que no pida otra bienaventuranza.",
-    "lesson_es": "Thomas Carlyle era hijo de un cantero escocés, fue caminando a la universidad y llegó a ser uno de los escritores más conocidos de su tiempo. En Pasado y presente miró un país lleno de hombres ociosos y trabajadores infelices. Dijo que siempre hay esperanza en un hombre que trabaja de verdad y con empeño, y solo desesperación en la ociosidad. Una persona que ha encontrado un trabajo real que hacer no necesita salir a buscar la felicidad en otra parte. El trabajo drena la preocupación, como un arroyo que convierte un pantano en un prado verde. No necesitas encontrarte a ti mismo primero. Encuentra el trabajo que tienes delante y hazlo bien.",
-    "today_es": "Elige la tarea de hoy que más importa para tu futuro. Dale una hora completa de esfuerzo honesto antes de revisar tu teléfono o tus mensajes."
+    "title_es": "En pie y en marcha",
+    "source_es": "Henry Wadsworth Longfellow, \"Un salmo de la vida\" (A Psalm of Life), 1838, estrofa final, en The Complete Poetical Works of Henry Wadsworth Longfellow (traducción fiel al español del original inglés en Project Gutenberg)",
+    "quote_es": "Pongámonos, pues, en pie y en marcha, con un corazón dispuesto a cualquier destino; siempre logrando, siempre persiguiendo, aprendamos a trabajar y a esperar.",
+    "lesson_es": "Longfellow escribió este poema siendo un profesor joven, pocos años después de la muerte de su primera esposa. Tenía todas las razones para quedarse quieto y llorar. En cambio, escribió que la vida es real y seria, y que debemos actuar en el presente vivo. Estos son los versos finales. Pide dos cosas que parecen tirar en sentidos opuestos. Ponte en pie y en marcha, y sigue empujando. Pero aprende también a esperar, porque los resultados reales toman tiempo. Trabaja duro hoy y no abandones cuando la recompensa tarde en llegar. Hacer y esperar son parte del mismo trabajo.",
+    "today_es": "Elige una meta a largo plazo que hoy se sienta lenta. Haz hoy un trabajo real en ella y luego déjala estar sin revisar si ya hay resultados."
   };
 
   var LANE_LABEL = {warrior:'Warrior',thinker:'Thinker',builder:'Builder',power:'Power',faith:'Faith',odyssey:'Odyssey'};
