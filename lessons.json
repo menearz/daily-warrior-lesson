@@ -1,6 +1,27 @@
 {
   "lessons": [
     {
+      "date": "2026-10-30",
+      "title": "Captain of My Soul",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/5/55/Portrait_of_William_Ernest_Henley.jpg",
+      "imageAlt": "Portrait of the English poet William Ernest Henley",
+      "fallback": "./images/2026-09-04.jpg",
+      "source": "William Ernest Henley, Echoes IV (later titled \"Invictus\"), dated 1875, closing stanza, in Poems, David Nutt edition, 1907 (Project Gutenberg)",
+      "sourceUrl": "https://www.gutenberg.org/ebooks/1568",
+      "quote": "It matters not how strait the gate, How charged with punishments the scroll, I am the master of my fate: I am the captain of my soul.",
+      "lesson": "Henley lost part of one leg to tuberculosis as a teenager. A few years later he spent long months in an Edinburgh hospital while doctors fought to save the other one. That is where these lines come from. He could not choose his illness, his pain, or how long he would lie in that bed. He refused to let any of it decide who he was. The gate may be narrow and the list of troubles long. You still decide how you carry them. Circumstances can hurt you. They do not get to steer you.",
+      "today": "Name one hard thing in your life that you did not choose. Then choose one action today that shows you are still the one steering, and do it.",
+      "lanes": [
+        "warrior",
+        "thinker"
+      ],
+      "title_es": "Capitán de mi alma",
+      "source_es": "William Ernest Henley, Ecos IV (titulado después \"Invictus\"), fechado en 1875, estrofa final, en Poems, edición de David Nutt, 1907 (traducción fiel al español del original inglés en Project Gutenberg)",
+      "quote_es": "No importa cuán estrecha sea la puerta, cuán cargada de castigos la sentencia, yo soy el amo de mi destino: yo soy el capitán de mi alma.",
+      "lesson_es": "Henley perdió parte de una pierna por la tuberculosis cuando era adolescente. Pocos años después pasó largos meses en un hospital de Edimburgo mientras los médicos luchaban por salvarle la otra. De ahí salen estos versos. No podía elegir su enfermedad, su dolor ni cuánto tiempo estaría en esa cama. Se negó a dejar que nada de eso decidiera quién era. La puerta puede ser estrecha y la lista de problemas larga. Tú sigues decidiendo cómo cargarlos. Las circunstancias pueden herirte. No tienen derecho a llevar el timón.",
+      "today_es": "Nombra una cosa difícil en tu vida que no elegiste. Luego elige una acción hoy que muestre que sigues llevando el timón, y hazla."
+    },
+    {
       "date": "2026-10-29",
       "title": "Up and Doing",
       "image": "https://upload.wikimedia.org/wikipedia/commons/4/46/Henry_Wadsworth_Longfellow.jpg",

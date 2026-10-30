@@ -74,25 +74,25 @@
   };
 
   var DEFAULT_LESSON = {
-    "date": "2026-10-29",
-    "title": "Up and Doing",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/4/46/Henry_Wadsworth_Longfellow.jpg",
-    "imageAlt": "Portrait of Henry Wadsworth Longfellow, 19th century print after a painting by P. Krämer",
+    "date": "2026-10-30",
+    "title": "Captain of My Soul",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/5/55/Portrait_of_William_Ernest_Henley.jpg",
+    "imageAlt": "Portrait of the English poet William Ernest Henley",
     "fallback": "./images/2026-09-04.jpg",
-    "source": "Henry Wadsworth Longfellow, \"A Psalm of Life,\" 1838, closing stanza, in The Complete Poetical Works of Henry Wadsworth Longfellow (Project Gutenberg)",
-    "sourceUrl": "https://www.gutenberg.org/ebooks/1365",
-    "quote": "Let us, then, be up and doing, With a heart for any fate; Still achieving, still pursuing, Learn to labor and to wait.",
-    "lesson": "Longfellow wrote this poem as a young professor, a few years after his first wife died. He had every reason to sit still and grieve. Instead he wrote that life is real and earnest, and that we should act in the living present. These are the closing lines. He asks for two things that seem to pull against each other. Be up and doing, and keep pushing. But also learn to wait, because real results take time. Work hard today, and don't quit when the payoff is slow to show up. Doing and waiting are both part of the job.",
-    "today": "Pick one long-term goal that feels slow right now. Do one real piece of work on it today, then let it be without checking for results.",
+    "source": "William Ernest Henley, Echoes IV (later titled \"Invictus\"), dated 1875, closing stanza, in Poems, David Nutt edition, 1907 (Project Gutenberg)",
+    "sourceUrl": "https://www.gutenberg.org/ebooks/1568",
+    "quote": "It matters not how strait the gate, How charged with punishments the scroll, I am the master of my fate: I am the captain of my soul.",
+    "lesson": "Henley lost part of one leg to tuberculosis as a teenager. A few years later he spent long months in an Edinburgh hospital while doctors fought to save the other one. That is where these lines come from. He could not choose his illness, his pain, or how long he would lie in that bed. He refused to let any of it decide who he was. The gate may be narrow and the list of troubles long. You still decide how you carry them. Circumstances can hurt you. They do not get to steer you.",
+    "today": "Name one hard thing in your life that you did not choose. Then choose one action today that shows you are still the one steering, and do it.",
     "lanes": [
-      "builder",
-      "warrior"
+      "warrior",
+      "thinker"
     ],
-    "title_es": "En pie y en marcha",
-    "source_es": "Henry Wadsworth Longfellow, \"Un salmo de la vida\" (A Psalm of Life), 1838, estrofa final, en The Complete Poetical Works of Henry Wadsworth Longfellow (traducción fiel al español del original inglés en Project Gutenberg)",
-    "quote_es": "Pongámonos, pues, en pie y en marcha, con un corazón dispuesto a cualquier destino; siempre logrando, siempre persiguiendo, aprendamos a trabajar y a esperar.",
-    "lesson_es": "Longfellow escribió este poema siendo un profesor joven, pocos años después de la muerte de su primera esposa. Tenía todas las razones para quedarse quieto y llorar. En cambio, escribió que la vida es real y seria, y que debemos actuar en el presente vivo. Estos son los versos finales. Pide dos cosas que parecen tirar en sentidos opuestos. Ponte en pie y en marcha, y sigue empujando. Pero aprende también a esperar, porque los resultados reales toman tiempo. Trabaja duro hoy y no abandones cuando la recompensa tarde en llegar. Hacer y esperar son parte del mismo trabajo.",
-    "today_es": "Elige una meta a largo plazo que hoy se sienta lenta. Haz hoy un trabajo real en ella y luego déjala estar sin revisar si ya hay resultados."
+    "title_es": "Capitán de mi alma",
+    "source_es": "William Ernest Henley, Ecos IV (titulado después \"Invictus\"), fechado en 1875, estrofa final, en Poems, edición de David Nutt, 1907 (traducción fiel al español del original inglés en Project Gutenberg)",
+    "quote_es": "No importa cuán estrecha sea la puerta, cuán cargada de castigos la sentencia, yo soy el amo de mi destino: yo soy el capitán de mi alma.",
+    "lesson_es": "Henley perdió parte de una pierna por la tuberculosis cuando era adolescente. Pocos años después pasó largos meses en un hospital de Edimburgo mientras los médicos luchaban por salvarle la otra. De ahí salen estos versos. No podía elegir su enfermedad, su dolor ni cuánto tiempo estaría en esa cama. Se negó a dejar que nada de eso decidiera quién era. La puerta puede ser estrecha y la lista de problemas larga. Tú sigues decidiendo cómo cargarlos. Las circunstancias pueden herirte. No tienen derecho a llevar el timón.",
+    "today_es": "Nombra una cosa difícil en tu vida que no elegiste. Luego elige una acción hoy que muestre que sigues llevando el timón, y hazla."
   };
 
   var LANE_LABEL = {warrior:'Warrior',thinker:'Thinker',builder:'Builder',power:'Power',faith:'Faith',odyssey:'Odyssey'};
