@@ -74,25 +74,25 @@
   };
 
   var DEFAULT_LESSON = {
-    "date": "2026-10-30",
-    "title": "Captain of My Soul",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/5/55/Portrait_of_William_Ernest_Henley.jpg",
-    "imageAlt": "Portrait of the English poet William Ernest Henley",
+    "date": "2026-10-31",
+    "title": "But for You",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/a/a3/Arthur_Hugh_Clough_1860.jpg",
+    "imageAlt": "Photograph of the English poet Arthur Hugh Clough, 1860",
     "fallback": "./images/2026-09-04.jpg",
-    "source": "William Ernest Henley, Echoes IV (later titled \"Invictus\"), dated 1875, closing stanza, in Poems, David Nutt edition, 1907 (Project Gutenberg)",
-    "sourceUrl": "https://www.gutenberg.org/ebooks/1568",
-    "quote": "It matters not how strait the gate, How charged with punishments the scroll, I am the master of my fate: I am the captain of my soul.",
-    "lesson": "Henley lost part of one leg to tuberculosis as a teenager. A few years later he spent long months in an Edinburgh hospital while doctors fought to save the other one. That is where these lines come from. He could not choose his illness, his pain, or how long he would lie in that bed. He refused to let any of it decide who he was. The gate may be narrow and the list of troubles long. You still decide how you carry them. Circumstances can hurt you. They do not get to steer you.",
-    "today": "Name one hard thing in your life that you did not choose. Then choose one action today that shows you are still the one steering, and do it.",
+    "source": "Arthur Hugh Clough, \"Say not the struggle nought availeth,\" dated 1849, first two stanzas, in Poems of Arthur Hugh Clough, Macmillan, 1898 (Project Gutenberg)",
+    "sourceUrl": "https://www.gutenberg.org/ebooks/66689",
+    "quote": "Say not the struggle nought availeth, The labour and the wounds are vain, The enemy faints not, nor faileth, And as things have been they remain. If hopes were dupes, fears may be liars; It may be, in yon smoke concealed, Your comrades chase e’en now the fliers, And, but for you, possess the field.",
+    "lesson": "Clough dated this poem 1849, the year the uprisings that had swept Europe the year before were being put down. It looked like all that effort had changed nothing. He answers with a soldier's picture. You are tired, the smoke is thick, and from where you stand the enemy looks as strong as ever. But you cannot see the whole field. Somewhere past the smoke, your side may already be winning, and the only thing missing is you. Your fear tells you the fight is lost. Your fear cannot see any better than you can.",
+    "today": "Pick the one effort you have been close to quitting because it seems to go nowhere. Put in one more honest hour on it today before you judge it.",
     "lanes": [
       "warrior",
       "thinker"
     ],
-    "title_es": "Capitán de mi alma",
-    "source_es": "William Ernest Henley, Ecos IV (titulado después \"Invictus\"), fechado en 1875, estrofa final, en Poems, edición de David Nutt, 1907 (traducción fiel al español del original inglés en Project Gutenberg)",
-    "quote_es": "No importa cuán estrecha sea la puerta, cuán cargada de castigos la sentencia, yo soy el amo de mi destino: yo soy el capitán de mi alma.",
-    "lesson_es": "Henley perdió parte de una pierna por la tuberculosis cuando era adolescente. Pocos años después pasó largos meses en un hospital de Edimburgo mientras los médicos luchaban por salvarle la otra. De ahí salen estos versos. No podía elegir su enfermedad, su dolor ni cuánto tiempo estaría en esa cama. Se negó a dejar que nada de eso decidiera quién era. La puerta puede ser estrecha y la lista de problemas larga. Tú sigues decidiendo cómo cargarlos. Las circunstancias pueden herirte. No tienen derecho a llevar el timón.",
-    "today_es": "Nombra una cosa difícil en tu vida que no elegiste. Luego elige una acción hoy que muestre que sigues llevando el timón, y hazla."
+    "title_es": "Si no fuera por ti",
+    "source_es": "Arthur Hugh Clough, \"Say not the struggle nought availeth\" (No digas que la lucha no sirve de nada), fechado en 1849, dos primeras estrofas, en Poems of Arthur Hugh Clough, Macmillan, 1898 (traducción fiel al español del original inglés en Project Gutenberg)",
+    "quote_es": "No digas que la lucha no sirve de nada, que el trabajo y las heridas son en vano, que el enemigo no desfallece ni falla, y que las cosas siguen como han estado. Si las esperanzas fueron engaños, los miedos pueden ser mentirosos; puede ser que, ocultos en aquel humo, tus compañeros persigan ahora mismo a los que huyen y, si no fuera por ti, sean dueños del campo.",
+    "lesson_es": "Clough fechó este poema en 1849, el año en que se aplastaban los levantamientos que habían recorrido Europa el año anterior. Parecía que todo ese esfuerzo no había cambiado nada. Él responde con una imagen de soldado. Estás cansado, el humo es espeso y, desde donde estás, el enemigo parece tan fuerte como siempre. Pero no puedes ver todo el campo. En algún lugar más allá del humo, tu lado quizá ya está ganando, y lo único que falta eres tú. Tu miedo te dice que la pelea está perdida. Tu miedo no ve mejor que tú.",
+    "today_es": "Elige el esfuerzo que has estado a punto de abandonar porque parece no llevar a ninguna parte. Dale hoy una hora honesta más antes de juzgarlo."
   };
 
   var LANE_LABEL = {warrior:'Warrior',thinker:'Thinker',builder:'Builder',power:'Power',faith:'Faith',odyssey:'Odyssey'};

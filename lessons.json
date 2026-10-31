@@ -1,6 +1,27 @@
 {
   "lessons": [
     {
+      "date": "2026-10-31",
+      "title": "But for You",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/a/a3/Arthur_Hugh_Clough_1860.jpg",
+      "imageAlt": "Photograph of the English poet Arthur Hugh Clough, 1860",
+      "fallback": "./images/2026-09-04.jpg",
+      "source": "Arthur Hugh Clough, \"Say not the struggle nought availeth,\" dated 1849, first two stanzas, in Poems of Arthur Hugh Clough, Macmillan, 1898 (Project Gutenberg)",
+      "sourceUrl": "https://www.gutenberg.org/ebooks/66689",
+      "quote": "Say not the struggle nought availeth, The labour and the wounds are vain, The enemy faints not, nor faileth, And as things have been they remain. If hopes were dupes, fears may be liars; It may be, in yon smoke concealed, Your comrades chase e’en now the fliers, And, but for you, possess the field.",
+      "lesson": "Clough dated this poem 1849, the year the uprisings that had swept Europe the year before were being put down. It looked like all that effort had changed nothing. He answers with a soldier's picture. You are tired, the smoke is thick, and from where you stand the enemy looks as strong as ever. But you cannot see the whole field. Somewhere past the smoke, your side may already be winning, and the only thing missing is you. Your fear tells you the fight is lost. Your fear cannot see any better than you can.",
+      "today": "Pick the one effort you have been close to quitting because it seems to go nowhere. Put in one more honest hour on it today before you judge it.",
+      "lanes": [
+        "warrior",
+        "thinker"
+      ],
+      "title_es": "Si no fuera por ti",
+      "source_es": "Arthur Hugh Clough, \"Say not the struggle nought availeth\" (No digas que la lucha no sirve de nada), fechado en 1849, dos primeras estrofas, en Poems of Arthur Hugh Clough, Macmillan, 1898 (traducción fiel al español del original inglés en Project Gutenberg)",
+      "quote_es": "No digas que la lucha no sirve de nada, que el trabajo y las heridas son en vano, que el enemigo no desfallece ni falla, y que las cosas siguen como han estado. Si las esperanzas fueron engaños, los miedos pueden ser mentirosos; puede ser que, ocultos en aquel humo, tus compañeros persigan ahora mismo a los que huyen y, si no fuera por ti, sean dueños del campo.",
+      "lesson_es": "Clough fechó este poema en 1849, el año en que se aplastaban los levantamientos que habían recorrido Europa el año anterior. Parecía que todo ese esfuerzo no había cambiado nada. Él responde con una imagen de soldado. Estás cansado, el humo es espeso y, desde donde estás, el enemigo parece tan fuerte como siempre. Pero no puedes ver todo el campo. En algún lugar más allá del humo, tu lado quizá ya está ganando, y lo único que falta eres tú. Tu miedo te dice que la pelea está perdida. Tu miedo no ve mejor que tú.",
+      "today_es": "Elige el esfuerzo que has estado a punto de abandonar porque parece no llevar a ninguna parte. Dale hoy una hora honesta más antes de juzgarlo."
+    },
+    {
       "date": "2026-10-30",
       "title": "Captain of My Soul",
       "image": "https://upload.wikimedia.org/wikipedia/commons/5/55/Portrait_of_William_Ernest_Henley.jpg",
