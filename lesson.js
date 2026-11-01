@@ -74,25 +74,25 @@
   };
 
   var DEFAULT_LESSON = {
-    "date": "2026-10-31",
-    "title": "But for You",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/a/a3/Arthur_Hugh_Clough_1860.jpg",
-    "imageAlt": "Photograph of the English poet Arthur Hugh Clough, 1860",
+    "date": "2026-11-01",
+    "title": "The True Success",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/f/f7/Robert_Louis_Stevenson_by_Henry_Walter_Barnett.jpg",
+    "imageAlt": "Photograph of the Scottish writer Robert Louis Stevenson by Henry Walter Barnett",
     "fallback": "./images/2026-09-04.jpg",
-    "source": "Arthur Hugh Clough, \"Say not the struggle nought availeth,\" dated 1849, first two stanzas, in Poems of Arthur Hugh Clough, Macmillan, 1898 (Project Gutenberg)",
-    "sourceUrl": "https://www.gutenberg.org/ebooks/66689",
-    "quote": "Say not the struggle nought availeth, The labour and the wounds are vain, The enemy faints not, nor faileth, And as things have been they remain. If hopes were dupes, fears may be liars; It may be, in yon smoke concealed, Your comrades chase e’en now the fliers, And, but for you, possess the field.",
-    "lesson": "Clough dated this poem 1849, the year the uprisings that had swept Europe the year before were being put down. It looked like all that effort had changed nothing. He answers with a soldier's picture. You are tired, the smoke is thick, and from where you stand the enemy looks as strong as ever. But you cannot see the whole field. Somewhere past the smoke, your side may already be winning, and the only thing missing is you. Your fear tells you the fight is lost. Your fear cannot see any better than you can.",
-    "today": "Pick the one effort you have been close to quitting because it seems to go nowhere. Put in one more honest hour on it today before you judge it.",
+    "source": "Robert Louis Stevenson, \"El Dorado,\" closing lines, in Virginibus Puerisque and Other Papers, 1881 (Project Gutenberg)",
+    "sourceUrl": "https://www.gutenberg.org/ebooks/386",
+    "quote": "O toiling hands of mortals! O unwearied feet, travelling ye know not whither! Soon, soon, it seems to you, you must come forth on some conspicuous hilltop, and but a little way further, against the setting sun, descry the spires of El Dorado. Little do ye know your own blessedness; for to travel hopefully is a better thing than to arrive, and the true success is to labour.",
+    "lesson": "El Dorado was the city of gold that explorers chased and never found. Stevenson uses it for every goal we think will finally make us done: the finished book, the paid-off house, the business that runs itself. His point is that the finish line keeps moving, and that is fine. The good part of your life is the work on the way there. If you only allow yourself to feel good after you arrive, you will spend most of your days unhappy. If the work itself is the win, you win every day you show up.",
+    "today": "Pick the goal you keep saying you will be happy after. Do one solid hour of work on it today and count that hour as the win.",
     "lanes": [
-      "warrior",
+      "builder",
       "thinker"
     ],
-    "title_es": "Si no fuera por ti",
-    "source_es": "Arthur Hugh Clough, \"Say not the struggle nought availeth\" (No digas que la lucha no sirve de nada), fechado en 1849, dos primeras estrofas, en Poems of Arthur Hugh Clough, Macmillan, 1898 (traducción fiel al español del original inglés en Project Gutenberg)",
-    "quote_es": "No digas que la lucha no sirve de nada, que el trabajo y las heridas son en vano, que el enemigo no desfallece ni falla, y que las cosas siguen como han estado. Si las esperanzas fueron engaños, los miedos pueden ser mentirosos; puede ser que, ocultos en aquel humo, tus compañeros persigan ahora mismo a los que huyen y, si no fuera por ti, sean dueños del campo.",
-    "lesson_es": "Clough fechó este poema en 1849, el año en que se aplastaban los levantamientos que habían recorrido Europa el año anterior. Parecía que todo ese esfuerzo no había cambiado nada. Él responde con una imagen de soldado. Estás cansado, el humo es espeso y, desde donde estás, el enemigo parece tan fuerte como siempre. Pero no puedes ver todo el campo. En algún lugar más allá del humo, tu lado quizá ya está ganando, y lo único que falta eres tú. Tu miedo te dice que la pelea está perdida. Tu miedo no ve mejor que tú.",
-    "today_es": "Elige el esfuerzo que has estado a punto de abandonar porque parece no llevar a ninguna parte. Dale hoy una hora honesta más antes de juzgarlo."
+    "title_es": "El verdadero éxito",
+    "source_es": "Robert Louis Stevenson, \"El Dorado,\" líneas finales, en Virginibus Puerisque and Other Papers, 1881 (traducción fiel al español del original inglés en Project Gutenberg)",
+    "quote_es": "¡Oh manos afanosas de los mortales! ¡Oh pies incansables, que viajáis sin saber adónde! Pronto, muy pronto, os parece, saldréis a alguna colina visible y, solo un poco más allá, contra el sol poniente, divisaréis las torres de El Dorado. Poco sabéis de vuestra propia dicha; porque viajar con esperanza es mejor cosa que llegar, y el verdadero éxito es trabajar.",
+    "lesson_es": "El Dorado era la ciudad de oro que los exploradores persiguieron y nunca encontraron. Stevenson la usa para cada meta que creemos que por fin nos dejará satisfechos: el libro terminado, la casa pagada, el negocio que funciona solo. Su punto es que la meta siempre se mueve, y eso está bien. La parte buena de tu vida es el trabajo en el camino. Si solo te permites sentirte bien después de llegar, pasarás la mayoría de tus días descontento. Si el trabajo mismo es la victoria, ganas cada día que te presentas.",
+    "today_es": "Elige la meta después de la cual siempre dices que serás feliz. Dale hoy una hora sólida de trabajo y cuenta esa hora como la victoria."
   };
 
   var LANE_LABEL = {warrior:'Warrior',thinker:'Thinker',builder:'Builder',power:'Power',faith:'Faith',odyssey:'Odyssey'};
