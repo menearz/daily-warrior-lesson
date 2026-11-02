@@ -74,25 +74,25 @@
   };
 
   var DEFAULT_LESSON = {
-    "date": "2026-11-01",
-    "title": "The True Success",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/f/f7/Robert_Louis_Stevenson_by_Henry_Walter_Barnett.jpg",
-    "imageAlt": "Photograph of the Scottish writer Robert Louis Stevenson by Henry Walter Barnett",
+    "date": "2026-11-02",
+    "title": "Grow Divinely Strong",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/b/b1/James_Allen.jpg",
+    "imageAlt": "Portrait photograph of the British writer James Allen, author of As a Man Thinketh",
     "fallback": "./images/2026-09-04.jpg",
-    "source": "Robert Louis Stevenson, \"El Dorado,\" closing lines, in Virginibus Puerisque and Other Papers, 1881 (Project Gutenberg)",
-    "sourceUrl": "https://www.gutenberg.org/ebooks/386",
-    "quote": "O toiling hands of mortals! O unwearied feet, travelling ye know not whither! Soon, soon, it seems to you, you must come forth on some conspicuous hilltop, and but a little way further, against the setting sun, descry the spires of El Dorado. Little do ye know your own blessedness; for to travel hopefully is a better thing than to arrive, and the true success is to labour.",
-    "lesson": "El Dorado was the city of gold that explorers chased and never found. Stevenson uses it for every goal we think will finally make us done: the finished book, the paid-off house, the business that runs itself. His point is that the finish line keeps moving, and that is fine. The good part of your life is the work on the way there. If you only allow yourself to feel good after you arrive, you will spend most of your days unhappy. If the work itself is the win, you win every day you show up.",
-    "today": "Pick the goal you keep saying you will be happy after. Do one solid hour of work on it today and count that hour as the win.",
+    "source": "James Allen, As a Man Thinketh, \"Thought and Purpose,\" 1903 (Project Gutenberg)",
+    "sourceUrl": "https://www.gutenberg.org/ebooks/4507",
+    "quote": "The weakest soul, knowing its own weakness, and believing this truth that strength can only be developed by effort and practice, will, thus believing, at once begin to exert itself, and, adding effort to effort, patience to patience, and strength to strength, will never cease to develop, and will at last grow divinely strong. As the physically weak man can make himself strong by careful and patient training, so the man of weak thoughts can make them strong by exercising himself in right thinking.",
+    "lesson": "James Allen was a clerk in England who quit his job to write, and this small book has stayed in print for over a hundred years. His claim is plain. Strength of mind is built the same way as strength of body, by reps. Nobody starts strong. The weak person who admits the weakness and starts training is already ahead of the one who waits to feel ready. Each small effort stacks on the last one. Your focus, your patience and your nerve are muscles, and they grow when you load them a little every day.",
+    "today": "Name one weak spot in how you think, like quitting early or doubting yourself. Give it one rep today: do the hard thing for ten minutes longer than you want to.",
     "lanes": [
-      "builder",
-      "thinker"
+      "warrior",
+      "builder"
     ],
-    "title_es": "El verdadero éxito",
-    "source_es": "Robert Louis Stevenson, \"El Dorado,\" líneas finales, en Virginibus Puerisque and Other Papers, 1881 (traducción fiel al español del original inglés en Project Gutenberg)",
-    "quote_es": "¡Oh manos afanosas de los mortales! ¡Oh pies incansables, que viajáis sin saber adónde! Pronto, muy pronto, os parece, saldréis a alguna colina visible y, solo un poco más allá, contra el sol poniente, divisaréis las torres de El Dorado. Poco sabéis de vuestra propia dicha; porque viajar con esperanza es mejor cosa que llegar, y el verdadero éxito es trabajar.",
-    "lesson_es": "El Dorado era la ciudad de oro que los exploradores persiguieron y nunca encontraron. Stevenson la usa para cada meta que creemos que por fin nos dejará satisfechos: el libro terminado, la casa pagada, el negocio que funciona solo. Su punto es que la meta siempre se mueve, y eso está bien. La parte buena de tu vida es el trabajo en el camino. Si solo te permites sentirte bien después de llegar, pasarás la mayoría de tus días descontento. Si el trabajo mismo es la victoria, ganas cada día que te presentas.",
-    "today_es": "Elige la meta después de la cual siempre dices que serás feliz. Dale hoy una hora sólida de trabajo y cuenta esa hora como la victoria."
+    "title_es": "Crecer con una fuerza divina",
+    "source_es": "James Allen, As a Man Thinketh (Como piensa el hombre), \"El pensamiento y el propósito,\" 1903 (traducción fiel al español del original inglés en Project Gutenberg)",
+    "quote_es": "El alma más débil, conociendo su propia debilidad y creyendo esta verdad, que la fuerza solo puede desarrollarse con esfuerzo y práctica, al creerlo así comenzará de inmediato a esforzarse y, sumando esfuerzo a esfuerzo, paciencia a paciencia y fuerza a fuerza, nunca dejará de desarrollarse y al fin llegará a ser divinamente fuerte. Así como el hombre físicamente débil puede hacerse fuerte con un entrenamiento cuidadoso y paciente, así el hombre de pensamientos débiles puede hacerlos fuertes ejercitándose en el recto pensar.",
+    "lesson_es": "James Allen era un oficinista en Inglaterra que dejó su empleo para escribir, y este librito lleva más de cien años sin dejar de imprimirse. Su idea es sencilla. La fuerza de la mente se construye igual que la del cuerpo, con repeticiones. Nadie empieza fuerte. La persona débil que admite su debilidad y empieza a entrenar ya va por delante de la que espera sentirse lista. Cada pequeño esfuerzo se suma al anterior. Tu enfoque, tu paciencia y tu valor son músculos, y crecen cuando les pones un poco de carga cada día.",
+    "today_es": "Nombra un punto débil en tu forma de pensar, como rendirte pronto o dudar de ti. Dale hoy una repetición: haz lo difícil diez minutos más de lo que quieres."
   };
 
   var LANE_LABEL = {warrior:'Warrior',thinker:'Thinker',builder:'Builder',power:'Power',faith:'Faith',odyssey:'Odyssey'};
