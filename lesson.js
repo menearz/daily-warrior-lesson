@@ -74,25 +74,25 @@
   };
 
   var DEFAULT_LESSON = {
-    "date": "2026-11-02",
-    "title": "Grow Divinely Strong",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/b/b1/James_Allen.jpg",
-    "imageAlt": "Portrait photograph of the British writer James Allen, author of As a Man Thinketh",
+    "date": "2026-11-03",
+    "title": "Carry the Message",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/e/ec/Elbert_Hubbard_ca._1900.jpg",
+    "imageAlt": "Elbert Hubbard, portrait photograph, about 1900",
     "fallback": "./images/2026-09-04.jpg",
-    "source": "James Allen, As a Man Thinketh, \"Thought and Purpose,\" 1903 (Project Gutenberg)",
-    "sourceUrl": "https://www.gutenberg.org/ebooks/4507",
-    "quote": "The weakest soul, knowing its own weakness, and believing this truth that strength can only be developed by effort and practice, will, thus believing, at once begin to exert itself, and, adding effort to effort, patience to patience, and strength to strength, will never cease to develop, and will at last grow divinely strong. As the physically weak man can make himself strong by careful and patient training, so the man of weak thoughts can make them strong by exercising himself in right thinking.",
-    "lesson": "James Allen was a clerk in England who quit his job to write, and this small book has stayed in print for over a hundred years. His claim is plain. Strength of mind is built the same way as strength of body, by reps. Nobody starts strong. The weak person who admits the weakness and starts training is already ahead of the one who waits to feel ready. Each small effort stacks on the last one. Your focus, your patience and your nerve are muscles, and they grow when you load them a little every day.",
-    "today": "Name one weak spot in how you think, like quitting early or doubting yourself. Give it one rep today: do the hard thing for ten minutes longer than you want to.",
+    "source": "Elbert Hubbard, \"A Message to Garcia,\" The Philistine, March 1899 (Project Gutenberg)",
+    "sourceUrl": "https://www.gutenberg.org/ebooks/17195",
+    "quote": "My heart goes out to the man who does his work when the \"boss\" is away, as well as when he is at home. And the man who, when given a letter for Garcia, quietly takes the missive, without asking any idiotic questions, and with no lurking intention of chucking it into the nearest sewer, or of doing aught else but deliver it, never gets \"laid off,\" nor has to go on a strike for higher wages. Civilization is one long, anxious search for just such individuals.",
+    "lesson": "Hubbard wrote this in one evening in 1899, after a long day of trying to get people around him to finish their work. The story behind it is simple. During the war in Cuba, an American officer named Rowan was handed a letter for the rebel leader Garcia and told to deliver it. He did not ask where Garcia was or how to get there. He went and did it. Hubbard's point is that the person who takes the job and finishes it, with nobody watching, is rare. That rarity is what makes them valuable.",
+    "today": "Pick one task you were handed and have been putting off. Finish it today without waiting for anyone to check on you, and tell no one until it is done.",
     "lanes": [
-      "warrior",
-      "builder"
+      "builder",
+      "warrior"
     ],
-    "title_es": "Crecer con una fuerza divina",
-    "source_es": "James Allen, As a Man Thinketh (Como piensa el hombre), \"El pensamiento y el propósito,\" 1903 (traducción fiel al español del original inglés en Project Gutenberg)",
-    "quote_es": "El alma más débil, conociendo su propia debilidad y creyendo esta verdad, que la fuerza solo puede desarrollarse con esfuerzo y práctica, al creerlo así comenzará de inmediato a esforzarse y, sumando esfuerzo a esfuerzo, paciencia a paciencia y fuerza a fuerza, nunca dejará de desarrollarse y al fin llegará a ser divinamente fuerte. Así como el hombre físicamente débil puede hacerse fuerte con un entrenamiento cuidadoso y paciente, así el hombre de pensamientos débiles puede hacerlos fuertes ejercitándose en el recto pensar.",
-    "lesson_es": "James Allen era un oficinista en Inglaterra que dejó su empleo para escribir, y este librito lleva más de cien años sin dejar de imprimirse. Su idea es sencilla. La fuerza de la mente se construye igual que la del cuerpo, con repeticiones. Nadie empieza fuerte. La persona débil que admite su debilidad y empieza a entrenar ya va por delante de la que espera sentirse lista. Cada pequeño esfuerzo se suma al anterior. Tu enfoque, tu paciencia y tu valor son músculos, y crecen cuando les pones un poco de carga cada día.",
-    "today_es": "Nombra un punto débil en tu forma de pensar, como rendirte pronto o dudar de ti. Dale hoy una repetición: haz lo difícil diez minutos más de lo que quieres."
+    "title_es": "Lleva el mensaje",
+    "source_es": "Elbert Hubbard, \"Un mensaje a García\", The Philistine, marzo de 1899 (traducción fiel al español del original en inglés, Project Gutenberg)",
+    "quote_es": "Mi corazón está con el hombre que hace su trabajo cuando el \"jefe\" no está, igual que cuando está en casa. Y el hombre que, al recibir una carta para García, toma la misiva en silencio, sin hacer preguntas tontas y sin ninguna intención oculta de tirarla a la alcantarilla más cercana ni de hacer otra cosa que entregarla, nunca es \"despedido\" ni tiene que ir a la huelga para pedir mejor sueldo. La civilización es una larga y ansiosa búsqueda de individuos así.",
+    "lesson_es": "Hubbard escribió esto en una sola tarde de 1899, después de un largo día intentando que la gente a su alrededor terminara su trabajo. La historia detrás es sencilla. Durante la guerra en Cuba, a un oficial estadounidense llamado Rowan le entregaron una carta para el líder rebelde García y le dijeron que la llevara. No preguntó dónde estaba García ni cómo llegar. Fue y lo hizo. El punto de Hubbard es que la persona que acepta el trabajo y lo termina, sin que nadie la vigile, es rara. Esa rareza es lo que la hace valiosa.",
+    "today_es": "Elige una tarea que te encargaron y que has ido aplazando. Termínala hoy sin esperar a que nadie te revise, y no se lo cuentes a nadie hasta que esté hecha."
   };
 
   var LANE_LABEL = {warrior:'Warrior',thinker:'Thinker',builder:'Builder',power:'Power',faith:'Faith',odyssey:'Odyssey'};
