@@ -1,6 +1,27 @@
 {
   "lessons": [
     {
+      "date": "2026-11-04",
+      "title": "Pay the Small Tax",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/9/9c/William_James_b1842c.jpg",
+      "imageAlt": "William James, portrait photograph",
+      "fallback": "./images/2026-09-04.jpg",
+      "source": "William James, The Principles of Psychology, Volume 1, Chapter IV, \"Habit,\" 1890 (Project Gutenberg)",
+      "sourceUrl": "https://www.gutenberg.org/ebooks/57628",
+      "quote": "Keep the faculty of effort alive in you by a little gratuitous exercise every day. That is, be systematically ascetic or heroic in little unnecessary points, do every day or two something for no other reason than that you would rather not do it, so that when the hour of dire need draws nigh, it may find you not unnerved and untrained to stand the test.",
+      "lesson": "William James was a Harvard doctor who became one of the founders of American psychology. In his chapter on habit he argued that willpower works like a muscle, and it weakens when you never use it. His fix is small and a little strange. Do something hard on purpose, for no reason except that you would rather not. A few lines later he compares it to fire insurance on a house. The small payment does nothing for you today. On the day the fire comes, it saves you.",
+      "today": "Pick one small thing you would rather skip today, like a cold shower, the stairs, or the call you keep dodging. Do it on purpose, and do not make a big deal of it.",
+      "lanes": [
+        "warrior",
+        "thinker"
+      ],
+      "title_es": "Paga el pequeño impuesto",
+      "source_es": "William James, The Principles of Psychology, volumen 1, capítulo IV, \"Habit\" (El hábito), 1890 (traducción fiel al español del original en inglés, Project Gutenberg)",
+      "quote_es": "Mantén viva en ti la facultad del esfuerzo con un poco de ejercicio gratuito cada día. Es decir, sé sistemáticamente ascético o heroico en pequeños puntos innecesarios; haz cada día o cada dos días algo por ninguna otra razón que la de que preferirías no hacerlo, para que, cuando se acerque la hora de la necesidad extrema, te encuentre no acobardado ni sin entrenamiento para resistir la prueba.",
+      "lesson_es": "William James fue un médico de Harvard que llegó a ser uno de los fundadores de la psicología estadounidense. En su capítulo sobre el hábito sostuvo que la fuerza de voluntad funciona como un músculo, y se debilita cuando nunca la usas. Su remedio es pequeño y un poco extraño. Haz algo difícil a propósito, sin otra razón que la de que preferirías no hacerlo. Unas líneas después lo compara con el seguro contra incendios de una casa. El pequeño pago no te sirve de nada hoy. El día que llega el fuego, te salva.",
+      "today_es": "Elige hoy una cosa pequeña que preferirías saltarte, como una ducha fría, las escaleras o la llamada que sigues evitando. Hazla a propósito, y no le des importancia."
+    },
+    {
       "date": "2026-11-03",
       "title": "Carry the Message",
       "image": "https://upload.wikimedia.org/wikipedia/commons/e/ec/Elbert_Hubbard_ca._1900.jpg",

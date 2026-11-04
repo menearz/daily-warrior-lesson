@@ -74,25 +74,25 @@
   };
 
   var DEFAULT_LESSON = {
-    "date": "2026-11-03",
-    "title": "Carry the Message",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/e/ec/Elbert_Hubbard_ca._1900.jpg",
-    "imageAlt": "Elbert Hubbard, portrait photograph, about 1900",
+    "date": "2026-11-04",
+    "title": "Pay the Small Tax",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/9/9c/William_James_b1842c.jpg",
+    "imageAlt": "William James, portrait photograph",
     "fallback": "./images/2026-09-04.jpg",
-    "source": "Elbert Hubbard, \"A Message to Garcia,\" The Philistine, March 1899 (Project Gutenberg)",
-    "sourceUrl": "https://www.gutenberg.org/ebooks/17195",
-    "quote": "My heart goes out to the man who does his work when the \"boss\" is away, as well as when he is at home. And the man who, when given a letter for Garcia, quietly takes the missive, without asking any idiotic questions, and with no lurking intention of chucking it into the nearest sewer, or of doing aught else but deliver it, never gets \"laid off,\" nor has to go on a strike for higher wages. Civilization is one long, anxious search for just such individuals.",
-    "lesson": "Hubbard wrote this in one evening in 1899, after a long day of trying to get people around him to finish their work. The story behind it is simple. During the war in Cuba, an American officer named Rowan was handed a letter for the rebel leader Garcia and told to deliver it. He did not ask where Garcia was or how to get there. He went and did it. Hubbard's point is that the person who takes the job and finishes it, with nobody watching, is rare. That rarity is what makes them valuable.",
-    "today": "Pick one task you were handed and have been putting off. Finish it today without waiting for anyone to check on you, and tell no one until it is done.",
+    "source": "William James, The Principles of Psychology, Volume 1, Chapter IV, \"Habit,\" 1890 (Project Gutenberg)",
+    "sourceUrl": "https://www.gutenberg.org/ebooks/57628",
+    "quote": "Keep the faculty of effort alive in you by a little gratuitous exercise every day. That is, be systematically ascetic or heroic in little unnecessary points, do every day or two something for no other reason than that you would rather not do it, so that when the hour of dire need draws nigh, it may find you not unnerved and untrained to stand the test.",
+    "lesson": "William James was a Harvard doctor who became one of the founders of American psychology. In his chapter on habit he argued that willpower works like a muscle, and it weakens when you never use it. His fix is small and a little strange. Do something hard on purpose, for no reason except that you would rather not. A few lines later he compares it to fire insurance on a house. The small payment does nothing for you today. On the day the fire comes, it saves you.",
+    "today": "Pick one small thing you would rather skip today, like a cold shower, the stairs, or the call you keep dodging. Do it on purpose, and do not make a big deal of it.",
     "lanes": [
-      "builder",
-      "warrior"
+      "warrior",
+      "thinker"
     ],
-    "title_es": "Lleva el mensaje",
-    "source_es": "Elbert Hubbard, \"Un mensaje a García\", The Philistine, marzo de 1899 (traducción fiel al español del original en inglés, Project Gutenberg)",
-    "quote_es": "Mi corazón está con el hombre que hace su trabajo cuando el \"jefe\" no está, igual que cuando está en casa. Y el hombre que, al recibir una carta para García, toma la misiva en silencio, sin hacer preguntas tontas y sin ninguna intención oculta de tirarla a la alcantarilla más cercana ni de hacer otra cosa que entregarla, nunca es \"despedido\" ni tiene que ir a la huelga para pedir mejor sueldo. La civilización es una larga y ansiosa búsqueda de individuos así.",
-    "lesson_es": "Hubbard escribió esto en una sola tarde de 1899, después de un largo día intentando que la gente a su alrededor terminara su trabajo. La historia detrás es sencilla. Durante la guerra en Cuba, a un oficial estadounidense llamado Rowan le entregaron una carta para el líder rebelde García y le dijeron que la llevara. No preguntó dónde estaba García ni cómo llegar. Fue y lo hizo. El punto de Hubbard es que la persona que acepta el trabajo y lo termina, sin que nadie la vigile, es rara. Esa rareza es lo que la hace valiosa.",
-    "today_es": "Elige una tarea que te encargaron y que has ido aplazando. Termínala hoy sin esperar a que nadie te revise, y no se lo cuentes a nadie hasta que esté hecha."
+    "title_es": "Paga el pequeño impuesto",
+    "source_es": "William James, The Principles of Psychology, volumen 1, capítulo IV, \"Habit\" (El hábito), 1890 (traducción fiel al español del original en inglés, Project Gutenberg)",
+    "quote_es": "Mantén viva en ti la facultad del esfuerzo con un poco de ejercicio gratuito cada día. Es decir, sé sistemáticamente ascético o heroico en pequeños puntos innecesarios; haz cada día o cada dos días algo por ninguna otra razón que la de que preferirías no hacerlo, para que, cuando se acerque la hora de la necesidad extrema, te encuentre no acobardado ni sin entrenamiento para resistir la prueba.",
+    "lesson_es": "William James fue un médico de Harvard que llegó a ser uno de los fundadores de la psicología estadounidense. En su capítulo sobre el hábito sostuvo que la fuerza de voluntad funciona como un músculo, y se debilita cuando nunca la usas. Su remedio es pequeño y un poco extraño. Haz algo difícil a propósito, sin otra razón que la de que preferirías no hacerlo. Unas líneas después lo compara con el seguro contra incendios de una casa. El pequeño pago no te sirve de nada hoy. El día que llega el fuego, te salva.",
+    "today_es": "Elige hoy una cosa pequeña que preferirías saltarte, como una ducha fría, las escaleras o la llamada que sigues evitando. Hazla a propósito, y no le des importancia."
   };
 
   var LANE_LABEL = {warrior:'Warrior',thinker:'Thinker',builder:'Builder',power:'Power',faith:'Faith',odyssey:'Odyssey'};
