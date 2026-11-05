@@ -74,25 +74,25 @@
   };
 
   var DEFAULT_LESSON = {
-    "date": "2026-11-04",
-    "title": "Pay the Small Tax",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/9/9c/William_James_b1842c.jpg",
-    "imageAlt": "William James, portrait photograph",
+    "date": "2026-11-05",
+    "title": "Hard Times Make the Mind",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/a/ac/Abigail_Adams_by_Gilbert_Stuart.jpg",
+    "imageAlt": "Abigail Adams, portrait by Gilbert Stuart",
     "fallback": "./images/2026-09-04.jpg",
-    "source": "William James, The Principles of Psychology, Volume 1, Chapter IV, \"Habit,\" 1890 (Project Gutenberg)",
-    "sourceUrl": "https://www.gutenberg.org/ebooks/57628",
-    "quote": "Keep the faculty of effort alive in you by a little gratuitous exercise every day. That is, be systematically ascetic or heroic in little unnecessary points, do every day or two something for no other reason than that you would rather not do it, so that when the hour of dire need draws nigh, it may find you not unnerved and untrained to stand the test.",
-    "lesson": "William James was a Harvard doctor who became one of the founders of American psychology. In his chapter on habit he argued that willpower works like a muscle, and it weakens when you never use it. His fix is small and a little strange. Do something hard on purpose, for no reason except that you would rather not. A few lines later he compares it to fire insurance on a house. The small payment does nothing for you today. On the day the fire comes, it saves you.",
-    "today": "Pick one small thing you would rather skip today, like a cold shower, the stairs, or the call you keep dodging. Do it on purpose, and do not make a big deal of it.",
+    "source": "Abigail Adams, letter to John Quincy Adams, 19 January 1780 (Founders Online, National Archives)",
+    "sourceUrl": "https://founders.archives.gov/documents/Adams/04-03-02-0207",
+    "quote": "The Habits of a vigorous mind are formed in contending with difficulties. All History will convince you of this, and that wisdom and penetration are the fruits of experience, not the Lessons of retirement and leisure. Great necessities call out great virtues.",
+    "lesson": "Abigail Adams wrote this to her twelve year old son during the Revolutionary War. He was in Europe with his father, John Adams, who was there on a mission for the new country. She had pushed the boy to make the trip. Her point is that a strong mind is built by fighting through problems, and you cannot get it from rest and comfort. The hard season you are in is the training. That boy grew up to be the sixth president of the United States.",
+    "today": "Name the hardest problem in front of you today. Stop wishing it away and work on it for one focused hour, because that hour is what builds you.",
     "lanes": [
       "warrior",
-      "thinker"
+      "builder"
     ],
-    "title_es": "Paga el pequeño impuesto",
-    "source_es": "William James, The Principles of Psychology, volumen 1, capítulo IV, \"Habit\" (El hábito), 1890 (traducción fiel al español del original en inglés, Project Gutenberg)",
-    "quote_es": "Mantén viva en ti la facultad del esfuerzo con un poco de ejercicio gratuito cada día. Es decir, sé sistemáticamente ascético o heroico en pequeños puntos innecesarios; haz cada día o cada dos días algo por ninguna otra razón que la de que preferirías no hacerlo, para que, cuando se acerque la hora de la necesidad extrema, te encuentre no acobardado ni sin entrenamiento para resistir la prueba.",
-    "lesson_es": "William James fue un médico de Harvard que llegó a ser uno de los fundadores de la psicología estadounidense. En su capítulo sobre el hábito sostuvo que la fuerza de voluntad funciona como un músculo, y se debilita cuando nunca la usas. Su remedio es pequeño y un poco extraño. Haz algo difícil a propósito, sin otra razón que la de que preferirías no hacerlo. Unas líneas después lo compara con el seguro contra incendios de una casa. El pequeño pago no te sirve de nada hoy. El día que llega el fuego, te salva.",
-    "today_es": "Elige hoy una cosa pequeña que preferirías saltarte, como una ducha fría, las escaleras o la llamada que sigues evitando. Hazla a propósito, y no le des importancia."
+    "title_es": "Los tiempos duros forman la mente",
+    "source_es": "Abigail Adams, carta a John Quincy Adams, 19 de enero de 1780 (traducción fiel al español del original en inglés, Founders Online, Archivos Nacionales)",
+    "quote_es": "Los hábitos de una mente vigorosa se forman luchando contra las dificultades. Toda la historia te convencerá de esto, y de que la sabiduría y la perspicacia son frutos de la experiencia, no lecciones del retiro y del ocio. Las grandes necesidades hacen surgir grandes virtudes.",
+    "lesson_es": "Abigail Adams le escribió esto a su hijo de doce años durante la Guerra de Independencia. Él estaba en Europa con su padre, John Adams, que estaba allí en una misión para el nuevo país. Ella había empujado al muchacho a hacer el viaje. Su punto es que una mente fuerte se construye peleando contra los problemas, y no se consigue con descanso y comodidad. La temporada dura en la que estás es el entrenamiento. Ese muchacho llegó a ser el sexto presidente de los Estados Unidos.",
+    "today_es": "Nombra hoy el problema más difícil que tienes delante. Deja de desear que desaparezca y trabaja en él durante una hora enfocada, porque esa hora es la que te forma."
   };
 
   var LANE_LABEL = {warrior:'Warrior',thinker:'Thinker',builder:'Builder',power:'Power',faith:'Faith',odyssey:'Odyssey'};
