@@ -74,25 +74,25 @@
   };
 
   var DEFAULT_LESSON = {
-    "date": "2026-11-05",
-    "title": "Hard Times Make the Mind",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/a/ac/Abigail_Adams_by_Gilbert_Stuart.jpg",
-    "imageAlt": "Abigail Adams, portrait by Gilbert Stuart",
+    "date": "2026-11-06",
+    "title": "Nothing Without Hope",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/3/3e/Helen_Keller_circa_1920_-_restored.jpg",
+    "imageAlt": "Helen Keller, portrait photograph circa 1920",
     "fallback": "./images/2026-09-04.jpg",
-    "source": "Abigail Adams, letter to John Quincy Adams, 19 January 1780 (Founders Online, National Archives)",
-    "sourceUrl": "https://founders.archives.gov/documents/Adams/04-03-02-0207",
-    "quote": "The Habits of a vigorous mind are formed in contending with difficulties. All History will convince you of this, and that wisdom and penetration are the fruits of experience, not the Lessons of retirement and leisure. Great necessities call out great virtues.",
-    "lesson": "Abigail Adams wrote this to her twelve year old son during the Revolutionary War. He was in Europe with his father, John Adams, who was there on a mission for the new country. She had pushed the boy to make the trip. Her point is that a strong mind is built by fighting through problems, and you cannot get it from rest and comfort. The hard season you are in is the training. That boy grew up to be the sixth president of the United States.",
-    "today": "Name the hardest problem in front of you today. Stop wishing it away and work on it for one focused hour, because that hour is what builds you.",
+    "source": "Helen Keller, Optimism: An Essay, Part III, \"The Practice of Optimism,\" 1903 (Project Gutenberg)",
+    "sourceUrl": "https://www.gutenberg.org/ebooks/31622",
+    "quote": "Optimism is the faith that leads to achievement; nothing can be done without hope.",
+    "lesson": "Helen Keller wrote this in her 1903 essay Optimism. Deaf and blind from early childhood, she still learned to read, write, speak, and finish college. Her point is plain: hope is not soft talk. It is what lets you start and keep going when the path is hard. Without it, nothing gets done.",
+    "today": "Name one hard task you have been putting off. Start it in the next ten minutes, even if you only finish the first small piece.",
     "lanes": [
       "warrior",
-      "builder"
+      "thinker"
     ],
-    "title_es": "Los tiempos duros forman la mente",
-    "source_es": "Abigail Adams, carta a John Quincy Adams, 19 de enero de 1780 (traducción fiel al español del original en inglés, Founders Online, Archivos Nacionales)",
-    "quote_es": "Los hábitos de una mente vigorosa se forman luchando contra las dificultades. Toda la historia te convencerá de esto, y de que la sabiduría y la perspicacia son frutos de la experiencia, no lecciones del retiro y del ocio. Las grandes necesidades hacen surgir grandes virtudes.",
-    "lesson_es": "Abigail Adams le escribió esto a su hijo de doce años durante la Guerra de Independencia. Él estaba en Europa con su padre, John Adams, que estaba allí en una misión para el nuevo país. Ella había empujado al muchacho a hacer el viaje. Su punto es que una mente fuerte se construye peleando contra los problemas, y no se consigue con descanso y comodidad. La temporada dura en la que estás es el entrenamiento. Ese muchacho llegó a ser el sexto presidente de los Estados Unidos.",
-    "today_es": "Nombra hoy el problema más difícil que tienes delante. Deja de desear que desaparezca y trabaja en él durante una hora enfocada, porque esa hora es la que te forma."
+    "title_es": "Nada sin esperanza",
+    "source_es": "Helen Keller, Optimismo: un ensayo, Parte III, \"La práctica del optimismo,\" 1903 (traducción fiel al español del original en inglés, Project Gutenberg)",
+    "quote_es": "El optimismo es la fe que lleva al logro; nada se puede hacer sin esperanza.",
+    "lesson_es": "Helen Keller escribió esto en su ensayo de 1903 Optimismo. Sorda y ciega desde la infancia temprana, aun así aprendió a leer, escribir, hablar y terminar la universidad. Su punto es claro: la esperanza no es charla blanda. Es lo que te deja empezar y seguir cuando el camino es duro. Sin ella, nada se hace.",
+    "today_es": "Nombra una tarea difícil que has estado posponiendo. Empiézala en los próximos diez minutos, aunque solo termines la primera parte pequeña."
   };
 
   var LANE_LABEL = {warrior:'Warrior',thinker:'Thinker',builder:'Builder',power:'Power',faith:'Faith',odyssey:'Odyssey'};
