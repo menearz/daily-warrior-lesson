@@ -74,25 +74,25 @@
   };
 
   var DEFAULT_LESSON = {
-    "date": "2026-11-06",
-    "title": "Nothing Without Hope",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/3/3e/Helen_Keller_circa_1920_-_restored.jpg",
-    "imageAlt": "Helen Keller, portrait photograph circa 1920",
+    "date": "2026-11-07",
+    "title": "Attempt Anyway",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/2/20/Samuel_Johnson_by_Joshua_Reynolds.jpg",
+    "imageAlt": "Samuel Johnson, portrait by Joshua Reynolds",
     "fallback": "./images/2026-09-04.jpg",
-    "source": "Helen Keller, Optimism: An Essay, Part III, \"The Practice of Optimism,\" 1903 (Project Gutenberg)",
-    "sourceUrl": "https://www.gutenberg.org/ebooks/31622",
-    "quote": "Optimism is the faith that leads to achievement; nothing can be done without hope.",
-    "lesson": "Helen Keller wrote this in her 1903 essay Optimism. Deaf and blind from early childhood, she still learned to read, write, speak, and finish college. Her point is plain: hope is not soft talk. It is what lets you start and keep going when the path is hard. Without it, nothing gets done.",
-    "today": "Name one hard task you have been putting off. Start it in the next ten minutes, even if you only finish the first small piece.",
+    "source": "Samuel Johnson, The History of Rasselas, Prince of Abissinia, Chapter VI, \"A Dissertation on the Art of Flying,\" 1759 (Project Gutenberg)",
+    "sourceUrl": "https://www.gutenberg.org/ebooks/652",
+    "quote": "Nothing will ever be attempted if all possible objections must be first overcome.",
+    "lesson": "Samuel Johnson put this line in Rasselas in 1759. An inventor tells the prince that if you wait until every doubt is gone, you will never start. Waiting for a clean path is how hard work dies. You do not need every answer before the first step. You need the step.",
+    "today": "Pick one task you have delayed because the plan still feels incomplete. Start the first piece in the next ten minutes without waiting for a perfect plan.",
     "lanes": [
       "warrior",
-      "thinker"
+      "builder"
     ],
-    "title_es": "Nada sin esperanza",
-    "source_es": "Helen Keller, Optimismo: un ensayo, Parte III, \"La práctica del optimismo,\" 1903 (traducción fiel al español del original en inglés, Project Gutenberg)",
-    "quote_es": "El optimismo es la fe que lleva al logro; nada se puede hacer sin esperanza.",
-    "lesson_es": "Helen Keller escribió esto en su ensayo de 1903 Optimismo. Sorda y ciega desde la infancia temprana, aun así aprendió a leer, escribir, hablar y terminar la universidad. Su punto es claro: la esperanza no es charla blanda. Es lo que te deja empezar y seguir cuando el camino es duro. Sin ella, nada se hace.",
-    "today_es": "Nombra una tarea difícil que has estado posponiendo. Empiézala en los próximos diez minutos, aunque solo termines la primera parte pequeña."
+    "title_es": "Inténtalo de todos modos",
+    "source_es": "Samuel Johnson, La historia de Rasselas, príncipe de Abisinia, Capítulo VI, \"Una disertación sobre el arte de volar,\" 1759 (traducción fiel al español del original en inglés, Project Gutenberg)",
+    "quote_es": "Nada se intentará jamás si primero hay que vencer todas las objeciones posibles.",
+    "lesson_es": "Samuel Johnson puso esta frase en Rasselas en 1759. Un inventor le dice al príncipe que si esperas hasta que desaparezca toda duda, nunca empezarás. Esperar un camino limpio es como matar el trabajo duro. No necesitas todas las respuestas antes del primer paso. Necesitas el paso.",
+    "today_es": "Elige una tarea que has retrasado porque el plan aún se siente incompleto. Empieza la primera parte en los próximos diez minutos sin esperar un plan perfecto."
   };
 
   var LANE_LABEL = {warrior:'Warrior',thinker:'Thinker',builder:'Builder',power:'Power',faith:'Faith',odyssey:'Odyssey'};
