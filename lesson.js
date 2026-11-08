@@ -74,25 +74,25 @@
   };
 
   var DEFAULT_LESSON = {
-    "date": "2026-11-07",
-    "title": "Attempt Anyway",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/2/20/Samuel_Johnson_by_Joshua_Reynolds.jpg",
-    "imageAlt": "Samuel Johnson, portrait by Joshua Reynolds",
+    "date": "2026-11-08",
+    "title": "Crushed and Fragrant",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/5/5c/Somer_Francis_Bacon.jpg",
+    "imageAlt": "Francis Bacon, portrait attributed to Paul van Somer",
     "fallback": "./images/2026-09-04.jpg",
-    "source": "Samuel Johnson, The History of Rasselas, Prince of Abissinia, Chapter VI, \"A Dissertation on the Art of Flying,\" 1759 (Project Gutenberg)",
-    "sourceUrl": "https://www.gutenberg.org/ebooks/652",
-    "quote": "Nothing will ever be attempted if all possible objections must be first overcome.",
-    "lesson": "Samuel Johnson put this line in Rasselas in 1759. An inventor tells the prince that if you wait until every doubt is gone, you will never start. Waiting for a clean path is how hard work dies. You do not need every answer before the first step. You need the step.",
-    "today": "Pick one task you have delayed because the plan still feels incomplete. Start the first piece in the next ten minutes without waiting for a perfect plan.",
+    "source": "Francis Bacon, The Essays or Counsels, Civil and Moral, \"Of Adversity,\" 1625 (Project Gutenberg)",
+    "sourceUrl": "https://www.gutenberg.org/ebooks/575",
+    "quote": "Certainly virtue is like precious odors, most fragrant when they are incensed, or crushed: for prosperity doth best discover vice, but adversity doth best discover virtue.",
+    "lesson": "Francis Bacon wrote this in his essay on hard times, printed in 1625. He compares good character to spices that only give off their scent when they are burned or ground up. Easy seasons tend to show our weak spots. Hard seasons show what we are made of. The pressure you feel right now is not proof that you are failing. It is the moment your real character gets seen.",
+    "today": "Name the hardest thing in front of you today. Pick one way to meet it that you would be proud of, and do that one thing before the day ends.",
     "lanes": [
       "warrior",
-      "builder"
+      "thinker"
     ],
-    "title_es": "Inténtalo de todos modos",
-    "source_es": "Samuel Johnson, La historia de Rasselas, príncipe de Abisinia, Capítulo VI, \"Una disertación sobre el arte de volar,\" 1759 (traducción fiel al español del original en inglés, Project Gutenberg)",
-    "quote_es": "Nada se intentará jamás si primero hay que vencer todas las objeciones posibles.",
-    "lesson_es": "Samuel Johnson puso esta frase en Rasselas en 1759. Un inventor le dice al príncipe que si esperas hasta que desaparezca toda duda, nunca empezarás. Esperar un camino limpio es como matar el trabajo duro. No necesitas todas las respuestas antes del primer paso. Necesitas el paso.",
-    "today_es": "Elige una tarea que has retrasado porque el plan aún se siente incompleto. Empieza la primera parte en los próximos diez minutos sin esperar un plan perfecto."
+    "title_es": "Aplastada y fragante",
+    "source_es": "Francis Bacon, Ensayos o consejos civiles y morales, \"De la adversidad,\" 1625 (traducción fiel al español del original en inglés, Project Gutenberg)",
+    "quote_es": "Ciertamente la virtud es como los perfumes preciosos, más fragantes cuando se queman o se aplastan: porque la prosperidad descubre mejor el vicio, pero la adversidad descubre mejor la virtud.",
+    "lesson_es": "Francis Bacon escribió esto en su ensayo sobre los tiempos difíciles, impreso en 1625. Compara el buen carácter con las especias que solo sueltan su aroma cuando se queman o se muelen. Las épocas fáciles suelen mostrar nuestros puntos débiles. Las épocas duras muestran de qué estamos hechos. La presión que sientes ahora no prueba que estés fallando. Es el momento en que se ve tu verdadero carácter.",
+    "today_es": "Nombra la cosa más difícil que tienes delante hoy. Elige una forma de enfrentarla de la que te sentirías orgulloso, y haz esa sola cosa antes de que termine el día."
   };
 
   var LANE_LABEL = {warrior:'Warrior',thinker:'Thinker',builder:'Builder',power:'Power',faith:'Faith',odyssey:'Odyssey'};
