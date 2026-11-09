@@ -74,25 +74,25 @@
   };
 
   var DEFAULT_LESSON = {
-    "date": "2026-11-08",
-    "title": "Crushed and Fragrant",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/5/5c/Somer_Francis_Bacon.jpg",
-    "imageAlt": "Francis Bacon, portrait attributed to Paul van Somer",
+    "date": "2026-11-09",
+    "title": "The Goal Cannot Be Countermanded",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/f/fa/Walt_Whitman_-_George_Collins_Cox.jpg",
+    "imageAlt": "Walt Whitman, portrait photograph by George Collins Cox",
     "fallback": "./images/2026-09-04.jpg",
-    "source": "Francis Bacon, The Essays or Counsels, Civil and Moral, \"Of Adversity,\" 1625 (Project Gutenberg)",
-    "sourceUrl": "https://www.gutenberg.org/ebooks/575",
-    "quote": "Certainly virtue is like precious odors, most fragrant when they are incensed, or crushed: for prosperity doth best discover vice, but adversity doth best discover virtue.",
-    "lesson": "Francis Bacon wrote this in his essay on hard times, printed in 1625. He compares good character to spices that only give off their scent when they are burned or ground up. Easy seasons tend to show our weak spots. Hard seasons show what we are made of. The pressure you feel right now is not proof that you are failing. It is the moment your real character gets seen.",
-    "today": "Name the hardest thing in front of you today. Pick one way to meet it that you would be proud of, and do that one thing before the day ends.",
+    "source": "Walt Whitman, \"Song of the Open Road,\" section 14, Leaves of Grass (Project Gutenberg)",
+    "sourceUrl": "https://www.gutenberg.org/ebooks/1322",
+    "quote": "Allons! through struggles and wars! The goal that was named cannot be countermanded.",
+    "lesson": "Walt Whitman wrote this in his poem about the open road. Allons is French for let's go. He tells the traveler that the goal you chose still stands, even when the way is full of fights. He also warns that every win brings a bigger struggle after it. So the struggle is not a sign you took a wrong turn. It is part of the road. Keep the goal you named, and keep walking.",
+    "today": "Write down the goal you named for this season. Take one step toward it today that you would rather skip, and finish it.",
     "lanes": [
       "warrior",
-      "thinker"
+      "builder"
     ],
-    "title_es": "Aplastada y fragante",
-    "source_es": "Francis Bacon, Ensayos o consejos civiles y morales, \"De la adversidad,\" 1625 (traducción fiel al español del original en inglés, Project Gutenberg)",
-    "quote_es": "Ciertamente la virtud es como los perfumes preciosos, más fragantes cuando se queman o se aplastan: porque la prosperidad descubre mejor el vicio, pero la adversidad descubre mejor la virtud.",
-    "lesson_es": "Francis Bacon escribió esto en su ensayo sobre los tiempos difíciles, impreso en 1625. Compara el buen carácter con las especias que solo sueltan su aroma cuando se queman o se muelen. Las épocas fáciles suelen mostrar nuestros puntos débiles. Las épocas duras muestran de qué estamos hechos. La presión que sientes ahora no prueba que estés fallando. Es el momento en que se ve tu verdadero carácter.",
-    "today_es": "Nombra la cosa más difícil que tienes delante hoy. Elige una forma de enfrentarla de la que te sentirías orgulloso, y haz esa sola cosa antes de que termine el día."
+    "title_es": "La meta no se puede revocar",
+    "source_es": "Walt Whitman, \"Canto del camino abierto,\" sección 14, Hojas de hierba (traducción fiel al español del original en inglés, Project Gutenberg)",
+    "quote_es": "¡Allons! ¡A través de luchas y guerras! La meta que fue nombrada no puede ser revocada.",
+    "lesson_es": "Walt Whitman escribió esto en su poema sobre el camino abierto. Allons es francés para vamos. Le dice al viajero que la meta que elegiste sigue en pie, incluso cuando el camino está lleno de luchas. También advierte que cada victoria trae una lucha mayor después. Así que la lucha no es señal de que tomaste un mal camino. Es parte del camino. Mantén la meta que nombraste y sigue andando.",
+    "today_es": "Escribe la meta que nombraste para esta temporada. Da hoy un paso hacia ella que preferirías evitar, y termínalo."
   };
 
   var LANE_LABEL = {warrior:'Warrior',thinker:'Thinker',builder:'Builder',power:'Power',faith:'Faith',odyssey:'Odyssey'};

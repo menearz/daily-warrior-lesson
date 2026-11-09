@@ -1,6 +1,27 @@
 {
   "lessons": [
     {
+      "date": "2026-11-09",
+      "title": "The Goal Cannot Be Countermanded",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/f/fa/Walt_Whitman_-_George_Collins_Cox.jpg",
+      "imageAlt": "Walt Whitman, portrait photograph by George Collins Cox",
+      "fallback": "./images/2026-09-04.jpg",
+      "source": "Walt Whitman, \"Song of the Open Road,\" section 14, Leaves of Grass (Project Gutenberg)",
+      "sourceUrl": "https://www.gutenberg.org/ebooks/1322",
+      "quote": "Allons! through struggles and wars! The goal that was named cannot be countermanded.",
+      "lesson": "Walt Whitman wrote this in his poem about the open road. Allons is French for let's go. He tells the traveler that the goal you chose still stands, even when the way is full of fights. He also warns that every win brings a bigger struggle after it. So the struggle is not a sign you took a wrong turn. It is part of the road. Keep the goal you named, and keep walking.",
+      "today": "Write down the goal you named for this season. Take one step toward it today that you would rather skip, and finish it.",
+      "lanes": [
+        "warrior",
+        "builder"
+      ],
+      "title_es": "La meta no se puede revocar",
+      "source_es": "Walt Whitman, \"Canto del camino abierto,\" sección 14, Hojas de hierba (traducción fiel al español del original en inglés, Project Gutenberg)",
+      "quote_es": "¡Allons! ¡A través de luchas y guerras! La meta que fue nombrada no puede ser revocada.",
+      "lesson_es": "Walt Whitman escribió esto en su poema sobre el camino abierto. Allons es francés para vamos. Le dice al viajero que la meta que elegiste sigue en pie, incluso cuando el camino está lleno de luchas. También advierte que cada victoria trae una lucha mayor después. Así que la lucha no es señal de que tomaste un mal camino. Es parte del camino. Mantén la meta que nombraste y sigue andando.",
+      "today_es": "Escribe la meta que nombraste para esta temporada. Da hoy un paso hacia ella que preferirías evitar, y termínalo."
+    },
+    {
       "date": "2026-11-08",
       "title": "Crushed and Fragrant",
       "image": "https://upload.wikimedia.org/wikipedia/commons/5/5c/Somer_Francis_Bacon.jpg",
