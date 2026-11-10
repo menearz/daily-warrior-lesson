@@ -74,25 +74,25 @@
   };
 
   var DEFAULT_LESSON = {
-    "date": "2026-11-09",
-    "title": "The Goal Cannot Be Countermanded",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/f/fa/Walt_Whitman_-_George_Collins_Cox.jpg",
-    "imageAlt": "Walt Whitman, portrait photograph by George Collins Cox",
+    "date": "2026-11-10",
+    "title": "Master the Fear",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/0/0c/Mark_Twain_by_AF_Bradley.jpg",
+    "imageAlt": "Mark Twain, portrait photograph by A. F. Bradley",
     "fallback": "./images/2026-09-04.jpg",
-    "source": "Walt Whitman, \"Song of the Open Road,\" section 14, Leaves of Grass (Project Gutenberg)",
-    "sourceUrl": "https://www.gutenberg.org/ebooks/1322",
-    "quote": "Allons! through struggles and wars! The goal that was named cannot be countermanded.",
-    "lesson": "Walt Whitman wrote this in his poem about the open road. Allons is French for let's go. He tells the traveler that the goal you chose still stands, even when the way is full of fights. He also warns that every win brings a bigger struggle after it. So the struggle is not a sign you took a wrong turn. It is part of the road. Keep the goal you named, and keep walking.",
-    "today": "Write down the goal you named for this season. Take one step toward it today that you would rather skip, and finish it.",
+    "source": "Mark Twain, The Tragedy of Pudd'nhead Wilson, 1894, Chapter 12, \"Pudd'nhead Wilson's Calendar\" (Project Gutenberg)",
+    "sourceUrl": "https://www.gutenberg.org/ebooks/102",
+    "quote": "Courage is resistance to fear, mastery of fear--not absence of fear.",
+    "lesson": "Mark Twain put this line in his 1894 novel Pudd'nhead Wilson, in a short entry in the calendar of sayings the title character keeps. He says a creature that is never afraid has no right to be called brave. Bravery only means something when fear is in the room. You do not have to wait until the fear goes away. Feel it, name it, and act while it is still there. That is what courage looks like.",
+    "today": "Pick the one thing you have been putting off because it makes you nervous. Do the first small step of it before noon, fear and all.",
     "lanes": [
       "warrior",
       "builder"
     ],
-    "title_es": "La meta no se puede revocar",
-    "source_es": "Walt Whitman, \"Canto del camino abierto,\" sección 14, Hojas de hierba (traducción fiel al español del original en inglés, Project Gutenberg)",
-    "quote_es": "¡Allons! ¡A través de luchas y guerras! La meta que fue nombrada no puede ser revocada.",
-    "lesson_es": "Walt Whitman escribió esto en su poema sobre el camino abierto. Allons es francés para vamos. Le dice al viajero que la meta que elegiste sigue en pie, incluso cuando el camino está lleno de luchas. También advierte que cada victoria trae una lucha mayor después. Así que la lucha no es señal de que tomaste un mal camino. Es parte del camino. Mantén la meta que nombraste y sigue andando.",
-    "today_es": "Escribe la meta que nombraste para esta temporada. Da hoy un paso hacia ella que preferirías evitar, y termínalo."
+    "title_es": "Dominar el miedo",
+    "source_es": "Mark Twain, La tragedia de Pudd'nhead Wilson, 1894, capítulo 12, \"El calendario de Pudd'nhead Wilson\" (traducción fiel al español del original en inglés, Project Gutenberg)",
+    "quote_es": "El valor es resistencia al miedo, dominio del miedo, no ausencia de miedo.",
+    "lesson_es": "Mark Twain puso esta frase en su novela de 1894, Pudd'nhead Wilson, en una breve entrada del calendario de dichos que lleva el personaje del título. Dice que a una criatura que nunca siente miedo no se le puede llamar valiente. La valentía solo significa algo cuando el miedo está presente. No tienes que esperar a que el miedo se vaya. Siéntelo, nómbralo y actúa mientras sigue ahí. Así es el valor.",
+    "today_es": "Elige lo único que has estado posponiendo porque te pone nervioso. Haz el primer paso pequeño antes del mediodía, con miedo y todo."
   };
 
   var LANE_LABEL = {warrior:'Warrior',thinker:'Thinker',builder:'Builder',power:'Power',faith:'Faith',odyssey:'Odyssey'};
