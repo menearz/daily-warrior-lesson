@@ -74,25 +74,25 @@
   };
 
   var DEFAULT_LESSON = {
-    "date": "2026-11-10",
-    "title": "Master the Fear",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/0/0c/Mark_Twain_by_AF_Bradley.jpg",
-    "imageAlt": "Mark Twain, portrait photograph by A. F. Bradley",
+    "date": "2026-11-11",
+    "title": "Brave by Doing",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/a/ae/Aristotle_Altemps_Inv8575.jpg",
+    "imageAlt": "Aristotle, Roman marble bust (Palazzo Altemps, Rome)",
     "fallback": "./images/2026-09-04.jpg",
-    "source": "Mark Twain, The Tragedy of Pudd'nhead Wilson, 1894, Chapter 12, \"Pudd'nhead Wilson's Calendar\" (Project Gutenberg)",
-    "sourceUrl": "https://www.gutenberg.org/ebooks/102",
-    "quote": "Courage is resistance to fear, mastery of fear--not absence of fear.",
-    "lesson": "Mark Twain put this line in his 1894 novel Pudd'nhead Wilson, in a short entry in the calendar of sayings the title character keeps. He says a creature that is never afraid has no right to be called brave. Bravery only means something when fear is in the room. You do not have to wait until the fear goes away. Feel it, name it, and act while it is still there. That is what courage looks like.",
-    "today": "Pick the one thing you have been putting off because it makes you nervous. Do the first small step of it before noon, fear and all.",
+    "source": "Aristotle, Nicomachean Ethics, Book II, Chapter 1 (Project Gutenberg edition)",
+    "sourceUrl": "https://www.gutenberg.org/ebooks/8438",
+    "quote": "by doing just actions we come to be just; by doing the actions of self-mastery we come to be perfected in self-mastery; and by doing brave actions brave.",
+    "lesson": "Aristotle wrote this in his Ethics, more than 2,300 years ago. He says we do not get our virtues by being born with them. We get them by acting, the same way a builder becomes a builder by building. Nobody waits to feel brave before doing a brave thing. The act comes first and the character follows. If you want to be disciplined, do the disciplined thing today, and tomorrow's version of you will be a little more that man.",
+    "today": "Pick one virtue you want more of, such as courage, discipline or patience. Do one small act of it today before the day is over.",
     "lanes": [
       "warrior",
       "builder"
     ],
-    "title_es": "Dominar el miedo",
-    "source_es": "Mark Twain, La tragedia de Pudd'nhead Wilson, 1894, capítulo 12, \"El calendario de Pudd'nhead Wilson\" (traducción fiel al español del original en inglés, Project Gutenberg)",
-    "quote_es": "El valor es resistencia al miedo, dominio del miedo, no ausencia de miedo.",
-    "lesson_es": "Mark Twain puso esta frase en su novela de 1894, Pudd'nhead Wilson, en una breve entrada del calendario de dichos que lleva el personaje del título. Dice que a una criatura que nunca siente miedo no se le puede llamar valiente. La valentía solo significa algo cuando el miedo está presente. No tienes que esperar a que el miedo se vaya. Siéntelo, nómbralo y actúa mientras sigue ahí. Así es el valor.",
-    "today_es": "Elige lo único que has estado posponiendo porque te pone nervioso. Haz el primer paso pequeño antes del mediodía, con miedo y todo."
+    "title_es": "Valiente haciendo",
+    "source_es": "Aristóteles, Ética a Nicómaco, libro II, capítulo 1 (traducción fiel al español de la edición en inglés de Project Gutenberg)",
+    "quote_es": "haciendo acciones justas llegamos a ser justos; haciendo acciones de dominio de sí llegamos a ser perfectos en el dominio de sí; y haciendo acciones valientes, valientes.",
+    "lesson_es": "Aristóteles escribió esto en su Ética, hace más de 2.300 años. Dice que no recibimos las virtudes por haber nacido con ellas. Las recibimos actuando, igual que un constructor se hace constructor construyendo. Nadie espera sentirse valiente antes de hacer algo valiente. Primero viene el acto y después el carácter. Si quieres ser disciplinado, haz hoy lo disciplinado, y el tú de mañana será un poco más ese hombre.",
+    "today_es": "Elige una virtud que quieras tener más, como el valor, la disciplina o la paciencia. Haz hoy un pequeño acto de ella antes de que termine el día."
   };
 
   var LANE_LABEL = {warrior:'Warrior',thinker:'Thinker',builder:'Builder',power:'Power',faith:'Faith',odyssey:'Odyssey'};
