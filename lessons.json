@@ -1,6 +1,26 @@
 {
   "lessons": [
     {
+      "date": "2026-11-12",
+      "title": "Wish Them As They Are",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/9/96/The_Iron_Forge_Viewed_from_Without.jpg",
+      "imageAlt": "Joseph Wright of Derby — An Iron Forge Viewed from Without (1773), full landscape painting, Hermitage Museum",
+      "fallback": "./images/2026-09-04.jpg",
+      "source": "Epictetus, The Enchiridion, section VIII (Thomas Wentworth Higginson translation, Project Gutenberg edition)",
+      "sourceUrl": "https://www.gutenberg.org/ebooks/45109",
+      "quote": "Demand not that events should happen as you wish; but wish them to happen as they do happen, and you will go on well.",
+      "lesson": "Epictetus was born a slave in the Roman world and later taught philosophy to free men. He had no power over his own events for years, so he learned to sort what he could change from what he could not. A man who fights the weather, the traffic or other people's choices wastes strength he needs for the work in front of him. Accept the facts as they stand, then act inside them. That is not giving up. It is how a steady man keeps his head while others burn out.",
+      "today": "Name one thing today that is out of your hands and stop arguing with it. Then put that same energy into the next task you can control.",
+      "lanes": [
+        "warrior"
+      ],
+      "title_es": "Quiérelos como son",
+      "source_es": "Epicteto, Enquiridión, sección VIII (traducción fiel al español de la versión inglesa de Thomas Wentworth Higginson, edición de Project Gutenberg)",
+      "quote_es": "No pidas que los acontecimientos sucedan como quieres; quiere que sucedan como suceden, y te irá bien.",
+      "lesson_es": "Epicteto nació esclavo en el mundo romano y luego enseñó filosofía a hombres libres. Durante años no tuvo poder sobre lo que le pasaba, así que aprendió a separar lo que podía cambiar de lo que no. El hombre que pelea contra el clima, el tráfico o las decisiones de otros gasta la fuerza que necesita para el trabajo que tiene delante. Acepta los hechos tal como están y actúa dentro de ellos. Eso no es rendirse. Así conserva la cabeza un hombre firme mientras otros se queman.",
+      "today_es": "Nombra hoy una cosa que está fuera de tus manos y deja de discutir con ella. Luego pon esa misma energía en la próxima tarea que sí puedes controlar."
+    },
+    {
       "date": "2026-11-11",
       "title": "Brave by Doing",
       "image": "https://upload.wikimedia.org/wikipedia/commons/a/ae/Aristotle_Altemps_Inv8575.jpg",

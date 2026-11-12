@@ -74,25 +74,24 @@
   };
 
   var DEFAULT_LESSON = {
-    "date": "2026-11-11",
-    "title": "Brave by Doing",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/a/ae/Aristotle_Altemps_Inv8575.jpg",
-    "imageAlt": "Aristotle, Roman marble bust (Palazzo Altemps, Rome)",
+    "date": "2026-11-12",
+    "title": "Wish Them As They Are",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/9/96/The_Iron_Forge_Viewed_from_Without.jpg",
+    "imageAlt": "Joseph Wright of Derby — An Iron Forge Viewed from Without (1773), full landscape painting, Hermitage Museum",
     "fallback": "./images/2026-09-04.jpg",
-    "source": "Aristotle, Nicomachean Ethics, Book II, Chapter 1 (Project Gutenberg edition)",
-    "sourceUrl": "https://www.gutenberg.org/ebooks/8438",
-    "quote": "by doing just actions we come to be just; by doing the actions of self-mastery we come to be perfected in self-mastery; and by doing brave actions brave.",
-    "lesson": "Aristotle wrote this in his Ethics, more than 2,300 years ago. He says we do not get our virtues by being born with them. We get them by acting, the same way a builder becomes a builder by building. Nobody waits to feel brave before doing a brave thing. The act comes first and the character follows. If you want to be disciplined, do the disciplined thing today, and tomorrow's version of you will be a little more that man.",
-    "today": "Pick one virtue you want more of, such as courage, discipline or patience. Do one small act of it today before the day is over.",
+    "source": "Epictetus, The Enchiridion, section VIII (Thomas Wentworth Higginson translation, Project Gutenberg edition)",
+    "sourceUrl": "https://www.gutenberg.org/ebooks/45109",
+    "quote": "Demand not that events should happen as you wish; but wish them to happen as they do happen, and you will go on well.",
+    "lesson": "Epictetus was born a slave in the Roman world and later taught philosophy to free men. He had no power over his own events for years, so he learned to sort what he could change from what he could not. A man who fights the weather, the traffic or other people's choices wastes strength he needs for the work in front of him. Accept the facts as they stand, then act inside them. That is not giving up. It is how a steady man keeps his head while others burn out.",
+    "today": "Name one thing today that is out of your hands and stop arguing with it. Then put that same energy into the next task you can control.",
     "lanes": [
-      "warrior",
-      "builder"
+      "warrior"
     ],
-    "title_es": "Valiente haciendo",
-    "source_es": "Aristóteles, Ética a Nicómaco, libro II, capítulo 1 (traducción fiel al español de la edición en inglés de Project Gutenberg)",
-    "quote_es": "haciendo acciones justas llegamos a ser justos; haciendo acciones de dominio de sí llegamos a ser perfectos en el dominio de sí; y haciendo acciones valientes, valientes.",
-    "lesson_es": "Aristóteles escribió esto en su Ética, hace más de 2.300 años. Dice que no recibimos las virtudes por haber nacido con ellas. Las recibimos actuando, igual que un constructor se hace constructor construyendo. Nadie espera sentirse valiente antes de hacer algo valiente. Primero viene el acto y después el carácter. Si quieres ser disciplinado, haz hoy lo disciplinado, y el tú de mañana será un poco más ese hombre.",
-    "today_es": "Elige una virtud que quieras tener más, como el valor, la disciplina o la paciencia. Haz hoy un pequeño acto de ella antes de que termine el día."
+    "title_es": "Quiérelos como son",
+    "source_es": "Epicteto, Enquiridión, sección VIII (traducción fiel al español de la versión inglesa de Thomas Wentworth Higginson, edición de Project Gutenberg)",
+    "quote_es": "No pidas que los acontecimientos sucedan como quieres; quiere que sucedan como suceden, y te irá bien.",
+    "lesson_es": "Epicteto nació esclavo en el mundo romano y luego enseñó filosofía a hombres libres. Durante años no tuvo poder sobre lo que le pasaba, así que aprendió a separar lo que podía cambiar de lo que no. El hombre que pelea contra el clima, el tráfico o las decisiones de otros gasta la fuerza que necesita para el trabajo que tiene delante. Acepta los hechos tal como están y actúa dentro de ellos. Eso no es rendirse. Así conserva la cabeza un hombre firme mientras otros se queman.",
+    "today_es": "Nombra hoy una cosa que está fuera de tus manos y deja de discutir con ella. Luego pon esa misma energía en la próxima tarea que sí puedes controlar."
   };
 
   var LANE_LABEL = {warrior:'Warrior',thinker:'Thinker',builder:'Builder',power:'Power',faith:'Faith',odyssey:'Odyssey'};

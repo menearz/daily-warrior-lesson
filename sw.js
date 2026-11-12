@@ -1,4 +1,4 @@
-const CACHE = "warrior-lesson-v47";
+const CACHE = "warrior-lesson-v48";
 const PRECACHE = [
   "./",
   "./index.html",
