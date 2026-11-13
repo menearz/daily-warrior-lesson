@@ -1,6 +1,26 @@
 {
   "lessons": [
     {
+      "date": "2026-11-13",
+      "title": "A Man's Work",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/c/c6/The_Blacksmith%27s_Studio.jpg",
+      "imageAlt": "The Blacksmith's Studio, painting of a smith at work in his shop",
+      "fallback": "./images/2026-09-04.jpg",
+      "source": "Marcus Aurelius, Meditations, Book 5, section 1 (Meric Casaubon translation, 1634, Project Gutenberg edition)",
+      "sourceUrl": "https://www.gutenberg.org/ebooks/2680",
+      "quote": "In the morning when thou findest thyself unwilling to rise, consider with thyself presently, it is to go about a man's work that I am stirred up. Am I then yet unwilling to go about that, for which I myself was born and brought forth into this world? Or was I made for this, to lay me down, and make much of myself in a warm bed?",
+      "lesson": "Marcus Aurelius ruled Rome and spent years on cold frontier campaigns, yet he wrote this note to himself about the plain trouble of getting up. He did not wait to feel ready. He asked what he was made for and answered with the work waiting for him. Comfort is a fair thing to want, but it makes a poor purpose. The man who gets up on the hard mornings is the one who is still building when the easy ones are long gone.",
+      "today": "Tomorrow morning is made today. Tonight, pick the first task you will start when you wake, and set out what you need for it. Then, when the alarm goes off, you only have to begin.",
+      "lanes": [
+        "warrior"
+      ],
+      "title_es": "El trabajo de un hombre",
+      "source_es": "Marco Aurelio, Meditaciones, libro 5, sección 1 (traducción fiel al español de la versión inglesa de Meric Casaubon, 1634, edición de Project Gutenberg)",
+      "quote_es": "Por la mañana, cuando te encuentres sin ganas de levantarte, considera al instante que me levanto para ir a hacer el trabajo de un hombre. ¿Estoy entonces todavía sin ganas de ir a hacer aquello para lo cual yo mismo nací y fui traído a este mundo? ¿O fui hecho para esto, para tumbarme y mimarme en una cama caliente?",
+      "lesson_es": "Marco Aurelio gobernó Roma y pasó años en campañas frías en la frontera, y aun así escribió esta nota para sí mismo sobre la simple dificultad de levantarse. No esperó a sentirse listo. Se preguntó para qué fue hecho y respondió con el trabajo que lo esperaba. La comodidad es algo justo de querer, pero es un mal propósito. El hombre que se levanta en las mañanas duras es el que sigue construyendo cuando las fáciles ya quedaron lejos.",
+      "today_es": "La mañana de mañana se prepara hoy. Esta noche, elige la primera tarea que empezarás al despertar y deja listo lo que necesitas. Así, cuando suene la alarma, solo tendrás que empezar."
+    },
+    {
       "date": "2026-11-12",
       "title": "Wish Them As They Are",
       "image": "https://upload.wikimedia.org/wikipedia/commons/9/96/The_Iron_Forge_Viewed_from_Without.jpg",
