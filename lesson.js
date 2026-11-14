@@ -74,24 +74,24 @@
   };
 
   var DEFAULT_LESSON = {
-    "date": "2026-11-13",
-    "title": "A Man's Work",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/c/c6/The_Blacksmith%27s_Studio.jpg",
-    "imageAlt": "The Blacksmith's Studio, painting of a smith at work in his shop",
+    "date": "2026-11-14",
+    "title": "No Accident Here",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/e/e9/Jacques-Louis_David_-_The_Death_of_Seneca_-_WGA06041.jpg",
+    "imageAlt": "Jacques-Louis David, The Death of Seneca (1773), full landscape painting, Petit Palais, public domain",
     "fallback": "./images/2026-09-04.jpg",
-    "source": "Marcus Aurelius, Meditations, Book 5, section 1 (Meric Casaubon translation, 1634, Project Gutenberg edition)",
-    "sourceUrl": "https://www.gutenberg.org/ebooks/2680",
-    "quote": "In the morning when thou findest thyself unwilling to rise, consider with thyself presently, it is to go about a man's work that I am stirred up. Am I then yet unwilling to go about that, for which I myself was born and brought forth into this world? Or was I made for this, to lay me down, and make much of myself in a warm bed?",
-    "lesson": "Marcus Aurelius ruled Rome and spent years on cold frontier campaigns, yet he wrote this note to himself about the plain trouble of getting up. He did not wait to feel ready. He asked what he was made for and answered with the work waiting for him. Comfort is a fair thing to want, but it makes a poor purpose. The man who gets up on the hard mornings is the one who is still building when the easy ones are long gone.",
-    "today": "Tomorrow morning is made today. Tonight, pick the first task you will start when you wake, and set out what you need for it. Then, when the alarm goes off, you only have to begin.",
+    "source": "Seneca, Moral Letters to Lucilius 96.1-2 (Richard M. Gummere translation)",
+    "sourceUrl": "https://en.wikisource.org/wiki/Moral_letters_to_Lucilius/Letter_96",
+    "quote": "I am ill; but that is a part of my lot. My slaves have fallen sick, my income has gone off, my house is rickety, I have been assailed by losses, accidents, toil, and fear; this is a common thing. Nay, that was an understatement; it was an inevitable thing.",
+    "lesson": "Seneca wrote this to a friend who kept complaining about his troubles. Seneca was sick himself, and his money and his house were failing too. He did not ask why it was happening to him. He said hard things come to every man, and that is simply how life works. Once you stop expecting an easy road, a bad day loses most of its sting. You can spend your strength on the problem instead of on being surprised by it.",
+    "today": "Name the one hard thing in front of you today and say out loud that it was always going to come. Then do the first useful step on it before noon.",
     "lanes": [
       "warrior"
     ],
-    "title_es": "El trabajo de un hombre",
-    "source_es": "Marco Aurelio, Meditaciones, libro 5, sección 1 (traducción fiel al español de la versión inglesa de Meric Casaubon, 1634, edición de Project Gutenberg)",
-    "quote_es": "Por la mañana, cuando te encuentres sin ganas de levantarte, considera al instante que me levanto para ir a hacer el trabajo de un hombre. ¿Estoy entonces todavía sin ganas de ir a hacer aquello para lo cual yo mismo nací y fui traído a este mundo? ¿O fui hecho para esto, para tumbarme y mimarme en una cama caliente?",
-    "lesson_es": "Marco Aurelio gobernó Roma y pasó años en campañas frías en la frontera, y aun así escribió esta nota para sí mismo sobre la simple dificultad de levantarse. No esperó a sentirse listo. Se preguntó para qué fue hecho y respondió con el trabajo que lo esperaba. La comodidad es algo justo de querer, pero es un mal propósito. El hombre que se levanta en las mañanas duras es el que sigue construyendo cuando las fáciles ya quedaron lejos.",
-    "today_es": "La mañana de mañana se prepara hoy. Esta noche, elige la primera tarea que empezarás al despertar y deja listo lo que necesitas. Así, cuando suene la alarma, solo tendrás que empezar."
+    "title_es": "Aquí no hay accidente",
+    "source_es": "Séneca, Cartas morales a Lucilio 96.1-2 (traducción fiel al español de la versión inglesa de Richard M. Gummere)",
+    "quote_es": "Estoy enfermo; pero eso es parte de mi suerte. Mis esclavos han enfermado, mis ingresos han bajado, mi casa está en ruinas, me han asaltado pérdidas, accidentes, fatigas y miedo; esto es cosa común. Más aún, eso fue quedarse corto; era cosa inevitable.",
+    "lesson_es": "Séneca escribió esto a un amigo que no dejaba de quejarse de sus problemas. Séneca mismo estaba enfermo, y su dinero y su casa también iban mal. No preguntó por qué le pasaba a él. Dijo que las cosas duras le llegan a todo hombre, y que así es la vida. Cuando dejas de esperar un camino fácil, un mal día pierde casi todo su aguijón. Puedes gastar tus fuerzas en el problema en vez de gastarlas en la sorpresa.",
+    "today_es": "Nombra la cosa difícil que tienes delante hoy y di en voz alta que siempre iba a llegar. Luego da el primer paso útil antes del mediodía."
   };
 
   var LANE_LABEL = {warrior:'Warrior',thinker:'Thinker',builder:'Builder',power:'Power',faith:'Faith',odyssey:'Odyssey'};

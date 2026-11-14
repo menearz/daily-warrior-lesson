@@ -1,6 +1,26 @@
 {
   "lessons": [
     {
+      "date": "2026-11-14",
+      "title": "No Accident Here",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/e/e9/Jacques-Louis_David_-_The_Death_of_Seneca_-_WGA06041.jpg",
+      "imageAlt": "Jacques-Louis David, The Death of Seneca (1773), full landscape painting, Petit Palais, public domain",
+      "fallback": "./images/2026-09-04.jpg",
+      "source": "Seneca, Moral Letters to Lucilius 96.1-2 (Richard M. Gummere translation)",
+      "sourceUrl": "https://en.wikisource.org/wiki/Moral_letters_to_Lucilius/Letter_96",
+      "quote": "I am ill; but that is a part of my lot. My slaves have fallen sick, my income has gone off, my house is rickety, I have been assailed by losses, accidents, toil, and fear; this is a common thing. Nay, that was an understatement; it was an inevitable thing.",
+      "lesson": "Seneca wrote this to a friend who kept complaining about his troubles. Seneca was sick himself, and his money and his house were failing too. He did not ask why it was happening to him. He said hard things come to every man, and that is simply how life works. Once you stop expecting an easy road, a bad day loses most of its sting. You can spend your strength on the problem instead of on being surprised by it.",
+      "today": "Name the one hard thing in front of you today and say out loud that it was always going to come. Then do the first useful step on it before noon.",
+      "lanes": [
+        "warrior"
+      ],
+      "title_es": "Aquí no hay accidente",
+      "source_es": "Séneca, Cartas morales a Lucilio 96.1-2 (traducción fiel al español de la versión inglesa de Richard M. Gummere)",
+      "quote_es": "Estoy enfermo; pero eso es parte de mi suerte. Mis esclavos han enfermado, mis ingresos han bajado, mi casa está en ruinas, me han asaltado pérdidas, accidentes, fatigas y miedo; esto es cosa común. Más aún, eso fue quedarse corto; era cosa inevitable.",
+      "lesson_es": "Séneca escribió esto a un amigo que no dejaba de quejarse de sus problemas. Séneca mismo estaba enfermo, y su dinero y su casa también iban mal. No preguntó por qué le pasaba a él. Dijo que las cosas duras le llegan a todo hombre, y que así es la vida. Cuando dejas de esperar un camino fácil, un mal día pierde casi todo su aguijón. Puedes gastar tus fuerzas en el problema en vez de gastarlas en la sorpresa.",
+      "today_es": "Nombra la cosa difícil que tienes delante hoy y di en voz alta que siempre iba a llegar. Luego da el primer paso útil antes del mediodía."
+    },
+    {
       "date": "2026-11-13",
       "title": "A Man's Work",
       "image": "https://upload.wikimedia.org/wikipedia/commons/c/c6/The_Blacksmith%27s_Studio.jpg",
