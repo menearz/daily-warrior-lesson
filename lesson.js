@@ -74,24 +74,24 @@
   };
 
   var DEFAULT_LESSON = {
-    "date": "2026-11-14",
-    "title": "No Accident Here",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/e/e9/Jacques-Louis_David_-_The_Death_of_Seneca_-_WGA06041.jpg",
-    "imageAlt": "Jacques-Louis David, The Death of Seneca (1773), full landscape painting, Petit Palais, public domain",
+    "date": "2026-11-15",
+    "title": "Know Both Sides",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/2/24/Bamboo_Slips_of_Art_of_War_%289873605914%29.jpg",
+    "imageAlt": "Bamboo slips of The Art of War, a Chinese book of bound bamboo strips, CC0 on Wikimedia Commons",
     "fallback": "./images/2026-09-04.jpg",
-    "source": "Seneca, Moral Letters to Lucilius 96.1-2 (Richard M. Gummere translation)",
-    "sourceUrl": "https://en.wikisource.org/wiki/Moral_letters_to_Lucilius/Letter_96",
-    "quote": "I am ill; but that is a part of my lot. My slaves have fallen sick, my income has gone off, my house is rickety, I have been assailed by losses, accidents, toil, and fear; this is a common thing. Nay, that was an understatement; it was an inevitable thing.",
-    "lesson": "Seneca wrote this to a friend who kept complaining about his troubles. Seneca was sick himself, and his money and his house were failing too. He did not ask why it was happening to him. He said hard things come to every man, and that is simply how life works. Once you stop expecting an easy road, a bad day loses most of its sting. You can spend your strength on the problem instead of on being surprised by it.",
-    "today": "Name the one hard thing in front of you today and say out loud that it was always going to come. Then do the first useful step on it before noon.",
+    "source": "Sun Tzu, The Art of War, Chapter III, \"Attack by Stratagem,\" section 18 (Lionel Giles translation, Project Gutenberg edition)",
+    "sourceUrl": "https://www.gutenberg.org/ebooks/132",
+    "quote": "Hence the saying: If you know the enemy and know yourself, you need not fear the result of a hundred battles. If you know yourself but not the enemy, for every victory gained you will also suffer a defeat.",
+    "lesson": "Sun Tzu wrote this long ago as advice for generals, but it works for any hard task. Most men study the problem and never look honestly at themselves. Others only look at themselves and ignore what they are up against. You need both. Know what the job demands, and know where you are weak, tired or proud. A man who sees both clearly can pick his fights and win more than he loses.",
+    "today": "Pick the one hard thing in front of you today. Write one line on what it demands and one line on your weakest point for it. Then plan around both before you start.",
     "lanes": [
       "warrior"
     ],
-    "title_es": "Aquí no hay accidente",
-    "source_es": "Séneca, Cartas morales a Lucilio 96.1-2 (traducción fiel al español de la versión inglesa de Richard M. Gummere)",
-    "quote_es": "Estoy enfermo; pero eso es parte de mi suerte. Mis esclavos han enfermado, mis ingresos han bajado, mi casa está en ruinas, me han asaltado pérdidas, accidentes, fatigas y miedo; esto es cosa común. Más aún, eso fue quedarse corto; era cosa inevitable.",
-    "lesson_es": "Séneca escribió esto a un amigo que no dejaba de quejarse de sus problemas. Séneca mismo estaba enfermo, y su dinero y su casa también iban mal. No preguntó por qué le pasaba a él. Dijo que las cosas duras le llegan a todo hombre, y que así es la vida. Cuando dejas de esperar un camino fácil, un mal día pierde casi todo su aguijón. Puedes gastar tus fuerzas en el problema en vez de gastarlas en la sorpresa.",
-    "today_es": "Nombra la cosa difícil que tienes delante hoy y di en voz alta que siempre iba a llegar. Luego da el primer paso útil antes del mediodía."
+    "title_es": "Conoce ambos lados",
+    "source_es": "Sun Tzu, El arte de la guerra, capítulo III, \"El ataque por estratagema\", sección 18 (traducción fiel al español de la versión inglesa de Lionel Giles)",
+    "quote_es": "De ahí el dicho: si conoces al enemigo y te conoces a ti mismo, no necesitas temer el resultado de cien batallas. Si te conoces a ti mismo pero no al enemigo, por cada victoria que ganes también sufrirás una derrota.",
+    "lesson_es": "Sun Tzu escribió esto hace mucho como consejo para generales, pero sirve para cualquier tarea difícil. La mayoría de los hombres estudia el problema y nunca se mira con honestidad. Otros solo se miran a sí mismos e ignoran a qué se enfrentan. Necesitas ambas cosas. Conoce lo que exige el trabajo y conoce dónde eres débil, estás cansado u orgulloso. Quien ve las dos cosas con claridad puede elegir sus batallas y ganar más de las que pierde.",
+    "today_es": "Elige la cosa difícil que tienes delante hoy. Escribe una línea sobre lo que exige y otra sobre tu punto más débil para ella. Luego planea con ambas antes de empezar."
   };
 
   var LANE_LABEL = {warrior:'Warrior',thinker:'Thinker',builder:'Builder',power:'Power',faith:'Faith',odyssey:'Odyssey'};
