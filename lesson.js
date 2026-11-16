@@ -74,24 +74,24 @@
   };
 
   var DEFAULT_LESSON = {
-    "date": "2026-11-15",
-    "title": "Know Both Sides",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/2/24/Bamboo_Slips_of_Art_of_War_%289873605914%29.jpg",
-    "imageAlt": "Bamboo slips of The Art of War, a Chinese book of bound bamboo strips, CC0 on Wikimedia Commons",
+    "date": "2026-11-16",
+    "title": "Be the Prepared Mind",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/3/3c/Albert_Edelfelt_-_Louis_Pasteur_-_1885.jpg",
+    "imageAlt": "Albert Edelfelt, portrait of Louis Pasteur (1885), Musée d'Orsay, public domain on Wikimedia Commons",
     "fallback": "./images/2026-09-04.jpg",
-    "source": "Sun Tzu, The Art of War, Chapter III, \"Attack by Stratagem,\" section 18 (Lionel Giles translation, Project Gutenberg edition)",
-    "sourceUrl": "https://www.gutenberg.org/ebooks/132",
-    "quote": "Hence the saying: If you know the enemy and know yourself, you need not fear the result of a hundred battles. If you know yourself but not the enemy, for every victory gained you will also suffer a defeat.",
-    "lesson": "Sun Tzu wrote this long ago as advice for generals, but it works for any hard task. Most men study the problem and never look honestly at themselves. Others only look at themselves and ignore what they are up against. You need both. Know what the job demands, and know where you are weak, tired or proud. A man who sees both clearly can pick his fights and win more than he loses.",
-    "today": "Pick the one hard thing in front of you today. Write one line on what it demands and one line on your weakest point for it. Then plan around both before you start.",
+    "source": "Louis Pasteur, inaugural lecture as dean of the Faculty of Sciences, University of Lille, 7 December 1854",
+    "sourceUrl": "https://en.wikiquote.org/wiki/Louis_Pasteur",
+    "quote": "In the fields of observation chance favors only the prepared mind.",
+    "lesson": "Pasteur said this to students on his first day leading a new faculty. He had seen that lucky breaks do not come to everyone. They come to the man who has done the work and trained his eyes to notice. Two people can see the same thing happen, and only one knows what it means. Luck is real, but you can only use it if you are ready when it shows up.",
+    "today": "Pick one skill that matters for your next big goal. Spend thirty focused minutes on it today, before anything easy or fun.",
     "lanes": [
       "warrior"
     ],
-    "title_es": "Conoce ambos lados",
-    "source_es": "Sun Tzu, El arte de la guerra, capítulo III, \"El ataque por estratagema\", sección 18 (traducción fiel al español de la versión inglesa de Lionel Giles)",
-    "quote_es": "De ahí el dicho: si conoces al enemigo y te conoces a ti mismo, no necesitas temer el resultado de cien batallas. Si te conoces a ti mismo pero no al enemigo, por cada victoria que ganes también sufrirás una derrota.",
-    "lesson_es": "Sun Tzu escribió esto hace mucho como consejo para generales, pero sirve para cualquier tarea difícil. La mayoría de los hombres estudia el problema y nunca se mira con honestidad. Otros solo se miran a sí mismos e ignoran a qué se enfrentan. Necesitas ambas cosas. Conoce lo que exige el trabajo y conoce dónde eres débil, estás cansado u orgulloso. Quien ve las dos cosas con claridad puede elegir sus batallas y ganar más de las que pierde.",
-    "today_es": "Elige la cosa difícil que tienes delante hoy. Escribe una línea sobre lo que exige y otra sobre tu punto más débil para ella. Luego planea con ambas antes de empezar."
+    "title_es": "La mente preparada",
+    "source_es": "Louis Pasteur, lección inaugural como decano de la Facultad de Ciencias, Universidad de Lille, 7 de diciembre de 1854",
+    "quote_es": "En los campos de la observación, el azar favorece solo a las mentes preparadas.",
+    "lesson_es": "Pasteur dijo esto a sus estudiantes el primer día al frente de una nueva facultad. Había visto que los golpes de suerte no llegan a todos. Llegan al hombre que ha hecho el trabajo y ha entrenado sus ojos para notar. Dos personas pueden ver lo mismo, y solo una sabe lo que significa. La suerte es real, pero solo puedes usarla si estás listo cuando aparece.",
+    "today_es": "Elige una habilidad que importe para tu próxima gran meta. Dedícale treinta minutos de enfoque hoy, antes de cualquier cosa fácil o divertida."
   };
 
   var LANE_LABEL = {warrior:'Warrior',thinker:'Thinker',builder:'Builder',power:'Power',faith:'Faith',odyssey:'Odyssey'};
