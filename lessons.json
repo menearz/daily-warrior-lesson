@@ -1,6 +1,26 @@
 {
   "lessons": [
     {
+      "date": "2026-11-17",
+      "title": "The Man in the Arena",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/5/5b/Theodore_Roosevelt_by_the_Pach_Bros.jpg",
+      "imageAlt": "Theodore Roosevelt, portrait by the Pach Brothers (about 1904), public domain on Wikimedia Commons",
+      "fallback": "./images/2026-09-04.jpg",
+      "source": "Theodore Roosevelt, \"Citizenship in a Republic,\" speech at the Sorbonne, Paris, 23 April 1910",
+      "sourceUrl": "https://en.wikisource.org/wiki/Citizenship_in_a_Republic",
+      "quote": "It is not the critic who counts; not the man who points out how the strong man stumbles, or where the doer of deeds could have done them better. The credit belongs to the man who is actually in the arena, whose face is marred by dust and sweat and blood; who strives valiantly; who errs, who comes short again and again, because there is no effort without error and shortcoming.",
+      "lesson": "Roosevelt gave this speech in Paris a year after leaving the White House. He had been mocked in the press for years, and he knew the sting. His answer was simple. The person who tries and fails still counts for more than the one who only watches and judges. Mistakes come with any real effort, so you cannot dodge them and also get anything done.",
+      "today": "Think of one thing you have put off because you fear getting it wrong. Take the first small step on it today, even if it comes out rough.",
+      "lanes": [
+        "warrior"
+      ],
+      "title_es": "El hombre en la arena",
+      "source_es": "Theodore Roosevelt, «Citizenship in a Republic» (La ciudadanía en una república), discurso en la Sorbona, París, 23 de abril de 1910",
+      "quote_es": "No es el crítico quien cuenta; ni el hombre que señala cómo tropieza el fuerte, o en qué podría haberlo hecho mejor quien actúa. El mérito pertenece al hombre que está realmente en la arena, con el rostro marcado por el polvo, el sudor y la sangre; que lucha con valor; que se equivoca, que falla una y otra vez, porque no hay esfuerzo sin error ni falta.",
+      "lesson_es": "Roosevelt dio este discurso en París un año después de dejar la Casa Blanca. La prensa se había burlado de él durante años, y conocía bien esa herida. Su respuesta era sencilla. Quien lo intenta y fracasa cuenta más que quien solo mira y juzga. Los errores acompañan a todo esfuerzo real, así que no puedes evitarlos y a la vez lograr algo.",
+      "today_es": "Piensa en algo que has dejado para después por miedo a equivocarte. Da hoy el primer paso pequeño, aunque salga imperfecto."
+    },
+    {
       "date": "2026-11-16",
       "title": "Be the Prepared Mind",
       "image": "https://upload.wikimedia.org/wikipedia/commons/3/3c/Albert_Edelfelt_-_Louis_Pasteur_-_1885.jpg",

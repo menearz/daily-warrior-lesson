@@ -74,24 +74,24 @@
   };
 
   var DEFAULT_LESSON = {
-    "date": "2026-11-16",
-    "title": "Be the Prepared Mind",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/3/3c/Albert_Edelfelt_-_Louis_Pasteur_-_1885.jpg",
-    "imageAlt": "Albert Edelfelt, portrait of Louis Pasteur (1885), Musée d'Orsay, public domain on Wikimedia Commons",
+    "date": "2026-11-17",
+    "title": "The Man in the Arena",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/5/5b/Theodore_Roosevelt_by_the_Pach_Bros.jpg",
+    "imageAlt": "Theodore Roosevelt, portrait by the Pach Brothers (about 1904), public domain on Wikimedia Commons",
     "fallback": "./images/2026-09-04.jpg",
-    "source": "Louis Pasteur, inaugural lecture as dean of the Faculty of Sciences, University of Lille, 7 December 1854",
-    "sourceUrl": "https://en.wikiquote.org/wiki/Louis_Pasteur",
-    "quote": "In the fields of observation chance favors only the prepared mind.",
-    "lesson": "Pasteur said this to students on his first day leading a new faculty. He had seen that lucky breaks do not come to everyone. They come to the man who has done the work and trained his eyes to notice. Two people can see the same thing happen, and only one knows what it means. Luck is real, but you can only use it if you are ready when it shows up.",
-    "today": "Pick one skill that matters for your next big goal. Spend thirty focused minutes on it today, before anything easy or fun.",
+    "source": "Theodore Roosevelt, \"Citizenship in a Republic,\" speech at the Sorbonne, Paris, 23 April 1910",
+    "sourceUrl": "https://en.wikisource.org/wiki/Citizenship_in_a_Republic",
+    "quote": "It is not the critic who counts; not the man who points out how the strong man stumbles, or where the doer of deeds could have done them better. The credit belongs to the man who is actually in the arena, whose face is marred by dust and sweat and blood; who strives valiantly; who errs, who comes short again and again, because there is no effort without error and shortcoming.",
+    "lesson": "Roosevelt gave this speech in Paris a year after leaving the White House. He had been mocked in the press for years, and he knew the sting. His answer was simple. The person who tries and fails still counts for more than the one who only watches and judges. Mistakes come with any real effort, so you cannot dodge them and also get anything done.",
+    "today": "Think of one thing you have put off because you fear getting it wrong. Take the first small step on it today, even if it comes out rough.",
     "lanes": [
       "warrior"
     ],
-    "title_es": "La mente preparada",
-    "source_es": "Louis Pasteur, lección inaugural como decano de la Facultad de Ciencias, Universidad de Lille, 7 de diciembre de 1854",
-    "quote_es": "En los campos de la observación, el azar favorece solo a las mentes preparadas.",
-    "lesson_es": "Pasteur dijo esto a sus estudiantes el primer día al frente de una nueva facultad. Había visto que los golpes de suerte no llegan a todos. Llegan al hombre que ha hecho el trabajo y ha entrenado sus ojos para notar. Dos personas pueden ver lo mismo, y solo una sabe lo que significa. La suerte es real, pero solo puedes usarla si estás listo cuando aparece.",
-    "today_es": "Elige una habilidad que importe para tu próxima gran meta. Dedícale treinta minutos de enfoque hoy, antes de cualquier cosa fácil o divertida."
+    "title_es": "El hombre en la arena",
+    "source_es": "Theodore Roosevelt, «Citizenship in a Republic» (La ciudadanía en una república), discurso en la Sorbona, París, 23 de abril de 1910",
+    "quote_es": "No es el crítico quien cuenta; ni el hombre que señala cómo tropieza el fuerte, o en qué podría haberlo hecho mejor quien actúa. El mérito pertenece al hombre que está realmente en la arena, con el rostro marcado por el polvo, el sudor y la sangre; que lucha con valor; que se equivoca, que falla una y otra vez, porque no hay esfuerzo sin error ni falta.",
+    "lesson_es": "Roosevelt dio este discurso en París un año después de dejar la Casa Blanca. La prensa se había burlado de él durante años, y conocía bien esa herida. Su respuesta era sencilla. Quien lo intenta y fracasa cuenta más que quien solo mira y juzga. Los errores acompañan a todo esfuerzo real, así que no puedes evitarlos y a la vez lograr algo.",
+    "today_es": "Piensa en algo que has dejado para después por miedo a equivocarte. Da hoy el primer paso pequeño, aunque salga imperfecto."
   };
 
   var LANE_LABEL = {warrior:'Warrior',thinker:'Thinker',builder:'Builder',power:'Power',faith:'Faith',odyssey:'Odyssey'};
