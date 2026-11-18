@@ -74,24 +74,24 @@
   };
 
   var DEFAULT_LESSON = {
-    "date": "2026-11-17",
-    "title": "The Man in the Arena",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/5/5b/Theodore_Roosevelt_by_the_Pach_Bros.jpg",
-    "imageAlt": "Theodore Roosevelt, portrait by the Pach Brothers (about 1904), public domain on Wikimedia Commons",
+    "date": "2026-11-18",
+    "title": "Power Concedes Nothing",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/c/c5/Frederick_Douglass_%28circa_1879%29.jpg",
+    "imageAlt": "Frederick Douglass, portrait photograph (circa 1879), public domain on Wikimedia Commons",
     "fallback": "./images/2026-09-04.jpg",
-    "source": "Theodore Roosevelt, \"Citizenship in a Republic,\" speech at the Sorbonne, Paris, 23 April 1910",
-    "sourceUrl": "https://en.wikisource.org/wiki/Citizenship_in_a_Republic",
-    "quote": "It is not the critic who counts; not the man who points out how the strong man stumbles, or where the doer of deeds could have done them better. The credit belongs to the man who is actually in the arena, whose face is marred by dust and sweat and blood; who strives valiantly; who errs, who comes short again and again, because there is no effort without error and shortcoming.",
-    "lesson": "Roosevelt gave this speech in Paris a year after leaving the White House. He had been mocked in the press for years, and he knew the sting. His answer was simple. The person who tries and fails still counts for more than the one who only watches and judges. Mistakes come with any real effort, so you cannot dodge them and also get anything done.",
-    "today": "Think of one thing you have put off because you fear getting it wrong. Take the first small step on it today, even if it comes out rough.",
+    "source": "Frederick Douglass, West India Emancipation speech, Canandaigua, New York, 3 August 1857 (BlackPast)",
+    "sourceUrl": "https://www.blackpast.org/african-american-history/1857-frederick-douglass-if-there-no-struggle-there-no-progress/",
+    "quote": "Power concedes nothing without a demand. It never did and it never will. Find out just what any people will quietly submit to and you have found out the exact measure of injustice and wrong which will be imposed upon them, and these will continue till they are resisted with either words or blows, or with both.",
+    "lesson": "Douglass spoke these words on the anniversary of emancipation in the British West Indies. He had escaped slavery himself and had spent years watching polite requests fail. His point was plain. What you accept quietly becomes the standard you are given. Asking nicely has its place, but a limit only moves when someone presses on it, firmly and in the open.",
+    "today": "Pick one place where you have been putting up with less than you should. Say what you need, out loud and in plain words, to the person who can change it.",
     "lanes": [
       "warrior"
     ],
-    "title_es": "El hombre en la arena",
-    "source_es": "Theodore Roosevelt, «Citizenship in a Republic» (La ciudadanía en una república), discurso en la Sorbona, París, 23 de abril de 1910",
-    "quote_es": "No es el crítico quien cuenta; ni el hombre que señala cómo tropieza el fuerte, o en qué podría haberlo hecho mejor quien actúa. El mérito pertenece al hombre que está realmente en la arena, con el rostro marcado por el polvo, el sudor y la sangre; que lucha con valor; que se equivoca, que falla una y otra vez, porque no hay esfuerzo sin error ni falta.",
-    "lesson_es": "Roosevelt dio este discurso en París un año después de dejar la Casa Blanca. La prensa se había burlado de él durante años, y conocía bien esa herida. Su respuesta era sencilla. Quien lo intenta y fracasa cuenta más que quien solo mira y juzga. Los errores acompañan a todo esfuerzo real, así que no puedes evitarlos y a la vez lograr algo.",
-    "today_es": "Piensa en algo que has dejado para después por miedo a equivocarte. Da hoy el primer paso pequeño, aunque salga imperfecto."
+    "title_es": "El poder no concede nada",
+    "source_es": "Frederick Douglass, discurso sobre la emancipación en las Indias Occidentales, Canandaigua, Nueva York, 3 de agosto de 1857 (BlackPast)",
+    "quote_es": "El poder no concede nada sin una exigencia. Nunca lo hizo y nunca lo hará. Averigua exactamente a qué se someterá un pueblo en silencio y habrás averiguado la medida exacta de la injusticia y el agravio que se le impondrá, y esto continuará hasta que se les resista con palabras o con golpes, o con ambos.",
+    "lesson_es": "Douglass pronunció estas palabras en el aniversario de la emancipación en las Indias Occidentales británicas. Él mismo había escapado de la esclavitud y llevaba años viendo fracasar las peticiones corteses. Su idea era clara. Lo que aceptas en silencio se convierte en el estándar que te dan. Pedir con educación tiene su lugar, pero un límite solo se mueve cuando alguien presiona sobre él, con firmeza y a la vista de todos.",
+    "today_es": "Elige un lugar donde has aguantado menos de lo que mereces. Di lo que necesitas, en voz alta y con palabras claras, a la persona que puede cambiarlo."
   };
 
   var LANE_LABEL = {warrior:'Warrior',thinker:'Thinker',builder:'Builder',power:'Power',faith:'Faith',odyssey:'Odyssey'};
