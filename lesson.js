@@ -74,24 +74,24 @@
   };
 
   var DEFAULT_LESSON = {
-    "date": "2026-11-18",
-    "title": "Power Concedes Nothing",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/c/c5/Frederick_Douglass_%28circa_1879%29.jpg",
-    "imageAlt": "Frederick Douglass, portrait photograph (circa 1879), public domain on Wikimedia Commons",
+    "date": "2026-11-19",
+    "title": "Study the Hard Thing",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/d/df/Official_Presidential_portrait_of_John_Adams_%28by_John_Trumbull%2C_circa_1792%29.jpg",
+    "imageAlt": "John Adams, official presidential portrait by John Trumbull (circa 1792), public domain on Wikimedia Commons",
     "fallback": "./images/2026-09-04.jpg",
-    "source": "Frederick Douglass, West India Emancipation speech, Canandaigua, New York, 3 August 1857 (BlackPast)",
-    "sourceUrl": "https://www.blackpast.org/african-american-history/1857-frederick-douglass-if-there-no-struggle-there-no-progress/",
-    "quote": "Power concedes nothing without a demand. It never did and it never will. Find out just what any people will quietly submit to and you have found out the exact measure of injustice and wrong which will be imposed upon them, and these will continue till they are resisted with either words or blows, or with both.",
-    "lesson": "Douglass spoke these words on the anniversary of emancipation in the British West Indies. He had escaped slavery himself and had spent years watching polite requests fail. His point was plain. What you accept quietly becomes the standard you are given. Asking nicely has its place, but a limit only moves when someone presses on it, firmly and in the open.",
-    "today": "Pick one place where you have been putting up with less than you should. Say what you need, out loud and in plain words, to the person who can change it.",
+    "source": "John Adams, letter to Abigail Adams, Paris, 12 May 1780 (Founders Online)",
+    "sourceUrl": "https://founders.archives.gov/documents/Adams/04-03-02-0258",
+    "quote": "I must study Politicks and War that my sons may have liberty to study Mathematicks and Philosophy.",
+    "lesson": "Adams wrote this from Paris, far from his family, while the American war was still undecided. He knew his own work was the rough part. He took on the hard study of government and conflict so his sons could one day take up quieter pursuits. Every generation either carries a heavy load or leaves it for the next. A man who takes the heavy load now buys freedom for people he may never watch enjoy it.",
+    "today": "Name one hard job you have been leaving for later that someone you love will inherit. Spend thirty focused minutes on it today.",
     "lanes": [
       "warrior"
     ],
-    "title_es": "El poder no concede nada",
-    "source_es": "Frederick Douglass, discurso sobre la emancipación en las Indias Occidentales, Canandaigua, Nueva York, 3 de agosto de 1857 (BlackPast)",
-    "quote_es": "El poder no concede nada sin una exigencia. Nunca lo hizo y nunca lo hará. Averigua exactamente a qué se someterá un pueblo en silencio y habrás averiguado la medida exacta de la injusticia y el agravio que se le impondrá, y esto continuará hasta que se les resista con palabras o con golpes, o con ambos.",
-    "lesson_es": "Douglass pronunció estas palabras en el aniversario de la emancipación en las Indias Occidentales británicas. Él mismo había escapado de la esclavitud y llevaba años viendo fracasar las peticiones corteses. Su idea era clara. Lo que aceptas en silencio se convierte en el estándar que te dan. Pedir con educación tiene su lugar, pero un límite solo se mueve cuando alguien presiona sobre él, con firmeza y a la vista de todos.",
-    "today_es": "Elige un lugar donde has aguantado menos de lo que mereces. Di lo que necesitas, en voz alta y con palabras claras, a la persona que puede cambiarlo."
+    "title_es": "Estudia lo difícil",
+    "source_es": "John Adams, carta a Abigail Adams, París, 12 de mayo de 1780 (Founders Online)",
+    "quote_es": "Debo estudiar política y guerra para que mis hijos tengan la libertad de estudiar matemáticas y filosofía.",
+    "lesson_es": "Adams escribió esto desde París, lejos de su familia, cuando la guerra de Estados Unidos aún no estaba decidida. Sabía que su parte era la más dura. Asumió el estudio arduo del gobierno y del conflicto para que sus hijos pudieran dedicarse algún día a tareas más tranquilas. Cada generación carga un peso pesado o se lo deja a la siguiente. Quien toma la carga dura hoy compra libertad para personas que quizá nunca vea disfrutarla.",
+    "today_es": "Nombra un trabajo difícil que has dejado para después y que alguien a quien amas heredará. Dedícale hoy treinta minutos de atención total."
   };
 
   var LANE_LABEL = {warrior:'Warrior',thinker:'Thinker',builder:'Builder',power:'Power',faith:'Faith',odyssey:'Odyssey'};
