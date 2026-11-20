@@ -74,24 +74,24 @@
   };
 
   var DEFAULT_LESSON = {
-    "date": "2026-11-19",
-    "title": "Study the Hard Thing",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/d/df/Official_Presidential_portrait_of_John_Adams_%28by_John_Trumbull%2C_circa_1792%29.jpg",
-    "imageAlt": "John Adams, official presidential portrait by John Trumbull (circa 1792), public domain on Wikimedia Commons",
+    "date": "2026-11-20",
+    "title": "Never Be Idle",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/0/07/Official_Presidential_portrait_of_Thomas_Jefferson_%28by_Rembrandt_Peale%2C_1800%29.jpg",
+    "imageAlt": "Thomas Jefferson, official presidential portrait by Rembrandt Peale (1800), public domain on Wikimedia Commons",
     "fallback": "./images/2026-09-04.jpg",
-    "source": "John Adams, letter to Abigail Adams, Paris, 12 May 1780 (Founders Online)",
-    "sourceUrl": "https://founders.archives.gov/documents/Adams/04-03-02-0258",
-    "quote": "I must study Politicks and War that my sons may have liberty to study Mathematicks and Philosophy.",
-    "lesson": "Adams wrote this from Paris, far from his family, while the American war was still undecided. He knew his own work was the rough part. He took on the hard study of government and conflict so his sons could one day take up quieter pursuits. Every generation either carries a heavy load or leaves it for the next. A man who takes the heavy load now buys freedom for people he may never watch enjoy it.",
-    "today": "Name one hard job you have been leaving for later that someone you love will inherit. Spend thirty focused minutes on it today.",
+    "source": "Thomas Jefferson, letter to Martha Jefferson, Marseilles, 5 May 1787 (Founders Online)",
+    "sourceUrl": "https://founders.archives.gov/documents/Jefferson/01-11-02-0327",
+    "quote": "Determine never to be idle. No person will have occasion to complain of the want of time, who never loses any. It is wonderful how much may be done, if we are always doing.",
+    "lesson": "Jefferson wrote this to his fourteen-year-old daughter Patsy while he was on a long working tour of southern France. He had just told her he feared a lack of industry would be the rock on which she would split. His fix was simple. Nobody has too little time if they never waste any. Small steady effort adds up to a lot over a year. Most people who say they lack time are losing it in scraps, ten minutes at a time.",
+    "today": "Find one scrap of idle time today, a wait in line or the first ten minutes after dinner. Use it on the task you keep saying you have no time for.",
     "lanes": [
       "warrior"
     ],
-    "title_es": "Estudia lo difícil",
-    "source_es": "John Adams, carta a Abigail Adams, París, 12 de mayo de 1780 (Founders Online)",
-    "quote_es": "Debo estudiar política y guerra para que mis hijos tengan la libertad de estudiar matemáticas y filosofía.",
-    "lesson_es": "Adams escribió esto desde París, lejos de su familia, cuando la guerra de Estados Unidos aún no estaba decidida. Sabía que su parte era la más dura. Asumió el estudio arduo del gobierno y del conflicto para que sus hijos pudieran dedicarse algún día a tareas más tranquilas. Cada generación carga un peso pesado o se lo deja a la siguiente. Quien toma la carga dura hoy compra libertad para personas que quizá nunca vea disfrutarla.",
-    "today_es": "Nombra un trabajo difícil que has dejado para después y que alguien a quien amas heredará. Dedícale hoy treinta minutos de atención total."
+    "title_es": "Nunca estés ocioso",
+    "source_es": "Thomas Jefferson, carta a Martha Jefferson, Marsella, 5 de mayo de 1787 (Founders Online)",
+    "quote_es": "Decídete a no estar nunca ocioso. Nadie tendrá motivo para quejarse de la falta de tiempo si nunca pierde ninguno. Es admirable cuánto puede hacerse si siempre estamos haciendo.",
+    "lesson_es": "Jefferson escribió esto a su hija Patsy, de catorce años, durante un largo viaje de trabajo por el sur de Francia. Acababa de decirle que temía que la falta de laboriosidad fuera la roca contra la que se estrellaría. Su solución era sencilla. Nadie tiene poco tiempo si nunca lo desperdicia. El esfuerzo pequeño y constante suma mucho en un año. La mayoría de quienes dicen que les falta tiempo lo pierden en pedazos, diez minutos a la vez.",
+    "today_es": "Busca hoy un pedazo de tiempo ocioso, una fila de espera o los primeros diez minutos después de la cena. Úsalo en la tarea que siempre dices que no tienes tiempo de hacer."
   };
 
   var LANE_LABEL = {warrior:'Warrior',thinker:'Thinker',builder:'Builder',power:'Power',faith:'Faith',odyssey:'Odyssey'};
