@@ -74,24 +74,25 @@
   };
 
   var DEFAULT_LESSON = {
-    "date": "2026-11-20",
-    "title": "Never Be Idle",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/0/07/Official_Presidential_portrait_of_Thomas_Jefferson_%28by_Rembrandt_Peale%2C_1800%29.jpg",
-    "imageAlt": "Thomas Jefferson, official presidential portrait by Rembrandt Peale (1800), public domain on Wikimedia Commons",
+    "date": "2026-11-21",
+    "title": "The Unfinished Work",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/1/1b/Abraham_Lincoln_November_1863.jpg",
+    "imageAlt": "Abraham Lincoln, portrait photograph taken in November 1863, public domain on Wikimedia Commons",
     "fallback": "./images/2026-09-04.jpg",
-    "source": "Thomas Jefferson, letter to Martha Jefferson, Marseilles, 5 May 1787 (Founders Online)",
-    "sourceUrl": "https://founders.archives.gov/documents/Jefferson/01-11-02-0327",
-    "quote": "Determine never to be idle. No person will have occasion to complain of the want of time, who never loses any. It is wonderful how much may be done, if we are always doing.",
-    "lesson": "Jefferson wrote this to his fourteen-year-old daughter Patsy while he was on a long working tour of southern France. He had just told her he feared a lack of industry would be the rock on which she would split. His fix was simple. Nobody has too little time if they never waste any. Small steady effort adds up to a lot over a year. Most people who say they lack time are losing it in scraps, ten minutes at a time.",
-    "today": "Find one scrap of idle time today, a wait in line or the first ten minutes after dinner. Use it on the task you keep saying you have no time for.",
+    "source": "Abraham Lincoln, Gettysburg Address, 19 November 1863 (Bliss copy, 1864, Wikisource)",
+    "sourceUrl": "https://en.wikisource.org/wiki/Gettysburg_Address_(Bliss_copy)",
+    "quote": "It is for us the living, rather, to be dedicated here to the unfinished work which they who fought here have thus far so nobly advanced. It is rather for us to be here dedicated to the great task remaining before us.",
+    "lesson": "Lincoln spoke these words at the dedication of the soldiers' cemetery at Gettysburg, a few months after the battle that killed or wounded tens of thousands. He had just said the world would little note what was said there. Then he turned the crowd from mourning to duty. The dead had done their part. What was left belonged to the living. Honoring people who came before you means picking up the work where they dropped it, and finishing it.",
+    "today": "Name one task someone before you started and left undone, a family project or a job at work. Do one real piece of it today.",
     "lanes": [
-      "warrior"
+      "warrior",
+      "thinker"
     ],
-    "title_es": "Nunca estés ocioso",
-    "source_es": "Thomas Jefferson, carta a Martha Jefferson, Marsella, 5 de mayo de 1787 (Founders Online)",
-    "quote_es": "Decídete a no estar nunca ocioso. Nadie tendrá motivo para quejarse de la falta de tiempo si nunca pierde ninguno. Es admirable cuánto puede hacerse si siempre estamos haciendo.",
-    "lesson_es": "Jefferson escribió esto a su hija Patsy, de catorce años, durante un largo viaje de trabajo por el sur de Francia. Acababa de decirle que temía que la falta de laboriosidad fuera la roca contra la que se estrellaría. Su solución era sencilla. Nadie tiene poco tiempo si nunca lo desperdicia. El esfuerzo pequeño y constante suma mucho en un año. La mayoría de quienes dicen que les falta tiempo lo pierden en pedazos, diez minutos a la vez.",
-    "today_es": "Busca hoy un pedazo de tiempo ocioso, una fila de espera o los primeros diez minutos después de la cena. Úsalo en la tarea que siempre dices que no tienes tiempo de hacer."
+    "title_es": "La obra inconclusa",
+    "source_es": "Abraham Lincoln, Discurso de Gettysburg, 19 de noviembre de 1863 (copia Bliss, 1864, Wikisource) (traducción fiel al español del original en inglés)",
+    "quote_es": "A nosotros, los vivos, nos toca más bien dedicarnos aquí a la obra inconclusa que quienes lucharon aquí han hecho avanzar hasta ahora de manera tan noble. Nos toca más bien dedicarnos aquí a la gran tarea que tenemos por delante.",
+    "lesson_es": "Lincoln pronunció estas palabras en la dedicación del cementerio de soldados de Gettysburg, pocos meses después de la batalla que dejó decenas de miles de muertos y heridos. Acababa de decir que el mundo apenas notaría lo que se dijera allí. Entonces llevó a la multitud del duelo al deber. Los muertos ya habían hecho su parte. Lo que quedaba pertenecía a los vivos. Honrar a quienes vinieron antes es retomar el trabajo donde ellos lo dejaron y terminarlo.",
+    "today_es": "Nombra una tarea que alguien antes de ti empezó y dejó sin terminar, un proyecto de familia o un trabajo. Haz hoy una parte real de ella."
   };
 
   var LANE_LABEL = {warrior:'Warrior',thinker:'Thinker',builder:'Builder',power:'Power',faith:'Faith',odyssey:'Odyssey'};
