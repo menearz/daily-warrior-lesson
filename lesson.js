@@ -74,25 +74,25 @@
   };
 
   var DEFAULT_LESSON = {
-    "date": "2026-11-21",
-    "title": "The Unfinished Work",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/1/1b/Abraham_Lincoln_November_1863.jpg",
-    "imageAlt": "Abraham Lincoln, portrait photograph taken in November 1863, public domain on Wikimedia Commons",
+    "date": "2026-11-22",
+    "title": "Reach Past Your Grasp",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/3/3a/Robert_Browning_by_Herbert_Rose_Barraud%2C_circa_1888.jpg",
+    "imageAlt": "Robert Browning, portrait photograph by Herbert Rose Barraud (circa 1888), public domain on Wikimedia Commons",
     "fallback": "./images/2026-09-04.jpg",
-    "source": "Abraham Lincoln, Gettysburg Address, 19 November 1863 (Bliss copy, 1864, Wikisource)",
-    "sourceUrl": "https://en.wikisource.org/wiki/Gettysburg_Address_(Bliss_copy)",
-    "quote": "It is for us the living, rather, to be dedicated here to the unfinished work which they who fought here have thus far so nobly advanced. It is rather for us to be here dedicated to the great task remaining before us.",
-    "lesson": "Lincoln spoke these words at the dedication of the soldiers' cemetery at Gettysburg, a few months after the battle that killed or wounded tens of thousands. He had just said the world would little note what was said there. Then he turned the crowd from mourning to duty. The dead had done their part. What was left belonged to the living. Honoring people who came before you means picking up the work where they dropped it, and finishing it.",
-    "today": "Name one task someone before you started and left undone, a family project or a job at work. Do one real piece of it today.",
+    "source": "Robert Browning, \"Andrea del Sarto (called 'The Faultless Painter')\", in Men and Women, 1855 (Wikisource)",
+    "sourceUrl": "https://en.wikisource.org/wiki/Men_and_Women_(Browning)/Volume_2/Andrea_Del_Sarto,_(called_%22The_Faultless_Painter%22)",
+    "quote": "Ah, but a man's reach should exceed his grasp, Or what's a Heaven for?",
+    "lesson": "Browning gives these lines to Andrea del Sarto, a Florentine painter praised for flawless technique. Andrea is speaking to his wife late in life, and he knows two painters who aimed higher than he did, Raphael and Michelangelo, left him behind. Their drawings had mistakes, and they were still greater. His own work was perfect and safe. Browning's point is that a goal you can already hold has stopped teaching you anything. Aim at something you cannot yet do, accept the clumsy attempts, and let the gap pull you forward.",
+    "today": "Pick one skill or job you can already do well and set a target just beyond it. Spend thirty minutes today on the hard part, and let it come out rough.",
     "lanes": [
       "warrior",
-      "thinker"
+      "builder"
     ],
-    "title_es": "La obra inconclusa",
-    "source_es": "Abraham Lincoln, Discurso de Gettysburg, 19 de noviembre de 1863 (copia Bliss, 1864, Wikisource) (traducción fiel al español del original en inglés)",
-    "quote_es": "A nosotros, los vivos, nos toca más bien dedicarnos aquí a la obra inconclusa que quienes lucharon aquí han hecho avanzar hasta ahora de manera tan noble. Nos toca más bien dedicarnos aquí a la gran tarea que tenemos por delante.",
-    "lesson_es": "Lincoln pronunció estas palabras en la dedicación del cementerio de soldados de Gettysburg, pocos meses después de la batalla que dejó decenas de miles de muertos y heridos. Acababa de decir que el mundo apenas notaría lo que se dijera allí. Entonces llevó a la multitud del duelo al deber. Los muertos ya habían hecho su parte. Lo que quedaba pertenecía a los vivos. Honrar a quienes vinieron antes es retomar el trabajo donde ellos lo dejaron y terminarlo.",
-    "today_es": "Nombra una tarea que alguien antes de ti empezó y dejó sin terminar, un proyecto de familia o un trabajo. Haz hoy una parte real de ella."
+    "title_es": "Alcanza más allá de tu agarre",
+    "source_es": "Robert Browning, \"Andrea del Sarto (llamado 'El pintor impecable')\", en Men and Women, 1855 (Wikisource) (traducción fiel al español del original en inglés)",
+    "quote_es": "Ah, pero el alcance de un hombre debería exceder su agarre, ¿o para qué está el Cielo?",
+    "lesson_es": "Browning pone estos versos en boca de Andrea del Sarto, un pintor florentino elogiado por su técnica impecable. Andrea habla con su esposa ya al final de su vida y sabe que dos pintores que apuntaron más alto que él, Rafael y Miguel Ángel, lo dejaron atrás. Sus dibujos tenían errores y aun así eran más grandes. La obra de Andrea era perfecta y segura. Browning quiere decir que una meta que ya puedes sostener dejó de enseñarte algo. Apunta a lo que todavía no sabes hacer, acepta los intentos torpes y deja que la distancia te empuje hacia adelante.",
+    "today_es": "Elige una habilidad o un trabajo que ya haces bien y ponte una meta un poco más allá. Dedica treinta minutos hoy a la parte difícil y deja que salga imperfecta."
   };
 
   var LANE_LABEL = {warrior:'Warrior',thinker:'Thinker',builder:'Builder',power:'Power',faith:'Faith',odyssey:'Odyssey'};
