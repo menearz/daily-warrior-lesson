@@ -74,25 +74,25 @@
   };
 
   var DEFAULT_LESSON = {
-    "date": "2026-11-22",
-    "title": "Reach Past Your Grasp",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/3/3a/Robert_Browning_by_Herbert_Rose_Barraud%2C_circa_1888.jpg",
-    "imageAlt": "Robert Browning, portrait photograph by Herbert Rose Barraud (circa 1888), public domain on Wikimedia Commons",
+    "date": "2026-11-23",
+    "title": "Measure the Obstacles",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/1/1b/Booker_T_Washington_retouched_flattened-crop.jpg",
+    "imageAlt": "Booker T. Washington, retouched portrait photograph, public domain on Wikimedia Commons",
     "fallback": "./images/2026-09-04.jpg",
-    "source": "Robert Browning, \"Andrea del Sarto (called 'The Faultless Painter')\", in Men and Women, 1855 (Wikisource)",
-    "sourceUrl": "https://en.wikisource.org/wiki/Men_and_Women_(Browning)/Volume_2/Andrea_Del_Sarto,_(called_%22The_Faultless_Painter%22)",
-    "quote": "Ah, but a man's reach should exceed his grasp, Or what's a Heaven for?",
-    "lesson": "Browning gives these lines to Andrea del Sarto, a Florentine painter praised for flawless technique. Andrea is speaking to his wife late in life, and he knows two painters who aimed higher than he did, Raphael and Michelangelo, left him behind. Their drawings had mistakes, and they were still greater. His own work was perfect and safe. Browning's point is that a goal you can already hold has stopped teaching you anything. Aim at something you cannot yet do, accept the clumsy attempts, and let the gap pull you forward.",
-    "today": "Pick one skill or job you can already do well and set a target just beyond it. Spend thirty minutes today on the hard part, and let it come out rough.",
+    "source": "Booker T. Washington, Up From Slavery, 1901, Chapter 2",
+    "sourceUrl": "https://en.wikisource.org/wiki/Up_From_Slavery/Chapter_2",
+    "quote": "I have learned that success is to be measured not so much by the position that one has reached in life as by the obstacles which he has overcome while trying to succeed.",
+    "lesson": "Washington was born a slave and spent his boyhood in a salt furnace and a coal mine. As a young man he envied white boys who faced no limits on their ambition. Years later he changed the scoreboard. He stopped counting where a person ended up and started counting what they pushed through to get there. By that measure, a hard start is a record of strength. Judge your own progress the same way and you will see more of it.",
+    "today": "Write down one obstacle you pushed through this month. Give it credit as part of your success, then use what it taught you on today's hardest task.",
     "lanes": [
       "warrior",
       "builder"
     ],
-    "title_es": "Alcanza más allá de tu agarre",
-    "source_es": "Robert Browning, \"Andrea del Sarto (llamado 'El pintor impecable')\", en Men and Women, 1855 (Wikisource) (traducción fiel al español del original en inglés)",
-    "quote_es": "Ah, pero el alcance de un hombre debería exceder su agarre, ¿o para qué está el Cielo?",
-    "lesson_es": "Browning pone estos versos en boca de Andrea del Sarto, un pintor florentino elogiado por su técnica impecable. Andrea habla con su esposa ya al final de su vida y sabe que dos pintores que apuntaron más alto que él, Rafael y Miguel Ángel, lo dejaron atrás. Sus dibujos tenían errores y aun así eran más grandes. La obra de Andrea era perfecta y segura. Browning quiere decir que una meta que ya puedes sostener dejó de enseñarte algo. Apunta a lo que todavía no sabes hacer, acepta los intentos torpes y deja que la distancia te empuje hacia adelante.",
-    "today_es": "Elige una habilidad o un trabajo que ya haces bien y ponte una meta un poco más allá. Dedica treinta minutos hoy a la parte difícil y deja que salga imperfecta."
+    "title_es": "Mide los obstáculos",
+    "source_es": "Booker T. Washington, Up From Slavery (Memorias de un negro), 1901, capítulo 2 (traducción fiel al español de la versión original en inglés)",
+    "quote_es": "He aprendido que el éxito se mide no tanto por la posición que uno ha alcanzado en la vida como por los obstáculos que ha superado mientras trataba de triunfar.",
+    "lesson_es": "Washington nació esclavo y pasó su niñez en una salina y en una mina de carbón. De joven envidiaba a los niños blancos que no tenían límites para sus ambiciones. Años después cambió el marcador. Dejó de contar dónde termina una persona y empezó a contar lo que atravesó para llegar. Con esa medida, un comienzo difícil es un registro de fortaleza. Juzga tu propio avance de la misma manera y verás más de él.",
+    "today_es": "Escribe un obstáculo que superaste este mes. Dale crédito como parte de tu éxito y usa lo que te enseñó en la tarea más difícil de hoy."
   };
 
   var LANE_LABEL = {warrior:'Warrior',thinker:'Thinker',builder:'Builder',power:'Power',faith:'Faith',odyssey:'Odyssey'};
