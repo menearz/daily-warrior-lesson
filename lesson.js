@@ -74,25 +74,25 @@
   };
 
   var DEFAULT_LESSON = {
-    "date": "2026-11-23",
-    "title": "Measure the Obstacles",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/1/1b/Booker_T_Washington_retouched_flattened-crop.jpg",
-    "imageAlt": "Booker T. Washington, retouched portrait photograph, public domain on Wikimedia Commons",
+    "date": "2026-11-24",
+    "title": "Guard Your Own Mind",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/d/d5/Ralph_Waldo_Emerson_ca1857_retouched.jpg",
+    "imageAlt": "Ralph Waldo Emerson, retouched portrait photograph from about 1857, public domain on Wikimedia Commons",
     "fallback": "./images/2026-09-04.jpg",
-    "source": "Booker T. Washington, Up From Slavery, 1901, Chapter 2",
-    "sourceUrl": "https://en.wikisource.org/wiki/Up_From_Slavery/Chapter_2",
-    "quote": "I have learned that success is to be measured not so much by the position that one has reached in life as by the obstacles which he has overcome while trying to succeed.",
-    "lesson": "Washington was born a slave and spent his boyhood in a salt furnace and a coal mine. As a young man he envied white boys who faced no limits on their ambition. Years later he changed the scoreboard. He stopped counting where a person ended up and started counting what they pushed through to get there. By that measure, a hard start is a record of strength. Judge your own progress the same way and you will see more of it.",
-    "today": "Write down one obstacle you pushed through this month. Give it credit as part of your success, then use what it taught you on today's hardest task.",
+    "source": "Ralph Waldo Emerson, \"Self-Reliance,\" in Essays: First Series, 1841 (Wikisource)",
+    "sourceUrl": "https://en.wikisource.org/wiki/Essays:_First_Series/Self-Reliance",
+    "quote": "Whoso would be a man must be a nonconformist. He who would gather immortal palms must not be hindered by the name of goodness, but must explore if it be goodness. Nothing is at last sacred but the integrity of your own mind.",
+    "lesson": "Emerson had left the pulpit in 1832 because he could not honor a ritual he no longer believed in. Years later he wrote this line for people who feel pressure to go along with the crowd. His claim is that approval is cheap and easy to collect, while a clear mind is hard to rebuild once you trade it away. A label like good, safe or normal is only a name until you test it yourself. Do that testing and you keep the one thing nobody can hand back to you.",
+    "today": "Pick one habit or opinion you hold only because everyone around you does. Test it against your own judgment today and keep it or drop it for your own reason.",
     "lanes": [
       "warrior",
       "builder"
     ],
-    "title_es": "Mide los obstáculos",
-    "source_es": "Booker T. Washington, Up From Slavery (Memorias de un negro), 1901, capítulo 2 (traducción fiel al español de la versión original en inglés)",
-    "quote_es": "He aprendido que el éxito se mide no tanto por la posición que uno ha alcanzado en la vida como por los obstáculos que ha superado mientras trataba de triunfar.",
-    "lesson_es": "Washington nació esclavo y pasó su niñez en una salina y en una mina de carbón. De joven envidiaba a los niños blancos que no tenían límites para sus ambiciones. Años después cambió el marcador. Dejó de contar dónde termina una persona y empezó a contar lo que atravesó para llegar. Con esa medida, un comienzo difícil es un registro de fortaleza. Juzga tu propio avance de la misma manera y verás más de él.",
-    "today_es": "Escribe un obstáculo que superaste este mes. Dale crédito como parte de tu éxito y usa lo que te enseñó en la tarea más difícil de hoy."
+    "title_es": "Cuida tu propia mente",
+    "source_es": "Ralph Waldo Emerson, «Self-Reliance» (Confianza en uno mismo), en Essays: First Series, 1841 (traducción fiel al español de la versión original en inglés)",
+    "quote_es": "Quien quiera ser un hombre debe ser un inconformista. Quien quiera reunir palmas inmortales no debe dejarse detener por el nombre de la bondad, sino explorar si es bondad. Nada es sagrado al final sino la integridad de tu propia mente.",
+    "lesson_es": "Emerson había dejado el púlpito en 1832 porque no podía honrar un ritual en el que ya no creía. Años después escribió esta línea para quienes sienten la presión de seguir a la multitud. Su idea es que la aprobación es barata y fácil de juntar, mientras que una mente clara es difícil de reconstruir una vez que la cambias. Una etiqueta como bueno, seguro o normal es solo un nombre hasta que lo pruebas tú mismo. Haz esa prueba y conservas lo único que nadie puede devolverte.",
+    "today_es": "Elige un hábito o una opinión que tienes solo porque todos a tu alrededor la tienen. Pruébala hoy con tu propio juicio y consérvala o suéltala por una razón tuya."
   };
 
   var LANE_LABEL = {warrior:'Warrior',thinker:'Thinker',builder:'Builder',power:'Power',faith:'Faith',odyssey:'Odyssey'};

@@ -1,6 +1,27 @@
 {
   "lessons": [
     {
+      "date": "2026-11-24",
+      "title": "Guard Your Own Mind",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/d/d5/Ralph_Waldo_Emerson_ca1857_retouched.jpg",
+      "imageAlt": "Ralph Waldo Emerson, retouched portrait photograph from about 1857, public domain on Wikimedia Commons",
+      "fallback": "./images/2026-09-04.jpg",
+      "source": "Ralph Waldo Emerson, \"Self-Reliance,\" in Essays: First Series, 1841 (Wikisource)",
+      "sourceUrl": "https://en.wikisource.org/wiki/Essays:_First_Series/Self-Reliance",
+      "quote": "Whoso would be a man must be a nonconformist. He who would gather immortal palms must not be hindered by the name of goodness, but must explore if it be goodness. Nothing is at last sacred but the integrity of your own mind.",
+      "lesson": "Emerson had left the pulpit in 1832 because he could not honor a ritual he no longer believed in. Years later he wrote this line for people who feel pressure to go along with the crowd. His claim is that approval is cheap and easy to collect, while a clear mind is hard to rebuild once you trade it away. A label like good, safe or normal is only a name until you test it yourself. Do that testing and you keep the one thing nobody can hand back to you.",
+      "today": "Pick one habit or opinion you hold only because everyone around you does. Test it against your own judgment today and keep it or drop it for your own reason.",
+      "lanes": [
+        "warrior",
+        "builder"
+      ],
+      "title_es": "Cuida tu propia mente",
+      "source_es": "Ralph Waldo Emerson, «Self-Reliance» (Confianza en uno mismo), en Essays: First Series, 1841 (traducción fiel al español de la versión original en inglés)",
+      "quote_es": "Quien quiera ser un hombre debe ser un inconformista. Quien quiera reunir palmas inmortales no debe dejarse detener por el nombre de la bondad, sino explorar si es bondad. Nada es sagrado al final sino la integridad de tu propia mente.",
+      "lesson_es": "Emerson había dejado el púlpito en 1832 porque no podía honrar un ritual en el que ya no creía. Años después escribió esta línea para quienes sienten la presión de seguir a la multitud. Su idea es que la aprobación es barata y fácil de juntar, mientras que una mente clara es difícil de reconstruir una vez que la cambias. Una etiqueta como bueno, seguro o normal es solo un nombre hasta que lo pruebas tú mismo. Haz esa prueba y conservas lo único que nadie puede devolverte.",
+      "today_es": "Elige un hábito o una opinión que tienes solo porque todos a tu alrededor la tienen. Pruébala hoy con tu propio juicio y consérvala o suéltala por una razón tuya."
+    },
+    {
       "date": "2026-11-23",
       "title": "Measure the Obstacles",
       "image": "https://upload.wikimedia.org/wikipedia/commons/1/1b/Booker_T_Washington_retouched_flattened-crop.jpg",
