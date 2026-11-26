@@ -74,25 +74,25 @@
   };
 
   var DEFAULT_LESSON = {
-    "date": "2026-11-24",
-    "title": "Guard Your Own Mind",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/d/d5/Ralph_Waldo_Emerson_ca1857_retouched.jpg",
-    "imageAlt": "Ralph Waldo Emerson, retouched portrait photograph from about 1857, public domain on Wikimedia Commons",
+    "date": "2026-11-26",
+    "title": "Every Duty, On Time",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/b/b6/Gilbert_Stuart_Williamstown_Portrait_of_George_Washington.jpg",
+    "imageAlt": "Gilbert Stuart, Williamstown portrait of George Washington, oil painting, public domain",
     "fallback": "./images/2026-09-04.jpg",
-    "source": "Ralph Waldo Emerson, \"Self-Reliance,\" in Essays: First Series, 1841 (Wikisource)",
-    "sourceUrl": "https://en.wikisource.org/wiki/Essays:_First_Series/Self-Reliance",
-    "quote": "Whoso would be a man must be a nonconformist. He who would gather immortal palms must not be hindered by the name of goodness, but must explore if it be goodness. Nothing is at last sacred but the integrity of your own mind.",
-    "lesson": "Emerson had left the pulpit in 1832 because he could not honor a ritual he no longer believed in. Years later he wrote this line for people who feel pressure to go along with the crowd. His claim is that approval is cheap and easy to collect, while a clear mind is hard to rebuild once you trade it away. A label like good, safe or normal is only a name until you test it yourself. Do that testing and you keep the one thing nobody can hand back to you.",
-    "today": "Pick one habit or opinion you hold only because everyone around you does. Test it against your own judgment today and keep it or drop it for your own reason.",
+    "source": "George Washington, Thanksgiving Proclamation, New York, 3 October 1789 (Founders Online, National Archives)",
+    "sourceUrl": "https://founders.archives.gov/documents/Washington/05-04-02-0091",
+    "quote": "to enable us all, whether in public or private stations, to perform our several and relative duties properly and punctually",
+    "lesson": "Washington wrote this as president, six years after he had given up his army. His proclamation set aside Thursday, November 26, 1789, for a national day of thanks, the very date that falls on today's calendar. In the middle of all that gratitude, he asked for one practical thing: the strength to do each person's own duty well and on time. Thanks is easy to feel. Washington treated it as a reason to work, whether a man stood in high office or in a quiet job nobody sees.",
+    "today": "Say thank you to one person who depends on you or helps you. Then do the one duty you have been putting off, and finish it on time.",
     "lanes": [
       "warrior",
       "builder"
     ],
-    "title_es": "Cuida tu propia mente",
-    "source_es": "Ralph Waldo Emerson, «Self-Reliance» (Confianza en uno mismo), en Essays: First Series, 1841 (traducción fiel al español de la versión original en inglés)",
-    "quote_es": "Quien quiera ser un hombre debe ser un inconformista. Quien quiera reunir palmas inmortales no debe dejarse detener por el nombre de la bondad, sino explorar si es bondad. Nada es sagrado al final sino la integridad de tu propia mente.",
-    "lesson_es": "Emerson había dejado el púlpito en 1832 porque no podía honrar un ritual en el que ya no creía. Años después escribió esta línea para quienes sienten la presión de seguir a la multitud. Su idea es que la aprobación es barata y fácil de juntar, mientras que una mente clara es difícil de reconstruir una vez que la cambias. Una etiqueta como bueno, seguro o normal es solo un nombre hasta que lo pruebas tú mismo. Haz esa prueba y conservas lo único que nadie puede devolverte.",
-    "today_es": "Elige un hábito o una opinión que tienes solo porque todos a tu alrededor la tienen. Pruébala hoy con tu propio juicio y consérvala o suéltala por una razón tuya."
+    "title_es": "Cada deber, a tiempo",
+    "source_es": "George Washington, Proclamación de Acción de Gracias, Nueva York, 3 de octubre de 1789 (Founders Online, Archivos Nacionales; traducción fiel al español del original en inglés)",
+    "quote_es": "para capacitarnos a todos, ya sea en cargos públicos o privados, a cumplir nuestros diversos y respectivos deberes con propiedad y puntualidad",
+    "lesson_es": "Washington escribió esto como presidente, seis años después de dejar su ejército. Su proclamación apartó el jueves 26 de noviembre de 1789 como día nacional de gratitud, la misma fecha que cae en el calendario de hoy. En medio de tanta gratitud, pidió algo práctico: la fuerza para cumplir el deber de cada persona, bien y a tiempo. Dar gracias es fácil de sentir. Washington lo trató como una razón para trabajar, ya fuera un hombre en un alto cargo o en un trabajo callado que nadie ve.",
+    "today_es": "Da las gracias a una persona que depende de ti o te ayuda. Luego haz el deber que has estado posponiendo y termínalo a tiempo."
   };
 
   var LANE_LABEL = {warrior:'Warrior',thinker:'Thinker',builder:'Builder',power:'Power',faith:'Faith',odyssey:'Odyssey'};
