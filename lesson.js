@@ -74,25 +74,25 @@
   };
 
   var DEFAULT_LESSON = {
-    "date": "2026-11-26",
-    "title": "Every Duty, On Time",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/b/b6/Gilbert_Stuart_Williamstown_Portrait_of_George_Washington.jpg",
-    "imageAlt": "Gilbert Stuart, Williamstown portrait of George Washington, oil painting, public domain",
+    "date": "2026-11-27",
+    "title": "Never Give In",
+    "image": "./images/2026-09-04.jpg",
+    "imageAlt": "Warrior Daily lesson artwork",
     "fallback": "./images/2026-09-04.jpg",
-    "source": "George Washington, Thanksgiving Proclamation, New York, 3 October 1789 (Founders Online, National Archives)",
-    "sourceUrl": "https://founders.archives.gov/documents/Washington/05-04-02-0091",
-    "quote": "to enable us all, whether in public or private stations, to perform our several and relative duties properly and punctually",
-    "lesson": "Washington wrote this as president, six years after he had given up his army. His proclamation set aside Thursday, November 26, 1789, for a national day of thanks, the very date that falls on today's calendar. In the middle of all that gratitude, he asked for one practical thing: the strength to do each person's own duty well and on time. Thanks is easy to feel. Washington treated it as a reason to work, whether a man stood in high office or in a quiet job nobody sees.",
-    "today": "Say thank you to one person who depends on you or helps you. Then do the one duty you have been putting off, and finish it on time.",
+    "source": "Winston Churchill, speech to the boys of Harrow School, 29 October 1941 (International Churchill Society)",
+    "sourceUrl": "https://winstonchurchill.org/resources/speeches/1941-1945-war-leader/never-give-in/",
+    "quote": "Never give in, never, never, never, never, in nothing, great or small, large or petty, never give in except to convictions of honour and good sense.",
+    "lesson": "Churchill spoke these words to schoolboys at Harrow in October 1941, while Britain was still in the middle of the war. The line is famous for the repeated never, but the last part matters just as much. He did not say to hold on to every plan out of pride. He said to yield only to honour and good sense. Stubbornness for its own sake is not strength. Staying with a hard, worthy task after it stops being easy is.",
+    "today": "Pick one hard task you were ready to drop. Ask whether honour or good sense says to stop. If not, work on it for 20 more minutes today.",
     "lanes": [
       "warrior",
       "builder"
     ],
-    "title_es": "Cada deber, a tiempo",
-    "source_es": "George Washington, Proclamación de Acción de Gracias, Nueva York, 3 de octubre de 1789 (Founders Online, Archivos Nacionales; traducción fiel al español del original en inglés)",
-    "quote_es": "para capacitarnos a todos, ya sea en cargos públicos o privados, a cumplir nuestros diversos y respectivos deberes con propiedad y puntualidad",
-    "lesson_es": "Washington escribió esto como presidente, seis años después de dejar su ejército. Su proclamación apartó el jueves 26 de noviembre de 1789 como día nacional de gratitud, la misma fecha que cae en el calendario de hoy. En medio de tanta gratitud, pidió algo práctico: la fuerza para cumplir el deber de cada persona, bien y a tiempo. Dar gracias es fácil de sentir. Washington lo trató como una razón para trabajar, ya fuera un hombre en un alto cargo o en un trabajo callado que nadie ve.",
-    "today_es": "Da las gracias a una persona que depende de ti o te ayuda. Luego haz el deber que has estado posponiendo y termínalo a tiempo."
+    "title_es": "Nunca te rindas",
+    "source_es": "Winston Churchill, discurso a los alumnos de Harrow School, 29 de octubre de 1941 (International Churchill Society; traducción fiel al español del original en inglés)",
+    "quote_es": "Nunca te rindas, nunca, nunca, nunca, nunca, en nada, grande o pequeño, importante o trivial, nunca te rindas, salvo ante las convicciones del honor y el buen juicio.",
+    "lesson_es": "Churchill dijo estas palabras a los alumnos de Harrow en octubre de 1941, cuando Gran Bretaña seguía en plena guerra. La frase es famosa por el nunca repetido, pero la última parte importa igual. No dijo que hubiera que aferrarse a cada plan por orgullo. Dijo que solo se cede ante el honor y el buen juicio. La terquedad por sí sola no es fortaleza. Seguir con una tarea difícil y digna cuando deja de ser fácil sí lo es.",
+    "today_es": "Elige una tarea difícil que estabas por dejar. Pregúntate si el honor o el buen juicio dicen que pares. Si no, trabaja en ella 20 minutos más hoy."
   };
 
   var LANE_LABEL = {warrior:'Warrior',thinker:'Thinker',builder:'Builder',power:'Power',faith:'Faith',odyssey:'Odyssey'};
